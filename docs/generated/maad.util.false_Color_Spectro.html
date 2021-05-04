@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.util.false_Color_Spectro &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -53,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -104,8 +108,10 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.util.rand_cmap.html">maad.util.rand_cmap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.crop_image.html">maad.util.crop_image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.save_figlist.html">maad.util.save_figlist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.util.plot1d.html">maad.util.plot1d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_wave.html">maad.util.plot_wave</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_spectrum.html">maad.util.plot_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.util.plot2d.html">maad.util.plot2d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_spectrogram.html">maad.util.plot_spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.overlay_rois.html">maad.util.overlay_rois</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.overlay_centroid.html">maad.util.overlay_centroid</a></li>
@@ -165,6 +171,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -178,7 +186,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/maad.util.false_Color_Spectro.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -200,28 +208,18 @@
 <dd><p>Create False Color Spectrogram from indices obtained by MAAD.
 Only indices than can be computed bin per bin (ie frequency per frequency)
 are used to create False Color Spectro. They are called xxx_per_bin.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>df</strong><span class="classifier">Panda DataFrame</span></dt><dd><p>DataFrame with indices per frequency bin.</p>
 </dd>
 <dt><strong>indices</strong><span class="classifier">list, default is None</span></dt><dd><p>List of indices. 
-If permut is False (see permut),</p>
-<blockquote>
-<div><dl class="simple">
-<dt>if indices is None<span class="classifier">1st indices is red (R), 2nd indice is green (G) </span></dt><dd><p>and the 3rd indices is blue (B).</p>
-</dd>
-</dl>
-<p>if indices is a list of 3 indices or more, only the 3 first indices
-(triplet) are used to create the false color spectro.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>if permut is True,</dt><dd><p>if indices is None : All indices in df are used
+If permut is False (see permut), if indices is None : 1st indices is red (R), 2nd indice is green (G) 
+and the 3rd indices is blue (B).
+if indices is a list of 3 indices or more, only the 3 first indices (triplet) are used to create the false color spectro.
+if permut is True, if indices is None : All indices in df are used
 if indices is a list of 3 indices or more, all the indices in the 
-list are used to create the false color spectro with all the 
-possibile permutations.</p>
-</dd>
-</dl>
+list are used to create the false color spectro with all the possibile permutations.</p>
 </dd>
 <dt><strong>plim</strong><span class="classifier">list of 2 scalars, default is (1,99)</span></dt><dd><p>Set the minimum and maximum percentile to define the min and max value 
 of each indice. These values are then used to clip the values of each 
@@ -297,37 +295,29 @@ single false color spectro with 3 colors : R, G, B</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.util.running_mean.html" class="btn btn-neutral float-right" title="maad.util.running_mean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.util.plot_shape.html" class="btn btn-neutral float-left" title="maad.util.plot_shape" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maad.util.running_mean.html" class="btn btn-neutral float-right" title="maad.util.running_mean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maad.util.plot_shape.html" class="btn btn-neutral float-left" title="maad.util.plot_shape" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.sound.metrics &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -51,7 +55,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../../../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -127,6 +131,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -225,7 +231,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/guyana_tropical_forest.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/rock_savanna.wav&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; _,_,snr = maad.sound.temporal_snr(s)</span>
 <span class="sd">    &gt;&gt;&gt; snr</span>
 <span class="sd">    1.5744987447774665</span>
@@ -245,7 +251,7 @@
     <span class="k">return</span> <span class="n">ENRt</span><span class="p">,</span> <span class="n">BGNt</span><span class="p">,</span> <span class="n">SNRt</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectral_snr"><a class="viewcode-back" href="../../../generated/maad.sound.spectral_SNR.html#maad.sound.spectral_snr">[docs]</a><span class="k">def</span> <span class="nf">spectral_snr</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="spectral_snr"><a class="viewcode-back" href="../../../generated/maad.sound.spectral_snr.html#maad.sound.spectral_snr">[docs]</a><span class="k">def</span> <span class="nf">spectral_snr</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> <span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the signal to noise ratio (SNR) of an audio from its spectrogram</span>
 <span class="sd">    in the time-frequency domain.</span>
@@ -284,7 +290,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/guyana_tropical_forest.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/rock_savanna.wav&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; Sxx_power,_,_,_ = maad.sound.spectrogram (s, fs)  </span>
 <span class="sd">    &gt;&gt;&gt; _, _, snr, _, _, _ = maad.sound.spectral_snr(Sxx_power)</span>
 <span class="sd">    &gt;&gt;&gt; snr</span>
@@ -327,7 +333,7 @@
 <span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/guyana_tropical_forest.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/rock_savanna.wav&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; Sxx_power,_,_,_ = maad.sound.spectrogram (s, fs)  </span>
 <span class="sd">    &gt;&gt;&gt; sharp = maad.sound.sharpness(Sxx_power)</span>
 <span class="sd">    &gt;&gt;&gt; sharp</span>
@@ -347,28 +353,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

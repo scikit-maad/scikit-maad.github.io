@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.sound.input_output &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -51,7 +55,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../../../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -142,6 +146,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -182,6 +188,8 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span> 
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span> 
 <span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">write</span> <span class="k">as</span> <span class="n">write_wav</span>
@@ -204,7 +212,7 @@
 <span class="sd">    ----------</span>
 <span class="sd">    filename : string </span>
 <span class="sd">        Name or path of the audio file</span>
-<span class="sd">    channel : {`&#39;left&#39;, right&#39;}, optional, default: left</span>
+<span class="sd">    channel : {&#39;left&#39;, right&#39;}, optional, default: left</span>
 <span class="sd">        In case of stereo sound select the channel that is kept </span>
 <span class="sd">    detrend : boolean, optional, default is True</span>
 <span class="sd">        Subtract the DC value.</span>
@@ -215,7 +223,7 @@
 <span class="sd">    savefig : string, optional, default is None</span>
 <span class="sd">        Root filename (with full path) is required to save the figures. Postfix</span>
 <span class="sd">        is added to the root filename.</span>
-<span class="sd">    **kwargs, optional. This parameter is used by plt.plot and savefig functions    </span>
+<span class="sd">    \*\*kwargs, optional. This parameter is used by plt.plot and savefig functions    </span>
 <span class="sd">        - savefilename : str, optional, default :&#39;_audiogram.png&#39;</span>
 <span class="sd">            Postfix of the figure filename</span>
 <span class="sd">        - figsize : tuple of integers, optional, default: (4,10)</span>
@@ -531,34 +539,82 @@
     <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span>
     <span class="n">write_wav</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asfortranarray</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
+    
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="load_url"><a class="viewcode-back" href="../../../generated/maad.sound.load_url.html#maad.sound.load_url">[docs]</a><span class="k">def</span> <span class="nf">load_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download audio file from the web and load it as a variable. The audio file must be</span>
+<span class="sd">    a Waveform Audio Format (WAV) file.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    url : str</span>
+<span class="sd">        Audio code name or URL address where the file is located.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    s : 1d ndarray</span>
+<span class="sd">        Array with the signal amplitude</span>
+<span class="sd">    fs : int</span>
+<span class="sd">        Sampling frequency of the signal, in Hertz (Hz)</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    </span>
+<span class="sd">    Load an audio example using its code name.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load_url(&#39;spinetail&#39;)</span>
+<span class="sd">    </span>
+<span class="sd">    Load an audio example using the full web address.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load_url(&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/spinetail.wav&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># set dictionary for examples from the audio dataset</span>
+    <span class="n">code_name_url</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;spinetail&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/spinetail.wav&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cold_forest_daylight&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/cold_forest_daylight.wav&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cold_forest_night&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/cold_forest_night.wav&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rock_savanna&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/guyana_tropical_forest.wav&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tropical_forest_morning&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/scikit-maad/scikit-maad/raw/production/data/tropical_forest_morning.wav&#39;</span>
+        <span class="p">}</span>
+    
+    <span class="c1"># Check if url is in the dictionary keys    </span>
+    <span class="k">if</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">code_name_url</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">url_path</span> <span class="o">=</span> <span class="n">code_name_url</span><span class="p">[</span><span class="n">url</span><span class="p">]</span>
+    <span class="c1"># load as web address</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">url_path</span> <span class="o">=</span> <span class="n">url</span>
+    
+    <span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url_path</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">,</span> <span class="n">fs</span></div>
 </pre></div>
 
            </div>
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

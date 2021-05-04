@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.features.acoustic_richness_index &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -53,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -118,10 +122,12 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_eveness_index.html">maad.features.acoustic_eveness_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.roughness.html">maad.features.roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_leq.html">maad.features.temporal_leq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.spectral_leq.html">maad.features.spectral_leq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.surface_roughness.html">maad.features.surface_roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.tfsd.html">maad.features.tfsd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_spectral_alpha_indices.html">maad.features.all_spectral_alpha_indices</a></li>
@@ -177,6 +183,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -190,7 +198,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/maad.features.acoustic_richness_index.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -237,6 +245,27 @@ translated from the R software package Seewave <a class="reference internal" hre
 <dd><p>Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave: A free modular tool for sound analysis and synthesis. Bioacoustics, 18, 213–226.</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/indices/S4A03895_20190522_060000.wav&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ht_6h00</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_entropy</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M_6h00</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_median</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/indices/S4A03895_20190522_080000.wav&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ht_8h00</span><span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_entropy</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M_8h00</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_median</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/indices/S4A03895_20190522_100000.wav&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ht_10h00</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_entropy</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M_10h00</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_median</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">acoustic_richness_index</span><span class="p">([</span><span class="n">Ht_6h00</span><span class="p">,</span><span class="n">Ht_8h00</span><span class="p">,</span><span class="n">Ht_10h00</span><span class="p">],</span>
+<span class="go">                                          [M_6h00,M_8h00,M_10h00])</span>
+<span class="go">array([0.11111111, 0.44444444, 1.        ])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -246,37 +275,29 @@ translated from the R software package Seewave <a class="reference internal" hre
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.features.temporal_activity.html" class="btn btn-neutral float-right" title="maad.features.temporal_activity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.features.temporal_entropy.html" class="btn btn-neutral float-left" title="maad.features.temporal_entropy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maad.features.temporal_activity.html" class="btn btn-neutral float-right" title="maad.features.temporal_activity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maad.features.temporal_entropy.html" class="btn btn-neutral float-left" title="maad.features.temporal_entropy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.sound.filter &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -51,7 +55,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../../../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -142,6 +146,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -194,7 +200,7 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="select_bandwidth"><a class="viewcode-back" href="../../../generated/maad.sound.select_bandwidth.html#rois.rois_1d.select_bandwidth">[docs]</a><span class="k">def</span> <span class="nf">select_bandwidth</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">forder</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> 
+<div class="viewcode-block" id="select_bandwidth"><a class="viewcode-back" href="../../../generated/maad.sound.select_bandwidth.html#maad.sound.select_bandwidth">[docs]</a><span class="k">def</span> <span class="nf">select_bandwidth</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">forder</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> 
                      <span class="n">rp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Use a lowpass, highpass, bandpass or bandstop filter to process a 1d signal with an iir filter.</span>
@@ -269,7 +275,7 @@
     <span class="k">return</span> <span class="n">y</span></div>
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="fir_filter"><a class="viewcode-back" href="../../../generated/maad.sound.fir_filter.html#rois.rois_1d.fir_filter">[docs]</a><span class="k">def</span> <span class="nf">fir_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="fir_filter"><a class="viewcode-back" href="../../../generated/maad.sound.fir_filter.html#maad.sound.fir_filter">[docs]</a><span class="k">def</span> <span class="nf">fir_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Filter a signal using a 1d finite impulse response filter.</span>
 <span class="sd">    </span>
@@ -379,7 +385,7 @@
     <span class="k">return</span> <span class="n">y</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="sinc"><a class="viewcode-back" href="../../../generated/maad.sound.sinc.html#rois.rois_1d.sinc">[docs]</a><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">transition_bw</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">bandpass</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="sinc"><a class="viewcode-back" href="../../../generated/maad.sound.sinc.html#maad.sound.sinc">[docs]</a><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">transition_bw</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">bandpass</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Filter 1D signal with a Kaiser-windowed filter.</span>
 <span class="sd">    </span>
@@ -425,7 +431,7 @@
     <span class="k">return</span> <span class="n">s_filt</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="smooth"><a class="viewcode-back" href="../../../generated/maad.sound.smooth.html#rois.rois_1d.smooth">[docs]</a><span class="k">def</span> <span class="nf">smooth</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
+<div class="viewcode-block" id="smooth"><a class="viewcode-back" href="../../../generated/maad.sound.smooth.html#maad.sound.smooth">[docs]</a><span class="k">def</span> <span class="nf">smooth</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Smooth a spectrogram with a gaussian filter.</span>
 <span class="sd">     </span>
@@ -580,28 +586,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

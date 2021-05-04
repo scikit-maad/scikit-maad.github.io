@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.features.temporal_events &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -53,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -118,10 +122,12 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_eveness_index.html">maad.features.acoustic_eveness_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.roughness.html">maad.features.roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_leq.html">maad.features.temporal_leq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.spectral_leq.html">maad.features.spectral_leq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.surface_roughness.html">maad.features.surface_roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.tfsd.html">maad.features.tfsd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_spectral_alpha_indices.html">maad.features.all_spectral_alpha_indices</a></li>
@@ -177,6 +183,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -190,7 +198,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/maad.features.temporal_events.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -214,8 +222,8 @@
 threshold. An acoustic event could be short (at list one point if 
 rejectDuration is None) or very long (the duration of the entire audio). 
 Two acoustic events are separated by a period with low audio signal (ie
-below the threshold)
-Four values are computed with this function:</p>
+below the threshold).</p>
+<p>Four values are computed with this function:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>EVNtFraction : Fraction: events duration over total duration</p></li>
@@ -224,9 +232,9 @@ Four values are computed with this function:</p>
 <li><p>EVN : binary vector or matrix with 1 corresponding to event position</p></li>
 </ul>
 </div></blockquote>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">1D array of floats</span></dt><dd><p>audio to process (wav)</p>
 </dd>
 <dt><strong>fs</strong><span class="classifier">Integer</span></dt><dd><p>sampling frequency in Hz</p>
@@ -237,15 +245,18 @@ if the length is &gt; rejectLength</p>
 <dt><strong>rejectDuration</strong><span class="classifier">scalar, optional, default is None</span></dt><dd><p>event shorter than rejectDuration are discarded
 duration is in s</p>
 </dd>
-<dt><strong>mode</strong><span class="classifier">str, optional, default is “fast”</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform
-- “fast” : The sound is first divided into frames (2d) using the</p>
-<blockquote>
-<div><p>function _wave2timeframes(s), then the max of each frame gives a 
-good approximation of the envelope.</p>
-</div></blockquote>
+<dt><strong>mode</strong><span class="classifier">str, optional, default is “fast”</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>“Hilbert”<span class="classifier">estimation of the envelope from the Hilbert transform. </span></dt><dd><p>The method is slow</p>
+<dt>“fast”<span class="classifier"></span></dt><dd><p>The sound is first divided into frames (2d) using the 
+function _wave2timeframes(s), then the max of each frame gives a 
+good approximation of the envelope.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“Hilbert”<span class="classifier"></span></dt><dd><p>Estimation of the envelope from the Hilbert transform. 
+The method is slow</p>
 </dd>
 </dl>
 </li>
@@ -277,10 +288,9 @@ good approximation of the envelope.</p>
 <p class="rubric">References</p>
 <dl class="citation">
 <dt class="label" id="r6d576de36602-1"><span class="brackets">1</span></dt>
-<dd><p>Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived</p>
+<dd><p>Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</p>
 </dd>
 </dl>
-<p>from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">EVNtFract</span><span class="p">,</span> <span class="n">EVNmean</span><span class="p">,</span> <span class="n">EVNcount</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -297,37 +307,29 @@ good approximation of the envelope.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.features.acoustic_complexity_index.html" class="btn btn-neutral float-right" title="maad.features.acoustic_complexity_index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.features.temporal_activity.html" class="btn btn-neutral float-left" title="maad.features.temporal_activity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maad.features.acoustic_complexity_index.html" class="btn btn-neutral float-right" title="maad.features.acoustic_complexity_index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maad.features.temporal_activity.html" class="btn btn-neutral float-left" title="maad.features.temporal_activity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

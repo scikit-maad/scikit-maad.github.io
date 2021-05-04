@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.features.temporal_median &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -53,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -118,10 +122,12 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_eveness_index.html">maad.features.acoustic_eveness_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.roughness.html">maad.features.roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_leq.html">maad.features.temporal_leq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.spectral_leq.html">maad.features.spectral_leq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.surface_roughness.html">maad.features.surface_roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.tfsd.html">maad.features.tfsd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_spectral_alpha_indices.html">maad.features.all_spectral_alpha_indices</a></li>
@@ -177,6 +183,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -190,7 +198,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/maad.features.temporal_median.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -210,23 +218,15 @@
 <dt id="maad.features.temporal_median">
 <code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">temporal_median</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#temporal_median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.temporal_median" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the median of the envelope of an audio signal.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">1D array</span></dt><dd><p>Audio to process (wav)</p>
 </dd>
-<dt><strong>mode</strong><span class="classifier">str, optional, default is “fast”</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform
-- “fast” : The sound is first divided into frames (2d) using the</p>
-<blockquote>
-<div><p>function _wave2timeframes(s), then the max of each frame gives a 
-good approximation of the envelope.</p>
-</div></blockquote>
+<dt><strong>mode</strong><span class="classifier">str, optional, default is “fast”.</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform.</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt>“Hilbert”<span class="classifier">estimation of the envelope from the Hilbert transform. </span></dt><dd><p>The method is slow</p>
-</dd>
-</dl>
-</li>
+<li><p>“fast” : The sound is first divided into frames (2d) using the function _wave2timeframes(s), then the max of each frame gives a good approximation of the envelope.</p></li>
+<li><p>“Hilbert” : estimation of the envelope from the Hilbert transform. The method is slow</p></li>
 </ul>
 </dd>
 <dt><strong>Nt</strong><span class="classifier">integer, optional, default is 512</span></dt><dd><p>Size of each frame. The largest, the highest is the approximation.</p>
@@ -256,37 +256,29 @@ good approximation of the envelope.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.features.temporal_entropy.html" class="btn btn-neutral float-right" title="maad.features.temporal_entropy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.features.all_shape_features.html" class="btn btn-neutral float-left" title="maad.features.all_shape_features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maad.features.temporal_entropy.html" class="btn btn-neutral float-right" title="maad.features.temporal_entropy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maad.features.all_shape_features.html" class="btn btn-neutral float-left" title="maad.features.all_shape_features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

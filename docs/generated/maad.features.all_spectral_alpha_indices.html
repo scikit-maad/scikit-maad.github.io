@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.1 documentation</title>
   
@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -53,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+            <a href="../index.html" class="icon icon-home"> scikit-maad
           
 
           
@@ -118,10 +122,12 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_eveness_index.html">maad.features.acoustic_eveness_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.roughness.html">maad.features.roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_leq.html">maad.features.temporal_leq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.spectral_leq.html">maad.features.spectral_leq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.surface_roughness.html">maad.features.surface_roughness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.tfsd.html">maad.features.tfsd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">maad.features.all_spectral_alpha_indices</a></li>
@@ -177,6 +183,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -190,7 +198,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/maad.features.all_spectral_alpha_indices.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -229,60 +237,55 @@
 </dd>
 <dt><strong>display</strong><span class="classifier">boolean, default is False</span></dt><dd><p>Display graphs</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">arguments for functions :</span></dt><dd><blockquote>
-<div><p>spectral_leq
-frequency_entropy
-soundscape_index
-bioacoustics_index
-acoustic_diversity_index
-acoustic_eveness_index
-spectral_cover
-spectral_activity
-spectral_events
-tfsd
-region_of_interest_index</p>
-</div></blockquote>
-<p>For soundscape_index, bioacoustics_index, acoustic_diversity_index, acoustic_eveness_index
-R_compatible : string, optional, default is “soundecology”</p>
-<blockquote>
-<div><p>if ‘soundecology’, the result is similar to the package SoundEcology in R 
-Otherwise, the result is specific to maad</p>
-</div></blockquote>
-<p>For LEQf calculation
-gain : integer</p>
-<blockquote>
-<div><p>Total gain applied to the sound (preamplifer + amplifier)</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">arguments for functions:</span></dt><dd><ul class="simple">
+<li><p>spectral_leq</p></li>
+<li><p>frequency_entropy</p></li>
+<li><p>soundscape_index</p></li>
+<li><p>bioacoustics_index</p></li>
+<li><p>acoustic_diversity_index</p></li>
+<li><p>acoustic_eveness_index</p></li>
+<li><p>spectral_cover</p></li>
+<li><p>spectral_activity</p></li>
+<li><p>spectral_events</p></li>
+<li><p>tfsd</p></li>
+<li><p>region_of_interest_index</p></li>
+</ul>
+<p>For soundscape_index, bioacoustics_index, acoustic_diversity_index, acoustic_eveness_index</p>
 <dl class="simple">
+<dt>R_compatible<span class="classifier">string, optional, default is “soundecology”</span></dt><dd><p>if ‘soundecology’, the result is similar to the package SoundEcology in R. Otherwise, the result is specific to maad</p>
+</dd>
+</dl>
+<p>For LEQf calculation</p>
+<dl class="simple">
+<dt>gain<span class="classifier">integer</span></dt><dd><p>Total gain applied to the sound (preamplifer + amplifier)</p>
+</dd>
 <dt>Vadc<span class="classifier">scalar, optional, default is 2Vpp (=&gt;+/-1V)</span></dt><dd><p>Maximal voltage (peak to peak) converted by the analog to digital convertor ADC</p>
 </dd>
 <dt>sensitivity<span class="classifier">float, optional, default is -35 (dB/V)</span></dt><dd><p>Sensitivity of the microphone</p>
 </dd>
-<dt>dBref<span class="classifier">integer, optional, default is 94 (dBSPL)</span></dt><dd><p>Pressure sound level used for the calibration of the microphone 
-(usually 94dB, sometimes 114dB)</p>
+<dt>dBref<span class="classifier">integer, optional, default is 94 (dBSPL)</span></dt><dd><p>Pressure sound level used for the calibration of the microphone (usually 94dB, sometimes 114dB)</p>
+</dd>
+<dt>pRef<span class="classifier">float</span></dt><dd><p>Sound pressure reference in the medium (air : 20e-6, water : 1e-6)</p>
 </dd>
 </dl>
-<p>pRef : Sound pressure reference in the medium (air : 20e-6, water : 1e-6)</p>
-<p>for spectral activity and events, ADI, AEI
-dB_threshold : scalar, optional, default is 3dB</p>
-<blockquote>
-<div><p>data &gt;Threshold is considered to be an event 
+<p>For spectral activity and events, ADI, AEI</p>
+<dl class="simple">
+<dt>dB_threshold<span class="classifier">scalar, optional, default is 3dB</span></dt><dd><p>data &gt;Threshold is considered to be an event 
 if the length is &gt; rejectLength</p>
-</div></blockquote>
-<p>for spectral activity and events
-rejectDuration : scalar, optional, default is None</p>
-<blockquote>
-<div><p>event shorter than rejectDuration are discarded
+</dd>
+</dl>
+<p>For spectral activity and events</p>
+<dl class="simple">
+<dt>rejectDuration<span class="classifier">scalar, optional, default is None</span></dt><dd><p>event shorter than rejectDuration are discarded
 duration is in s</p>
-</div></blockquote>
-<p>for Roi
-smooth_param1 : scalar, default is 1</p>
-<blockquote>
-<div><p>Standard deviation of the gaussian kernel used to smooth the image 
+</dd>
+</dl>
+<p>For Roi</p>
+<dl class="simple">
+<dt>smooth_param1<span class="classifier">scalar, default is 1</span></dt><dd><p>Standard deviation of the gaussian kernel used to smooth the image 
 The larger is the number, the smoother will be the image and the longer 
 it takes. Standard values should fall between 0.5 to 3</p>
-</div></blockquote>
-<dl class="simple">
+</dd>
 <dt>mask_mode<span class="classifier">string in {‘relative’, ‘absolute’}, optional, default is ‘relative’</span></dt><dd><dl class="simple">
 <dt>if ‘relative’:</dt><dd><p>Binarize an image based on a double relative threshold.  
 The values used for the thresholding depends on the values found 
@@ -308,11 +311,11 @@ the minimum ROI area is 1 pixel and the maximum ROI area is the area of
 the image</p>
 </dd>
 </dl>
-<p>for ADI, AEI, RAOQ
-bin_step : scalar, optional, default is 500</p>
-<blockquote>
-<div><p>Frequency step in Hz</p>
-</div></blockquote>
+<p>For ADI, AEI, RAOQ</p>
+<dl class="simple">
+<dt>bin_step<span class="classifier">scalar, optional, default is 500</span></dt><dd><p>Frequency step in Hz</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>
@@ -329,10 +332,10 @@ bin :</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="maad.features.number_of_peaks.html#maad.features.number_of_peaks" title="maad.features.number_of_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_peaks</span></code></a>, <a class="reference internal" href="maad.features.spectral_LEQ.html#maad.features.spectral_leq" title="maad.features.spectral_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_leq</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_snr</span></code>, <a class="reference internal" href="maad.features.frequency_entropy.html#maad.features.frequency_entropy" title="maad.features.frequency_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_entropy</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="maad.features.number_of_peaks.html#maad.features.number_of_peaks" title="maad.features.number_of_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_peaks</span></code></a>, <a class="reference internal" href="maad.features.spectral_leq.html#maad.features.spectral_leq" title="maad.features.spectral_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_leq</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_snr</span></code>, <a class="reference internal" href="maad.features.frequency_entropy.html#maad.features.frequency_entropy" title="maad.features.frequency_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_entropy</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.spectral_entropy.html#maad.features.spectral_entropy" title="maad.features.spectral_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_entropy</span></code></a>, <a class="reference internal" href="maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index" title="maad.features.acoustic_complexity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_complexity_index</span></code></a>, <a class="reference internal" href="maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a>, <a class="reference internal" href="maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.roughness.html#maad.features.roughness" title="maad.features.roughness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roughness</span></code></a>, <a class="reference internal" href="maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index" title="maad.features.acoustic_diversity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_diversity_index</span></code></a>, <a class="reference internal" href="maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index" title="maad.features.acoustic_eveness_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_eveness_index</span></code></a>, <a class="reference internal" href="maad.features.spectral_cover.html#maad.features.spectral_cover" title="maad.features.spectral_cover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_cover</span></code></a></dt><dd></dd>
-<dt><a class="reference internal" href="maad.features.spectral_activity.html#maad.features.spectral_activity" title="maad.features.spectral_activity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_activity</span></code></a>, <a class="reference internal" href="maad.features.spectral_events.html#maad.features.spectral_events" title="maad.features.spectral_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_events</span></code></a>, <a class="reference internal" href="maad.features.tfsd.html#maad.features.tfsd" title="maad.features.tfsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tfsd</span></code></a>, <a class="reference internal" href="maad.features.more_entropy.html#maad.features.more_entropy" title="maad.features.more_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">more_entropy</span></code></a>, <a class="reference internal" href="maad.features.frequency_raoQ.html#maad.features.frequency_raoq" title="maad.features.frequency_raoq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_raoq</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="maad.features.spectral_activity.html#maad.features.spectral_activity" title="maad.features.spectral_activity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_activity</span></code></a>, <a class="reference internal" href="maad.features.spectral_events.html#maad.features.spectral_events" title="maad.features.spectral_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_events</span></code></a>, <a class="reference internal" href="maad.features.tfsd.html#maad.features.tfsd" title="maad.features.tfsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tfsd</span></code></a>, <a class="reference internal" href="maad.features.more_entropy.html#maad.features.more_entropy" title="maad.features.more_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">more_entropy</span></code></a>, <a class="reference internal" href="maad.features.frequency_raoq.html#maad.features.frequency_raoq" title="maad.features.frequency_raoq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_raoq</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index" title="maad.features.acoustic_gradient_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_gradient_index</span></code></a>, <a class="reference internal" href="maad.features.region_of_interest_index.html#maad.features.region_of_interest_index" title="maad.features.region_of_interest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_of_interest_index</span></code></a></dt><dd></dd>
 </dl>
 </div>
@@ -372,37 +375,29 @@ bin :</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.features.temporal_moments.html" class="btn btn-neutral float-right" title="maad.features.temporal_moments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.features.all_temporal_alpha_indices.html" class="btn btn-neutral float-left" title="maad.features.all_temporal_alpha_indices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maad.features.temporal_moments.html" class="btn btn-neutral float-right" title="maad.features.temporal_moments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maad.features.all_temporal_alpha_indices.html" class="btn btn-neutral float-left" title="maad.features.all_temporal_alpha_indices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, scikit-maad development team.
+        &#169; Copyright 2020, scikit-maad development team..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
