@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU) &mdash; scikit-maad 1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Extract ecoacoustics alpha indices from audio recording" href="plot_extract_alpha_indices.html" />
+    <link rel="prev" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
+</ul>
+<p><span class="caption-text">Example Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">scikit-maad</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Example gallery</a> &raquo;</li>
+        
+      <li>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_auto_examples/2_advanced/plot_sound_pressure_level.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="computing-sound-pressure-level-db-spl-of-audio-dataset-collected-with-automatic-recording-units-aru">
+<span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)<a class="headerlink" href="#computing-sound-pressure-level-db-spl-of-audio-dataset-collected-with-automatic-recording-units-aru" title="Permalink to this headline">¶</a></h1>
+<p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of
+audio recordings coming from different datasets and environments.
+Sound pressure level corresponds to a quantitative measurement of the acoustic
+pressure energy.
+Each ARU can be converted into a pseudo sound meter level knowing few
+parameters : the sensitivity of the microphone, the amplification
+gain, the bit depth and the voltage range of the analog to digital converter.
+This is sufficient to convert a wav file (array of intergers) into pressure
+(Pa).
+Of course, as the frequency response of the ARUs’s microphone is never flat,
+the result is an approximation of the real sound pressure level. In order to be
+more precise, one should correct the frequency response of the microphone.</p>
+<p>In this example, we will evaluate the variation of the sound pressure level
+of the ambient sound in a cold temperate forest in France during 24h.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_plot_sound_pressure_level.png&#39;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
+</pre></div>
+</div>
+<p>It is very important to always keep the parameters of the ARU that was used
+to collect the audio dataset. This is a mandatory to compute the sound
+pressure level of the audio file (dB SPL) as a sound meter level would do.
+For this experiment, we use a SM4 ARU with an amplification gain of 16dB.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a> <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>         <span class="c1"># Sensibility of the microphone -35dBV (SM4) / -18dBV (Audiomoth)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a> <span class="o">=</span> <span class="mi">26</span><span class="o">+</span><span class="mi">16</span>       <span class="c1"># Total amplification gain (SM4 has a +26dB preamplifier)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a> <span class="o">=</span> <span class="mi">2</span>        <span class="c1"># Voltage range of the analog to digital converter (ADC)</span>
+</pre></div>
+</div>
+<p>First, we parse the directory /indices in order to get a df with date
+and fullfilename. As the data were collected with a SM4 audio recording device
+we set the dateformat agument to ‘SM4’ in order to be able to parse the date
+from the filename. In case of Audiomoth, the date is coded as Hex in the
+filename.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">date_parser</span><span class="p">(</span><span class="s2">&quot;../../data/indices/&quot;</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="s1">&#39;SM4&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>S4A03895_20190522_111500.wav
+S4A03895_20190522_114500.wav
+S4A03895_20190522_161500.wav
+S4A03895_20190522_223000.wav
+S4A03895_20190522_040000.wav
+S4A03895_20190522_000000.wav
+S4A03895_20190522_011500.wav
+S4A03895_20190522_064500.wav
+S4A03895_20190522_123000.wav
+S4A03895_20190522_071500.wav
+S4A03895_20190522_160000.wav
+S4A03895_20190522_143000.wav
+S4A03895_20190522_090000.wav
+S4A03895_20190522_063000.wav
+S4A03895_20190522_023000.wav
+S4A03895_20190522_113000.wav
+S4A03895_20190522_174500.wav
+S4A03895_20190522_130000.wav
+S4A03895_20190522_070000.wav
+S4A03895_20190522_060000.wav
+S4A03895_20190522_164500.wav
+S4A03895_20190522_044500.wav
+S4A03895_20190522_124500.wav
+S4A03895_20190522_134500.wav
+S4A03895_20190522_053000.wav
+S4A03895_20190522_043000.wav
+S4A03895_20190522_191500.wav
+S4A03895_20190522_104500.wav
+S4A03895_20190522_231500.wav
+S4A03895_20190522_140000.wav
+per_bin_indices.csv
+S4A03895_20190522_010000.wav
+S4A03895_20190522_131500.wav
+S4A03895_20190522_014500.wav
+S4A03895_20190522_003000.wav
+S4A03895_20190522_081500.wav
+S4A03895_20190522_154500.wav
+S4A03895_20190522_221500.wav
+S4A03895_20190522_171500.wav
+S4A03895_20190522_193000.wav
+S4A03895_20190522_214500.wav
+S4A03895_20190522_141500.wav
+S4A03895_20190522_121500.wav
+S4A03895_20190522_031500.wav
+S4A03895_20190522_030000.wav
+S4A03895_20190522_120000.wav
+S4A03895_20190522_184500.wav
+S4A03895_20190522_181500.wav
+S4A03895_20190522_001500.wav
+S4A03895_20190522_144500.wav
+S4A03895_20190522_194500.wav
+S4A03895_20190522_084500.wav
+S4A03895_20190522_033000.wav
+S4A03895_20190522_151500.wav
+S4A03895_20190522_034500.wav
+S4A03895_20190522_220000.wav
+S4A03895_20190522_110000.wav
+S4A03895_20190522_061500.wav
+S4A03895_20190522_180000.wav
+S4A03895_20190522_170000.wav
+S4A03895_20190522_200000.wav
+S4A03895_20190522_013000.wav
+S4A03895_20190522_073000.wav
+S4A03895_20190522_050000.wav
+S4A03895_20190522_224500.wav
+S4A03895_20190522_153000.wav
+S4A03895_20190522_093000.wav
+S4A03895_20190522_230000.wav
+S4A03895_20190522_203000.wav
+S4A03895_20190522_103000.wav
+S4A03895_20190522_083000.wav
+S4A03895_20190522_051500.wav
+S4A03895_20190522_094500.wav
+S4A03895_20190522_213000.wav
+S4A03895_20190522_091500.wav
+S4A03895_20190522_201500.wav
+indices.csv
+S4A03895_20190522_150000.wav
+S4A03895_20190522_210000.wav
+S4A03895_20190522_004500.wav
+S4A03895_20190522_054500.wav
+S4A03895_20190522_163000.wav
+S4A03895_20190522_211500.wav
+S4A03895_20190522_233000.wav
+S4A03895_20190522_080000.wav
+S4A03895_20190522_204500.wav
+S4A03895_20190522_101500.wav
+S4A03895_20190522_133000.wav
+S4A03895_20190522_100000.wav
+S4A03895_20190522_173000.wav
+S4A03895_20190522_021500.wav
+S4A03895_20190522_041500.wav
+S4A03895_20190522_190000.wav
+S4A03895_20190522_183000.wav
+S4A03895_20190522_020000.wav
+S4A03895_20190522_024500.wav
+S4A03895_20190522_234500.wav
+S4A03895_20190522_074500.wav
+</pre></div>
+</div>
+<p>LOAD SOUND AND PREPROCESS SOUND</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we process all the files found in the directory /indices.</span>
+<span class="c1"># Initialisation of an empty dataframe df_spl to store all the dB SPL values</span>
+<span class="c1"># extracted from the whole audio dataset.</span>
+<span class="n">df_spl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># Main loop to go through all audio files</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span> <span class="p">:</span>
+
+    <span class="c1"># initialisation of an empty list to store the dB SPL of the current</span>
+    <span class="c1"># audio recording.</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># get the full filename of the corresponding row</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fullfilename</span></a> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span>
+    <span class="c1"># Save file basename</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.split" title="os.path.split" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fullfilename</span></a><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">**************************************************************&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+
+    <span class="c1">#### Load the original sound (16bits, only left channel) and get the sampling</span>
+    <span class="c1"># frequency fs</span>
+    <span class="k">try</span> <span class="p">:</span>
+        <span class="n">wave</span><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fullfilename</span></a><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># Delete the row if the file does not exist or raise a value error (i.e. no EOF)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="sd">&quot;&quot;&quot; =======================================================================</span>
+<span class="sd">                     Computation in the frequency domain</span>
+<span class="sd">    ========================================================================&quot;&quot;&quot;</span>
+
+    <span class="c1"># Compute the Power Spectrogram Density (PSD) : Sxx_power</span>
+    <span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span>
+                                             <span class="n">nperseg</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">1024</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
+                                             <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                             <span class="n">savefig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+
+
+    <span class="c1">#### Average PSD (It&#39;s a mandatory to compute the mean on the PSD for</span>
+    <span class="c1"># energy conservation)</span>
+    <span class="n">mean_PSD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1">#### Compute the Leq of each frequency band (1kHz step)</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span> <span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">3000</span><span class="p">,</span><span class="mi">4000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">5000</span><span class="p">,</span><span class="mi">6000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">6000</span><span class="p">,</span><span class="mi">7000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">7000</span><span class="p">,</span><span class="mi">8000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">8000</span><span class="p">,</span><span class="mi">9000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">9000</span><span class="p">,</span><span class="mi">10000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="o">+=</span><span class="p">[</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">mean_PSD</span><span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">11000</span><span class="p">))],</span>
+                               <span class="n">gain</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a><span class="p">,</span>
+                               <span class="n">sensitivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span>
+                               <span class="n">Vadc</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a><span class="p">)]</span>
+
+    <span class="c1">#### Create a dataframe from the list</span>
+    <span class="n">df_leq</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">leq_list</span></a><span class="p">],</span>
+                          <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0-1kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;1-2kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;2-3kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;3-4kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;4-5kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;5-6kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;6-7kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;7-8kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;8-9kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;9-10kHz&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;10-11kHz&#39;</span><span class="p">,</span>
+                                     <span class="p">])</span>
+
+    <span class="c1">#%%</span>
+    <span class="sd">&quot;&quot;&quot; =======================================================================</span>
+<span class="sd">                     Create a dataframe</span>
+<span class="sd">    ========================================================================&quot;&quot;&quot;</span>
+    <span class="c1">#### We create a dataframe from row that contains the date and the</span>
+    <span class="c1"># full filename. This is done by creating a DataFrame from row (ie. TimeSeries)</span>
+    <span class="c1"># then transposing the DataFrame.</span>
+    <span class="n">df_row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">df_row</span> <span class="o">=</span><span class="n">df_row</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">df_row</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Date&#39;</span>
+    <span class="n">df_row</span> <span class="o">=</span> <span class="n">df_row</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1">#### add Leq values into the df_spl dataframe</span>
+    <span class="n">df_spl</span> <span class="o">=</span> <span class="n">df_spl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_row</span><span class="p">,</span> <span class="n">df_leq</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">#### When the loop ends, set Date as index</span>
+<span class="n">df_spl</span> <span class="o">=</span> <span class="n">df_spl</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>**************************************************************
+S4A03895_20190522_000000.wav
+
+**************************************************************
+S4A03895_20190522_001500.wav
+
+**************************************************************
+S4A03895_20190522_003000.wav
+
+**************************************************************
+S4A03895_20190522_004500.wav
+
+**************************************************************
+S4A03895_20190522_010000.wav
+
+**************************************************************
+S4A03895_20190522_011500.wav
+
+**************************************************************
+S4A03895_20190522_013000.wav
+
+**************************************************************
+S4A03895_20190522_014500.wav
+
+**************************************************************
+S4A03895_20190522_020000.wav
+
+**************************************************************
+S4A03895_20190522_021500.wav
+
+**************************************************************
+S4A03895_20190522_023000.wav
+
+**************************************************************
+S4A03895_20190522_024500.wav
+
+**************************************************************
+S4A03895_20190522_030000.wav
+
+**************************************************************
+S4A03895_20190522_031500.wav
+
+**************************************************************
+S4A03895_20190522_033000.wav
+
+**************************************************************
+S4A03895_20190522_034500.wav
+
+**************************************************************
+S4A03895_20190522_040000.wav
+
+**************************************************************
+S4A03895_20190522_041500.wav
+
+**************************************************************
+S4A03895_20190522_043000.wav
+
+**************************************************************
+S4A03895_20190522_044500.wav
+
+**************************************************************
+S4A03895_20190522_050000.wav
+
+**************************************************************
+S4A03895_20190522_051500.wav
+
+**************************************************************
+S4A03895_20190522_053000.wav
+
+**************************************************************
+S4A03895_20190522_054500.wav
+
+**************************************************************
+S4A03895_20190522_060000.wav
+
+**************************************************************
+S4A03895_20190522_061500.wav
+
+**************************************************************
+S4A03895_20190522_063000.wav
+
+**************************************************************
+S4A03895_20190522_064500.wav
+
+**************************************************************
+S4A03895_20190522_070000.wav
+
+**************************************************************
+S4A03895_20190522_071500.wav
+
+**************************************************************
+S4A03895_20190522_073000.wav
+
+**************************************************************
+S4A03895_20190522_074500.wav
+
+**************************************************************
+S4A03895_20190522_080000.wav
+
+**************************************************************
+S4A03895_20190522_081500.wav
+
+**************************************************************
+S4A03895_20190522_083000.wav
+
+**************************************************************
+S4A03895_20190522_084500.wav
+
+**************************************************************
+S4A03895_20190522_090000.wav
+
+**************************************************************
+S4A03895_20190522_091500.wav
+
+**************************************************************
+S4A03895_20190522_093000.wav
+
+**************************************************************
+S4A03895_20190522_094500.wav
+
+**************************************************************
+S4A03895_20190522_100000.wav
+
+**************************************************************
+S4A03895_20190522_101500.wav
+
+**************************************************************
+S4A03895_20190522_103000.wav
+
+**************************************************************
+S4A03895_20190522_104500.wav
+
+**************************************************************
+S4A03895_20190522_110000.wav
+
+**************************************************************
+S4A03895_20190522_111500.wav
+
+**************************************************************
+S4A03895_20190522_113000.wav
+
+**************************************************************
+S4A03895_20190522_114500.wav
+
+**************************************************************
+S4A03895_20190522_120000.wav
+
+**************************************************************
+S4A03895_20190522_121500.wav
+
+**************************************************************
+S4A03895_20190522_123000.wav
+
+**************************************************************
+S4A03895_20190522_124500.wav
+
+**************************************************************
+S4A03895_20190522_130000.wav
+
+**************************************************************
+S4A03895_20190522_131500.wav
+
+**************************************************************
+S4A03895_20190522_133000.wav
+
+**************************************************************
+S4A03895_20190522_134500.wav
+
+**************************************************************
+S4A03895_20190522_140000.wav
+
+**************************************************************
+S4A03895_20190522_141500.wav
+
+**************************************************************
+S4A03895_20190522_143000.wav
+
+**************************************************************
+S4A03895_20190522_144500.wav
+
+**************************************************************
+S4A03895_20190522_150000.wav
+
+**************************************************************
+S4A03895_20190522_151500.wav
+
+**************************************************************
+S4A03895_20190522_153000.wav
+
+**************************************************************
+S4A03895_20190522_154500.wav
+
+**************************************************************
+S4A03895_20190522_160000.wav
+
+**************************************************************
+S4A03895_20190522_161500.wav
+
+**************************************************************
+S4A03895_20190522_163000.wav
+
+**************************************************************
+S4A03895_20190522_164500.wav
+
+**************************************************************
+S4A03895_20190522_170000.wav
+
+**************************************************************
+S4A03895_20190522_171500.wav
+
+**************************************************************
+S4A03895_20190522_173000.wav
+
+**************************************************************
+S4A03895_20190522_174500.wav
+
+**************************************************************
+S4A03895_20190522_180000.wav
+
+**************************************************************
+S4A03895_20190522_181500.wav
+
+**************************************************************
+S4A03895_20190522_183000.wav
+
+**************************************************************
+S4A03895_20190522_184500.wav
+
+**************************************************************
+S4A03895_20190522_190000.wav
+
+**************************************************************
+S4A03895_20190522_191500.wav
+
+**************************************************************
+S4A03895_20190522_193000.wav
+
+**************************************************************
+S4A03895_20190522_194500.wav
+
+**************************************************************
+S4A03895_20190522_200000.wav
+
+**************************************************************
+S4A03895_20190522_201500.wav
+
+**************************************************************
+S4A03895_20190522_203000.wav
+
+**************************************************************
+S4A03895_20190522_204500.wav
+
+**************************************************************
+S4A03895_20190522_210000.wav
+
+**************************************************************
+S4A03895_20190522_211500.wav
+
+**************************************************************
+S4A03895_20190522_213000.wav
+
+**************************************************************
+S4A03895_20190522_214500.wav
+
+**************************************************************
+S4A03895_20190522_220000.wav
+
+**************************************************************
+S4A03895_20190522_221500.wav
+
+**************************************************************
+S4A03895_20190522_223000.wav
+
+**************************************************************
+S4A03895_20190522_224500.wav
+
+**************************************************************
+S4A03895_20190522_230000.wav
+
+**************************************************************
+S4A03895_20190522_231500.wav
+
+**************************************************************
+S4A03895_20190522_233000.wav
+
+**************************************************************
+S4A03895_20190522_234500.wav
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Display the phenology of the Leq (dB SPL) of each frequency band.</span>
+<span class="c1"># One can observe that most of the acoustic energy is between 0-1kHz. Moreover</span>
+<span class="c1"># the sound pressure level of the 0-1kHz frequency band is not constant but</span>
+<span class="c1"># increases during the day, from 4am to 22pm with a maximum between at 10am</span>
+<span class="c1"># This is mainly due to the airplanes flying over the forest during the day.</span>
+<span class="c1"># One can also observe that the energy of the biophony is really lower than</span>
+<span class="c1"># the energy of the low frequency band. The sound pressure level of the biophony</span>
+<span class="c1"># is the highest between 5am to 9am, which corresponds to the dawn chorus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">df_spl_rev</span> <span class="o">=</span> <span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">util</span><span class="o">.</span><span class="n">plot_features_map</span><span class="p">(</span><span class="n">df_spl_rev</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdPu&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1">#### Display the comparison between the phenology of the Leq (dB SPL) corresponding</span>
+<span class="c1"># mainly to the anthropophony (frequency band 0-1kHz) and the biophony</span>
+<span class="c1"># (frequency band 1-12kHz)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">add_dB</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">add_dB</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sound Pressure Level (dB SPL)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;anthropophony&#39;</span><span class="p">,</span> <span class="s1">&#39;biophony&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="plot sound pressure level" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_sound_pressure_level_001.png" />
+</li>
+<li><img alt="plot sound pressure level" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" />
+</li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.166 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/8e681a4001c99d914bc1442c0d861249/plot_sound_pressure_level.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_pressure_level.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3f3ccf7e7d1fbe24a2eca37b593a6a3d/plot_sound_pressure_level.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_pressure_level.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-right" title="Extract ecoacoustics alpha indices from audio recording" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-left" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, scikit-maad development team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

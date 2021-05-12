@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Example gallery &mdash; scikit-maad 1.1 documentation</title>
+  <title>Example gallery &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -16,14 +17,10 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
-
   
-  
-
   
 
   
@@ -36,6 +33,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -57,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> scikit-maad
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
           
@@ -67,7 +65,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -92,13 +90,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
@@ -106,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example gallery</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-examples">Basic examples</a><ul>
@@ -120,6 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_sound_pressure_level.html">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
 </ul>
 </li>
@@ -165,8 +164,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -178,7 +175,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/_auto_examples/index.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -192,102 +189,134 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="example-gallery">
+  <section id="example-gallery">
 <span id="sphx-glr-auto-examples"></span><h1>Example gallery<a class="headerlink" href="#example-gallery" title="Permalink to this headline">¶</a></h1>
 <p>This gallery is intended to present examples on how to use scikit-maad to analyse audio recordings.</p>
-<div class="sphx-glr-clear"></div><div class="section" id="basic-examples">
+<div class="sphx-glr-clear"></div><section id="basic-examples">
 <span id="sphx-glr-auto-examples-1-basic"></span><h2>Basic examples<a class="headerlink" href="#basic-examples" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="In audio signals, regions of interest are usually regions with high density of energy. The func..."><div class="figure align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="In audio signals, regions of interest are usually regions with high density of energy. The func..."><figure class="align-default" id="id1">
 <img alt="Simple audio segmentation" src="../_images/sphx_glr_plot_find_rois_simple_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="1_basic/plot_find_rois_simple.html#sphx-glr-auto-examples-1-basic-plot-find-rois-simple-py"><span class="std std-ref">Simple audio segmentation</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="1_basic/plot_find_rois_simple.html#sphx-glr-auto-examples-1-basic-plot-find-rois-simple-py"><span class="std std-ref">Simple audio segmentation</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="An audio signal can be represented in both, temporal and spectral domains.  These representatio..."><div class="figure align-default" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="An audio signal can be represented in both, temporal and spectral domains.  These representatio..."><figure class="align-default" id="id2">
 <img alt="Audio representation" src="../_images/sphx_glr_plot_audio_representation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="1_basic/plot_audio_representation.html#sphx-glr-auto-examples-1-basic-plot-audio-representation-py"><span class="std std-ref">Audio representation</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="1_basic/plot_audio_representation.html#sphx-glr-auto-examples-1-basic-plot-audio-representation-py"><span class="std std-ref">Audio representation</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="When dealing with large amounts of audio recordings, visualization plays a key role to evidence..."><div class="figure align-default" id="id3">
+<div class="sphx-glr-thumbcontainer" tooltip="When dealing with large amounts of audio recordings, visualization plays a key role to evidence..."><figure class="align-default" id="id3">
 <img alt="Circadian soundscape" src="../_images/sphx_glr_plot_circadian_spectrogram_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="1_basic/plot_circadian_spectrogram.html#sphx-glr-auto-examples-1-basic-plot-circadian-spectrogram-py"><span class="std std-ref">Circadian soundscape</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="1_basic/plot_circadian_spectrogram.html#sphx-glr-auto-examples-1-basic-plot-circadian-spectrogram-py"><span class="std std-ref">Circadian soundscape</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-clear"></div></div>
-<div class="section" id="advanced-examples">
+<div class="sphx-glr-clear"></div></section>
+<section id="advanced-examples">
 <span id="sphx-glr-auto-examples-2-advanced"></span><h2>Advanced examples<a class="headerlink" href="#advanced-examples" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single tim..."><div class="figure align-default" id="id4">
+<div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single tim..."><figure class="align-default" id="id4">
 <img alt="Signal decomposition and false-color spectrograms" src="../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_advanced/plot_nmf_and_false_color_spectrogram.html#sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">Signal decomposition and false-color spectrograms</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_nmf_and_false_color_spectrogram.html#sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">Signal decomposition and false-color spectrograms</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This example shows different ways to remove background noise directly from the spectrogram. We ..."><div class="figure align-default" id="id5">
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows different ways to remove background noise directly from the spectrogram. We ..."><figure class="align-default" id="id5">
 <img alt="Remove background noise from audio with signal processing tools" src="../_images/sphx_glr_plot_remove_background_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_advanced/plot_remove_background.html#sphx-glr-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">Remove background noise from audio with signal processing tools</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_remove_background.html#sphx-glr-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">Remove background noise from audio with signal processing tools</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Unsupervised learning algorithms search for structures or patterns in a dataset without requiri..."><div class="figure align-default" id="id6">
+<div class="sphx-glr-thumbcontainer" tooltip="Unsupervised learning algorithms search for structures or patterns in a dataset without requiri..."><figure class="align-default" id="id6">
 <img alt="Classify soundtypes with unsupervised learning" src="../_images/sphx_glr_plot_unsupervised_sound_classification_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_advanced/plot_unsupervised_sound_classification.html#sphx-glr-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"><span class="std std-ref">Classify soundtypes with unsupervised learning</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_unsupervised_sound_classification.html#sphx-glr-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"><span class="std std-ref">Classify soundtypes with unsupervised learning</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="A spectrogram is a time-frequency (2d) representation of a audio recording.  Each acoustic even..."><div class="figure align-default" id="id7">
+<div class="sphx-glr-thumbcontainer" tooltip="A spectrogram is a time-frequency (2d) representation of a audio recording.  Each acoustic even..."><figure class="align-default" id="id7">
 <img alt="Find Regions of interest (ROIs) in a spectrogram" src="../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_advanced/plot_compare_auto_and_manual_rois_selection.html#sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Find Regions of interest (ROIs) in a spectrogram</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_compare_auto_and_manual_rois_selection.html#sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Find Regions of interest (ROIs) in a spectrogram</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="In ecoacoustics, acoustics diversity is measured by single values, the so-called alpha indices,..."><div class="figure align-default" id="id8">
-<img alt="Extract ecoacoustics alpha indices from audio recording" src="../_images/sphx_glr_plot_extract_alpha_indices_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">Extract ecoacoustics alpha indices from audio recording</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-thumbcontainer" tooltip="Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio recording..."><figure class="align-default" id="id8">
+<img alt="Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)" src="../_images/sphx_glr_plot_sound_pressure_level_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_sound_pressure_level.html#sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
 </div>
+<div class="sphx-glr-thumbcontainer" tooltip="In ecoacoustics, acoustics diversity is measured by single values, the so-called alpha indices,..."><figure class="align-default" id="id9">
+<img alt="Extract ecoacoustics alpha indices from audio recording" src="../_images/sphx_glr_plot_extract_alpha_indices_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">Extract ecoacoustics alpha indices from audio recording</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 </div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-clear"></div><div class="sphx-glr-footer class sphx-glr-footer-gallery docutils container">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/8845d11ecb15bc8f327918febd001c4d/_auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">_auto_examples_python.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/45ea08070ebe7e1ce3cf0768e0a5c7c9/_auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">_auto_examples_python.zip</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/225d151ea821367300a1321f418806af/_auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">_auto_examples_jupyter.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/a4b24dfd08ad1c87b32c7153987b4f32/_auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">_auto_examples_jupyter.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="1_basic/plot_find_rois_simple.html" class="btn btn-neutral float-right" title="Simple audio segmentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../generated/maad.util.crossfade_list.html" class="btn btn-neutral float-left" title="maad.util.crossfade_list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="1_basic/plot_find_rois_simple.html" class="btn btn-neutral float-right" title="Simple audio segmentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../generated/maad.util.crossfade_list.html" class="btn btn-neutral float-left" title="maad.util.crossfade_list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, scikit-maad development team.
+        
+        &copy; Copyright 2021, scikit-maad development team
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

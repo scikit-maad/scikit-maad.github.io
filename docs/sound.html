@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Sound processing &mdash; scikit-maad 1.1 documentation</title>
+  <title>Sound processing &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -16,14 +17,10 @@
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery-rendered-html.css" type="text/css" />
 
   
   
-
   
-  
-
   
 
   
@@ -36,6 +33,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -57,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> scikit-maad
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
           
@@ -67,7 +65,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -92,13 +90,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Sound processing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-and-output">Input and output</a><ul>
@@ -145,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -188,8 +186,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -201,7 +197,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/sound.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -215,10 +211,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-maad.sound"></span><div class="section" id="sound-processing">
+  <span class="target" id="module-maad.sound"></span><section id="sound-processing">
 <h1>Sound processing<a class="headerlink" href="#sound-processing" title="Permalink to this headline">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">sound</span></code> is an ensemble of functions to load and preprocess audio signals.</p>
-<div class="section" id="input-and-output">
+<section id="input-and-output">
 <h2>Input and output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -240,8 +236,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="preprocess-audio">
+</section>
+<section id="preprocess-audio">
 <h2>Preprocess audio<a class="headerlink" href="#preprocess-audio" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -281,8 +277,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="transform-audio">
+</section>
+<section id="transform-audio">
 <h2>Transform audio<a class="headerlink" href="#transform-audio" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -316,8 +312,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="metrics">
+</section>
+<section id="metrics">
 <h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -336,37 +332,45 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="generated/maad.sound.load.html" class="btn btn-neutral float-right" title="maad.sound.load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="audio_dataset.html" class="btn btn-neutral float-left" title="Audio dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="generated/maad.sound.load.html" class="btn btn-neutral float-right" title="maad.sound.load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="audio_dataset.html" class="btn btn-neutral float-left" title="Audio dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, scikit-maad development team.
+        
+        &copy; Copyright 2021, scikit-maad development team
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

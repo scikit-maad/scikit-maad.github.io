@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Acoustic features &mdash; scikit-maad 1.1 documentation</title>
+  <title>Acoustic features &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -16,14 +17,10 @@
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery-rendered-html.css" type="text/css" />
 
   
   
-
   
-  
-
   
 
   
@@ -36,6 +33,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -57,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> scikit-maad
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
           
@@ -67,7 +65,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -92,13 +90,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rois.html">Segmentation methods</a></li>
@@ -157,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -200,8 +198,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -213,7 +209,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/features.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -227,10 +223,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-maad.features"></span><div class="section" id="acoustic-features">
+  <span class="target" id="module-maad.features"></span><section id="acoustic-features">
 <h1>Acoustic features<a class="headerlink" href="#acoustic-features" title="Permalink to this headline">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">features</span></code> is an ensemble of functions to characterize audio signals using temporal and spectral features, and ecoacoustic indices.</p>
-<div class="section" id="spectro-temporal-features">
+<section id="spectro-temporal-features">
 <h2>Spectro-temporal features<a class="headerlink" href="#spectro-temporal-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -261,8 +257,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="alpha-acoustic-indices">
+</section>
+<section id="alpha-acoustic-indices">
 <h2>Alpha acoustic indices<a class="headerlink" href="#alpha-acoustic-indices" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -353,8 +349,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="temporal-features">
+</section>
+<section id="temporal-features">
 <h2>Temporal features<a class="headerlink" href="#temporal-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -370,8 +366,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="spectral-features">
+</section>
+<section id="spectral-features">
 <h2>Spectral features<a class="headerlink" href="#spectral-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -384,37 +380,45 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="generated/maad.features.shape_features.html" class="btn btn-neutral float-right" title="maad.features.shape_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="generated/maad.rois.rois_to_imblobs.html" class="btn btn-neutral float-left" title="maad.rois.rois_to_imblobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="generated/maad.features.shape_features.html" class="btn btn-neutral float-right" title="maad.features.shape_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generated/maad.rois.rois_to_imblobs.html" class="btn btn-neutral float-left" title="maad.rois.rois_to_imblobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, scikit-maad development team.
+        
+        &copy; Copyright 2021, scikit-maad development team
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

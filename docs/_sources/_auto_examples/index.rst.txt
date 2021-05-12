@@ -181,6 +181,27 @@ Advanced examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio recording...">
+
+.. only:: html
+
+ .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_sound_pressure_level_thumb.png
+     :alt: Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)
+
+     :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_auto_examples/2_advanced/plot_sound_pressure_level
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="In ecoacoustics, acoustics diversity is measured by single values, the so-called alpha indices,...">
 
 .. only:: html
@@ -213,13 +234,13 @@ Advanced examples
 
   .. container:: sphx-glr-download sphx-glr-download-python
 
-    :download:`Download all examples in Python source code: _auto_examples_python.zip </_auto_examples/_auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: _auto_examples_python.zip <//home/juanfe/Escritorio/documentation/scikit-maad/docs/_auto_examples/_auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-    :download:`Download all examples in Jupyter notebooks: _auto_examples_jupyter.zip </_auto_examples/_auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: _auto_examples_jupyter.zip <//home/juanfe/Escritorio/documentation/scikit-maad/docs/_auto_examples/_auto_examples_jupyter.zip>`
 
 
 .. only:: html
