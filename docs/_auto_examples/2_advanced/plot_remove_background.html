@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remove background noise from audio with signal processing tools &mdash; scikit-maad 1.2 documentation</title>
+  <title>Remove background noise with signal processing tools &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -33,7 +32,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -58,6 +56,9 @@
             <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,13 +91,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -104,17 +105,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Remove background noise with signal processing tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#load-and-plot-the-spectrogram-of-the-original-audio-file">Load and plot the spectrogram of the original audio file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-different-methods-to-remove-stationary-background-noise">Test different methods to remove stationary background noise</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 </ul>
 </li>
 </ul>
@@ -167,7 +172,7 @@
         
           <li><a href="../index.html">Example gallery</a> &raquo;</li>
         
-      <li>Remove background noise from audio with signal processing tools</li>
+      <li>Remove background noise with signal processing tools</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,14 +195,15 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="remove-background-noise-from-audio-with-signal-processing-tools">
-<span id="sphx-glr-auto-examples-2-advanced-plot-remove-background-py"></span><h1>Remove background noise from audio with signal processing tools<a class="headerlink" href="#remove-background-noise-from-audio-with-signal-processing-tools" title="Permalink to this headline">¶</a></h1>
-<p>This example shows different ways to remove background noise directly from
-the spectrogram.
-We use the sharpness metric to have a quantitative estimation of how well is
-the noise reduction. This metric gives partial information. Other metrics
-should be use in complement.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_remove_background.png&#39;</span>
+<div class="sphx-glr-example-title section" id="remove-background-noise-with-signal-processing-tools">
+<span id="sphx-glr-auto-examples-2-advanced-plot-remove-background-py"></span><h1>Remove background noise with signal processing tools<a class="headerlink" href="#remove-background-noise-with-signal-processing-tools" title="Permalink to this headline">¶</a></h1>
+<p>Environmental audio recordings usually have stationary noise that needs to be removed to
+enhance the signal to noise ratio of biological sounds.
+This example shows different ways to remove stationary background noise using spectral
+subtraction techniques. These techniques are applied over the spectrogram and return a 2D matrix.
+We use the sharpness metric to have a quantitative estimation of how well is the noise
+reduction. For a more comprehensive analysis, other metrics should be use in complement.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_remove_background.png&#39;</span>
 
 <span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">power2dB</span>
 <span class="kn">from</span> <span class="nn">maad.sound</span> <span class="kn">import</span> <span class="p">(</span><span class="n">load</span><span class="p">,</span> <span class="n">spectrogram</span><span class="p">,</span>
@@ -211,23 +217,16 @@ should be use in complement.</p>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
+<div class="section" id="load-and-plot-the-spectrogram-of-the-original-audio-file">
+<h2>Load and plot the spectrogram of the original audio file<a class="headerlink" href="#load-and-plot-the-spectrogram-of-the-original-audio-file" title="Permalink to this headline">¶</a></h2>
 <p>First, we load the audio file and take its spectrogram.
 The linear spectrogram is then transformed into dB. The dB range is  96dB
 which is the maximum dB range value for a 16bits audio recording. We add
-96dB in order to get have only positive values in the spectrogram</p>
+96dB in order to get have only positive values in the spectrogram.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/tropical_forest_morning.wav&#39;</span><span class="p">)</span>
-<span class="c1">#s, fs = load(&#39;../data/cold_forest_night.wav&#39;)</span>
 <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">fcrop</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20000</span><span class="p">],</span> <span class="n">tcrop</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">])</span>
 <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span> <span class="o">+</span> <span class="mi">96</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/juanfe/Escritorio/documentation/scikit-maad/maad/sound/input_output.py:112: WavFileWarning: Chunk (non-data) not understood, skipping it.
-  fs, s = wavfile.read(filename)
-</pre></div>
-</div>
-<p>We plot the original spectrogram.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">,</span>
+<span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">,</span>
        <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">)</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Original sharpness : </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sharpness</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">))</span>
@@ -235,9 +234,14 @@ which is the maximum dB range value for a 16bits audio recording. We add
 </div>
 <img alt="original" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_remove_background_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original sharpness : 1.885
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Volumes/lacie_macosx/numerical_analysis_toolbox/scikit-maad/maad/sound/input_output.py:112: WavFileWarning: Chunk (non-data) not understood, skipping it.
+  fs, s = wavfile.read(filename)
+Original sharpness : 1.885
 </pre></div>
 </div>
+</div>
+<div class="section" id="test-different-methods-to-remove-stationary-background-noise">
+<h2>Test different methods to remove stationary background noise<a class="headerlink" href="#test-different-methods-to-remove-stationary-background-noise" title="Permalink to this headline">¶</a></h2>
 <p>Test the function “remove_background”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/timeit.html#timeit.default_timer" title="timeit.default_timer" class="sphx-glr-backref-module-timeit sphx-glr-backref-type-py-function"><span class="n">timer</span></a><span class="p">()</span>
 <span class="n">X1</span><span class="p">,</span> <span class="n">noise_profile1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">remove_background</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">)</span>
@@ -253,7 +257,7 @@ which is the maximum dB range value for a 16bits audio recording. We add
 <img alt="remove_background" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_remove_background_002.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>---- test remove_background -----
-duration 0.113 s
+duration 0.161 s
 sharpness : 1.434
 </pre></div>
 </div>
@@ -273,7 +277,7 @@ sharpness : 1.434
 <img alt="median_equalizer" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_remove_background_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>---- test median_equalizer -----
-duration 0.269 s
+duration 0.248 s
 sharpness : 1.500
 </pre></div>
 </div>
@@ -292,7 +296,7 @@ sharpness : 1.500
 <img alt="remove_background_morpho" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_remove_background_004.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>---- test remove_background_morpho -----
-duration 1.619 s
+duration 1.596 s
 sharpness : 0.885
 </pre></div>
 </div>
@@ -314,11 +318,11 @@ sharpness : 0.885
 <img alt="remove_background_along_axis" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_remove_background_005.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>---- test remove_background_along_axis -----
-duration 0.101 s
+duration 0.087 s
 sharpness : 0.984
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.764 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.640 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-remove-background-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2a0e7ed53b52affb4e9cac57b7926f42/plot_remove_background.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_remove_background.py</span></code></a></p>
@@ -328,7 +332,8 @@ sharpness : 0.984
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>maad.features.region_of_interest_index &mdash; scikit-maad 1.2 documentation</title>
@@ -33,7 +32,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -58,6 +56,9 @@
             <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,13 +91,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
@@ -139,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -209,11 +210,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="maad-features-region-of-interest-index">
+  <div class="section" id="maad-features-region-of-interest-index">
 <h1>maad.features.region_of_interest_index<a class="headerlink" href="#maad-features-region-of-interest-index" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="maad.features.region_of_interest_index">
-<code class="sig-prename descclassname">maad.features.</code><code class="sig-name descname">region_of_interest_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Sxx_dB_noNoise</span></em>, <em class="sig-param"><span class="n">tn</span></em>, <em class="sig-param"><span class="n">fn</span></em>, <em class="sig-param"><span class="n">smooth_param1</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">mask_mode</span><span class="o">=</span><span class="default_value">'relative'</span></em>, <em class="sig-param"><span class="n">mask_param1</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">mask_param2</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">min_roi</span><span class="o">=</span><span class="default_value">9</span></em>, <em class="sig-param"><span class="n">max_roi</span><span class="o">=</span><span class="default_value">5120000</span></em>, <em class="sig-param"><span class="n">remove_rain</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">display</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">region_of_interest_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_dB_noNoise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'relative'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5120000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute an acoustic activity index based on the regions of interested detected on a spectrogram.</p>
 <p>The function first find regions of interest (ROI) and then compute the number and cover area 
 on the spectrogram.</p>
@@ -284,7 +285,7 @@ the higher is the acoustic richness expected.</p>
 </div>
 </dd></dl>
 
-</section>
+</div>
 
 
            </div>

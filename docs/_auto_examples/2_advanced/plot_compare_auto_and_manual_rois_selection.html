@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.2 documentation</title>
@@ -33,15 +32,14 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)" href="plot_sound_pressure_level.html" />
-    <link rel="prev" title="Classify soundtypes with unsupervised learning" href="plot_unsupervised_sound_classification.html" /> 
+    <link rel="next" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" />
+    <link rel="prev" title="Estimate sound pressure level from audio recordings" href="plot_sound_pressure_level.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,6 +56,9 @@
             <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,13 +91,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -104,17 +105,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 </ul>
 </li>
 </ul>
@@ -190,7 +191,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="find-regions-of-interest-rois-in-a-spectrogram">
+<div class="sphx-glr-example-title section" id="find-regions-of-interest-rois-in-a-spectrogram">
 <span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Permalink to this headline">¶</a></h1>
 <p>A spectrogram is a time-frequency (2d) representation of a audio recording.
 Each acoustic event nested in the audio recording is represented by an acoustic
@@ -200,7 +201,7 @@ by different image processing tools such as binarization, double thresholding,
 mathematical morphology tools…</p>
 <p><strong>Dependencies</strong>: To execute this example you will need to have installed the
 scikit-image, scikit-learn and pandas Python packages.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_compare_auto_and_manual_rois_selection.png&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_compare_auto_and_manual_rois_selection.png&#39;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -408,7 +409,7 @@ To extract</p>
 <img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" />
 <p><strong>References</strong></p>
 <p>[1] Towsey, M., 2013b. Noise Removal from Wave-forms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.991 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.586 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></p>
@@ -418,7 +419,7 @@ To extract</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
 
 
            </div>
@@ -428,10 +429,10 @@ To extract</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_sound_pressure_level.html" class="btn btn-neutral float-right" title="Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-right" title="Extract acoustic indices from audio recordings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_unsupervised_sound_classification.html" class="btn btn-neutral float-left" title="Classify soundtypes with unsupervised learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_sound_pressure_level.html" class="btn btn-neutral float-left" title="Estimate sound pressure level from audio recordings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

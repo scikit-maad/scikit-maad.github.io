@@ -9,19 +9,20 @@
     .. _sphx_glr__auto_examples_2_advanced_plot_remove_background.py:
 
 
-Remove background noise from audio with signal processing tools
-===============================================================
+Remove background noise with signal processing tools
+====================================================
 
-This example shows different ways to remove background noise directly from
-the spectrogram.
-We use the sharpness metric to have a quantitative estimation of how well is 
-the noise reduction. This metric gives partial information. Other metrics 
-should be use in complement.
+Environmental audio recordings usually have stationary noise that needs to be removed to
+enhance the signal to noise ratio of biological sounds.
+This example shows different ways to remove stationary background noise using spectral 
+subtraction techniques. These techniques are applied over the spectrogram and return a 2D matrix. 
+We use the sharpness metric to have a quantitative estimation of how well is the noise 
+reduction. For a more comprehensive analysis, other metrics should be use in complement.
 
 
 .. code-block:: default
 
-    # sphinx_gallery_thumbnail_path = '../_images/sphx_glr_remove_background.png'
+    # sphinx_gallery_thumbnail_path = './_images/sphx_glr_remove_background.png'
 
     from maad.util import plot2d, power2dB
     from maad.sound import (load, spectrogram, 
@@ -41,40 +42,19 @@ should be use in complement.
 
 
 
+Load and plot the spectrogram of the original audio file
+--------------------------------------------------------
 First, we load the audio file and take its spectrogram.
 The linear spectrogram is then transformed into dB. The dB range is  96dB 
 which is the maximum dB range value for a 16bits audio recording. We add
-96dB in order to get have only positive values in the spectrogram
+96dB in order to get have only positive values in the spectrogram.
 
 
 .. code-block:: default
 
     s, fs = load('../../data/tropical_forest_morning.wav')
-    #s, fs = load('../data/cold_forest_night.wav')
     Sxx, tn, fn, ext = spectrogram(s, fs, fcrop=[0,20000], tcrop=[0,60])
     Sxx_dB = power2dB(Sxx, db_range=96) + 96
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/juanfe/Escritorio/documentation/scikit-maad/maad/sound/input_output.py:112: WavFileWarning: Chunk (non-data) not understood, skipping it.
-      fs, s = wavfile.read(filename)
-
-
-
-
-We plot the original spectrogram.
-
-
-.. code-block:: default
-
     plot2d(Sxx_dB, extent=ext, title='original',
            vmin=np.median(Sxx_dB), vmax=np.median(Sxx_dB)+40)
 
@@ -94,11 +74,15 @@ We plot the original spectrogram.
 
  .. code-block:: none
 
+    /Volumes/lacie_macosx/numerical_analysis_toolbox/scikit-maad/maad/sound/input_output.py:112: WavFileWarning: Chunk (non-data) not understood, skipping it.
+      fs, s = wavfile.read(filename)
     Original sharpness : 1.885
 
 
 
 
+Test different methods to remove stationary background noise
+------------------------------------------------------------
 Test the function "remove_background"
 
 
@@ -129,7 +113,7 @@ Test the function "remove_background"
  .. code-block:: none
 
     ---- test remove_background -----
-    duration 0.113 s
+    duration 0.161 s
     sharpness : 1.434
 
 
@@ -166,7 +150,7 @@ Test the function "median_equalizer"
  .. code-block:: none
 
     ---- test median_equalizer -----
-    duration 0.269 s
+    duration 0.248 s
     sharpness : 1.500
 
 
@@ -202,7 +186,7 @@ Test the function "remove_background_morpho"
  .. code-block:: none
 
     ---- test remove_background_morpho -----
-    duration 1.619 s
+    duration 1.596 s
     sharpness : 0.885
 
 
@@ -240,7 +224,7 @@ Test the function "remove_background_along_axis"
  .. code-block:: none
 
     ---- test remove_background_along_axis -----
-    duration 0.101 s
+    duration 0.087 s
     sharpness : 0.984
 
 
@@ -249,7 +233,7 @@ Test the function "remove_background_along_axis"
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.764 seconds)
+   **Total running time of the script:** ( 0 minutes  5.640 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_remove_background.py:

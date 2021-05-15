@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extract ecoacoustics alpha indices from audio recording &mdash; scikit-maad 1.2 documentation</title>
+  <title>Extract acoustic indices from audio recordings &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -33,14 +32,13 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)" href="plot_sound_pressure_level.html" /> 
+    <link rel="prev" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -57,6 +55,9 @@
             <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -89,13 +90,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -103,17 +104,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Extract ecoacoustics alpha indices from audio recording</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Extract acoustic indices from audio recordings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-variables">Set Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batch-compute-acoustic-indices-on-the-audio-dataset">Batch compute acoustic indices on the audio dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-results">Display results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -166,7 +173,7 @@
         
           <li><a href="../index.html">Example gallery</a> &raquo;</li>
         
-      <li>Extract ecoacoustics alpha indices from audio recording</li>
+      <li>Extract acoustic indices from audio recordings</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,12 +196,15 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="extract-ecoacoustics-alpha-indices-from-audio-recording">
-<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract ecoacoustics alpha indices from audio recording<a class="headerlink" href="#extract-ecoacoustics-alpha-indices-from-audio-recording" title="Permalink to this headline">¶</a></h1>
-<p>In ecoacoustics, acoustics diversity is measured by single values, the so-called
-alpha indices, which compress a portion of audio into a single value. In this
-example, we will see how to compute these indices and show basics post-processing</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_plot_extract_alpha_indices_002.png&#39;</span>
+<div class="sphx-glr-example-title section" id="extract-acoustic-indices-from-audio-recordings">
+<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Permalink to this headline">¶</a></h1>
+<p>Acoustic indices can summarize aspects of the acoustic energy distribution in
+audio recordings and are widely used to characterize animal acoustic communities[1-3].
+In this example, we will see how to eficiently compute multiple acoustic indices,
+and present basics post-processing posibilities. The audio recordings used in this
+example can be downloaded from the open GitHub repository
+(<a class="reference external" href="https://github.com/scikit-maad/scikit-maad/tree/production/data">https://github.com/scikit-maad/scikit-maad/tree/production/data</a>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_extract_alpha_indices_002.png&#39;</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -203,6 +213,9 @@ example, we will see how to compute these indices and show basics post-processin
                        <span class="n">plot_features_map</span><span class="p">,</span> <span class="n">plot_features</span><span class="p">,</span> <span class="n">false_Color_Spectro</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="section" id="set-variables">
+<h2>Set Variables<a class="headerlink" href="#set-variables" title="Permalink to this headline">¶</a></h2>
+<p>We list all spectral and temporal acoustic indices that will be computed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SPECTRAL_FEATURES</span></a><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MEANf&#39;</span><span class="p">,</span><span class="s1">&#39;VARf&#39;</span><span class="p">,</span><span class="s1">&#39;SKEWf&#39;</span><span class="p">,</span><span class="s1">&#39;KURTf&#39;</span><span class="p">,</span><span class="s1">&#39;NBPEAKS&#39;</span><span class="p">,</span><span class="s1">&#39;LEQf&#39;</span><span class="p">,</span>
 <span class="s1">&#39;ENRf&#39;</span><span class="p">,</span><span class="s1">&#39;BGNf&#39;</span><span class="p">,</span><span class="s1">&#39;SNRf&#39;</span><span class="p">,</span><span class="s1">&#39;Hf&#39;</span><span class="p">,</span> <span class="s1">&#39;EAS&#39;</span><span class="p">,</span><span class="s1">&#39;ECU&#39;</span><span class="p">,</span><span class="s1">&#39;ECV&#39;</span><span class="p">,</span><span class="s1">&#39;EPS&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_KURT&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_SKEW&#39;</span><span class="p">,</span><span class="s1">&#39;ACI&#39;</span><span class="p">,</span>
 <span class="s1">&#39;NDSI&#39;</span><span class="p">,</span><span class="s1">&#39;rBA&#39;</span><span class="p">,</span><span class="s1">&#39;AnthroEnergy&#39;</span><span class="p">,</span><span class="s1">&#39;BioEnergy&#39;</span><span class="p">,</span><span class="s1">&#39;BI&#39;</span><span class="p">,</span><span class="s1">&#39;ROU&#39;</span><span class="p">,</span><span class="s1">&#39;ADI&#39;</span><span class="p">,</span><span class="s1">&#39;AEI&#39;</span><span class="p">,</span><span class="s1">&#39;LFC&#39;</span><span class="p">,</span><span class="s1">&#39;MFC&#39;</span><span class="p">,</span><span class="s1">&#39;HFC&#39;</span><span class="p">,</span>
@@ -215,11 +228,11 @@ example, we will see how to compute these indices and show basics post-processin
                <span class="s1">&#39;ACTtMean&#39;</span><span class="p">,</span><span class="s1">&#39;EVNtFraction&#39;</span><span class="p">,</span> <span class="s1">&#39;EVNtMean&#39;</span><span class="p">,</span> <span class="s1">&#39;EVNtCount&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>First, we parse the directory /indices in order to get a df with date
+<p>We parse the directory were the audio dataset is located in order to get a df with date
 and fullfilename. As the data were collected with a SM4 audio recording device
 we set the dateformat agument to ‘SM4’ in order to be able to parse the date
 from the filename. In case of Audiomoth, the date is coded as Hex in the
-filename.</p>
+filename. The path to the audio dataset is “../../data/indices/”.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">date_parser</span><span class="p">(</span><span class="s2">&quot;../../data/indices/&quot;</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="s1">&#39;SM4&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># remove index =&gt; Date becomes a column instead of an index. This is</span>
@@ -229,107 +242,109 @@ filename.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>S4A03895_20190522_111500.wav
-S4A03895_20190522_114500.wav
-S4A03895_20190522_161500.wav
-S4A03895_20190522_223000.wav
-S4A03895_20190522_040000.wav
-S4A03895_20190522_000000.wav
-S4A03895_20190522_011500.wav
-S4A03895_20190522_064500.wav
-S4A03895_20190522_123000.wav
-S4A03895_20190522_071500.wav
-S4A03895_20190522_160000.wav
-S4A03895_20190522_143000.wav
-S4A03895_20190522_090000.wav
-S4A03895_20190522_063000.wav
-S4A03895_20190522_023000.wav
-S4A03895_20190522_113000.wav
-S4A03895_20190522_174500.wav
-S4A03895_20190522_130000.wav
-S4A03895_20190522_070000.wav
-S4A03895_20190522_060000.wav
-S4A03895_20190522_164500.wav
-S4A03895_20190522_044500.wav
-S4A03895_20190522_124500.wav
-S4A03895_20190522_134500.wav
-S4A03895_20190522_053000.wav
-S4A03895_20190522_043000.wav
-S4A03895_20190522_191500.wav
-S4A03895_20190522_104500.wav
-S4A03895_20190522_231500.wav
-S4A03895_20190522_140000.wav
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>indices.csv
 per_bin_indices.csv
-S4A03895_20190522_010000.wav
-S4A03895_20190522_131500.wav
-S4A03895_20190522_014500.wav
-S4A03895_20190522_003000.wav
-S4A03895_20190522_081500.wav
-S4A03895_20190522_154500.wav
-S4A03895_20190522_221500.wav
-S4A03895_20190522_171500.wav
-S4A03895_20190522_193000.wav
-S4A03895_20190522_214500.wav
-S4A03895_20190522_141500.wav
-S4A03895_20190522_121500.wav
-S4A03895_20190522_031500.wav
-S4A03895_20190522_030000.wav
-S4A03895_20190522_120000.wav
-S4A03895_20190522_184500.wav
-S4A03895_20190522_181500.wav
+S4A03895_20190522_000000.wav
 S4A03895_20190522_001500.wav
-S4A03895_20190522_144500.wav
-S4A03895_20190522_194500.wav
-S4A03895_20190522_084500.wav
-S4A03895_20190522_033000.wav
-S4A03895_20190522_151500.wav
-S4A03895_20190522_034500.wav
-S4A03895_20190522_220000.wav
-S4A03895_20190522_110000.wav
-S4A03895_20190522_061500.wav
-S4A03895_20190522_180000.wav
-S4A03895_20190522_170000.wav
-S4A03895_20190522_200000.wav
-S4A03895_20190522_013000.wav
-S4A03895_20190522_073000.wav
-S4A03895_20190522_050000.wav
-S4A03895_20190522_224500.wav
-S4A03895_20190522_153000.wav
-S4A03895_20190522_093000.wav
-S4A03895_20190522_230000.wav
-S4A03895_20190522_203000.wav
-S4A03895_20190522_103000.wav
-S4A03895_20190522_083000.wav
-S4A03895_20190522_051500.wav
-S4A03895_20190522_094500.wav
-S4A03895_20190522_213000.wav
-S4A03895_20190522_091500.wav
-S4A03895_20190522_201500.wav
-indices.csv
-S4A03895_20190522_150000.wav
-S4A03895_20190522_210000.wav
+S4A03895_20190522_003000.wav
 S4A03895_20190522_004500.wav
-S4A03895_20190522_054500.wav
-S4A03895_20190522_163000.wav
-S4A03895_20190522_211500.wav
-S4A03895_20190522_233000.wav
-S4A03895_20190522_080000.wav
-S4A03895_20190522_204500.wav
-S4A03895_20190522_101500.wav
-S4A03895_20190522_133000.wav
-S4A03895_20190522_100000.wav
-S4A03895_20190522_173000.wav
-S4A03895_20190522_021500.wav
-S4A03895_20190522_041500.wav
-S4A03895_20190522_190000.wav
-S4A03895_20190522_183000.wav
+S4A03895_20190522_010000.wav
+S4A03895_20190522_011500.wav
+S4A03895_20190522_013000.wav
+S4A03895_20190522_014500.wav
 S4A03895_20190522_020000.wav
+S4A03895_20190522_021500.wav
+S4A03895_20190522_023000.wav
 S4A03895_20190522_024500.wav
-S4A03895_20190522_234500.wav
+S4A03895_20190522_030000.wav
+S4A03895_20190522_031500.wav
+S4A03895_20190522_033000.wav
+S4A03895_20190522_034500.wav
+S4A03895_20190522_040000.wav
+S4A03895_20190522_041500.wav
+S4A03895_20190522_043000.wav
+S4A03895_20190522_044500.wav
+S4A03895_20190522_050000.wav
+S4A03895_20190522_051500.wav
+S4A03895_20190522_053000.wav
+S4A03895_20190522_054500.wav
+S4A03895_20190522_060000.wav
+S4A03895_20190522_061500.wav
+S4A03895_20190522_063000.wav
+S4A03895_20190522_064500.wav
+S4A03895_20190522_070000.wav
+S4A03895_20190522_071500.wav
+S4A03895_20190522_073000.wav
 S4A03895_20190522_074500.wav
+S4A03895_20190522_080000.wav
+S4A03895_20190522_081500.wav
+S4A03895_20190522_083000.wav
+S4A03895_20190522_084500.wav
+S4A03895_20190522_090000.wav
+S4A03895_20190522_091500.wav
+S4A03895_20190522_093000.wav
+S4A03895_20190522_094500.wav
+S4A03895_20190522_100000.wav
+S4A03895_20190522_101500.wav
+S4A03895_20190522_103000.wav
+S4A03895_20190522_104500.wav
+S4A03895_20190522_110000.wav
+S4A03895_20190522_111500.wav
+S4A03895_20190522_113000.wav
+S4A03895_20190522_114500.wav
+S4A03895_20190522_120000.wav
+S4A03895_20190522_121500.wav
+S4A03895_20190522_123000.wav
+S4A03895_20190522_124500.wav
+S4A03895_20190522_130000.wav
+S4A03895_20190522_131500.wav
+S4A03895_20190522_133000.wav
+S4A03895_20190522_134500.wav
+S4A03895_20190522_140000.wav
+S4A03895_20190522_141500.wav
+S4A03895_20190522_143000.wav
+S4A03895_20190522_144500.wav
+S4A03895_20190522_150000.wav
+S4A03895_20190522_151500.wav
+S4A03895_20190522_153000.wav
+S4A03895_20190522_154500.wav
+S4A03895_20190522_160000.wav
+S4A03895_20190522_161500.wav
+S4A03895_20190522_163000.wav
+S4A03895_20190522_164500.wav
+S4A03895_20190522_170000.wav
+S4A03895_20190522_171500.wav
+S4A03895_20190522_173000.wav
+S4A03895_20190522_174500.wav
+S4A03895_20190522_180000.wav
+S4A03895_20190522_181500.wav
+S4A03895_20190522_183000.wav
+S4A03895_20190522_184500.wav
+S4A03895_20190522_190000.wav
+S4A03895_20190522_191500.wav
+S4A03895_20190522_193000.wav
+S4A03895_20190522_194500.wav
+S4A03895_20190522_200000.wav
+S4A03895_20190522_201500.wav
+S4A03895_20190522_203000.wav
+S4A03895_20190522_204500.wav
+S4A03895_20190522_210000.wav
+S4A03895_20190522_211500.wav
+S4A03895_20190522_213000.wav
+S4A03895_20190522_214500.wav
+S4A03895_20190522_220000.wav
+S4A03895_20190522_221500.wav
+S4A03895_20190522_223000.wav
+S4A03895_20190522_224500.wav
+S4A03895_20190522_230000.wav
+S4A03895_20190522_231500.wav
+S4A03895_20190522_233000.wav
+S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-<p>LOAD SOUND AND PREPROCESS SOUND</p>
+</div>
+<div class="section" id="batch-compute-acoustic-indices-on-the-audio-dataset">
+<h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_indices_per_bin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -711,6 +726,9 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
+</div>
+<div class="section" id="display-results">
+<h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this headline">¶</a></h2>
 <p>After calculating all alpha indices (in audio and spectral domain), let’s
 have a look to the data.
 First, plot correlation map of all indices. We set the R threshold to 0 in
@@ -761,7 +779,15 @@ For a better view, we seperate spectral and audio indices.</p>
 </pre></div>
 </div>
 <img alt="False Color Spectro   [R:KURTt; G:EVNspCount; B:MEANt]" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_extract_alpha_indices_005.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  34.065 seconds)</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Sueur, J., Farina, A., Gasc, A., Pieretti, N., &amp; Pavoine, S. (2014). Acoustic Indices for Biodiversity Assessment and Landscape Investigation. Acta Acustica United with Acustica, 100(4), 772–781. <a class="reference external" href="https://doi.org/10.3813/AAA.918757">https://doi.org/10.3813/AAA.918757</a></p></li>
+<li><p>Buxton, R. T., McKenna, M. F., Clapp, M., Meyer, E., Stabenau, E., Angeloni, L. M., Crooks, K., &amp; Wittemyer, G. (2018). Efficacy of extracting indices from large-scale acoustic recordings to monitor biodiversity: Acoustical Monitoring. Conservation Biology, 32(5), 1174–1184. <a class="reference external" href="https://doi.org/10.1111/cobi.13119">https://doi.org/10.1111/cobi.13119</a></p></li>
+<li><p>Towsey, M., Wimmer, J., Williamson, I., &amp; Roe, P. (2014). The use of acoustic indices to determine avian species richness in audio-recordings of the environment. Ecological Informatics, 21, 110–119. <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2013.11.007">https://doi.org/10.1016/j.ecoinf.2013.11.007</a></p></li>
+</ol>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  25.439 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-extract-alpha-indices-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/302f98e0869af282971648b57a10f45b/plot_extract_alpha_indices.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_extract_alpha_indices.py</span></code></a></p>
@@ -771,7 +797,8 @@ For a better view, we seperate spectral and audio indices.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -782,7 +809,7 @@ For a better view, we seperate spectral and audio indices.</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="plot_sound_pressure_level.html" class="btn btn-neutral float-left" title="Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-left" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

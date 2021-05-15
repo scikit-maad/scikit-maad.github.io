@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU) &mdash; scikit-maad 1.2 documentation</title>
+  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.2 documentation</title>
   
 
   
@@ -33,15 +32,14 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extract ecoacoustics alpha indices from audio recording" href="plot_extract_alpha_indices.html" />
-    <link rel="prev" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" /> 
+    <link rel="next" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" />
+    <link rel="prev" title="Classify soundtypes with unsupervised learning" href="plot_unsupervised_sound_classification.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,6 +56,9 @@
             <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,13 +91,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -104,17 +105,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Estimate sound pressure level from audio recordings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-variables">Set variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-and-preprocess-audio">Load and preprocess audio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-results">Display results</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 </ul>
 </li>
 </ul>
@@ -167,7 +173,7 @@
         
           <li><a href="../index.html">Example gallery</a> &raquo;</li>
         
-      <li>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</li>
+      <li>Estimate sound pressure level from audio recordings</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,24 +196,21 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="computing-sound-pressure-level-db-spl-of-audio-dataset-collected-with-automatic-recording-units-aru">
-<span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)<a class="headerlink" href="#computing-sound-pressure-level-db-spl-of-audio-dataset-collected-with-automatic-recording-units-aru" title="Permalink to this headline">¶</a></h1>
-<p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of
-audio recordings coming from different datasets and environments.
-Sound pressure level corresponds to a quantitative measurement of the acoustic
-pressure energy.
-Each ARU can be converted into a pseudo sound meter level knowing few
-parameters : the sensitivity of the microphone, the amplification
+<div class="sphx-glr-example-title section" id="estimate-sound-pressure-level-from-audio-recordings">
+<span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Estimate sound pressure level from audio recordings<a class="headerlink" href="#estimate-sound-pressure-level-from-audio-recordings" title="Permalink to this headline">¶</a></h1>
+<p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio
+recordings coming from different datasets and environments. Sound pressure level
+corresponds to a quantitative measurement of the acoustic pressure energy.
+An Automated Recording Unit (ARU) can be converted into a pseudo sound meter level
+knowing few parameters: the sensitivity of the microphone, the amplification
 gain, the bit depth and the voltage range of the analog to digital converter.
 This is sufficient to convert a wav file (array of intergers) into pressure
-(Pa).
-Of course, as the frequency response of the ARUs’s microphone is never flat,
+(Pa). Of course, as the frequency response of the ARUs’s microphone is never flat,
 the result is an approximation of the real sound pressure level. In order to be
 more precise, one should correct the frequency response of the microphone.</p>
 <p>In this example, we will evaluate the variation of the sound pressure level
 of the ambient sound in a cold temperate forest in France during 24h.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_plot_sound_pressure_level.png&#39;</span>
-
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load required packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -215,17 +218,20 @@ of the ambient sound in a cold temperate forest in France during 24h.</p>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
 </pre></div>
 </div>
+<div class="section" id="set-variables">
+<h2>Set variables<a class="headerlink" href="#set-variables" title="Permalink to this headline">¶</a></h2>
 <p>It is very important to always keep the parameters of the ARU that was used
 to collect the audio dataset. This is a mandatory to compute the sound
 pressure level of the audio file (dB SPL) as a sound meter level would do.
-For this experiment, we use a SM4 ARU with an amplification gain of 16dB.</p>
+For this experiment, we used a Songmeter 4 (SM4, from Wildlife Acoustics)
+with an amplification gain of 16dB.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a> <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>         <span class="c1"># Sensibility of the microphone -35dBV (SM4) / -18dBV (Audiomoth)</span>
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a> <span class="o">=</span> <span class="mi">26</span><span class="o">+</span><span class="mi">16</span>       <span class="c1"># Total amplification gain (SM4 has a +26dB preamplifier)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a> <span class="o">=</span> <span class="mi">26</span><span class="o">+</span><span class="mi">16</span>       <span class="c1"># Total amplification gain in dB (SM4 has a +26dB preamplifier)</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a> <span class="o">=</span> <span class="mi">2</span>        <span class="c1"># Voltage range of the analog to digital converter (ADC)</span>
 </pre></div>
 </div>
-<p>First, we parse the directory /indices in order to get a df with date
-and fullfilename. As the data were collected with a SM4 audio recording device
+<p>First, we parse the directory /indices in order to get a DataFrame with date
+and fullfilename. As the data was collected with a SM4 audio recording device,
 we set the dateformat agument to ‘SM4’ in order to be able to parse the date
 from the filename. In case of Audiomoth, the date is coded as Hex in the
 filename.</p>
@@ -233,111 +239,113 @@ filename.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>S4A03895_20190522_111500.wav
-S4A03895_20190522_114500.wav
-S4A03895_20190522_161500.wav
-S4A03895_20190522_223000.wav
-S4A03895_20190522_040000.wav
-S4A03895_20190522_000000.wav
-S4A03895_20190522_011500.wav
-S4A03895_20190522_064500.wav
-S4A03895_20190522_123000.wav
-S4A03895_20190522_071500.wav
-S4A03895_20190522_160000.wav
-S4A03895_20190522_143000.wav
-S4A03895_20190522_090000.wav
-S4A03895_20190522_063000.wav
-S4A03895_20190522_023000.wav
-S4A03895_20190522_113000.wav
-S4A03895_20190522_174500.wav
-S4A03895_20190522_130000.wav
-S4A03895_20190522_070000.wav
-S4A03895_20190522_060000.wav
-S4A03895_20190522_164500.wav
-S4A03895_20190522_044500.wav
-S4A03895_20190522_124500.wav
-S4A03895_20190522_134500.wav
-S4A03895_20190522_053000.wav
-S4A03895_20190522_043000.wav
-S4A03895_20190522_191500.wav
-S4A03895_20190522_104500.wav
-S4A03895_20190522_231500.wav
-S4A03895_20190522_140000.wav
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>indices.csv
 per_bin_indices.csv
-S4A03895_20190522_010000.wav
-S4A03895_20190522_131500.wav
-S4A03895_20190522_014500.wav
-S4A03895_20190522_003000.wav
-S4A03895_20190522_081500.wav
-S4A03895_20190522_154500.wav
-S4A03895_20190522_221500.wav
-S4A03895_20190522_171500.wav
-S4A03895_20190522_193000.wav
-S4A03895_20190522_214500.wav
-S4A03895_20190522_141500.wav
-S4A03895_20190522_121500.wav
-S4A03895_20190522_031500.wav
-S4A03895_20190522_030000.wav
-S4A03895_20190522_120000.wav
-S4A03895_20190522_184500.wav
-S4A03895_20190522_181500.wav
+S4A03895_20190522_000000.wav
 S4A03895_20190522_001500.wav
-S4A03895_20190522_144500.wav
-S4A03895_20190522_194500.wav
-S4A03895_20190522_084500.wav
-S4A03895_20190522_033000.wav
-S4A03895_20190522_151500.wav
-S4A03895_20190522_034500.wav
-S4A03895_20190522_220000.wav
-S4A03895_20190522_110000.wav
-S4A03895_20190522_061500.wav
-S4A03895_20190522_180000.wav
-S4A03895_20190522_170000.wav
-S4A03895_20190522_200000.wav
-S4A03895_20190522_013000.wav
-S4A03895_20190522_073000.wav
-S4A03895_20190522_050000.wav
-S4A03895_20190522_224500.wav
-S4A03895_20190522_153000.wav
-S4A03895_20190522_093000.wav
-S4A03895_20190522_230000.wav
-S4A03895_20190522_203000.wav
-S4A03895_20190522_103000.wav
-S4A03895_20190522_083000.wav
-S4A03895_20190522_051500.wav
-S4A03895_20190522_094500.wav
-S4A03895_20190522_213000.wav
-S4A03895_20190522_091500.wav
-S4A03895_20190522_201500.wav
-indices.csv
-S4A03895_20190522_150000.wav
-S4A03895_20190522_210000.wav
+S4A03895_20190522_003000.wav
 S4A03895_20190522_004500.wav
-S4A03895_20190522_054500.wav
-S4A03895_20190522_163000.wav
-S4A03895_20190522_211500.wav
-S4A03895_20190522_233000.wav
-S4A03895_20190522_080000.wav
-S4A03895_20190522_204500.wav
-S4A03895_20190522_101500.wav
-S4A03895_20190522_133000.wav
-S4A03895_20190522_100000.wav
-S4A03895_20190522_173000.wav
-S4A03895_20190522_021500.wav
-S4A03895_20190522_041500.wav
-S4A03895_20190522_190000.wav
-S4A03895_20190522_183000.wav
+S4A03895_20190522_010000.wav
+S4A03895_20190522_011500.wav
+S4A03895_20190522_013000.wav
+S4A03895_20190522_014500.wav
 S4A03895_20190522_020000.wav
+S4A03895_20190522_021500.wav
+S4A03895_20190522_023000.wav
 S4A03895_20190522_024500.wav
-S4A03895_20190522_234500.wav
+S4A03895_20190522_030000.wav
+S4A03895_20190522_031500.wav
+S4A03895_20190522_033000.wav
+S4A03895_20190522_034500.wav
+S4A03895_20190522_040000.wav
+S4A03895_20190522_041500.wav
+S4A03895_20190522_043000.wav
+S4A03895_20190522_044500.wav
+S4A03895_20190522_050000.wav
+S4A03895_20190522_051500.wav
+S4A03895_20190522_053000.wav
+S4A03895_20190522_054500.wav
+S4A03895_20190522_060000.wav
+S4A03895_20190522_061500.wav
+S4A03895_20190522_063000.wav
+S4A03895_20190522_064500.wav
+S4A03895_20190522_070000.wav
+S4A03895_20190522_071500.wav
+S4A03895_20190522_073000.wav
 S4A03895_20190522_074500.wav
+S4A03895_20190522_080000.wav
+S4A03895_20190522_081500.wav
+S4A03895_20190522_083000.wav
+S4A03895_20190522_084500.wav
+S4A03895_20190522_090000.wav
+S4A03895_20190522_091500.wav
+S4A03895_20190522_093000.wav
+S4A03895_20190522_094500.wav
+S4A03895_20190522_100000.wav
+S4A03895_20190522_101500.wav
+S4A03895_20190522_103000.wav
+S4A03895_20190522_104500.wav
+S4A03895_20190522_110000.wav
+S4A03895_20190522_111500.wav
+S4A03895_20190522_113000.wav
+S4A03895_20190522_114500.wav
+S4A03895_20190522_120000.wav
+S4A03895_20190522_121500.wav
+S4A03895_20190522_123000.wav
+S4A03895_20190522_124500.wav
+S4A03895_20190522_130000.wav
+S4A03895_20190522_131500.wav
+S4A03895_20190522_133000.wav
+S4A03895_20190522_134500.wav
+S4A03895_20190522_140000.wav
+S4A03895_20190522_141500.wav
+S4A03895_20190522_143000.wav
+S4A03895_20190522_144500.wav
+S4A03895_20190522_150000.wav
+S4A03895_20190522_151500.wav
+S4A03895_20190522_153000.wav
+S4A03895_20190522_154500.wav
+S4A03895_20190522_160000.wav
+S4A03895_20190522_161500.wav
+S4A03895_20190522_163000.wav
+S4A03895_20190522_164500.wav
+S4A03895_20190522_170000.wav
+S4A03895_20190522_171500.wav
+S4A03895_20190522_173000.wav
+S4A03895_20190522_174500.wav
+S4A03895_20190522_180000.wav
+S4A03895_20190522_181500.wav
+S4A03895_20190522_183000.wav
+S4A03895_20190522_184500.wav
+S4A03895_20190522_190000.wav
+S4A03895_20190522_191500.wav
+S4A03895_20190522_193000.wav
+S4A03895_20190522_194500.wav
+S4A03895_20190522_200000.wav
+S4A03895_20190522_201500.wav
+S4A03895_20190522_203000.wav
+S4A03895_20190522_204500.wav
+S4A03895_20190522_210000.wav
+S4A03895_20190522_211500.wav
+S4A03895_20190522_213000.wav
+S4A03895_20190522_214500.wav
+S4A03895_20190522_220000.wav
+S4A03895_20190522_221500.wav
+S4A03895_20190522_223000.wav
+S4A03895_20190522_224500.wav
+S4A03895_20190522_230000.wav
+S4A03895_20190522_231500.wav
+S4A03895_20190522_233000.wav
+S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-<p>LOAD SOUND AND PREPROCESS SOUND</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we process all the files found in the directory /indices.</span>
-<span class="c1"># Initialisation of an empty dataframe df_spl to store all the dB SPL values</span>
-<span class="c1"># extracted from the whole audio dataset.</span>
-<span class="n">df_spl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</div>
+<div class="section" id="load-and-preprocess-audio">
+<h2>Load and preprocess audio<a class="headerlink" href="#load-and-preprocess-audio" title="Permalink to this headline">¶</a></h2>
+<p>Then we process all the files found in the directory /indices.
+Initialisation of an empty dataframe df_spl to store all the dB SPL values
+extracted from the whole audio dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_spl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># Main loop to go through all audio files</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span> <span class="p">:</span>
@@ -748,25 +756,30 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Display the phenology of the Leq (dB SPL) of each frequency band.</span>
-<span class="c1"># One can observe that most of the acoustic energy is between 0-1kHz. Moreover</span>
-<span class="c1"># the sound pressure level of the 0-1kHz frequency band is not constant but</span>
-<span class="c1"># increases during the day, from 4am to 22pm with a maximum between at 10am</span>
-<span class="c1"># This is mainly due to the airplanes flying over the forest during the day.</span>
-<span class="c1"># One can also observe that the energy of the biophony is really lower than</span>
-<span class="c1"># the energy of the low frequency band. The sound pressure level of the biophony</span>
-<span class="c1"># is the highest between 5am to 9am, which corresponds to the dawn chorus</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</div>
+<div class="section" id="display-results">
+<h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this headline">¶</a></h2>
+<p>Display Leq (dB SPL) dynamics for each frequency band.
+One can observe that most of the acoustic energy is between 0-1kHz. Moreover
+the sound pressure level of the 0-1kHz frequency band is not constant but
+increases during the day, from 4am to 22pm with a maximum between at 10am
+This is mainly due to the airplanes flying over the forest during the day.
+One can also observe that the energy of the biophony is really lower than
+the energy of the low frequency band. The sound pressure level of the biophony
+is the highest between 5am to 9am, which corresponds to the dawn chorus</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 <span class="n">df_spl_rev</span> <span class="o">=</span> <span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">util</span><span class="o">.</span><span class="n">plot_features_map</span><span class="p">(</span><span class="n">df_spl_rev</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdPu&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="c1">#### Display the comparison between the phenology of the Leq (dB SPL) corresponding</span>
-<span class="c1"># mainly to the anthropophony (frequency band 0-1kHz) and the biophony</span>
-<span class="c1"># (frequency band 1-12kHz)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<img alt="plot sound pressure level" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_pressure_level_001.png" />
+<p>Display the comparison between the dynamics of the Leq (dB SPL) corresponding
+mainly to the anthropophony (frequency band 0-1kHz) and the biophony
+(frequency band 1-12kHz)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">add_dB</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">df_spl</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">add_dB</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
@@ -776,13 +789,8 @@ S4A03895_20190522_234500.wav
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="plot sound pressure level" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_sound_pressure_level_001.png" />
-</li>
-<li><img alt="plot sound pressure level" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" />
-</li>
-</ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.166 seconds)</p>
+<img alt="plot sound pressure level" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.279 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8e681a4001c99d914bc1442c0d861249/plot_sound_pressure_level.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_pressure_level.py</span></code></a></p>
@@ -792,7 +800,8 @@ S4A03895_20190522_234500.wav
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -802,10 +811,10 @@ S4A03895_20190522_234500.wav
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-right" title="Extract ecoacoustics alpha indices from audio recording" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-right" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-left" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_unsupervised_sound_classification.html" class="btn btn-neutral float-left" title="Classify soundtypes with unsupervised learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

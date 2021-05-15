@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Signal decomposition and false-color spectrograms &mdash; scikit-maad 1.2 documentation</title>
@@ -33,14 +32,13 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Remove background noise from audio with signal processing tools" href="plot_remove_background.html" />
+    <link rel="next" title="Remove background noise with signal processing tools" href="plot_remove_background.html" />
     <link rel="prev" title="Circadian soundscape" href="../1_basic/plot_circadian_spectrogram.html" /> 
 </head>
 
@@ -58,6 +56,9 @@
             <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
 
+          
+            
+            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,13 +91,13 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -104,7 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p><span class="caption-text">Example Gallery</span></p>
+<p class="caption"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -116,11 +117,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#visualize-output">Visualize output</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise from audio with signal processing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Computing sound pressure level (dB SPL) of audio dataset collected with automatic recording units (ARU)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract ecoacoustics alpha indices from audio recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +197,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="signal-decomposition-and-false-color-spectrograms">
+<div class="sphx-glr-example-title section" id="signal-decomposition-and-false-color-spectrograms">
 <span id="sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"></span><h1>Signal decomposition and false-color spectrograms<a class="headerlink" href="#signal-decomposition-and-false-color-spectrograms" title="Permalink to this headline">¶</a></h1>
 <p>Soundscapes result from a combination of multiple signals that are mixed-down
 into a single time-series. Unmixing these signals can be regarded as an
@@ -212,7 +213,7 @@ rapidly identify patterns in soundscapes and increase the interpretability of
 the signal [3]. This example shows how to use the scikit-maad package to easily
 decompose audio signals and visualize false-colour spectrograms.</p>
 <p><strong>Dependencies</strong>: This example requires the Python package scikit-learn v0.24 or greater.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_003.png&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_nmf_and_false_color_spectrogram_003.png&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">features</span>
@@ -222,7 +223,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
 </pre></div>
 </div>
-<section id="load-audio-from-disk">
+<div class="section" id="load-audio-from-disk">
 <h2>Load audio from disk<a class="headerlink" href="#load-audio-from-disk" title="Permalink to this headline">¶</a></h2>
 <p>Load the audio file and compute the spectrogram.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/spinetail.wav&#39;</span><span class="p">)</span>
@@ -234,8 +235,8 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 </pre></div>
 </div>
 <img alt="plot nmf and false color spectrogram" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_001.png" />
-</section>
-<section id="filter-the-spectrogram-with-2d-wavelets">
+</div>
+<div class="section" id="filter-the-spectrogram-with-2d-wavelets">
 <h2>Filter the spectrogram with 2D wavelets<a class="headerlink" href="#filter-the-spectrogram-with-2d-wavelets" title="Permalink to this headline">¶</a></h2>
 <p>Compute feature with <code class="docutils literal notranslate"><span class="pre">shape_features_raw</span></code> to get the raw output of the
 spectrogram filtered by the filterbank composed of 2D Gabor wavelets. This
@@ -250,8 +251,8 @@ elementary basis spectrograms.</p>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="arrange-into-rgba-color-model">
+</div>
+<div class="section" id="arrange-into-rgba-color-model">
 <h2>Arrange into RGBA color model<a class="headerlink" href="#arrange-into-rgba-color-model" title="Permalink to this headline">¶</a></h2>
 <p>Normalize the data and combine the three NMF basis spectrograms and the
 intensity spectrogram into a single array to fit the RGBA color model. RGBA
@@ -263,8 +264,8 @@ pixel is.</p>
 <span class="n">plt_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">plt_data</span><span class="p">,</span> <span class="n">intensity</span><span class="p">))</span>
 </pre></div>
 </div>
-</section>
-<section id="visualize-output">
+</div>
+<div class="section" id="visualize-output">
 <h2>Visualize output<a class="headerlink" href="#visualize-output" title="Permalink to this headline">¶</a></h2>
 <p>Finally, plot the resulting basis spectrogram as separate elements and
 combine them to produce a false-colour spectrogram using the RGBA color
@@ -300,7 +301,7 @@ where it can be easily distinguished the different sound sources by color.</p>
 <p>[2] Lee, D., &amp; Sueng, S. (1999). Learning the parts of objects by non-negative matrix factorization. Nature, 401, 788–791. <a class="reference external" href="https://doi.org/10.1038/44565">https://doi.org/10.1038/44565</a></p>
 <p>[3] Towsey, M., Znidersic, E., Broken-Brow, J., Indraswari, K., Watson, D. M., Phillips, Y., Truskinger, A., &amp; Roe, P. (2018). Long-duration, false-colour spectrograms for detecting species in large audio data-sets. Journal of Ecoacoustics, 2(1), 1–1. <a class="reference external" href="https://doi.org/10.22261/JEA.IUSWUI">https://doi.org/10.22261/JEA.IUSWUI</a></p>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.335 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.704 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/36a4f80f0c9cc2ebad00add233d1b106/plot_nmf_and_false_color_spectrogram.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_nmf_and_false_color_spectrogram.py</span></code></a></p>
@@ -310,8 +311,8 @@ where it can be easily distinguished the different sound sources by color.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -321,7 +322,7 @@ where it can be easily distinguished the different sound sources by color.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_remove_background.html" class="btn btn-neutral float-right" title="Remove background noise from audio with signal processing tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_remove_background.html" class="btn btn-neutral float-right" title="Remove background noise with signal processing tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../1_basic/plot_circadian_spectrogram.html" class="btn btn-neutral float-left" title="Circadian soundscape" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
