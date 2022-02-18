@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.spl.active_space &mdash; scikit-maad 1.1 documentation</title>
+  <title>maad.spl.active_space &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -55,13 +58,16 @@
           
 
           
+            
+            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                1.1
+                1.3
               </div>
             
           
@@ -86,12 +92,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
@@ -99,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -380,12 +387,10 @@
   
   <span class="c1"># test if r is a single value</span>
   <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nr</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nr = len(r)</span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if f is a single value</span>
   <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nf</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nf = len(f)  </span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if t, rh and pa are scalars</span>
@@ -439,12 +444,10 @@
   
   <span class="c1"># test if r is a single value</span>
   <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nr</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nr = len(r)</span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if f is a single value</span>
   <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nf</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nf = len(f)</span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if r0, t, rh and pa are scalars</span>
@@ -465,7 +468,7 @@
   <span class="k">return</span> <span class="n">Aatm_dB</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_habitat_att_factor</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_habitat_att_factor</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Get the habitat attenuation factor</span>
 <span class="sd">  </span>
@@ -478,7 +481,7 @@
 <span class="sd">  r0 : scalar</span>
 <span class="sd">      reference distance in m</span>
 <span class="sd">  a0 : scalar</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">  </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -493,19 +496,17 @@
 
   <span class="c1"># test if r is a single value</span>
   <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nr</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nr = len(r)</span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if f is a single value</span>
   <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nf</span><span class="o">=</span> <span class="mi">1</span>
-<span class="c1">#  else: Nf = len(f)</span>
   <span class="k">else</span><span class="p">:</span> <span class="n">Nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
   
   <span class="c1"># test if r0 and a0 are scalars</span>
   <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;r0 must be a scalar &#39;</span><span class="p">)</span>   
   <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;a0 must be a scalar &#39;</span><span class="p">)</span>    
 
-  <span class="n">Ahab_coef</span> <span class="o">=</span> <span class="n">a0</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">1000</span>
+  <span class="n">Ahab_coef</span> <span class="o">=</span> <span class="n">_habitat_att_coeff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
   <span class="n">Ahab_factor</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Ahab_coef</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Nf</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nr</span><span class="p">)</span><span class="o">-</span><span class="n">r0</span><span class="p">))</span>
   
   <span class="c1"># reshape the array when dimensions are 1</span>
@@ -517,7 +518,7 @@
   <span class="k">return</span> <span class="n">Ahab_factor</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_habitat_att_dB</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span> <span class="nf">_habitat_att_dB</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="p">:</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Get the habitat attenuation in dB</span>
 <span class="sd">  </span>
@@ -529,8 +530,8 @@
 <span class="sd">      propagation distances in m </span>
 <span class="sd">  r0 : scalar</span>
 <span class="sd">      reference distance in m</span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">    </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -543,22 +544,47 @@
 <span class="sd">      rows : frequencies</span>
 <span class="sd">      columns :distances</span>
 <span class="sd">  &quot;&quot;&quot;</span>  
-  <span class="n">Ahab_dB</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">_habitat_att_factor</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">,</span><span class="n">a0</span><span class="p">))</span>
+  <span class="c1">#Ahab_dB = -20*log10(_habitat_att_factor(f,r,r0,a0))</span>
+  
+  <span class="c1"># make sure it&#39;s array</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> 
+
+  <span class="c1"># test if r is a single value</span>
+  <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nr</span><span class="o">=</span> <span class="mi">1</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">Nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+  
+  <span class="c1"># test if f is a single value</span>
+  <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">Nf</span><span class="o">=</span> <span class="mi">1</span>
+  <span class="k">else</span><span class="p">:</span> <span class="n">Nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+  
+  <span class="c1"># test if r0 and a0 are scalars</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;r0 must be a scalar &#39;</span><span class="p">)</span>   
+  <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;a0 must be a scalar &#39;</span><span class="p">)</span>   
+  
+  <span class="n">Ahab_coef_dB</span> <span class="o">=</span> <span class="n">_habitat_att_coeff_dB</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a0</span><span class="p">)</span>
+  <span class="n">Ahab_dB</span> <span class="o">=</span> <span class="n">Ahab_coef_dB</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Nf</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nr</span><span class="p">)</span><span class="o">-</span><span class="n">r0</span><span class="p">)</span>
+  
+  <span class="c1"># reshape the array when dimensions are 1</span>
+  <span class="k">if</span> <span class="n">Ahab_dB</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">Ahab_dB</span> <span class="o">=</span> <span class="n">Ahab_dB</span><span class="p">[</span><span class="mi">0</span><span class="p">][:]</span>
+  <span class="k">elif</span> <span class="n">Ahab_dB</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">Ahab_dB</span> <span class="o">=</span> <span class="n">Ahab_dB</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
     
   <span class="k">return</span> <span class="p">(</span><span class="n">Ahab_dB</span><span class="p">)</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_habitat_att_coeff_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_habitat_att_coeff_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">  get the habitat attenuation coefficient in dB/m for the frequency f knowning </span>
-<span class="sd">  the habitat attenuation parameter a0 (in Neper/kHz/m)</span>
+<span class="sd">  get the habitat attenuation coefficient in dB/m for the frequency f knowing </span>
+<span class="sd">  the habitat attenuation parameter a0 (in dB/kHz/m)</span>
 <span class="sd">  </span>
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  f: scalar or array-like</span>
 <span class="sd">      frequency in Hz</span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">      </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -569,21 +595,22 @@
   <span class="c1"># make sure it&#39;s array</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  
   
-  <span class="n">Ahab_coeff_dB</span> <span class="o">=</span> <span class="n">a0</span><span class="o">*</span><span class="n">f</span> <span class="o">*</span> <span class="mi">20</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+  <span class="n">Ahab_coeff_dB</span> <span class="o">=</span> <span class="n">a0</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">1000</span> 
+  
   <span class="k">return</span> <span class="n">Ahab_coeff_dB</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_habitat_att_coeff</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_habitat_att_coeff</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">  get the habitat attenuation factor for the frequency f knowning the habitat </span>
-<span class="sd">  attenuation parameter a0 (in Neper/kHz/m)</span>
+<span class="sd">  get the habitat attenuation factor for the frequency f knowing the habitat </span>
+<span class="sd">  attenuation parameter a0 (in dB/kHz/m)</span>
 <span class="sd">  </span>
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  f: scalar or array-like</span>
 <span class="sd">      frequency in Hz</span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">      </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -593,11 +620,11 @@
   <span class="c1"># make sure it&#39;s array</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  
   
-  <span class="n">Ahab_coeff</span> <span class="o">=</span> <span class="n">a0</span><span class="o">*</span><span class="n">f</span> 
+  <span class="n">Ahab_coeff</span> <span class="o">=</span> <span class="n">_habitat_att_coeff_dB</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a0</span><span class="p">)</span> <span class="o">/</span><span class="mi">20</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
   <span class="k">return</span> <span class="n">Ahab_coeff</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_attenuation_factor</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span> <span class="nf">_attenuation_factor</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="p">:</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  get attenuation factor taking into account the geometric, atmospheric </span>
 <span class="sd">  and habitat attenuation contributions</span>
@@ -616,8 +643,8 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">  </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -650,7 +677,7 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="attenuation_dB"><a class="viewcode-back" href="../../../generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB">[docs]</a><span class="k">def</span> <span class="nf">attenuation_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">):</span>
+<div class="viewcode-block" id="attenuation_dB"><a class="viewcode-back" href="../../../generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB">[docs]</a><span class="k">def</span> <span class="nf">attenuation_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Compute the attenuation in decibels taking into account the geometric, atmospheric </span>
 <span class="sd">  and habitat attenuation contributions.</span>
@@ -669,8 +696,8 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">  </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -683,6 +710,27 @@
 <span class="sd">      into account 3 types of attenuation</span>
 <span class="sd">      rows : frequencies</span>
 <span class="sd">      columns :distances</span>
+<span class="sd">      </span>
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">  &gt;&gt;&gt; fn = np.arange(500,10500,500)</span>
+<span class="sd">  &gt;&gt;&gt; r = np.arange(10,110)</span>
+<span class="sd">  &gt;&gt;&gt; r0 = 1</span>
+<span class="sd">  &gt;&gt;&gt; Asum_dB, df_att = maad.spl.attenuation_dB(fn,r,r0)</span>
+<span class="sd">  </span>
+<span class="sd">  For 2kHz @50m, the attenuation is mainly drive by geometric attenuation</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; df_att[(df_att.f==2000) &amp; (df_att.r==50)]</span>
+<span class="sd">              f   r  Ageo_dB   Aatm_dB   Ahab_dB    Asum_dB</span>
+<span class="sd">      310  2000  50  33.9794  0.454776      1.96  36.394176</span>
+<span class="sd">  </span>
+<span class="sd">  For 10Hz @100m, the attenuation due to the atmosphere and the habitat is no</span>
+<span class="sd">  negligible</span>
+<span class="sd">      </span>
+<span class="sd">  &gt;&gt;&gt; df_att[(df_att.f==10000) &amp; (df_att.r==100)]</span>
+<span class="sd">                f   r  Ageo_dB      Aatm_dB   Ahab_dB    Asum_dB</span>
+<span class="sd">      1990  10000  100    40.0    13.335002      19.8  73.135002</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="c1"># make sure it&#39;s array</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  
@@ -720,7 +768,7 @@
           <span class="s1">&#39;Ageo_dB&#39;</span><span class="p">:</span><span class="n">Ageo_dB</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> 
           <span class="s1">&#39;Aatm_dB&#39;</span><span class="p">:</span><span class="n">Aatm_dB</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> 
           <span class="s1">&#39;Ahab_dB&#39;</span><span class="p">:</span><span class="n">Ahab_dB</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> 
-          <span class="s1">&#39;Afull_dB&#39;</span><span class="p">:</span><span class="n">Asum_dB</span><span class="o">.</span><span class="n">flatten</span><span class="p">()}</span>
+          <span class="s1">&#39;Asum_dB&#39;</span><span class="p">:</span><span class="n">Asum_dB</span><span class="o">.</span><span class="n">flatten</span><span class="p">()}</span>
   <span class="n">df_att</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> 
                                          <span class="s1">&#39;r&#39;</span><span class="p">,</span> 
                                          <span class="s1">&#39;Ageo_dB&#39;</span><span class="p">,</span> 
@@ -748,6 +796,26 @@
 <span class="sd">  L_per_bin :  array-like (vector (1D))</span>
 <span class="sd">      sound pressure level in dB with values corresponding to the frequency&#39;s </span>
 <span class="sd">      number of bins </span>
+<span class="sd">  </span>
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  Spread 80dB SPL from 2kHz to 5kHz with 1kHz step</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; maad.spl.dBSPL_per_bin(80,[2000,3000,4000,5000])</span>
+<span class="sd">  array([73.97940009, 73.97940009, 73.97940009, 73.97940009])</span>
+<span class="sd">  </span>
+<span class="sd">  Spread 80dB SPL from 2kHz to 10kHz with 1kHz step</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; maad.spl.dBSPL_per_bin(80,[2000,3000,4000,5000,6000,7000,8000,9000,10000])</span>
+<span class="sd">  array([70.45757491, 70.45757491, 70.45757491, 70.45757491, 70.45757491,</span>
+<span class="sd">       70.45757491, 70.45757491, 70.45757491, 70.45757491])</span>
+<span class="sd">  </span>
+<span class="sd">  Spread 80dB SPL from 2kHz to 5kHz with 0.5kHz step</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; maad.spl.dBSPL_per_bin(80,[2000,2500,3000,3500,4000,4500,5000])</span>
+<span class="sd">  array([71.5490196, 71.5490196, 71.5490196, 71.5490196, 71.5490196,</span>
+<span class="sd">       71.5490196, 71.5490196])  </span>
+<span class="sd">  </span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="c1"># test if f is a scalar</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="p">:</span> 
@@ -765,10 +833,11 @@
   <span class="k">return</span> <span class="n">L_per_bin</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="active_distance"><a class="viewcode-back" href="../../../generated/maad.spl.active_distance.html#maad.spl.active_distance">[docs]</a><span class="k">def</span> <span class="nf">active_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta_r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> 
-                     <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">rmax</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+<div class="viewcode-block" id="detection_distance"><a class="viewcode-back" href="../../../generated/maad.spl.detection_distance.html#maad.spl.detection_distance">[docs]</a><span class="k">def</span> <span class="nf">detection_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta_r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> 
+                     <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">rmax</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">  Compute the active distance also known as detection range or active space.</span>
+<span class="sd">  Compute the detection distance also known as detection range or detection radius</span>
+<span class="sd">  or active space.</span>
 <span class="sd">  </span>
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
@@ -788,8 +857,8 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">  rmax : scalar, optional, default is 10000</span>
 <span class="sd">      define the maximal distance that is taken into account for active distance</span>
 <span class="sd">      calculation. Default value is 10000m (i.e. 10km) which is OK for most of</span>
@@ -799,13 +868,54 @@
 <span class="sd">  -------</span>
 <span class="sd">  distance_max : scalar or array-like</span>
 <span class="sd">      maximum distance of propagation before the sound pressure level is below </span>
-<span class="sd">      the background</span>
+<span class="sd">      the ambient sound level</span>
 <span class="sd">  </span>
 <span class="sd">  Notes</span>
 <span class="sd">  -----</span>
-<span class="sd">  The maximum detection range is limited by the background or ambient sound also</span>
-<span class="sd">  called noise as this background sound prevent signal to go further is the </span>
-<span class="sd">  signal level is below the noise level.</span>
+<span class="sd">  The maximum detection range is limited by the background noise or ambient sound </span>
+<span class="sd">  also called noise. The signal is attenuated during the propagation until</span>
+<span class="sd">  the level reaches the ambient sound level, meaning that the signal could not </span>
+<span class="sd">  be disantangle from the background sound anymore.</span>
+<span class="sd">  </span>
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  Estimation of the active distance for an initial sound of 90dB SPL @2kHz </span>
+<span class="sd">  with a background noise of 50dB SPL</span>
+<span class="sd">    </span>
+<span class="sd">  &gt;&gt;&gt; f, r = maad.spl.active_distance (L_bkg=50, L0=90, f=2000) </span>
+<span class="sd">  &gt;&gt;&gt; print(&#39;Max active distance is %2.1fm&#39; %r)</span>
+<span class="sd">  Max active distance is 70.0m</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of the active distance for an initial sound of 90dB SPL @10kHz </span>
+<span class="sd">  with a background noise of 50dB SPL</span>
+<span class="sd">    </span>
+<span class="sd">  &gt;&gt;&gt; f, r = maad.spl.active_distance (L_bkg=50, L0=90, f=10000) </span>
+<span class="sd">  &gt;&gt;&gt; print(&#39;Max active distance is %2.1fm&#39; %r)</span>
+<span class="sd">  Max active distance is 32.0m</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of the active distance for an initial sound of 90dB SPL @2kHz </span>
+<span class="sd">  with a background noise of 30dB SPL</span>
+<span class="sd">    </span>
+<span class="sd">  &gt;&gt;&gt; f, r = maad.spl.active_distance (L_bkg=30, L0=90, f=2000) </span>
+<span class="sd">  &gt;&gt;&gt; print(&#39;Max active distance is %2.1fm&#39; %r)</span>
+<span class="sd">  Max active distance is 263.0m</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of the active distance for an initial sound of 90dB SPL @2kHz </span>
+<span class="sd">  with a background noise of 30dB SPL, in tropical rain forest atmosphere </span>
+<span class="sd">  (t=30, rh=99)</span>
+<span class="sd">    </span>
+<span class="sd">  &gt;&gt;&gt; f, r = maad.spl.active_distance(L_bkg=30,L0=90,f=2000,t=30,rh=99) </span>
+<span class="sd">  &gt;&gt;&gt; print(&#39;Max active distance is %2.1fm&#39; %r)</span>
+<span class="sd">  Max active distance is 247.0m</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of the active distance for an initial sound of 90dB SPL @2kHz </span>
+<span class="sd">  with a background noise of 30dB SPL, in cold dry forest atmosphere </span>
+<span class="sd">  (t=5, rh=40)</span>
+<span class="sd">    </span>
+<span class="sd">  &gt;&gt;&gt; f, r = maad.spl.active_distance(L_bkg=30,L0=90,f=2000,t=5,rh=40) </span>
+<span class="sd">  &gt;&gt;&gt; print(&#39;Max active distance is %2.1fm&#39; %r)</span>
+<span class="sd">  Max active distance is 225.0m</span>
+<span class="sd">  </span>
 <span class="sd">  &quot;&quot;&quot;</span>
     
   <span class="c1"># test if f is a scalar</span>
@@ -829,22 +939,21 @@
   
   <span class="c1"># set the distance max vector to store the result   </span>
   <span class="n">distance_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Nf</span><span class="p">)</span>
-  
-  <span class="c1"># get the initial pressure</span>
-  <span class="n">p0</span> <span class="o">=</span> <span class="n">dBSPL2pressure</span><span class="p">(</span><span class="n">L0</span><span class="p">)</span>
-  
-  <span class="c1"># get the background pressure </span>
-  <span class="n">p_bkg</span> <span class="o">=</span> <span class="n">dBSPL2pressure</span><span class="p">(</span><span class="n">L_bkg</span><span class="p">)</span>
-  
-  <span class="c1"># test for each frequency when the simulated pressure at distance r is below the background pressure</span>
-  <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nf</span><span class="p">)</span> <span class="p">:</span>
-    <span class="c1"># Get the pressure from the full attenuation model knowing the pressure p0 at r0</span>
-    <span class="n">p_simu</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">*</span> <span class="n">_attenuation_factor</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rh</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
-    <span class="c1"># distance max</span>
-    <span class="k">if</span> <span class="nb">sum</span><span class="p">((</span><span class="n">p_simu</span> <span class="o">-</span> <span class="n">p_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span><span class="mi">1</span> <span class="p">:</span>
-      <span class="n">distance_max</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">((</span><span class="n">p_simu</span> <span class="o">-</span> <span class="n">p_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])[(</span><span class="n">p_simu</span> <span class="o">-</span> <span class="n">p_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">])]</span> 
-    <span class="k">else</span> <span class="p">:</span>
-      <span class="n">distance_max</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="c1"># test for each frequency if the signal sound level at distance r is below</span>
+  <span class="c1"># the background sound level    </span>
+  <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nf</span><span class="p">)</span> <span class="p">:</span>  
+      <span class="c1"># estimate the full attenuation of the signal</span>
+      <span class="n">Asum_dB</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attenuation_dB</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rh</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
+      
+      <span class="c1"># Get the sound level after subtracting the attenuation</span>
+      <span class="n">L</span> <span class="o">=</span> <span class="n">L0</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">-</span> <span class="n">Asum_dB</span>  
+      
+      <span class="c1"># distance max that corresponds to a </span>
+      <span class="k">if</span> <span class="nb">sum</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">L_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span><span class="mi">1</span> <span class="p">:</span>
+          <span class="n">distance_max</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">L_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])[(</span><span class="n">L</span> <span class="o">-</span> <span class="n">L_bkg</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">])]</span> 
+      <span class="k">else</span> <span class="p">:</span>
+          <span class="n">distance_max</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
       
   <span class="c1"># test if f and distance_max are scalars</span>
   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -854,7 +963,7 @@
   <span class="k">return</span> <span class="n">f</span><span class="p">,</span><span class="n">distance_max</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="pressure_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0">[docs]</a><span class="k">def</span> <span class="nf">pressure_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="pressure_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0">[docs]</a><span class="k">def</span> <span class="nf">pressure_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="p">:</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the pressure p0 at distance r0 from pressure p measured at </span>
 <span class="sd">    distance r. This function takes into account the geometric, atmospheric </span>
@@ -876,15 +985,41 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">        </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
 <span class="sd">  p0 : scalar or array-like</span>
 <span class="sd">      estimated pressure at distance r0.</span>
 <span class="sd">      This is a scalar if p is a scalar or a vector if p and r are vectors or </span>
-<span class="sd">      a matrix if p, </span>
+<span class="sd">      a matrix if p and r are matrix </span>
+
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  Estimation of L0, knowing L=50dB SPL @60m @100Hz</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; p = maad.spl.dBSPL2pressure(50)</span>
+<span class="sd">  &gt;&gt;&gt; p0 = maad.spl.pressure_at_r0(100,60,p)</span>
+<span class="sd">  &gt;&gt;&gt; L0 = maad.spl.pressure2dBSPL(p0)</span>
+<span class="sd">  &gt;&gt;&gt; L0</span>
+<span class="sd">  85.68036510289447</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of L0, knowing L=50dB SPL @60m @10000Hz</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; p0 = maad.spl.pressure_at_r0(10000,100,p)</span>
+<span class="sd">  &gt;&gt;&gt; L0 = maad.spl.pressure2dBSPL(p0)</span>
+<span class="sd">  &gt;&gt;&gt; L0</span>
+<span class="sd">  120.53306313162624</span>
+<span class="sd">  </span>
+<span class="sd">  Estimation of L0, knowing L=50dB SPL @10m @100Hz</span>
+<span class="sd">  </span>
+<span class="sd">  &gt;&gt;&gt; p = maad.spl.dBSPL2pressure(50)</span>
+<span class="sd">  &gt;&gt;&gt; p0 = maad.spl.pressure_at_r0(100,10,p)</span>
+<span class="sd">  &gt;&gt;&gt; L0 = maad.spl.pressure2dBSPL(p0)</span>
+<span class="sd">  &gt;&gt;&gt; L0</span>
+<span class="sd">  70.01789933655922</span>
+<span class="sd">      </span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="c1"># if vectors, test if r and L have same length </span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">))</span> <span class="p">:</span>
@@ -918,17 +1053,11 @@
       <span class="c1"># reshape the array when dimensions are 1</span>
       <span class="k">if</span> <span class="n">p0</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span><span class="mi">1</span><span class="p">:</span>
           <span class="k">if</span> <span class="n">p0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-              <span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-         
-<span class="c1">#          else:</span>
-<span class="c1">#              p0 = p0[0][:]</span>
-<span class="c1">#          elif p0.shape[1] == 1:</span>
-<span class="c1">#              p0 = p0[:,0]</span>
-  
+              <span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
   <span class="k">return</span> <span class="n">p0</span>  </div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="dBSPL_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0">[docs]</a><span class="k">def</span> <span class="nf">dBSPL_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="dBSPL_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0">[docs]</a><span class="k">def</span> <span class="nf">dBSPL_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">)</span> <span class="p">:</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the sound pressure level L0 (dB SPL) at distance r0 from sound pressure</span>
 <span class="sd">    level L measured at distance r.</span>
@@ -953,8 +1082,8 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">        </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -973,8 +1102,8 @@
   
   <span class="k">return</span> <span class="n">L0</span>  </div>
 
-<span class="c1"># #************* apply attenuation</span>
-<div class="viewcode-block" id="apply_attenuation"><a class="viewcode-back" href="../../../generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation">[docs]</a><span class="k">def</span> <span class="nf">apply_attenuation</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.002</span><span class="p">):</span>
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="apply_attenuation"><a class="viewcode-back" href="../../../generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation">[docs]</a><span class="k">def</span> <span class="nf">apply_attenuation</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Apply attenuation of a temporal signal p0 after propagation between the </span>
 <span class="sd">  reference distance r0 and the final distance r taken into account the </span>
@@ -996,8 +1125,8 @@
 <span class="sd">      relative humidity in % </span>
 <span class="sd">  pa: scalar, optional, default is 101325</span>
 <span class="sd">      atmospheric pressure in Pa </span>
-<span class="sd">  a0 : scalar, optional, default is 0.002</span>
-<span class="sd">      attenuation coefficient of the habitat in Neper/Hz/m </span>
+<span class="sd">  a0 : scalar, optional, default is 0.02</span>
+<span class="sd">      attenuation coefficient of the habitat in dB/kHz/m </span>
 <span class="sd">  </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -1006,7 +1135,7 @@
 <span class="sd">  </span>
 <span class="sd">  Examples</span>
 <span class="sd">  --------</span>
-<span class="sd">  Prepare the spinetail sound (Sound level @1m = 80dB SPL).</span>
+<span class="sd">  Prepare the spinetail sound (Sound level @1m = 85dB SPL).</span>
 <span class="sd">  </span>
 <span class="sd">  &gt;&gt;&gt; w, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;) </span>
 <span class="sd">  &gt;&gt;&gt; p0 = maad.spl.wav2pressure(wave=w, gain=42)</span>
@@ -1020,7 +1149,7 @@
 <span class="sd">  Get the sound level of the spinetail song (sound between 4900-7500 Hz).</span>
 <span class="sd">  </span>
 <span class="sd">  &gt;&gt;&gt; p0_sig_4900_7500 = maad.sound.select_bandwidth(p0_sig,fs,fcut=[4900,7300],forder=10, ftype=&#39;bandpass&#39;)</span>
-<span class="sd">  &gt;&gt;&gt; L = maad.spl.pressure2Leq(p0_sig_4900_7500, fs) </span>
+<span class="sd">  &gt;&gt;&gt; L = maad.spl.pressure2leq(p0_sig_4900_7500, fs) </span>
 <span class="sd">  &gt;&gt;&gt; print (&#39;Sound Level measured : %2.2fdB SPL&#39; %L)</span>
 <span class="sd">  </span>
 <span class="sd">  Estimate maximum distance from the source.</span>
@@ -1031,7 +1160,7 @@
 <span class="sd">  </span>
 <span class="sd">  &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
 <span class="sd">  &gt;&gt;&gt; fig, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(1,5, sharex=True, figsize=(15,3))</span>
-<span class="sd">  &gt;&gt;&gt; maad.util.plot2D(Sxx_dB, ax=ax1, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
+<span class="sd">  &gt;&gt;&gt; maad.util.plot2d(Sxx_dB, ax=ax1, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
 
 <span class="sd">  Compute the audio attenuation at 10m.</span>
 <span class="sd">  </span>
@@ -1060,10 +1189,10 @@
 <span class="sd">    </span>
 <span class="sd">  Plot attenuated spectrogram.</span>
 <span class="sd">  </span>
-<span class="sd">  &gt;&gt;&gt; maad.util.plot2D(Sxx_dB_att_10m, ax=ax2, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
-<span class="sd">  &gt;&gt;&gt; maad.util.plot2D(Sxx_dB_att_20m, ax=ax3, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
-<span class="sd">  &gt;&gt;&gt; maad.util.plot2D(Sxx_dB_att_40m, ax=ax4, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
-<span class="sd">  &gt;&gt;&gt; maad.util.plot2D(Sxx_dB_att_80m, ax=ax5, extent=ext, vmin=0, vmax=70, figsize=[3,3])     </span>
+<span class="sd">  &gt;&gt;&gt; maad.util.plot2d(Sxx_dB_att_10m, ax=ax2, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
+<span class="sd">  &gt;&gt;&gt; maad.util.plot2d(Sxx_dB_att_20m, ax=ax3, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
+<span class="sd">  &gt;&gt;&gt; maad.util.plot2d(Sxx_dB_att_40m, ax=ax4, extent=ext, vmin=0, vmax=70, figsize=[3,3])</span>
+<span class="sd">  &gt;&gt;&gt; maad.util.plot2d(Sxx_dB_att_80m, ax=ax5, extent=ext, vmin=0, vmax=70, figsize=[3,3])     </span>
 <span class="sd">  </span>
 <span class="sd">  &quot;&quot;&quot;</span>
   
@@ -1071,7 +1200,7 @@
   <span class="n">p0_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">p0</span><span class="p">)</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p0_f</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">p0_f</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span><span class="mi">2</span>
   <span class="c1"># apply attenuation</span>
-  <span class="n">p_f</span> <span class="o">=</span> <span class="n">p0_f</span>  <span class="o">*</span> <span class="n">_attenuation_factor</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rh</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
+  <span class="n">p_f</span> <span class="o">=</span> <span class="n">p0_f</span> <span class="o">*</span> <span class="n">_attenuation_factor</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rh</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
   <span class="c1"># Go back to the time domain</span>
   <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">p_f</span><span class="p">)</span>
   <span class="c1"># keep the real part</span>
@@ -1094,7 +1223,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, scikit-maad development team.
+        &copy; Copyright 2021, scikit-maad development team
 
     </p>
   </div>

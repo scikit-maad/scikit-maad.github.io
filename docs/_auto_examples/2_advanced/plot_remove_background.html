@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remove background noise with signal processing tools &mdash; scikit-maad 1.2 documentation</title>
+  <title>Remove background noise with signal processing tools &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -105,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -117,9 +121,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +202,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="remove-background-noise-with-signal-processing-tools">
+<section class="sphx-glr-example-title" id="remove-background-noise-with-signal-processing-tools">
 <span id="sphx-glr-auto-examples-2-advanced-plot-remove-background-py"></span><h1>Remove background noise with signal processing tools<a class="headerlink" href="#remove-background-noise-with-signal-processing-tools" title="Permalink to this headline">¶</a></h1>
 <p>Environmental audio recordings usually have stationary noise that needs to be removed to
 enhance the signal to noise ratio of biological sounds.
@@ -217,7 +224,7 @@ reduction. For a more comprehensive analysis, other metrics should be use in com
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<div class="section" id="load-and-plot-the-spectrogram-of-the-original-audio-file">
+<section id="load-and-plot-the-spectrogram-of-the-original-audio-file">
 <h2>Load and plot the spectrogram of the original audio file<a class="headerlink" href="#load-and-plot-the-spectrogram-of-the-original-audio-file" title="Permalink to this headline">¶</a></h2>
 <p>First, we load the audio file and take its spectrogram.
 The linear spectrogram is then transformed into dB. The dB range is  96dB
@@ -239,8 +246,8 @@ which is the maximum dB range value for a 16bits audio recording. We add
 Original sharpness : 1.885
 </pre></div>
 </div>
-</div>
-<div class="section" id="test-different-methods-to-remove-stationary-background-noise">
+</section>
+<section id="test-different-methods-to-remove-stationary-background-noise">
 <h2>Test different methods to remove stationary background noise<a class="headerlink" href="#test-different-methods-to-remove-stationary-background-noise" title="Permalink to this headline">¶</a></h2>
 <p>Test the function “remove_background”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/timeit.html#timeit.default_timer" title="timeit.default_timer" class="sphx-glr-backref-module-timeit sphx-glr-backref-type-py-function"><span class="n">timer</span></a><span class="p">()</span>
@@ -332,8 +339,8 @@ sharpness : 0.984
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

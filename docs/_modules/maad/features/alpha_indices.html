@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.alpha_indices &mdash; scikit-maad 1.2 documentation</title>
+  <title>maad.features.alpha_indices &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -89,13 +92,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
@@ -103,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -177,7 +180,7 @@
 <span class="sd">Collection of functions to compute alpha acoustic indices to chracterise audio signals.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1">#</span>
-<span class="c1"># Authors:  Juan Sebastian ULLOA &lt;lisofomia@gmail.com&gt;</span>
+<span class="c1"># Authors:  Juan Sebastian ULLOA &lt;jseb.ulloa@gmail.com&gt;</span>
 <span class="c1">#           Sylvain HAUPERT &lt;sylvain.haupert@mnhn.fr&gt;        </span>
 <span class="c1">#</span>
 <span class="c1"># License: New BSD License</span>
@@ -218,7 +221,7 @@
 <span class="c1"># =============================================================================</span>
 <span class="k">def</span> <span class="nf">_acoustic_activity</span> <span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Acoustic Activity [1]_:</span>
+<span class="sd">    Acoustic Activity [1]_ [2]_:</span>
 <span class="sd">    </span>
 <span class="sd">    for each frequency bin :</span>
 <span class="sd">    - ACTfract : proportion (fraction) of points above the threshold </span>
@@ -247,9 +250,9 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived </span>
-<span class="sd">    from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane. https://eprints.qut.edu.au/61399/4/61399.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    ACTsp [Towsey] : ACTfract (proportion (fraction) of point value above the theshold)</span>
 <span class="sd">    EVNsp [Towsey] : ACTcount (number of point value above the theshold)</span>
 <span class="sd">    &quot;&quot;&quot;</span> 
@@ -267,7 +270,7 @@
 <span class="c1">#%%    </span>
 <span class="k">def</span> <span class="nf">_acoustic_events</span><span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Acoustic events [1]_ :</span>
+<span class="sd">    Acoustic events [1]_ [2]_:</span>
 <span class="sd">        - EVNsum : total events duration (s) </span>
 <span class="sd">        - EVNmean : mean events duration (s)</span>
 <span class="sd">        - EVNcount : number of events per s</span>
@@ -303,9 +306,9 @@
 
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1]  Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms </span>
-<span class="sd">            Derived from Natural Recordings of the Environment. </span>
-<span class="sd">            Queensland University of Technology, Brisbane.</span>
+<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane. https://eprints.qut.edu.au/61399/4/61399.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="c1"># total duration</span>
     <span class="k">if</span> <span class="n">xdB</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span> <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xdB</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
@@ -453,7 +456,7 @@
 <span class="c1">#%%</span>
 <span class="k">def</span> <span class="nf">_raoQ</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute Rao&#39;s Quadratic entropy in 1d</span>
+<span class="sd">    Compute Rao&#39;s Quadratic entropy in 1d [1]_</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ---------</span>
@@ -469,8 +472,7 @@
 <span class="sd">    </span>
 <span class="sd">    Reference:</span>
 <span class="sd">    ---------</span>
-<span class="sd">    .. [1] Botta-Dukát, Zoltán, Rao’s quadratic entropy as a measure of functional </span>
-<span class="sd">    diversity based on multiple traits, Journal of Vegetation Science, 2005</span>
+<span class="sd">    .. [1] Botta-Dukát, Zoltán, Rao’s quadratic entropy as a measure of functional diversity based on multiple traits, Journal of Vegetation Science, 2005. `DOI: 10.1111/j.1654-1103.2005.tb02393.x &lt;https://doi.org/10.1111/j.1654-1103.2005.tb02393.x&gt;`_ </span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
@@ -571,7 +573,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the roughness (depends on the number of peaks and their amplitude)</span>
 <span class="sd">    of a vector or matrix x (i.e. waveform, spectrogram...)   </span>
-<span class="sd">    Roughness = sum(second_derivation(x)²)</span>
+<span class="sd">    Roughness = sum(second_derivation(x)²) [1]_ [2]_</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -596,8 +598,8 @@
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    Described in [Ramsay JO, Silverman BW (2005) Functional data analysis.]</span>
-<span class="sd">    Ported from SEEWAVE R Package</span>
+<span class="sd">    .. [1] Described in Ramsay, J. O., &amp; Silverman, B. W. (2005). Principal components analysis for functional data. Functional data analysis, 147-172. https://link.springer.com/content/pdf/10.1007/0-387-22751-2_8.pdf</span>
+<span class="sd">    .. [2] Ported from SEEWAVE R Package http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. `DOI: 10.1080/09524622.2008.9753600 &lt;https://doi.org/10.1080/09524622.2008.9753600&gt;`_ </span>
 <span class="sd">    &quot;&quot;&quot;</span>      
     
     <span class="k">if</span> <span class="n">norm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -688,8 +690,7 @@
 <span class="sd">       </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Seewave : http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226.</span>
-<span class="sd">     </span>
+<span class="sd">    .. [1] Seewave : http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. `DOI: 10.1080/09524622.2008.9753600 &lt;https://doi.org/10.1080/09524622.2008.9753600&gt;`_ </span>
 <span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
 <span class="sd">    </span>
 <span class="sd">    Notes</span>
@@ -724,8 +725,8 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic richness index of an audio file. </span>
 <span class="sd">    </span>
-<span class="sd">    This acoustic index was first described in [1]_. The present version was </span>
-<span class="sd">    translated from the R software package Seewave [2]_.</span>
+<span class="sd">    This acoustic index was first described in [1]_. </span>
+<span class="sd">    The present version was ported from the R package Seewave [2]_.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -741,8 +742,8 @@
 <span class="sd">        </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Depraetere, M., Pavoine, S., Jiguet, F., Gasc, A., Duvail, S., &amp; Sueur, J. (2012). Monitoring animal diversity using acoustic indices: Implementation in a temperate woodland. Ecological Indicators, 13, 46–54.</span>
-<span class="sd">    .. [2] Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave: A free modular tool for sound analysis and synthesis. Bioacoustics, 18, 213–226.</span>
+<span class="sd">    .. [1] Depraetere, M., Pavoine, S., Jiguet, F., Gasc, A., Duvail, S., &amp; Sueur, J. (2012). Monitoring animal diversity using acoustic indices: Implementation in a temperate woodland. Ecological Indicators, 13, 46–54. `DOI: 10.1016/j.ecolind.2011.05.006 &lt;https://doi.org/10.1016/j.ecolind.2011.05.006&gt;`_ </span>
+<span class="sd">    .. [2] Seewave : http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. `DOI: 10.1080/09524622.2008.9753600 &lt;https://doi.org/10.1080/09524622.2008.9753600&gt;`_ </span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -777,7 +778,7 @@
 <span class="sd">    Compute the acoustic activity index in temporal domain.</span>
 <span class="sd">    </span>
 <span class="sd">    Acoustic activity corresponds to the portion of the waveform above a </span>
-<span class="sd">    threshold [1]_</span>
+<span class="sd">    threshold [1]_ [2]_</span>
 <span class="sd">    </span>
 <span class="sd">    Three values are computed with this function:</span>
 <span class="sd">    </span>
@@ -813,8 +814,9 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane. https://eprints.qut.edu.au/61399/4/61399.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;)</span>
@@ -850,7 +852,7 @@
 <div class="viewcode-block" id="temporal_events"><a class="viewcode-back" href="../../../generated/maad.features.temporal_events.html#maad.features.temporal_events">[docs]</a><span class="k">def</span> <span class="nf">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute the acoustic event index from an audio signal.</span>
+<span class="sd">    Compute the acoustic event index from an audio signal [1]_ [2]_.</span>
 <span class="sd">    </span>
 <span class="sd">    An acoustic event corresponds to the period of the signal above a </span>
 <span class="sd">    threshold. An acoustic event could be short (at list one point if </span>
@@ -909,8 +911,9 @@
 
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane. https://eprints.qut.edu.au/61399/4/61399.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;)</span>
@@ -989,10 +992,9 @@
 <span class="sd">       </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Seewave : http://rug.mnhn.fr/seewave/. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226.</span>
-<span class="sd">     </span>
-<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis/. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] Seewave : http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. `DOI: 10.1080/09524622.2008.9753600 &lt;https://doi.org/10.1080/09524622.2008.9753600&gt;`_ </span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+<span class="sd">  </span>
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    The spectral entropy of a signal measures the energy dispersion along frequencies. Low values </span>
@@ -1047,9 +1049,10 @@
 
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="number_of_peaks"><a class="viewcode-back" href="../../../generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks">[docs]</a><span class="k">def</span> <span class="nf">number_of_peaks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;dB&#39;</span><span class="p">,</span> <span class="n">min_peak_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_freq_dist</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
-                  <span class="n">slopes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                  <span class="n">slopes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Count the number of frequency peaks on a mean spectrum.</span>
+<span class="sd">    Count the number of frequency peaks on a mean spectrum. [1]_ </span>
+<span class="sd">    This function was adapted from the function fpeaks of the R package Seewave [2]_</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1073,6 +1076,10 @@
 <span class="sd">        Refers to the amplitude slopes of the peak. </span>
 <span class="sd">        The first value is the left slope and the second value is the right slope. </span>
 <span class="sd">        Only peaks with higher slopes than threshold values will be kept. </span>
+<span class="sd">    prominence : number, ndarray or sequence, optional, default is None</span>
+<span class="sd">        Prominence of peaks. The first element is the minimal prominence and the</span>
+<span class="sd">        second element is the maximal prominence. If a single number is provided</span>
+<span class="sd">        it is interpreted as the minimal value, and no maximial value will be used.</span>
 <span class="sd">    display: boolean, optional, default is False</span>
 <span class="sd">        if True, display the mean spectrum with the detected peaks</span>
 <span class="sd">        </span>
@@ -1083,8 +1090,8 @@
 <span class="sd">    </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Gasc, A. &amp; al (2013). Biodiversity sampling using a global acoustic approach: contrasting sites with microendemics in New Caledonia. PloS one, 8(5), e65311. Inspired by the function `fpeaks` from the R package Seewave.</span>
-<span class="sd">    .. [2] Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave: A free modular tool for sound analysis and synthesis. Bioacoustics, 18, 213–226.</span>
+<span class="sd">    .. [1] Gasc, A. &amp; al (2013). Biodiversity sampling using a global acoustic approach: contrasting sites with microendemics in New Caledonia. PloS one, 8(5), e65311. `DOI: 10.1371/journal.pone.0065311 &lt;https://doi.org/10.1371/journal.pone.0065311&gt;`_ </span>
+<span class="sd">    .. [2] Seewave : http://rug.mnhn.fr/seewave. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. `DOI: 10.1080/09524622.2008.9753600 &lt;https://doi.org/10.1080/09524622.2008.9753600&gt;`_ </span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1112,7 +1119,7 @@
     <span class="n">min_pix_distance</span> <span class="o">=</span> <span class="n">min_freq_dist</span><span class="o">/</span><span class="p">(</span><span class="n">fn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fn</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">index</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">min_peak_val</span><span class="p">,</span> 
                              <span class="n">distance</span> <span class="o">=</span> <span class="n">min_pix_distance</span><span class="p">,</span> 
-                             <span class="n">prominence</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                             <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="p">)</span>
     
     <span class="c1"># keep peaks with with slopes higher than the limit</span>
     <span class="k">if</span> <span class="n">slopes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
@@ -1164,7 +1171,7 @@
 <div class="viewcode-block" id="spectral_entropy"><a class="viewcode-back" href="../../../generated/maad.features.spectral_entropy.html#maad.features.spectral_entropy">[docs]</a><span class="k">def</span> <span class="nf">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute different entropies based on the average spectrum, its variance, </span>
-<span class="sd">    and its maxima [1]_     </span>
+<span class="sd">    and its maxima [1]_ [2]_    </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1200,8 +1207,9 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Credit : Towsey 2017</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] TOWSEY, Michael W. The calculation of acoustic indices derived from long-duration recordings of the natural environment. 2017. https://eprints.qut.edu.au/110634/1/QUTePrints110634_TechReport_Towsey2017August_AcousticIndices%20v3.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;)</span>
@@ -1224,7 +1232,7 @@
     <span class="c1"># force Sxx to be an ndarray</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Sxx</span><span class="p">)</span>
 
-    <span class="c1"># TOWSEY &amp; BUXTON : only on the bio band</span>
+    <span class="c1"># TOWSEY : only on the bio band</span>
     <span class="c1"># EAS [TOWSEY] #</span>
     <span class="c1">####  COMMENT : Result a bit different due to different Hilbert implementation</span>
     <span class="n">X_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">iBAND</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1286,7 +1294,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the proportion (cover) of the spectrogram above a threshold for </span>
 <span class="sd">    three bandwidths : low frequency band (LF), medium frequency band (MF) and </span>
-<span class="sd">    high frequency band (HF).  </span>
+<span class="sd">    high frequency band (HF) [1]_ [2]_.  </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1319,8 +1327,9 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] TOWSEY, Michael W. The calculation of acoustic indices derived from long-duration recordings of the natural environment. 2017. https://eprints.qut.edu.au/110634/1/QUTePrints110634_TechReport_Towsey2017August_AcousticIndices%20v3.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;)</span>
@@ -1358,7 +1367,7 @@
 <span class="sd">    Compute the acoustic activity on a spectrogram.</span>
 <span class="sd">    </span>
 <span class="sd">    Acoustic activity corresponds to the portion of the spectrogram above a </span>
-<span class="sd">    threshold frequency per frequency along time axis [1]_</span>
+<span class="sd">    threshold frequency per frequency along time axis [1]_ [2]_</span>
 <span class="sd">    </span>
 <span class="sd">    The function computes for each frequency bin:</span>
 <span class="sd">        </span>
@@ -1386,8 +1395,9 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] TOWSEY, Michael W. The calculation of acoustic indices derived from long-duration recordings of the natural environment. 2017. https://eprints.qut.edu.au/110634/1/QUTePrints110634_TechReport_Towsey2017August_AcousticIndices%20v3.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
@@ -1413,7 +1423,7 @@
 <div class="viewcode-block" id="spectral_events"><a class="viewcode-back" href="../../../generated/maad.features.spectral_events.html#maad.features.spectral_events">[docs]</a><span class="k">def</span> <span class="nf">spectral_events</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute acoustic events from a spectrogram [1]_.</span>
+<span class="sd">    Compute acoustic events from a spectrogram [1]_ [2]_.</span>
 <span class="sd">    </span>
 <span class="sd">    An acoustic event corresponds to the period of the signal above a </span>
 <span class="sd">    threshold. An acoustic event could be short (at list one point if </span>
@@ -1462,8 +1472,9 @@
 
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</span>
-<span class="sd">    </span>
+<span class="sd">    .. [1] TOWSEY, Michael W. The calculation of acoustic indices derived from long-duration recordings of the natural environment. 2017. https://eprints.qut.edu.au/110634/1/QUTePrints110634_TechReport_Towsey2017August_AcousticIndices%20v3.pdf</span>
+<span class="sd">    .. [2] QUT : https://github.com/QutEcoacoustics/audio-analysis. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. http://doi.org/10.5281/zenodo.1188744</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
@@ -1560,7 +1571,7 @@
 <span class="sd">        </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Pieretti N, Farina A, Morri FD (2011) A new methodology to infer the singing activity of an avian community: the Acoustic Complexity Index (ACI). Ecological Indicators, 11, 868-873.</span>
+<span class="sd">    .. [1] Pieretti N, Farina A, Morri FD (2011) A new methodology to infer the singing activity of an avian community: the Acoustic Complexity Index (ACI). Ecological Indicators, 11, 868-873. `DOI: 10.1016/j.ecolind.2010.11.005 &lt;https://doi.org/10.1016/j.ecolind.2010.11.005&gt;`_ </span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1627,7 +1638,7 @@
 <span class="sd">    </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.</span>
+<span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;https://doi.org/10.1007/s10980-011-9636-9&gt;`_ </span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1643,7 +1654,9 @@
     <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">fmax</span><span class="o">-</span><span class="n">fmin</span><span class="p">)</span><span class="o">/</span><span class="n">bin_step</span><span class="p">)</span>
     
     <span class="c1"># convert into dB and normalization by the max</span>
-    <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">amplitude2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">Sxx</span><span class="p">))</span>       
+    <span class="c1"># add -3dB to obtain the same result as R package soundecology</span>
+    <span class="c1"># (this is probably due to an error in calculating the spectrogram in R)</span>
+    <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">amplitude2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">Sxx</span><span class="p">))</span> <span class="o">-</span><span class="mi">3</span>   
     
     <span class="c1"># Score for each frequency in the frequency bandwith</span>
     <span class="n">s_sum</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1712,7 +1725,7 @@
 <span class="sd">        </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.</span>
+<span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;https://doi.org/10.1007/s10980-011-9636-9&gt;`_ </span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1728,7 +1741,9 @@
     <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">fmax</span><span class="o">-</span><span class="n">fmin</span><span class="p">)</span><span class="o">/</span><span class="n">bin_step</span><span class="p">)</span>
     
     <span class="c1"># convert into dB and normalization by the max</span>
-    <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">amplitude2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">Sxx</span><span class="p">))</span>
+    <span class="c1"># add -3dB to obtain the same result as R package soundecology</span>
+    <span class="c1"># (this is probably due to an error in calculating the spectrogram in R)</span>
+    <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">amplitude2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">Sxx</span><span class="p">))</span> <span class="o">-</span><span class="mi">3</span>
  
     <span class="c1"># Score for each frequency in the frequency bandwith</span>
     <span class="n">s_sum</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1784,9 +1799,9 @@
 <span class="sd">    </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Kasten, Eric P., Stuart H. Gage, Jordan Fox, and Wooyeong Joo. 2012. The Remote Environmental Assessment Laboratory&#39;s Acoustic Library: An Archive for Studying Soundscape Ecology. Ecological Informatics 12: 50-67.</span>
+<span class="sd">    .. [1] Kasten, Eric P., Stuart H. Gage, Jordan Fox, and Wooyeong Joo. 2012. The Remote Environmental Assessment Laboratory&#39;s Acoustic Library: An Archive for Studying Soundscape Ecology. Ecological Informatics 12: 50-67. `DOI: 10.1016/j.ecoinf.2012.08.001 &lt;https://doi.org/10.1016/j.ecoinf.2012.08.001&gt;`_ https://doi.org/10.1016/j.ecoinf.2012.08.001</span>
 <span class="sd">    </span>
-<span class="sd">    Inspired by Seewave and soundecology R packages.</span>
+<span class="sd">    Ported from Seewave (http://rug.mnhn.fr/seewave) and soundecology R packages (cran.ms.unimelb.edu.au/web/packages/soundecology/soundecology.pdf).</span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1852,14 +1867,15 @@
 <span class="sd">    </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Boelman NT, Asner GP, Hart PJ, Martin RE. 2007. Multi-trophic invasion resistance in Hawaii: bioacoustics, field surveys, and airborne remote sensing. Ecological Applications 17: 2137-2144. Ported and modified from the soundecology R package.</span>
+<span class="sd">    .. [1] Boelman NT, Asner GP, Hart PJ, Martin RE. 2007. Multi-trophic invasion resistance in Hawaii: bioacoustics, field surveys, and airborne remote sensing. Ecological Applications 17: 2137-2144. `DOI: 10.1890/07-0004.1 &lt;https://doi.org/10.1890/07-0004.1&gt;`_ </span>
+<span class="sd">    .. [2] Ported and modified from the soundecology R package - cran.ms.unimelb.edu.au/web/packages/soundecology/soundecology.pdf.</span>
 <span class="sd">    </span>
 <span class="sd">    Notes</span>
 <span class="sd">    -----    </span>
 <span class="sd">    Soundecology compatible version:</span>
-<span class="sd">        - average of dB value</span>
-<span class="sd">        - remove negative value in order to get positive values only</span>
-<span class="sd">        - dividing by the frequency resolution df instead of multiplication</span>
+<span class="sd">    * Average of dB value</span>
+<span class="sd">    * Remove negative value in order to get positive values only</span>
+<span class="sd">    * Dividing by the frequency resolution df instead of multiplication</span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1871,6 +1887,7 @@
 <span class="sd">    &gt;&gt;&gt; BI  = maad.features.bioacoustics_index(Sxx,fn,R_compatible=None)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;BI MAAD: %2.2f &#39; %BI)</span>
 <span class="sd">    BI MAAD : 17.05</span>
+<span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     
     <span class="c1"># select the indices corresponding to the frequency bins range</span>
@@ -2015,7 +2032,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the entropy of an audio signal using multiple methods.</span>
 <span class="sd">    </span>
-<span class="sd">    There are currently five types supported:</span>
+<span class="sd">    There are currently five types supported: [1]_</span>
 <span class="sd">        - Havrda</span>
 <span class="sd">        - Renyi</span>
 <span class="sd">        - paired Shannon</span>
@@ -2050,9 +2067,7 @@
 <span class="sd">        </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
-<span class="sd">    1. Zhao, Yueqin. &quot;Rao&#39;s Quadratic Entropy and Some New Applications&quot; (2010). </span>
-<span class="sd">    Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, </span>
-<span class="sd">    Old Dominion University, DOI: 10.25777/qgak-sf09</span>
+<span class="sd">    .. [1] Zhao, Yueqin. &quot;Rao&#39;s Quadratic Entropy and Some New Applications&quot; (2010). Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, Old Dominion University. `DOI: 10.25777/qgak-sf09 &lt;https://doi.org/10.25777/qgak-sf09&gt;`_</span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -2108,7 +2123,7 @@
 
 <div class="viewcode-block" id="frequency_raoq"><a class="viewcode-back" href="../../../generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq">[docs]</a><span class="k">def</span> <span class="nf">frequency_raoq</span> <span class="p">(</span><span class="n">S_power</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute Rao&#39;s quadratic entropy on a power spectrum (1d).</span>
+<span class="sd">    Compute Rao&#39;s quadratic entropy on a power spectrum (1d). [1]_</span>
 <span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2126,9 +2141,8 @@
 <span class="sd">        </span>
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
+<span class="sd">    .. [1] Zhao, Yueqin. &quot;Rao&#39;s Quadratic Entropy and Some New Applications&quot; (2010). Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, Old Dominion University. `DOI: 10.25777/qgak-sf09 &lt;https://doi.org/10.25777/qgak-sf09&gt;`_</span>
 <span class="sd">    </span>
-<span class="sd">    1. Zhao, Yueqin. &quot;Rao&#39;s Quadratic Entropy and Some New Applications&quot; (2010). Doctor of Philosophy (PhD) dissertation, Mathematics and Statistics, Old Dominion University, DOI: 10.25777/qgak-sf09</span>
-
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;)</span>
@@ -2155,7 +2169,7 @@
 
 <div class="viewcode-block" id="tfsd"><a class="viewcode-back" href="../../../generated/maad.features.tfsd.html#maad.features.tfsd">[docs]</a><span class="k">def</span> <span class="nf">tfsd</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;thirdOctave&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute the Time frequency derivation index (tfsd) from a spectrogram.</span>
+<span class="sd">    Compute the Time frequency derivation index (tfsd) from a spectrogram. [1]_ [2]_</span>
 <span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2188,8 +2202,8 @@
 <span class="sd">       </span>
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
-<span class="sd">    .. [1] Aumond, P., Can, A., De Coensel, B., Botteldooren, D., Ribeiro, C., &amp; Lavandier, C. (2017). Modeling soundscape pleasantness using perceptual assessments and acoustic measurements along paths in urban context. Acta Acustica united with Acustica,</span>
-<span class="sd">    .. [2] Gontier, F., Lavandier, C., Aumond, P., Lagrange, M., &amp; Petiot, J. F. (2019). Estimation of the perceived time of presence of sources in urban acoustic environments using deep learning techniques. Acta Acustica united with Acustica.</span>
+<span class="sd">    .. [1] Aumond, P., Can, A., De Coensel, B., Botteldooren, D., Ribeiro, C., &amp; Lavandier, C. (2017). Modeling soundscape pleasantness using perceptual assessments and acoustic measurements along paths in urban context. Acta Acustica united with Acustica. `DOI: 10.3813/AAA.919073 &lt;https://doi.org/10.3813/AAA.919073&gt;`_ </span>
+<span class="sd">    .. [2] Gontier, F., Lavandier, C., Aumond, P., Lagrange, M., &amp; Petiot, J. F. (2019). Estimation of the perceived time of presence of sources in urban acoustic environments using deep learning techniques. Acta Acustica united with Acustica.`DOI: 10.3813/AAA.919384 &lt;https://doi.org/10.3813/AAA.919384&gt;`_</span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -2382,15 +2396,17 @@
 <span class="c1">#=============================================================================</span>
 
 <div class="viewcode-block" id="region_of_interest_index"><a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index">[docs]</a><span class="k">def</span> <span class="nf">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
-                          <span class="n">smooth_param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mask_mode</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
-                          <span class="n">mask_param1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">mask_param2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
-                          <span class="n">min_roi</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">max_roi</span><span class="o">=</span><span class="mi">512</span><span class="o">*</span><span class="mi">10000</span><span class="p">,</span> 
-                          <span class="n">remove_rain</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-                          <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                             <span class="n">smooth_param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mask_mode</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
+                             <span class="n">mask_param1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">mask_param2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                             <span class="n">min_roi</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">max_roi</span><span class="o">=</span><span class="mi">512</span><span class="o">*</span><span class="mi">10000</span><span class="p">,</span> 
+                             <span class="n">remove_rain</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                             <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute an acoustic activity index based on the regions of interested detected on a spectrogram.</span>
+<span class="sd">    Compute an acoustic activity index based on the regions of interested </span>
+<span class="sd">    detected on a spectrogram.</span>
 <span class="sd">    </span>
-<span class="sd">    The function first find regions of interest (ROI) and then compute the number and cover area </span>
+<span class="sd">    The function first find regions of interest (ROI) and then compute the number</span>
+<span class="sd">    or ROIs and the cover area of these ROIS</span>
 <span class="sd">    on the spectrogram.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -2463,7 +2479,7 @@
 
     <span class="c1"># Smooth the spectrogram in order to facilitate the creation of masks</span>
     <span class="n">Sxx_dB_noNoise_smooth</span> <span class="o">=</span> <span class="n">smooth</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">smooth_param1</span><span class="p">,</span> 
-                         <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> 
+                                   <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> 
     <span class="c1"># binarization of the spectrogram to select part of the spectrogram with </span>
     <span class="c1"># acoustic activity</span>
     <span class="k">if</span> <span class="n">mask_mode</span> <span class="o">==</span> <span class="s1">&#39;relative&#39;</span> <span class="p">:</span>
@@ -2481,7 +2497,9 @@
             
     <span class="c1"># get the mask with rois (im_rois) and the bounding box for each rois (rois_bbox) </span>
     <span class="c1"># and an unique index for each rois =&gt; in the pandas dataframe rois</span>
-    <span class="n">im_rois</span><span class="p">,</span> <span class="n">rois</span>  <span class="o">=</span> <span class="n">select_rois</span><span class="p">(</span><span class="n">im_mask</span><span class="p">,</span><span class="n">min_roi</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> 
+    <span class="n">im_rois</span><span class="p">,</span> <span class="n">rois</span>  <span class="o">=</span> <span class="n">select_rois</span><span class="p">(</span><span class="n">im_mask</span><span class="p">,</span>
+                                 <span class="n">min_roi</span><span class="o">=</span><span class="n">min_roi</span><span class="p">,</span> 
+                                 <span class="n">max_roi</span><span class="o">=</span><span class="n">max_roi</span><span class="p">,</span>
                                  <span class="n">display</span><span class="o">=</span> <span class="n">display</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="c1">##### Extract centroids features of each roi from the spectrogram in dB without noise </span>
@@ -2494,15 +2512,6 @@
         <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X</span><span class="p">)})</span>
         <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X</span><span class="p">)})</span>
         <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
- 
-<span class="c1">#        dpi= 96</span>
-<span class="c1">#        bbox_inches= &#39;tight&#39;</span>
-<span class="c1">#        format=&#39;png&#39;</span>
-<span class="c1">#        savefilename=&#39;_spectrogram_bounding_box&#39;</span>
-<span class="c1">#        filename = savefile+savefilename+&#39;.&#39;+format</span>
-<span class="c1">#        print(&#39;\n&#39;&#39;save figure : %s&#39; %filename)</span>
-<span class="c1">#        fig20.savefig(fname=filename, dpi=dpi, bbox_inches=bbox_inches,</span>
-<span class="c1">#                    format=format)  </span>
 
     <span class="c1">#ROItotal</span>
     <span class="n">ROItotal</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">centroid</span><span class="p">)</span>

@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.sound.input_output &mdash; scikit-maad 1.2 documentation</title>
+  <title>maad.sound.input_output &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -89,13 +92,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
@@ -103,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -186,6 +189,7 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
 <span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span> 
@@ -474,7 +478,7 @@
      
     <span class="k">return</span> <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">extent</span> </div>
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../generated/maad.sound.write.html#maad.sound.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../generated/maad.sound.write.html#maad.sound.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">bit_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write a NumPy array as a WAV file with the Scipy method. [1]_ </span>
 
@@ -486,6 +490,10 @@
 <span class="sd">        Sample rate (samples/sec).</span>
 <span class="sd">    data : ndarray</span>
 <span class="sd">        Mono or stereo signal as NumPy array.</span>
+<span class="sd">    bit_depth: int</span>
+<span class="sd">        Specifies the bit depth format of the audio recording.</span>
+<span class="sd">        Should be one of 8, 16 or 32. If None, bit depth will be determined from</span>
+<span class="sd">        the Numpy data type. See section Common data types.</span>
 <span class="sd">        </span>
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -527,15 +535,39 @@
 <span class="sd">    &gt;&gt;&gt; data = np.sin(2. * np.pi * 440. *t)</span>
 <span class="sd">    &gt;&gt;&gt; maad.sound.write(&#39;example.wav&#39;, fs, data)</span>
 <span class="sd">    </span>
-<span class="sd">    Open an audio file, filter a frequency band and write to disk.</span>
+<span class="sd">    Open an audio file, filter a frequency band and write to disk specifying the bit depth.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; from maad import sound</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; s_filt = sound.sinc(s, (3000, 10000), fs)</span>
-<span class="sd">    &gt;&gt;&gt; sound.write(&#39;spinetail_filtered.wav&#39;, fs, s_filt)</span>
+<span class="sd">    &gt;&gt;&gt; sound.write(&#39;spinetail_filtered.wav&#39;, fs, s_filt, bit_depth=16)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;float32&#39;</span><span class="p">):</span>
+        <span class="c1"># Check that the array has values between -1 and 1</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Values should be between [-1, 1]. Clipping signal.&#39;</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">&lt;-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="c1"># Convert to desired bit depth</span>
+        <span class="k">if</span> <span class="n">bit_depth</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># change range to postive [0,2]</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span> <span class="o">*</span> <span class="mi">127</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">bit_depth</span> <span class="o">==</span> <span class="mi">16</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">bit_depth</span> <span class="o">==</span> <span class="mi">32</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span> <span class="o">*</span> <span class="mi">2147483647</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Values for bit depth should be 8, 16 or 32. Argument ignored.&#39;</span><span class="p">)</span>
+            <span class="k">pass</span>
+        
     <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span>
+    
     <span class="n">write_wav</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asfortranarray</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
     
 <span class="c1">#%%</span>

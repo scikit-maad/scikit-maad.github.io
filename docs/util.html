@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Utilities &mdash; scikit-maad 1.2 documentation</title>
+  <title>Utilities &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -39,7 +43,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="maad.util.rand_cmap" href="generated/maad.util.rand_cmap.html" />
-    <link rel="prev" title="maad.spl.psd2leq" href="generated/maad.spl.psd2leq.html" /> 
+    <link rel="prev" title="maad.spl.apply_attenuation" href="generated/maad.spl.apply_attenuation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rois.html">Segmentation methods</a></li>
@@ -157,10 +161,17 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.crossfade_list.html">maad.util.crossfade_list</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#xeno-canto">Xeno-Canto</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_query.html">maad.util.xc_query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_multi_query.html">maad.util.xc_multi_query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_selection.html">maad.util.xc_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_download.html">maad.util.xc_download</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -228,10 +239,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-maad.util"></span><div class="section" id="utilities">
+  <span class="target" id="module-maad.util"></span><section id="utilities">
 <h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">utils</span></code> has a handfull of useful set of tools used in the audio analysis framework.</p>
-<div class="section" id="visualization">
+<section id="visualization">
 <h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -239,7 +250,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.rand_cmap.html#maad.util.rand_cmap" title="maad.util.rand_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_cmap</span></code></a>(nlabels[, type, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.rand_cmap.html#maad.util.rand_cmap" title="maad.util.rand_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_cmap</span></code></a>(nlabels[, type, ...])</p></td>
 <td><p>Creates a random colormap to be used together with matplotlib.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.crop_image.html#maad.util.crop_image" title="maad.util.crop_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crop_image</span></code></a>(im, tn, fn[, fcrop, tcrop])</p></td>
@@ -254,16 +265,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.plot_wave.html#maad.util.plot_wave" title="maad.util.plot_wave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_wave</span></code></a>(s, fs[, tlims, ax])</p></td>
 <td><p>Plot audio waveform.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_spectrum.html#maad.util.plot_spectrum" title="maad.util.plot_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrum</span></code></a>(pxx, f_idx[, ax, flims, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_spectrum.html#maad.util.plot_spectrum" title="maad.util.plot_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrum</span></code></a>(pxx, f_idx[, ax, flims, ...])</p></td>
 <td><p>Plot power spectral density estimate (PSD).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.plot2d.html#maad.util.plot2d" title="maad.util.plot2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d</span></code></a>(im[, ax, colorbar])</p></td>
 <td><p>Display the spectrogram of an audio signal.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_spectrogram.html#maad.util.plot_spectrogram" title="maad.util.plot_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrogram</span></code></a>(Sxx, extent[, db_range, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_spectrogram.html#maad.util.plot_spectrogram" title="maad.util.plot_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrogram</span></code></a>(Sxx, extent[, db_range, ...])</p></td>
 <td><p>Plot spectrogram represenation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.overlay_rois.html#maad.util.overlay_rois" title="maad.util.overlay_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_rois</span></code></a>(im_ref, rois[, savefig])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.overlay_rois.html#maad.util.overlay_rois" title="maad.util.overlay_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_rois</span></code></a>(im_ref, rois[, textbox_label, ...])</p></td>
 <td><p>Display bounding boxes with time-frequency regions of interest over a spectrogram.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.overlay_centroid.html#maad.util.overlay_centroid" title="maad.util.overlay_centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_centroid</span></code></a>(im_ref, centroid[, savefig])</p></td>
@@ -278,16 +289,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.plot_correlation_map.html#maad.util.plot_correlation_map" title="maad.util.plot_correlation_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_correlation_map</span></code></a>(df[, R_threshold, method])</p></td>
 <td><p>Plot the correlation map between indices in the DataFrame obtained with <code class="docutils literal notranslate"><span class="pre">maad</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_shape.html#maad.util.plot_shape" title="maad.util.plot_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_shape</span></code></a>(shape, params[, row, display_values])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_shape.html#maad.util.plot_shape" title="maad.util.plot_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_shape</span></code></a>(shape, params[, row, ax, ...])</p></td>
 <td><p>Plot shape features in a bidimensional plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.false_Color_Spectro.html#maad.util.false_Color_Spectro" title="maad.util.false_Color_Spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">false_Color_Spectro</span></code></a>(df[, indices, plim, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.false_Color_Spectro.html#maad.util.false_Color_Spectro" title="maad.util.false_Color_Spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">false_Color_Spectro</span></code></a>(df[, indices, plim, ...])</p></td>
 <td><p>Create False Color Spectrogram from indices obtained by MAAD.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="mathematical">
+</section>
+<section id="mathematical">
 <h2>Mathematical<a class="headerlink" href="#mathematical" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -318,8 +329,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="parser">
+</section>
+<section id="parser">
 <h2>Parser<a class="headerlink" href="#parser" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -333,13 +344,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.write_audacity_annot.html#maad.util.write_audacity_annot" title="maad.util.write_audacity_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_audacity_annot</span></code></a>(fname, df_rois)</p></td>
 <td><p>Write audio segmentation to file (Audacity format).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.date_parser.html#maad.util.date_parser" title="maad.util.date_parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">date_parser</span></code></a>(datadir[, dateformat, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.date_parser.html#maad.util.date_parser" title="maad.util.date_parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">date_parser</span></code></a>(datadir[, dateformat, ...])</p></td>
 <td><p>Parse all filenames contained in a directory and its subdirectories.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="miscellaneous">
+</section>
+<section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -350,7 +361,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.index_bw.html#maad.util.index_bw" title="maad.util.index_bw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_bw</span></code></a>(fn, bw)</p></td>
 <td><p>Select all the index coresponding to a selected frequency band.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.into_bins.html#maad.util.into_bins" title="maad.util.into_bins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">into_bins</span></code></a>(x, an, bin_step[, axis, bin_min, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.into_bins.html#maad.util.into_bins" title="maad.util.into_bins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">into_bins</span></code></a>(x, an, bin_step[, axis, bin_min, ...])</p></td>
 <td><p>Divide a vector (1D) or a matrix (2D) into multiple bins according to a  bin_step with respect of the energy</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.shift_bit_length.html#maad.util.shift_bit_length" title="maad.util.shift_bit_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift_bit_length</span></code></a>(x)</p></td>
@@ -390,15 +401,38 @@
 <td><p>Format features such as bounding box coordinates and centroids coordinates to predifined format : time-frequency to pixels or pixels to time-frequency units.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.crossfade.html#maad.util.crossfade" title="maad.util.crossfade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crossfade</span></code></a>(s1, s2, fs[, fade_len])</p></td>
-<td><p>AAdd a smooth transition (cross-fade) between two audio signals.</p></td>
+<td><p>Add a smooth transition (cross-fade) between two audio signals.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.crossfade_list.html#maad.util.crossfade_list" title="maad.util.crossfade_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crossfade_list</span></code></a>(s_list, fs[, fade_len])</p></td>
 <td><p>Apply a cross-fade to a list of audio signals.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+<section id="xeno-canto">
+<h2>Xeno-Canto<a class="headerlink" href="#xeno-canto" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.xc_query.html#maad.util.xc_query" title="maad.util.xc_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_query</span></code></a>(searchTerms[, format_time, ...])</p></td>
+<td><p>Query metadata from Xeno-Canto website depending on the search terms.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query" title="maad.util.xc_multi_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_multi_query</span></code></a>(df_query[, format_time, ...])</p></td>
+<td><p>Multi_query performs multiple queries following the search terms defined in the input dataframe</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.xc_selection.html#maad.util.xc_selection" title="maad.util.xc_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_selection</span></code></a>(df_dataset[, max_nb_files, ...])</p></td>
+<td><p>Select a maximum number of recordings depending on their quality and  duration in order to create an homogeneous dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.xc_download.html#maad.util.xc_download" title="maad.util.xc_download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_download</span></code></a>(df, rootdir[, dataset_name, ...])</p></td>
+<td><p>Download the audio files from Xeno-Canto based on the input dataframe It will create directories for each species if needed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 
 
            </div>
@@ -411,7 +445,7 @@
         <a href="generated/maad.util.rand_cmap.html" class="btn btn-neutral float-right" title="maad.util.rand_cmap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="generated/maad.spl.psd2leq.html" class="btn btn-neutral float-left" title="maad.spl.psd2leq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="generated/maad.spl.apply_attenuation.html" class="btn btn-neutral float-left" title="maad.spl.apply_attenuation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

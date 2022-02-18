@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extract acoustic indices from audio recordings &mdash; scikit-maad 1.2 documentation</title>
+  <title>Extract acoustic indices from audio recordings &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -38,6 +42,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Download audio files from Xeno-Canto and automatically extract characteristics" href="wookpecker_drumming_characteristics.html" />
     <link rel="prev" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" /> 
 </head>
 
@@ -65,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -90,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -104,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -112,6 +117,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Extract acoustic indices from audio recordings</a><ul>
@@ -121,6 +128,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +204,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="extract-acoustic-indices-from-audio-recordings">
+<section class="sphx-glr-example-title" id="extract-acoustic-indices-from-audio-recordings">
 <span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Permalink to this headline">¶</a></h1>
 <p>Acoustic indices can summarize aspects of the acoustic energy distribution in
 audio recordings and are widely used to characterize animal acoustic communities[1-3].
@@ -213,7 +221,7 @@ example can be downloaded from the open GitHub repository
                        <span class="n">plot_features_map</span><span class="p">,</span> <span class="n">plot_features</span><span class="p">,</span> <span class="n">false_Color_Spectro</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="set-variables">
+<section id="set-variables">
 <h2>Set Variables<a class="headerlink" href="#set-variables" title="Permalink to this headline">¶</a></h2>
 <p>We list all spectral and temporal acoustic indices that will be computed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SPECTRAL_FEATURES</span></a><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MEANf&#39;</span><span class="p">,</span><span class="s1">&#39;VARf&#39;</span><span class="p">,</span><span class="s1">&#39;SKEWf&#39;</span><span class="p">,</span><span class="s1">&#39;KURTf&#39;</span><span class="p">,</span><span class="s1">&#39;NBPEAKS&#39;</span><span class="p">,</span><span class="s1">&#39;LEQf&#39;</span><span class="p">,</span>
@@ -342,8 +350,8 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-</div>
-<div class="section" id="batch-compute-acoustic-indices-on-the-audio-dataset">
+</section>
+<section id="batch-compute-acoustic-indices-on-the-audio-dataset">
 <h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_indices_per_bin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -726,8 +734,8 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-</div>
-<div class="section" id="display-results">
+</section>
+<section id="display-results">
 <h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this headline">¶</a></h2>
 <p>After calculating all alpha indices (in audio and spectral domain), let’s
 have a look to the data.
@@ -779,8 +787,8 @@ For a better view, we seperate spectral and audio indices.</p>
 </pre></div>
 </div>
 <img alt="False Color Spectro   [R:KURTt; G:EVNspCount; B:MEANt]" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_extract_alpha_indices_005.png" />
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Sueur, J., Farina, A., Gasc, A., Pieretti, N., &amp; Pavoine, S. (2014). Acoustic Indices for Biodiversity Assessment and Landscape Investigation. Acta Acustica United with Acustica, 100(4), 772–781. <a class="reference external" href="https://doi.org/10.3813/AAA.918757">https://doi.org/10.3813/AAA.918757</a></p></li>
@@ -797,8 +805,8 @@ For a better view, we seperate spectral and audio indices.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -807,6 +815,8 @@ For a better view, we seperate spectral and audio indices.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wookpecker_drumming_characteristics.html" class="btn btn-neutral float-right" title="Download audio files from Xeno-Canto and automatically extract characteristics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-left" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

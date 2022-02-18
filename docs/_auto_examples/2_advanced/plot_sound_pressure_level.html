@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.2 documentation</title>
+  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -39,7 +43,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" />
-    <link rel="prev" title="Classify soundtypes with unsupervised learning" href="plot_unsupervised_sound_classification.html" /> 
+    <link rel="prev" title="Download metadata from Xeno-Canto to infer species activities" href="plot_xenocanto_wookpecker_activities.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -105,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -113,6 +117,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Estimate sound pressure level from audio recordings</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#set-variables">Set variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#load-and-preprocess-audio">Load and preprocess audio</a></li>
@@ -121,6 +127,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +203,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="estimate-sound-pressure-level-from-audio-recordings">
+<section class="sphx-glr-example-title" id="estimate-sound-pressure-level-from-audio-recordings">
 <span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Estimate sound pressure level from audio recordings<a class="headerlink" href="#estimate-sound-pressure-level-from-audio-recordings" title="Permalink to this headline">¶</a></h1>
 <p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio
 recordings coming from different datasets and environments. Sound pressure level
@@ -218,7 +225,7 @@ of the ambient sound in a cold temperate forest in France during 24h.</p>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
 </pre></div>
 </div>
-<div class="section" id="set-variables">
+<section id="set-variables">
 <h2>Set variables<a class="headerlink" href="#set-variables" title="Permalink to this headline">¶</a></h2>
 <p>It is very important to always keep the parameters of the ARU that was used
 to collect the audio dataset. This is a mandatory to compute the sound
@@ -339,8 +346,8 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-</div>
-<div class="section" id="load-and-preprocess-audio">
+</section>
+<section id="load-and-preprocess-audio">
 <h2>Load and preprocess audio<a class="headerlink" href="#load-and-preprocess-audio" title="Permalink to this headline">¶</a></h2>
 <p>Then we process all the files found in the directory /indices.
 Initialisation of an empty dataframe df_spl to store all the dB SPL values
@@ -756,8 +763,8 @@ S4A03895_20190522_233000.wav
 S4A03895_20190522_234500.wav
 </pre></div>
 </div>
-</div>
-<div class="section" id="display-results">
+</section>
+<section id="display-results">
 <h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this headline">¶</a></h2>
 <p>Display Leq (dB SPL) dynamics for each frequency band.
 One can observe that most of the acoustic energy is between 0-1kHz. Moreover
@@ -800,8 +807,8 @@ mainly to the anthropophony (frequency band 0-1kHz) and the biophony
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -814,7 +821,7 @@ mainly to the anthropophony (frequency band 0-1kHz) and the biophony
         <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-right" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_unsupervised_sound_classification.html" class="btn btn-neutral float-left" title="Classify soundtypes with unsupervised learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_xenocanto_wookpecker_activities.html" class="btn btn-neutral float-left" title="Download metadata from Xeno-Canto to infer species activities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

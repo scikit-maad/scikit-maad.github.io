@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Classify soundtypes with unsupervised learning &mdash; scikit-maad 1.2 documentation</title>
+  <title>Classify soundtypes with unsupervised learning &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -38,7 +42,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Estimate sound pressure level from audio recordings" href="plot_sound_pressure_level.html" />
+    <link rel="next" title="Simulation of sound degradation due to geometric, atmospheric and habitat attenuation" href="plot_sound_degradation_due_to_attenuation.html" />
     <link rel="prev" title="Remove background noise with signal processing tools" href="plot_remove_background.html" /> 
 </head>
 
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -105,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -120,9 +124,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
@@ -198,7 +205,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="classify-soundtypes-with-unsupervised-learning">
+<section class="sphx-glr-example-title" id="classify-soundtypes-with-unsupervised-learning">
 <span id="sphx-glr-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"></span><h1>Classify soundtypes with unsupervised learning<a class="headerlink" href="#classify-soundtypes-with-unsupervised-learning" title="Permalink to this headline">¶</a></h1>
 <p>Unsupervised learning algorithms search for structures or patterns in a dataset without requiring labels. In the context of ecoacoustics, this approach can be usefull to draw inferences when manual labelling is inaccesible or too expensive. For example, unsupervised learning can be used to estimate the animal acoustic diversity [1], combine human-reasoning and automated procedures to build reference libraries, and find hidden structures in the soundscapes.</p>
 <p>In this example, we will use unsupervised learning to automatically annotate multiple sounds in an audio recording.  The process follows four main steps. We will (i) find sounds that can be delimited in time and frequency, here defined as regions of interest (ROIs), (ii) characterize ROIs by features in the time-frequency domain using 2D wavelets [2], (iii) use t-SNE, a dimensionality reduction algorithm, to reduce the dimensionality of the data [3], and (iv) a automatically form homogenous groups using DBSCAN [4]. We will use a real audio file recorded with an omnidirectional microphone. This audio has a poor signal-to-noise ratio, which is typical of automated audio recordings.</p>
@@ -221,7 +228,7 @@
 </pre></div>
 </div>
 <img alt="plot unsupervised sound classification" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_unsupervised_sound_classification_001.png" />
-<div class="section" id="find-regions-of-interest">
+<section id="find-regions-of-interest">
 <h2>1. Find regions of interest<a class="headerlink" href="#find-regions-of-interest" title="Permalink to this headline">¶</a></h2>
 <p>To find regions of interest in the spectrogram, we will remove stationary background noise and then find isolated sounds using a double threshold method. Small ROIs due to noise in the signal will be removed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sxx_db_rmbg</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">remove_background</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">)</span>
@@ -235,8 +242,8 @@
 </pre></div>
 </div>
 <img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_unsupervised_sound_classification_002.png" />
-</div>
-<div class="section" id="compute-acoustic-features">
+</section>
+<section id="compute-acoustic-features">
 <h2>2. Compute acoustic features<a class="headerlink" href="#compute-acoustic-features" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">shape_feaures</span></code> function uses bidimensional wavelets to get the texture and spectro-temporal shape coeficients of each ROI. Wavelets have the advantage of being robust when the signal-to-noise ratio is low, and derive homogeneous descriptors which facilitate the clustering process. The wavelet decomposition is performed on the complete spectrogram, hence the coeficients for ROIs do not vary much even when not the time-frequency bounds are not exact. The centroid features gives an estimate of the median frequency of the ROIs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_shape</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">shape_features</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">rois</span><span class="o">=</span><span class="n">df_rois</span><span class="p">)</span>
@@ -247,8 +254,8 @@
 <span class="n">df_centroid</span><span class="p">[</span><span class="s1">&#39;centroid_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">median_freq</span><span class="o">/</span><span class="n">fn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reduce-the-dimensionality-of-the-features">
+</section>
+<section id="reduce-the-dimensionality-of-the-features">
 <h2>3. Reduce the dimensionality of the features<a class="headerlink" href="#reduce-the-dimensionality-of-the-features" title="Permalink to this headline">¶</a></h2>
 <p>The shape audio features have 26 dimensions. To facilitate the clustering process and visualize the results, it is posible to use non-metric dimensionality reduction algorithm, namely the t-distributed stochastic neighbor embedding (t-SNE), to proyect the data in two dimensions.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -276,8 +283,8 @@
 [t-SNE] KL divergence after 1000 iterations: 0.288394
 </pre></div>
 </div>
-</div>
-<div class="section" id="cluster-the-rois-into-homogeneous-groups">
+</section>
+<section id="cluster-the-rois-into-homogeneous-groups">
 <h2>4. Cluster the ROIs into homogeneous groups.<a class="headerlink" href="#cluster-the-rois-into-homogeneous-groups" title="Permalink to this headline">¶</a></h2>
 <p>In the above plot it is possible to observe how sounds are aggregated. It is posible to group these samples rapidly and objectively using a clustering algorithm. Here, we will use DBSCAN, a simple algorithm that allows to find core samples with high density and expands clusters from them. This algorithm has the advantage to find automatically the number of clusters and can cope with unbalanced classes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
@@ -307,8 +314,8 @@
 <li><img alt="ROIs Overlay" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_unsupervised_sound_classification_005.png" />
 </li>
 </ul>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Ulloa, J. S., Aubin, T., Llusia, D., Bouveyron, C., &amp; Sueur, J. (2018). Estimating animal acoustic diversity in tropical environments using unsupervised multiresolution analysis. Ecological Indicators, 90, 346–355. <a class="reference external" href="https://doi.org/10.1016/j.ecolind.2018.03.026">https://doi.org/10.1016/j.ecolind.2018.03.026</a></p></li>
@@ -326,8 +333,8 @@
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -337,7 +344,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_sound_pressure_level.html" class="btn btn-neutral float-right" title="Estimate sound pressure level from audio recordings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_sound_degradation_due_to_attenuation.html" class="btn btn-neutral float-right" title="Simulation of sound degradation due to geometric, atmospheric and habitat attenuation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="plot_remove_background.html" class="btn btn-neutral float-left" title="Remove background noise with signal processing tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

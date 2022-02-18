@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.temporal_entropy &mdash; scikit-maad 1.2 documentation</title>
+  <title>maad.features.temporal_entropy &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
@@ -140,7 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -210,11 +214,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="maad-features-temporal-entropy">
+  <section id="maad-features-temporal-entropy">
 <h1>maad.features.temporal_entropy<a class="headerlink" href="#maad-features-temporal-entropy" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="maad.features.temporal_entropy">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">temporal_entropy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#temporal_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.temporal_entropy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="maad.features.temporal_entropy">
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">temporal_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#temporal_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.temporal_entropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the entropy of the envelope of an audio signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -252,7 +256,7 @@ background noise.</p>
 <p class="rubric">References</p>
 <dl class="citation">
 <dt class="label" id="r3c8909347110-1"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226.</p>
+<dd><p>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></p>
 </dd>
 <dt class="label" id="r3c8909347110-2"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
 <dd><p>QUT : <a class="reference external" href="https://github.com/QutEcoacoustics/audio-analysis">https://github.com/QutEcoacoustics/audio-analysis</a>. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.1188744">http://doi.org/10.5281/zenodo.1188744</a></p>
@@ -267,7 +271,7 @@ background noise.</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

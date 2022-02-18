@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.frequency_raoq &mdash; scikit-maad 1.2 documentation</title>
+  <title>maad.features.frequency_raoq &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
@@ -140,7 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -210,12 +214,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="maad-features-frequency-raoq">
+  <section id="maad-features-frequency-raoq">
 <h1>maad.features.frequency_raoq<a class="headerlink" href="#maad-features-frequency-raoq" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="maad.features.frequency_raoq">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">frequency_raoq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#frequency_raoq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.frequency_raoq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute Rao’s quadratic entropy on a power spectrum (1d).</p>
+<dt class="sig sig-object py" id="maad.features.frequency_raoq">
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">frequency_raoq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#frequency_raoq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.frequency_raoq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Rao’s quadratic entropy on a power spectrum (1d). <a class="reference internal" href="#r7a9c20095c32-1" id="id1">[1]</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -235,9 +239,11 @@
 </dd>
 </dl>
 <p class="rubric">References</p>
-<ol class="arabic simple">
-<li><p>Zhao, Yueqin. “Rao’s Quadratic Entropy and Some New Applications” (2010). Doctor of Philosophy (PhD) dissertation, Mathematics and Statistics, Old Dominion University, DOI: 10.25777/qgak-sf09</p></li>
-</ol>
+<dl class="citation">
+<dt class="label" id="r7a9c20095c32-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Zhao, Yueqin. “Rao’s Quadratic Entropy and Some New Applications” (2010). Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, Old Dominion University. <a class="reference external" href="https://doi.org/10.25777/qgak-sf09">DOI: 10.25777/qgak-sf09</a></p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">fs</span><span class="p">)</span>
@@ -248,7 +254,7 @@
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

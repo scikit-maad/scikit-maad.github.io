@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sound pressure level &mdash; scikit-maad 1.2 documentation</title>
+  <title>Sound pressure level &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rois.html">Segmentation methods</a></li>
@@ -117,11 +121,20 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.psd2leq.html">maad.spl.psd2leq</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#attenuation-and-active-distance">Attenuation and active distance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.attenuation_dB.html">maad.spl.attenuation_dB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.dBSPL_per_bin.html">maad.spl.dBSPL_per_bin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.detection_distance.html">maad.spl.detection_distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.pressure_at_r0.html">maad.spl.pressure_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.dBSPL_at_r0.html">maad.spl.dBSPL_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.spl.apply_attenuation.html">maad.spl.apply_attenuation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -189,10 +202,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-maad.spl"></span><div class="section" id="sound-pressure-level">
+  <span class="target" id="module-maad.spl"></span><section id="sound-pressure-level">
 <h1>Sound pressure level<a class="headerlink" href="#sound-pressure-level" title="Permalink to this headline">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">spl</span></code> is a collection of functions used to describe the physics of acoustic waves.</p>
-<div class="section" id="conversion-to-sound-pressure-level-spl">
+<section id="conversion-to-sound-pressure-level-spl">
 <h2>Conversion to sound pressure level (SPL)<a class="headerlink" href="#conversion-to-sound-pressure-level-spl" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -206,7 +219,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.volt2pressure.html#maad.spl.volt2pressure" title="maad.spl.volt2pressure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volt2pressure</span></code></a>(volt, gain[, sensitivity, dBref])</p></td>
 <td><p>Convert Volts to instantaneous sound pressure (p [Pa]).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.wav2pressure.html#maad.spl.wav2pressure" title="maad.spl.wav2pressure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2pressure</span></code></a>(wave, gain[, Vadc, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.wav2pressure.html#maad.spl.wav2pressure" title="maad.spl.wav2pressure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2pressure</span></code></a>(wave, gain[, Vadc, ...])</p></td>
 <td><p>Convert wave amplitude to instantaneous sound pressure (p [Pa]).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.pressure2dBSPL.html#maad.spl.pressure2dBSPL" title="maad.spl.pressure2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pressure2dBSPL</span></code></a>(p[, pRef])</p></td>
@@ -215,28 +228,57 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.dBSPL2pressure.html#maad.spl.dBSPL2pressure" title="maad.spl.dBSPL2pressure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dBSPL2pressure</span></code></a>(L[, pRef])</p></td>
 <td><p>Convert sound pressure level (L [dB]) to sound pressure (p [Pa]).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.power2dBSPL.html#maad.spl.power2dBSPL" title="maad.spl.power2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power2dBSPL</span></code></a>(P, gain[, Vadc, sensitivity, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.power2dBSPL.html#maad.spl.power2dBSPL" title="maad.spl.power2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power2dBSPL</span></code></a>(P, gain[, Vadc, sensitivity, ...])</p></td>
 <td><p>Convert power (amplitude²) to sound pressure level (L [dB]).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.amplitude2dBSPL.html#maad.spl.amplitude2dBSPL" title="maad.spl.amplitude2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amplitude2dBSPL</span></code></a>(s, gain[, Vadc, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.amplitude2dBSPL.html#maad.spl.amplitude2dBSPL" title="maad.spl.amplitude2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amplitude2dBSPL</span></code></a>(s, gain[, Vadc, ...])</p></td>
 <td><p>Convert signal (amplitude) to instantaneous sound pressure level (L [dB SPL]).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.wav2dBSPL.html#maad.spl.wav2dBSPL" title="maad.spl.wav2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2dBSPL</span></code></a>(wave, gain[, Vadc, sensitivity, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.wav2dBSPL.html#maad.spl.wav2dBSPL" title="maad.spl.wav2dBSPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2dBSPL</span></code></a>(wave, gain[, Vadc, sensitivity, ...])</p></td>
 <td><p>Convert wave amplitude to instantaneous sound pressure level (L [dB SPL]).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.wav2leq.html#maad.spl.wav2leq" title="maad.spl.wav2leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2leq</span></code></a>(wave, f, gain[, Vadc, dt, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.wav2leq.html#maad.spl.wav2leq" title="maad.spl.wav2leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wav2leq</span></code></a>(wave, f, gain[, Vadc, dt, ...])</p></td>
 <td><p>Convert wave to Equivalent Continuous Sound Pressure level (Leq [dB SPL]).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.pressure2leq.html#maad.spl.pressure2leq" title="maad.spl.pressure2leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pressure2leq</span></code></a>(p, fs[, dt, pRef])</p></td>
 <td><p>Convert pressure vector (p [Pa]) to Equivalent Continuous Sound Pressure  level (Leq [dB SPL]).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.psd2leq.html#maad.spl.psd2leq" title="maad.spl.psd2leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd2leq</span></code></a>(P, gain[, Vadc, sensitivity, dBref, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.psd2leq.html#maad.spl.psd2leq" title="maad.spl.psd2leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd2leq</span></code></a>(P, gain[, Vadc, sensitivity, dBref, ...])</p></td>
 <td><p>Convert Power spectral density (PSD, amplitude²) into  Equivalent Continuous Sound pressure level (Leq [dB SPL])</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+<section id="attenuation-and-active-distance">
+<h2>Attenuation and active distance<a class="headerlink" href="#attenuation-and-active-distance" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB" title="maad.spl.attenuation_dB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attenuation_dB</span></code></a>(f, r, r0[, t, rh, pa, a0])</p></td>
+<td><p>Compute the attenuation in decibels taking into account the geometric, atmospheric  and habitat attenuation contributions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.dBSPL_per_bin.html#maad.spl.dBSPL_per_bin" title="maad.spl.dBSPL_per_bin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dBSPL_per_bin</span></code></a>(L, f)</p></td>
+<td><p>Function to spread the sound pressure level (Energy in dB) along a frequency  vector (bins).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.detection_distance.html#maad.spl.detection_distance" title="maad.spl.detection_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detection_distance</span></code></a>(L_bkg, L0, f[, r0, ...])</p></td>
+<td><p>Compute the detection distance also known as detection range or detection radius or active space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0" title="maad.spl.pressure_at_r0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pressure_at_r0</span></code></a>(f, r, p[, r0, t, rh, pa, a0])</p></td>
+<td><p>Estimate the pressure p0 at distance r0 from pressure p measured at</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0" title="maad.spl.dBSPL_at_r0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dBSPL_at_r0</span></code></a>(f, r, L[, r0, t, rh, pa, a0, pRef])</p></td>
+<td><p>Estimate the sound pressure level L0 (dB SPL) at distance r0 from sound pressure</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation" title="maad.spl.apply_attenuation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_attenuation</span></code></a>(p0, fs, r[, r0, t, rh, pa, a0])</p></td>
+<td><p>Apply attenuation of a temporal signal p0 after propagation between the  reference distance r0 and the final distance r taken into account the  geometric, atmospheric and habitat attenuation contributions.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 
 
            </div>

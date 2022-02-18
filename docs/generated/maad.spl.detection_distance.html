@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>maad.spl.detection_distance &mdash; scikit-maad 1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="maad.spl.pressure_at_r0" href="maad.spl.pressure_at_r0.html" />
+    <link rel="prev" title="maad.spl.dBSPL_per_bin" href="maad.spl.dBSPL_per_bin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+          
+
+          
+            
+            <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Acoustic features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spl.html">Sound pressure level</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../spl.html#conversion-to-sound-pressure-level-spl">Conversion to sound pressure level (SPL)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../spl.html#attenuation-and-active-distance">Attenuation and active distance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.attenuation_dB.html">maad.spl.attenuation_dB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.dBSPL_per_bin.html">maad.spl.dBSPL_per_bin</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.spl.detection_distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.pressure_at_r0.html">maad.spl.pressure_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.dBSPL_at_r0.html">maad.spl.dBSPL_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.apply_attenuation.html">maad.spl.apply_attenuation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">scikit-maad</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../spl.html">Sound pressure level</a> &raquo;</li>
+        
+      <li>maad.spl.detection_distance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/maad.spl.detection_distance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="maad-spl-detection-distance">
+<h1>maad.spl.detection_distance<a class="headerlink" href="#maad-spl-detection-distance" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="maad.spl.detection_distance">
+<span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">detection_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L_bkg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101325</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/active_space.html#detection_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.detection_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the detection distance also known as detection range or detection radius
+or active space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>L_bkg</strong><span class="classifier">scalar or array-like</span></dt><dd><p>sound pressure level of the background/ambient “noise” in dB SPL</p>
+</dd>
+<dt><strong>L0</strong><span class="classifier">scalar or array-like</span></dt><dd><p>Initial sound pressure level measured at distance r0</p>
+</dd>
+<dt><strong>f: scalar or array-like</strong></dt><dd><p>frequency in Hz</p>
+</dd>
+<dt><strong>r0</strong><span class="classifier">scalar</span></dt><dd><p>distance at which L0 was measured (generally &#64;1m)</p>
+</dd>
+<dt><strong>delta_r</strong><span class="classifier">scalar</span></dt><dd><p>distance resolution in m</p>
+</dd>
+<dt><strong>t: scalar, optional, default is 20</strong></dt><dd><p>temperature in °C</p>
+</dd>
+<dt><strong>rh: scalar, optional, default is 60</strong></dt><dd><p>relative humidity in %</p>
+</dd>
+<dt><strong>pa: scalar, optional, default is 101325</strong></dt><dd><p>atmospheric pressure in Pa</p>
+</dd>
+<dt><strong>a0</strong><span class="classifier">scalar, optional, default is 0.02</span></dt><dd><p>attenuation coefficient of the habitat in dB/kHz/m</p>
+</dd>
+<dt><strong>rmax</strong><span class="classifier">scalar, optional, default is 10000</span></dt><dd><p>define the maximal distance that is taken into account for active distance
+calculation. Default value is 10000m (i.e. 10km) which is OK for most of
+the purpose. If you increase the value, the calculation will be longer</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>distance_max</strong><span class="classifier">scalar or array-like</span></dt><dd><p>maximum distance of propagation before the sound pressure level is below 
+the ambient sound level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The maximum detection range is limited by the background noise or ambient sound 
+also called noise. The signal is attenuated during the propagation until
+the level reaches the ambient sound level, meaning that the signal could not 
+be disantangle from the background sound anymore.</p>
+<p class="rubric">Examples</p>
+<p>Estimation of the active distance for an initial sound of 90dB SPL &#64;2kHz 
+with a background noise of 50dB SPL</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">active_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
+<span class="go">Max active distance is 70.0m</span>
+</pre></div>
+</div>
+<p>Estimation of the active distance for an initial sound of 90dB SPL &#64;10kHz 
+with a background noise of 50dB SPL</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">active_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
+<span class="go">Max active distance is 32.0m</span>
+</pre></div>
+</div>
+<p>Estimation of the active distance for an initial sound of 90dB SPL &#64;2kHz 
+with a background noise of 30dB SPL</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">active_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
+<span class="go">Max active distance is 263.0m</span>
+</pre></div>
+</div>
+<p>Estimation of the active distance for an initial sound of 90dB SPL &#64;2kHz 
+with a background noise of 30dB SPL, in tropical rain forest atmosphere 
+(t=30, rh=99)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">active_distance</span><span class="p">(</span><span class="n">L_bkg</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">L0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rh</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
+<span class="go">Max active distance is 247.0m</span>
+</pre></div>
+</div>
+<p>Estimation of the active distance for an initial sound of 90dB SPL &#64;2kHz 
+with a background noise of 30dB SPL, in cold dry forest atmosphere 
+(t=5, rh=40)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">active_distance</span><span class="p">(</span><span class="n">L_bkg</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">L0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">rh</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
+<span class="go">Max active distance is 225.0m</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="maad.spl.pressure_at_r0.html" class="btn btn-neutral float-right" title="maad.spl.pressure_at_r0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="maad.spl.dBSPL_per_bin.html" class="btn btn-neutral float-left" title="maad.spl.dBSPL_per_bin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, scikit-maad development team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

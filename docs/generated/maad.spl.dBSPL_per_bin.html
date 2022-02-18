@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.spl.dBSPL_per_bin &mdash; scikit-maad 1.1 documentation</title>
+  <title>maad.spl.dBSPL_per_bin &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -37,7 +41,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="maad.spl.detection_distance" href="maad.spl.detection_distance.html" />
+    <link rel="prev" title="maad.spl.attenuation_dB" href="maad.spl.attenuation_dB.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,13 +61,16 @@
           
 
           
+            
+            <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                1.1
+                1.3
               </div>
             
           
@@ -86,20 +95,33 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
-<ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Acoustic features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spl.html">Sound pressure level</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../spl.html#conversion-to-sound-pressure-level-spl">Conversion to sound pressure level (SPL)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../spl.html#attenuation-and-active-distance">Attenuation and active distance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.attenuation_dB.html">maad.spl.attenuation_dB</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.spl.dBSPL_per_bin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.detection_distance.html">maad.spl.detection_distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.pressure_at_r0.html">maad.spl.pressure_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.dBSPL_at_r0.html">maad.spl.dBSPL_at_r0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.spl.apply_attenuation.html">maad.spl.apply_attenuation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -148,6 +170,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="../spl.html">Sound pressure level</a> &raquo;</li>
+        
       <li>maad.spl.dBSPL_per_bin</li>
     
     
@@ -167,9 +191,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="maad-spl-dbspl-per-bin">
+  <section id="maad-spl-dbspl-per-bin">
 <h1>maad.spl.dBSPL_per_bin<a class="headerlink" href="#maad-spl-dbspl-per-bin" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="maad.spl.dBSPL_per_bin">
+<span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">dBSPL_per_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/active_space.html#dBSPL_per_bin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.dBSPL_per_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to spread the sound pressure level (Energy in dB) along a frequency 
+vector (bins).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>L</strong><span class="classifier">scalar</span></dt><dd><p>Sound Pressure Level in dB</p>
+</dd>
+<dt><strong>f: array-like (vector (1D))</strong></dt><dd><p>frequency vector in Hz</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>L_per_bin</strong><span class="classifier">array-like (vector (1D))</span></dt><dd><p>sound pressure level in dB with values corresponding to the frequency’s 
+number of bins</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Spread 80dB SPL from 2kHz to 5kHz with 1kHz step</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">dBSPL_per_bin</span><span class="p">(</span><span class="mi">80</span><span class="p">,[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">])</span>
+<span class="go">array([73.97940009, 73.97940009, 73.97940009, 73.97940009])</span>
+</pre></div>
 </div>
+<p>Spread 80dB SPL from 2kHz to 10kHz with 1kHz step</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">dBSPL_per_bin</span><span class="p">(</span><span class="mi">80</span><span class="p">,[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span><span class="mi">6000</span><span class="p">,</span><span class="mi">7000</span><span class="p">,</span><span class="mi">8000</span><span class="p">,</span><span class="mi">9000</span><span class="p">,</span><span class="mi">10000</span><span class="p">])</span>
+<span class="go">array([70.45757491, 70.45757491, 70.45757491, 70.45757491, 70.45757491,</span>
+<span class="go">     70.45757491, 70.45757491, 70.45757491, 70.45757491])</span>
+</pre></div>
+</div>
+<p>Spread 80dB SPL from 2kHz to 5kHz with 0.5kHz step</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">dBSPL_per_bin</span><span class="p">(</span><span class="mi">80</span><span class="p">,[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">3500</span><span class="p">,</span><span class="mi">4000</span><span class="p">,</span><span class="mi">4500</span><span class="p">,</span><span class="mi">5000</span><span class="p">])</span>
+<span class="go">array([71.5490196, 71.5490196, 71.5490196, 71.5490196, 71.5490196,</span>
+<span class="go">     71.5490196, 71.5490196])  </span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
 
 
            </div>
@@ -177,13 +243,22 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="maad.spl.detection_distance.html" class="btn btn-neutral float-right" title="maad.spl.detection_distance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="maad.spl.attenuation_dB.html" class="btn btn-neutral float-left" title="maad.spl.attenuation_dB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, scikit-maad development team.
+        &copy; Copyright 2021, scikit-maad development team
 
     </p>
   </div>

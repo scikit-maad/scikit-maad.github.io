@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>maad.util.xeno_canto &mdash; scikit-maad 1.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+          
+
+          
+            
+            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">scikit-maad</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>maad.util.xeno_canto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for maad.util.xeno_canto</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Collection of functions to send queries to www.xeno-canto.org, get dataframe</span>
+<span class="sd">with all xeno-canto fields and eventually download bird sound files with</span>
+<span class="sd">JSON metadata.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>   
+<span class="c1">#</span>
+<span class="c1"># Authors:  original author Karoliina Oksanen, 2014</span>
+<span class="c1">#           Updated to python 3.7.4, Agnieszka Mikolajczyk, 2019</span>
+<span class="c1">#           Modified for scikit-maad by Sylvain HAUPERT, 2021        </span>
+<span class="c1">#</span>
+<span class="c1"># License: New BSD License</span>
+
+
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="xc_query"><a class="viewcode-back" href="../../../generated/maad.util.xc_query.html#maad.util.xc_query">[docs]</a><span class="k">def</span> <span class="nf">xc_query</span><span class="p">(</span><span class="n">searchTerms</span><span class="p">,</span>
+             <span class="n">format_time</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">format_date</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Query metadata from Xeno-Canto website depending on the search terms. The</span>
+<span class="sd">    audio recordings metadata are grouped and stored in a dataframe.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    searchTerms : list</span>
+<span class="sd">        list of search terms to perform the query</span>
+<span class="sd">        The main seach terms are :</span>
+<span class="sd">        - gen : genus</span>
+<span class="sd">        - ssp : subspecies</span>
+<span class="sd">        - en  : english name</span>
+<span class="sd">        - q   : quality</span>
+<span class="sd">        - cnt : country</span>
+<span class="sd">        - len : length</span>
+<span class="sd">        - area : continent (europe, africa, america, asia)</span>
+<span class="sd">        see more here : https://www.xeno-canto.org/help/search</span>
+<span class="sd">    format_time : boolean, optional</span>
+<span class="sd">        Time in Xeno-Canto is not always present neither correctly formated. </span>
+<span class="sd">        If true, time will be correctly formated to be processed as DateTime </span>
+<span class="sd">        format. When formating is not possible, the row is dropped. </span>
+<span class="sd">        The default is False</span>
+<span class="sd">    format_date : boolean, optional</span>
+<span class="sd">        Date in Xeno-Canto is not always present neither correctly formated. </span>
+<span class="sd">        If true, rows with uncorrect format of date are dropped.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Print messages during the execution of the function. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_dataset : pandas DataFrame</span>
+<span class="sd">        Dataframe containing all the recordings metadata matching search terms</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">numPages</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="n">numPages</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading page &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.xeno-canto.org/api/2/recordings?query=</span><span class="si">{0}</span><span class="s1">&amp;page=</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s1">&#39;%20&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">searchTerms</span><span class="p">),</span> <span class="n">page</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">jsonPage</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">jsonPage</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="c1"># check number of pages</span>
+        <span class="n">numPages</span> <span class="o">=</span> <span class="n">jsondata</span><span class="p">[</span><span class="s1">&#39;numPages&#39;</span><span class="p">]</span>
+        <span class="c1"># Append pandas dataframe of records &amp; convert to .csv file</span>
+        <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">jsondata</span><span class="p">[</span><span class="s1">&#39;recordings&#39;</span><span class="p">]))</span>
+        <span class="c1"># increment the current page</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">page</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found&quot;</span><span class="p">,</span> <span class="n">numPages</span><span class="p">,</span> <span class="s2">&quot;pages in total.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved metadata for&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">),</span> <span class="s2">&quot;files&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># test if the dataset is not empty</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+        <span class="n">df_dataset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># the format of length is not correct (missing 0 before 0:45 =&gt; 00:45)</span>
+        <span class="c1"># Correct the format of length for length shorten than 9:59 (4 characters)</span>
+        <span class="c1"># by adding a 0</span>
+        <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">==</span><span class="mi">4</span><span class="p">),</span> 
+                                    <span class="n">other</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span> <span class="n">df_dataset</span><span class="p">[</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">==</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> 
+                                    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="n">format_time</span> <span class="o">==</span> <span class="kc">True</span> <span class="p">:</span>
+            <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+            <span class="n">df_dataset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># the format of time is not always correct</span>
+            <span class="c1"># replace . by :</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="s1">&#39;[.]&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="s1">&#39;[ ] &#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># drop rows where there is no valid time information that can be corrected</span>
+            <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="p">[(</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^(0[0-9]|1[0-9]|2[0-3])[:]([0-5][0-9])$&#39;</span><span class="p">))</span> <span class="o">|</span> 
+                                    <span class="p">(</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^([0-9])[:]([0-5][0-9])$&#39;</span><span class="p">))]</span>
+            <span class="c1"># Correct the format of time when 0 is missing (missing 0 before 0:45 =&gt; 00:45)</span>
+            <span class="c1"># by adding a 0</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^([0-9])[:]([0-5][0-9])$&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="n">df_dataset</span><span class="p">[</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^([0-9])[:]([0-5][0-9])$&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">time</span>
+
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keeped metadata for&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">),</span> <span class="s2">&quot;files after formating time&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="n">format_date</span> <span class="o">==</span> <span class="kc">True</span> <span class="p">:</span>
+            <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+            <span class="n">df_dataset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># drop rows where there is no valid date information</span>
+            <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="p">[</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(20[0-9][0-9]|19[0-9][0-9])-(0[1-9]|1[0-2])-([1-9]|1[0-9]|2[0-9]|3[0-1])$&#39;</span><span class="p">)]</span>
+            
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keeped metadata for&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">),</span> <span class="s2">&quot;files after formating date&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">format_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">format_date</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="p">:</span>         
+            <span class="c1"># add a column with the week number</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span>
+            <span class="c1"># add a column with datetime in DateTime format</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span> <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+            
+    <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+    <span class="n">df_dataset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_dataset</span></div>
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="xc_multi_query"><a class="viewcode-back" href="../../../generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query">[docs]</a><span class="k">def</span> <span class="nf">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
+                   <span class="n">format_time</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                   <span class="n">format_date</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                   <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multi_query performs multiple queries following the search terms defined</span>
+<span class="sd">    in the input dataframe</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_query : pandas DataFrame</span>
+<span class="sd">        Dataframe with search terms. Each row corresponds to a new query. </span>
+<span class="sd">        Columns corresponds to the search terms allowed by Xeno-Canto</span>
+<span class="sd">    format_time : boolean, optional</span>
+<span class="sd">        Time in Xeno-Canto is not always present neither correctly formated. </span>
+<span class="sd">        If true, time will be correctly formated to be processed as DateTime </span>
+<span class="sd">        format. When formating is not possible, the row is dropped. </span>
+<span class="sd">        The default is False</span>
+<span class="sd">    format_date : boolean, optional</span>
+<span class="sd">        Date in Xeno-Canto is not always present neither correctly formated. </span>
+<span class="sd">        If true, rows with uncorrect format of date are dropped.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Print messages during the execution of the function. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_dataset : pandas DataFrame</span>
+<span class="sd">        Dataframe containing all the recordings metadata matching </span>
+<span class="sd">        the search terms.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_query</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">searchTerms</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xc_query</span><span class="p">(</span><span class="n">searchTerms</span><span class="p">,</span> 
+                                                <span class="n">format_time</span><span class="p">,</span>
+                                                <span class="n">format_date</span><span class="p">,</span>
+                                                <span class="n">verbose</span><span class="p">))</span>
+   
+    <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+    <span class="c1"># df_dataset[&#39;index&#39;] = np.arange(0, len(df_dataset))</span>
+    <span class="c1"># df_dataset.set_index([&#39;index&#39;], inplace=True)</span>
+    <span class="n">df_dataset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># # the format of length is not correct (missing 0 before 0:45 =&gt; 00:45)</span>
+    <span class="c1"># # Correct the format of length for length shorten than 9:59 (4 characters)</span>
+    <span class="c1"># # by adding a 0</span>
+    <span class="c1"># df_dataset[&#39;length&#39;].where(~(df_dataset.length.str.len()==4), </span>
+    <span class="c1">#                             other=&#39;0&#39;+ df_dataset[df_dataset.length.str.len()==4].length, </span>
+    <span class="c1">#                             inplace=True) </span>
+  
+    <span class="k">return</span> <span class="n">df_dataset</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="xc_selection"><a class="viewcode-back" href="../../../generated/maad.util.xc_selection.html#maad.util.xc_selection">[docs]</a><span class="k">def</span> <span class="nf">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
+                 <span class="n">max_nb_files</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                 <span class="n">max_length</span><span class="o">=</span><span class="s1">&#39;01:00&#39;</span><span class="p">,</span>
+                 <span class="n">min_length</span><span class="o">=</span><span class="s1">&#39;00:10&#39;</span><span class="p">,</span>
+                 <span class="n">min_quality</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select a maximum number of recordings depending on their quality and </span>
+<span class="sd">    duration in order to create an homogeneous dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_dataset : pandas DataFrame</span>
+<span class="sd">        Dataframe containing all the recordings metadata </span>
+<span class="sd">    max_nb_files : int, optional</span>
+<span class="sd">        Max number of audio files per species. The default is 100.</span>
+<span class="sd">    max_length : string, optional</span>
+<span class="sd">        Max duration of the audio files. The default is &#39;01:00&#39;.</span>
+<span class="sd">    min_length : string, optional</span>
+<span class="sd">        Min duration of the audio files. The default is &#39;00:10&#39;.</span>
+<span class="sd">    min_quality : string, optional</span>
+<span class="sd">        Min quality of the audio files. The default is &#39;B&#39;.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Print messages during the execution of the function. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_dataset_out : pandas DataFrame</span>
+<span class="sd">        Dataframe containing the selected recordings metadata </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">df_dataset_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">quality</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">min_quality</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span> <span class="p">:</span>
+        <span class="n">quality</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">min_quality</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span> <span class="p">:</span>
+        <span class="n">quality</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">min_quality</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+        <span class="n">quality</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">min_quality</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+        <span class="n">quality</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+    <span class="n">unique_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">gen</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">sp</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">unique_species</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1"># extract the genus and species from the scientific name</span>
+        <span class="n">gen</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sp</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="c1"># select the corresponding to the species</span>
+        <span class="c1"># !! the string test is case sensitive (the genus start with a upper case)</span>
+        <span class="n">subdf_dataset</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="p">[((</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">gen</span> <span class="o">==</span> <span class="n">gen</span><span class="p">)</span> <span class="o">&amp;</span>
+                                    <span class="p">(</span><span class="n">df_dataset</span><span class="o">.</span><span class="n">sp</span> <span class="o">==</span> <span class="n">sp</span><span class="p">))]</span>
+        <span class="c1"># sort the dataframe corresponding to the species by audio quality</span>
+        <span class="n">subdf_dataset</span> <span class="o">=</span> <span class="n">subdf_dataset</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Counter initialization</span>
+        <span class="n">current_nb_files</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">requested_nb_files</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_quality</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">current_nb_files</span> <span class="o">&lt;</span> <span class="n">max_nb_files</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">current_quality</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">quality</span><span class="p">)):</span>
+            <span class="n">requested_nb_files</span> <span class="o">=</span> <span class="n">max_nb_files</span> <span class="o">-</span> <span class="n">current_nb_files</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">quality</span><span class="p">[</span><span class="n">current_quality</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    ... request </span><span class="si">%2.0f</span><span class="s1"> files of quality </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                  <span class="p">(</span><span class="n">requested_nb_files</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>
+            
+            <span class="n">mask1</span> <span class="o">=</span> <span class="p">((</span><span class="n">subdf_dataset</span><span class="o">.</span><span class="n">q</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="o">&amp;</span>
+                    <span class="p">(</span><span class="n">subdf_dataset</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="n">max_length</span><span class="p">)</span> <span class="o">&amp;</span>
+                    <span class="p">(</span><span class="n">subdf_dataset</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;=</span> <span class="n">min_length</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subdf_dataset</span><span class="p">[</span><span class="n">mask1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">requested_nb_files</span><span class="p">:</span>
+                <span class="c1"># create a temp dataframe with the selected rows</span>
+                <span class="n">df_temp</span> <span class="o">=</span> <span class="n">subdf_dataset</span><span class="p">[</span><span class="n">mask1</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+                    <span class="n">by</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">requested_nb_files</span><span class="p">]</span>
+                <span class="c1"># add the rows to the output dataframe</span>
+                <span class="n">df_dataset_out</span> <span class="o">=</span> <span class="n">df_dataset_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
+                <span class="c1"># drop the selected rows to avoid future selection</span>
+                <span class="n">subdf_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>  
+                <span class="c1"># create a temp dataframe with the selected rows</span>
+                <span class="n">df_temp</span> <span class="o">=</span> <span class="n">subdf_dataset</span><span class="p">[</span><span class="n">mask1</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+                    <span class="n">by</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="c1"># add the rows to the output dataframe</span>
+                <span class="n">df_dataset_out</span> <span class="o">=</span> <span class="n">df_dataset_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
+                <span class="c1"># drop the selected rows to avoid future selection</span>
+                <span class="n">subdf_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> 
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    --&gt; found </span><span class="si">%2.0f</span><span class="s1"> files of quality </span><span class="si">%s</span><span class="s1"> and </span><span class="si">%s</span><span class="s1">&lt;length&lt;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span>
+                     <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_temp</span><span class="p">),</span> <span class="n">q</span><span class="p">,</span> <span class="n">min_length</span><span class="p">,</span> <span class="n">max_length</span> <span class="p">))</span>
+            <span class="n">current_nb_files</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
+            <span class="n">requested_nb_files</span> <span class="o">=</span> <span class="n">max_nb_files</span> <span class="o">-</span> <span class="n">current_nb_files</span>
+            <span class="n">current_quality</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    total files : %2.f&#39;</span> <span class="o">%</span><span class="n">current_nb_files</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------&quot;</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">df_dataset_out</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="xc_download"><a class="viewcode-back" href="../../../generated/maad.util.xc_download.html#maad.util.xc_download">[docs]</a><span class="k">def</span> <span class="nf">xc_download</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+                 <span class="n">rootdir</span><span class="p">,</span>
+                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;dataset&#39;</span><span class="p">,</span>
+                 <span class="n">overwrite</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">save_csv</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download the audio files from Xeno-Canto based on the input dataframe</span>
+<span class="sd">    It will create directories for each species if needed</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_dataset : pandas DataFrame</span>
+<span class="sd">        Dataframe containing the selected recordings metadata </span>
+<span class="sd">    rootdir : string</span>
+<span class="sd">        Path to the directory where the whole dataset will be saved</span>
+<span class="sd">    dataset_name : string, optional</span>
+<span class="sd">        Name of the dataset that will be created as a parent directory . </span>
+<span class="sd">        The default is &#39;dataset&#39;.</span>
+<span class="sd">    overwrite : boolean, optional</span>
+<span class="sd">        Test if the directory where the audio files will be downloaded already</span>
+<span class="sd">        exists. if True, it will download the data in the directory anyway.</span>
+<span class="sd">        Otherwise, if False, it will not download audio files.</span>
+<span class="sd">    save_csv : boolean, optional</span>
+<span class="sd">        if True, the csv corresponding to the species will be saved in the</span>
+<span class="sd">        directory of the species. The default is False.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Print messages during the execution of the function. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check whether the specified path is an existing directory or not </span>
+    <span class="n">isdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">rootdir</span><span class="p">)</span> 
+    
+    <span class="c1"># Download audio</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isdir</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">overwrite</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">isdir</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">overwrite</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The directory &quot;</span>
+                      <span class="o">+</span> <span class="n">rootdir</span>
+                      <span class="o">+</span> <span class="s2">&quot; already exists and will be overwritten&quot;</span><span class="p">)</span>
+
+        <span class="c1"># rearrange index to be sure to have unique and increasing index</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+            <span class="n">numfiles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A total of&quot;</span><span class="p">,</span> <span class="n">numfiles</span><span class="p">,</span> <span class="s2">&quot;files will be downloaded&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># change type of rootdir into Path</span>
+        <span class="n">rootdir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">rootdir</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="c1"># create a name for the directory</span>
+            <span class="n">name_dir</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">gen</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">sp</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">en</span>
+            <span class="c1"># create data/xeno-canto-dataset directory</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">rootdir</span> <span class="o">/</span> <span class="n">dataset_name</span> <span class="o">/</span> <span class="n">name_dir</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating subdirectory &quot;</span> <span class="o">+</span> 
+                          <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">+</span> 
+                          <span class="s2">&quot; for downloaded files...&quot;</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="c1"># get filenames</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;XC&#39;</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;.mp3&#39;</span>
+            <span class="c1"># get website recording http download address </span>
+            <span class="n">fileaddress</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">file</span>
+            <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span> 
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving file &quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">numfiles</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">fileaddress</span><span class="p">)</span>
+            <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">fileaddress</span><span class="p">,</span> <span class="n">path</span><span class="o">/</span><span class="n">filename</span><span class="p">)</span>
+            <span class="c1"># save csv</span>
+            <span class="k">if</span> <span class="n">save_csv</span><span class="p">:</span>
+                <span class="n">filename_csv</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;metadata.csv&#39;</span><span class="p">)</span>
+                <span class="c1"># test if the csv file doesn&#39;t exit</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename_csv</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gen</span> <span class="o">==</span> <span class="n">row</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sp</span> <span class="o">==</span> <span class="n">row</span><span class="o">.</span><span class="n">sp</span><span class="p">)</span>
+                    <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename_csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+                
+                
+
+                
+                
+
+<span class="c1"># %%</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="c1"># species</span>
+    <span class="n">df_species</span><span class="p">[</span><span class="s1">&#39;scientific name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Agelaius phoeniceus&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;psittacula krameri&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;Ardea herodias&#39;</span><span class="p">]</span>
+    <span class="c1"># quality</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">df_species</span><span class="p">[</span><span class="s1">&#39;scientific name&#39;</span><span class="p">]:</span>
+        <span class="n">gen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">sp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;gen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gen</span>
+    <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;sp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp</span>
+    <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;q:A&#39;</span>
+    <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;len_l&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;len_l:60&#39;</span>
+    <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;len_g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;len_l:10&#39;</span>
+
+    <span class="n">df_dataset</span> <span class="o">=</span> <span class="n">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">df_out</span> <span class="o">=</span> <span class="n">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">)</span>
+
+    <span class="c1"># df_dataset.to_csv(&#39;tidmarsh_dataset.csv&#39;)</span>
+    <span class="c1"># xc_download(df_dataset_metadata,&#39;tidmarsh_dataset&#39;, , save=True)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, scikit-maad development team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

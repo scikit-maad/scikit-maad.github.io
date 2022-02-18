@@ -5,12 +5,16 @@
 
 Computation times
 =================
-**00:25.439** total execution time for **_auto_examples_2_advanced** files:
+**01:05.106** total execution time for **_auto_examples_2_advanced** files:
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py` (``plot_extract_alpha_indices.py``)                                   | 00:25.439 | 0.0 MB |
+| :ref:`sphx_glr__auto_examples_2_advanced_plot_xenocanto_wookpecker_activities.py` (``plot_xenocanto_wookpecker_activities.py``)               | 01:04.240 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py` (``plot_sound_degradation_due_to_attenuation.py``)     | 00:00.866 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py` (``plot_compare_auto_and_manual_rois_selection.py``) | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py` (``plot_extract_alpha_indices.py``)                                   | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py` (``plot_nmf_and_false_color_spectrogram.py``)               | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
@@ -19,4 +23,6 @@ Computation times
 | :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py` (``plot_sound_pressure_level.py``)                                     | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr__auto_examples_2_advanced_plot_unsupervised_sound_classification.py` (``plot_unsupervised_sound_classification.py``)           | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__auto_examples_2_advanced_wookpecker_drumming_characteristics.py` (``wookpecker_drumming_characteristics.py``)                 | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+

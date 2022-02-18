@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.util.visualization &mdash; scikit-maad 1.2 documentation</title>
+  <title>maad.util.visualization &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -89,13 +92,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
@@ -103,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -210,7 +213,7 @@
 
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="plot_shape"><a class="viewcode-back" href="../../../generated/maad.util.plot_shape.html#maad.util.plot_shape">[docs]</a><span class="k">def</span> <span class="nf">plot_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">display_values</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_shape"><a class="viewcode-back" href="../../../generated/maad.util.plot_shape.html#maad.util.plot_shape">[docs]</a><span class="k">def</span> <span class="nf">plot_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display_values</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Plot shape features in a bidimensional plot.</span>
 <span class="sd">     </span>
@@ -266,8 +269,11 @@
     <span class="n">textlab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">textlab</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="c1"># plot figure</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
         <span class="n">shape_plt</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span>
     <span class="p">)</span>
@@ -386,6 +392,7 @@
 <span class="sd">    &gt;&gt;&gt; ax, fig = overlay_centroid(Sxx,centroid, extent=ext, ax=ax, fig=fig)</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="c1"># Check format of the input data</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">centroid</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Rois must be of type pandas DataFrame&quot;</span><span class="p">)</span>
@@ -443,7 +450,7 @@
 
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="overlay_rois"><a class="viewcode-back" href="../../../generated/maad.util.overlay_rois.html#maad.util.overlay_rois">[docs]</a><span class="k">def</span> <span class="nf">overlay_rois</span><span class="p">(</span><span class="n">im_ref</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="overlay_rois"><a class="viewcode-back" href="../../../generated/maad.util.overlay_rois.html#maad.util.overlay_rois">[docs]</a><span class="k">def</span> <span class="nf">overlay_rois</span><span class="p">(</span><span class="n">im_ref</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">textbox_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Display bounding boxes with time-frequency regions of interest over a spectrogram.</span>
 <span class="sd">    </span>
@@ -454,10 +461,18 @@
 <span class="sd">    im_ref : 2d ndarray of scalars </span>
 <span class="sd">        Spectrogram (or image) </span>
 <span class="sd"> </span>
-<span class="sd">    rois_bbox : list of tuple (min_y,min_x,max_y,max_x) </span>
-<span class="sd">        Contains the bounding box of each ROI </span>
+<span class="sd">    rois_bbox : pandas.DataFrame</span>
+<span class="sd">        Contains the bounding box of each ROI. The pandas.DataFrame must have columns</span>
+<span class="sd">        [&#39;min_x&#39;, &#39;max_x&#39;, &#39;min_y&#39;, &#39;max_y&#39;]. If your data is in the time-frequency</span>
+<span class="sd">        format [&#39;min_t&#39;, &#39;max_t&#39;, &#39;min_f&#39;, &#39;max_f&#39;], use the function</span>
+<span class="sd">        maad.util.format_features to get the cooresponding</span>
+<span class="sd">        x, y coordinates.</span>
+<span class="sd">    </span>
+<span class="sd">    textbox_label: bool</span>
+<span class="sd">        Display a text box above the bounding box indicating the name of the label.</span>
+<span class="sd">        The rois_bbox pandas.DataFrame must have a column called &#39;label&#39; with names</span>
+<span class="sd">        assigned to each ROI.</span>
 <span class="sd"> </span>
-<span class="sd">         </span>
 <span class="sd">    savefig : string, optional, default is None </span>
 <span class="sd">        Root filename (with full path) is required to save the figures. Postfix </span>
 <span class="sd">        is added to the root filename. </span>
@@ -511,6 +526,18 @@
 <span class="sd">    Examples </span>
 <span class="sd">    -------- </span>
 <span class="sd">    </span>
+<span class="sd">    Simple display of bounding boxes over the spectrogram.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound, util</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;./data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; rois = util.read_audacity_annot(&#39;./data/spinetail.txt&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; Sxx, tn, fn, ext = sound.spectrogram(s, fs, nperseg=512, noverlap=256)</span>
+<span class="sd">    &gt;&gt;&gt; rois = util.format_features(rois, tn, fn)</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(figsize=(10,5))</span>
+<span class="sd">    &gt;&gt;&gt; util.plot_spectrogram(Sxx,ext, db_range=70, ax=ax)</span>
+<span class="sd">    &gt;&gt;&gt; util.overlay_rois(Sxx, rois, fig=fig, ax=ax, textbox_label=True)</span>
+<span class="sd">    </span>
+<span class="sd">    Detect regions of interest and display them over the spectrogram.</span>
 <span class="sd">    Load audio recording and compute the spectrogram.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;)</span>
@@ -628,6 +655,19 @@
             <span class="p">)</span>
             <span class="c1"># draw the rectangle</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">textbox_label</span><span class="p">:</span>
+                <span class="n">textbox</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="n">color</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> 
+                               <span class="n">ec</span><span class="o">=</span><span class="n">color</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x0</span><span class="o">*</span><span class="n">x_scaling</span> <span class="o">+</span> <span class="n">xmin</span><span class="p">,</span> <span class="p">(</span><span class="n">y1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">y_scaling</span> <span class="o">+</span> <span class="n">ymin</span><span class="p">,</span> 
+                        <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">label</span><span class="p">),</span> 
+                        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+                        <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;semibold&#39;</span><span class="p">,</span>
+                        <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+                        <span class="n">fontfamily</span><span class="o">=</span><span class="s1">&#39;sans-serif&#39;</span><span class="p">,</span>
+                        <span class="n">fontvariant</span><span class="o">=</span><span class="s1">&#39;small-caps&#39;</span><span class="p">,</span>
+                        <span class="n">bbox</span><span class="o">=</span><span class="n">textbox</span>
+                        <span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
@@ -1823,7 +1863,7 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
             <span class="c1"># convert string into scalars</span>
             <span class="n">df</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">literal_eval</span><span class="p">)</span>
-
+            
     <span class="c1"># create a dataframe with normalized values for each indices</span>
     <span class="n">df_z</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 

@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.2 documentation</title>
+  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
@@ -105,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
@@ -113,9 +117,12 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +198,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="find-regions-of-interest-rois-in-a-spectrogram">
+<section class="sphx-glr-example-title" id="find-regions-of-interest-rois-in-a-spectrogram">
 <span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Permalink to this headline">¶</a></h1>
 <p>A spectrogram is a time-frequency (2d) representation of a audio recording.
 Each acoustic event nested in the audio recording is represented by an acoustic
@@ -419,7 +426,7 @@ To extract</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>

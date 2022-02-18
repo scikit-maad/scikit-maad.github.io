@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Acoustic features &mdash; scikit-maad 1.2 documentation</title>
+  <title>Acoustic features &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -91,13 +95,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rois.html">Segmentation methods</a></li>
@@ -156,7 +160,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -224,10 +228,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-maad.features"></span><div class="section" id="acoustic-features">
+  <span class="target" id="module-maad.features"></span><section id="acoustic-features">
 <h1>Acoustic features<a class="headerlink" href="#acoustic-features" title="Permalink to this headline">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">features</span></code> is an ensemble of functions to characterize audio signals using temporal and spectral features, and ecoacoustic indices.</p>
-<div class="section" id="spectro-temporal-features">
+<section id="spectro-temporal-features">
 <h2>Spectro-temporal features<a class="headerlink" href="#spectro-temporal-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -247,19 +251,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.filter_multires.html#maad.features.filter_multires" title="maad.features.filter_multires"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_multires</span></code></a>(Sxx, kernels[, npyr, rescale])</p></td>
 <td><p>Computes 2D wavelet coefficients at multiple scales using Gaussian pyramid   transformation to downscale the input spectrogram.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.filter_bank_2d_nodc.html#maad.features.filter_bank_2d_nodc" title="maad.features.filter_bank_2d_nodc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_bank_2d_nodc</span></code></a>(frequency, ntheta[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.filter_bank_2d_nodc.html#maad.features.filter_bank_2d_nodc" title="maad.features.filter_bank_2d_nodc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_bank_2d_nodc</span></code></a>(frequency, ntheta[, ...])</p></td>
 <td><p>Build an ensemble of complex 2D Gabor filters with no DC offset.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.centroid_features.html#maad.features.centroid_features" title="maad.features.centroid_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">centroid_features</span></code></a>(Sxx[, rois, im_rois])</p></td>
 <td><p>Computes intensity centroid of a spectrogram.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.all_shape_features.html#maad.features.all_shape_features" title="maad.features.all_shape_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_shape_features</span></code></a>(s, fs, rois[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.all_shape_features.html#maad.features.all_shape_features" title="maad.features.all_shape_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_shape_features</span></code></a>(s, fs, rois[, ...])</p></td>
 <td><p>Computes shape and central frequency features from signal at specified  time-frequency limits defined by regions of interest (ROIs).</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="alpha-acoustic-indices">
+</section>
+<section id="alpha-acoustic-indices">
 <h2>Alpha acoustic indices<a class="headerlink" href="#alpha-acoustic-indices" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -279,49 +283,49 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.temporal_activity.html#maad.features.temporal_activity" title="maad.features.temporal_activity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_activity</span></code></a>(s[, dB_threshold, mode, Nt])</p></td>
 <td><p>Compute the acoustic activity index in temporal domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.temporal_events.html#maad.features.temporal_events" title="maad.features.temporal_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_events</span></code></a>(s, fs[, dB_threshold, …])</p></td>
-<td><p>Compute the acoustic event index from an audio signal.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.temporal_events.html#maad.features.temporal_events" title="maad.features.temporal_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_events</span></code></a>(s, fs[, dB_threshold, ...])</p></td>
+<td><p>Compute the acoustic event index from an audio signal <a class="reference internal" href="generated/maad.features.temporal_events.html#r6d576de36602-1" id="id1"><span>[R6d576de36602-1]</span></a> <a class="reference internal" href="generated/maad.features.temporal_events.html#r6d576de36602-2" id="id2"><span>[R6d576de36602-2]</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index" title="maad.features.acoustic_complexity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_complexity_index</span></code></a>(Sxx)</p></td>
-<td><p>Compute the Acoustic Complexity Index (ACI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_complexity_index.html#r669a90ddf753-1" id="id1"><span>[R669a90ddf753-1]</span></a>.</p></td>
+<td><p>Compute the Acoustic Complexity Index (ACI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_complexity_index.html#r669a90ddf753-1" id="id3"><span>[R669a90ddf753-1]</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.frequency_entropy.html#maad.features.frequency_entropy" title="maad.features.frequency_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_entropy</span></code></a>(X[, compatibility])</p></td>
 <td><p>Computes the spectral entropy of a power spectral density (1d) or power spectrogram density (2d).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks" title="maad.features.number_of_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_peaks</span></code></a>(X, fn[, mode, min_peak_val, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks" title="maad.features.number_of_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_peaks</span></code></a>(X, fn[, mode, min_peak_val, ...])</p></td>
 <td><p>Count the number of frequency peaks on a mean spectrum.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_entropy.html#maad.features.spectral_entropy" title="maad.features.spectral_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_entropy</span></code></a>(Sxx, fn[, flim, display])</p></td>
-<td><p>Compute different entropies based on the average spectrum, its variance,  and its maxima <a class="reference internal" href="generated/maad.features.spectral_entropy.html#r1479941c7526-1" id="id2"><span>[R1479941c7526-1]</span></a></p></td>
+<td><p>Compute different entropies based on the average spectrum, its variance,  and its maxima <a class="reference internal" href="generated/maad.features.spectral_entropy.html#r1479941c7526-1" id="id4"><span>[R1479941c7526-1]</span></a> <a class="reference internal" href="generated/maad.features.spectral_entropy.html#r1479941c7526-2" id="id5"><span>[R1479941c7526-2]</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.spectral_activity.html#maad.features.spectral_activity" title="maad.features.spectral_activity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_activity</span></code></a>(Sxx_dB[, dB_threshold])</p></td>
 <td><p>Compute the acoustic activity on a spectrogram.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_events.html#maad.features.spectral_events" title="maad.features.spectral_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_events</span></code></a>(Sxx_dB, dt[, dB_threshold, …])</p></td>
-<td><p>Compute acoustic events from a spectrogram <a class="reference internal" href="generated/maad.features.spectral_events.html#rf0ffa84335f9-1" id="id3"><span>[Rf0ffa84335f9-1]</span></a>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_events.html#maad.features.spectral_events" title="maad.features.spectral_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_events</span></code></a>(Sxx_dB, dt[, dB_threshold, ...])</p></td>
+<td><p>Compute acoustic events from a spectrogram <a class="reference internal" href="generated/maad.features.spectral_events.html#rf0ffa84335f9-1" id="id6"><span>[Rf0ffa84335f9-1]</span></a> <a class="reference internal" href="generated/maad.features.spectral_events.html#rf0ffa84335f9-2" id="id7"><span>[Rf0ffa84335f9-2]</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.spectral_cover.html#maad.features.spectral_cover" title="maad.features.spectral_cover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_cover</span></code></a>(Sxx, fn[, dB_threshold, …])</p></td>
-<td><p>Compute the proportion (cover) of the spectrogram above a threshold for  three bandwidths : low frequency band (LF), medium frequency band (MF) and  high frequency band (HF).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.spectral_cover.html#maad.features.spectral_cover" title="maad.features.spectral_cover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_cover</span></code></a>(Sxx, fn[, dB_threshold, ...])</p></td>
+<td><p>Compute the proportion (cover) of the spectrogram above a threshold for  three bandwidths : low frequency band (LF), medium frequency band (MF) and  high frequency band (HF) <a class="reference internal" href="generated/maad.features.spectral_cover.html#r1ef1ced9d4c7-1" id="id8"><span>[R1ef1ced9d4c7-1]</span></a> <a class="reference internal" href="generated/maad.features.spectral_cover.html#r1ef1ced9d4c7-2" id="id9"><span>[R1ef1ced9d4c7-2]</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a>(Sxx_power, fn[, …])</p></td>
-<td><p>Compute the Normalized Difference Soundscape Index from a power spectrogram <a class="reference internal" href="generated/maad.features.soundscape_index.html#re8a3e6a1d49a-1" id="id4"><span>[Re8a3e6a1d49a-1]</span></a>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a>(Sxx_power, fn[, ...])</p></td>
+<td><p>Compute the Normalized Difference Soundscape Index from a power spectrogram <a class="reference internal" href="generated/maad.features.soundscape_index.html#re8a3e6a1d49a-1" id="id10"><span>[Re8a3e6a1d49a-1]</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.bioacoustics_index.html#maad.features.bioacoustics_index" title="maad.features.bioacoustics_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bioacoustics_index</span></code></a>(Sxx, fn[, flim, R_compatible])</p></td>
-<td><p>Compute the Bioacoustics Index from a spectrogram <a class="reference internal" href="generated/maad.features.bioacoustics_index.html#r4387573841e2-1" id="id5"><span>[R4387573841e2-1]</span></a>.</p></td>
+<td><p>Compute the Bioacoustics Index from a spectrogram <a class="reference internal" href="generated/maad.features.bioacoustics_index.html#r4387573841e2-1" id="id11"><span>[R4387573841e2-1]</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index" title="maad.features.acoustic_diversity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_diversity_index</span></code></a>(Sxx, fn[, fmin, …])</p></td>
-<td><p>Compute the Acoustic Diversity Index (ADI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_diversity_index.html#r544b09b311be-1" id="id6"><span>[R544b09b311be-1]</span></a>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index" title="maad.features.acoustic_diversity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_diversity_index</span></code></a>(Sxx, fn[, fmin, ...])</p></td>
+<td><p>Compute the Acoustic Diversity Index (ADI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_diversity_index.html#r544b09b311be-1" id="id12"><span>[R544b09b311be-1]</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index" title="maad.features.acoustic_eveness_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_eveness_index</span></code></a>(Sxx, fn[, fmin, …])</p></td>
-<td><p>Compute the Acoustic Eveness Index (AEI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_eveness_index.html#re3dd41c8e02e-1" id="id7"><span>[Re3dd41c8e02e-1]</span></a>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index" title="maad.features.acoustic_eveness_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_eveness_index</span></code></a>(Sxx, fn[, fmin, ...])</p></td>
+<td><p>Compute the Acoustic Eveness Index (AEI) from a spectrogram <a class="reference internal" href="generated/maad.features.acoustic_eveness_index.html#re3dd41c8e02e-1" id="id13"><span>[Re3dd41c8e02e-1]</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.roughness.html#maad.features.roughness" title="maad.features.roughness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roughness</span></code></a>(x[, norm, axis])</p></td>
 <td><p>Computes the roughness (depends on the number of peaks and their amplitude) of a vector or matrix x (i.e.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.temporal_leq.html#maad.features.temporal_leq" title="maad.features.temporal_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_leq</span></code></a>(s, fs, gain[, Vadc, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.temporal_leq.html#maad.features.temporal_leq" title="maad.features.temporal_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_leq</span></code></a>(s, fs, gain[, Vadc, ...])</p></td>
 <td><p>Computes the Equivalent Continuous Sound level (Leq) of an audio signal  in the time domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_leq.html#maad.features.spectral_leq" title="maad.features.spectral_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_leq</span></code></a>(X, gain[, Vadc, sensitivity, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_leq.html#maad.features.spectral_leq" title="maad.features.spectral_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_leq</span></code></a>(X, gain[, Vadc, sensitivity, ...])</p></td>
 <td><p>Computes the Equivalent Continuous Sound level (Leq) from a power spectrum  (1d) or power spectrogram (2d).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.surface_roughness.html#maad.features.surface_roughness" title="maad.features.surface_roughness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface_roughness</span></code></a>(x[, norm])</p></td>
@@ -333,16 +337,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.more_entropy.html#maad.features.more_entropy" title="maad.features.more_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">more_entropy</span></code></a>(x[, order, axis])</p></td>
 <td><p>Compute the entropy of an audio signal using multiple methods.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index" title="maad.features.acoustic_gradient_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_gradient_index</span></code></a>(Sxx, dt[, order, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index" title="maad.features.acoustic_gradient_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_gradient_index</span></code></a>(Sxx, dt[, order, ...])</p></td>
 <td><p>Compute the Acoustic Gradient Index (AGI) from a raw spectrogram.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq" title="maad.features.frequency_raoq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_raoq</span></code></a>(S_power, fn[, bin_step])</p></td>
-<td><p>Compute Rao’s quadratic entropy on a power spectrum (1d).</p></td>
+<td><p>Compute Rao's quadratic entropy on a power spectrum (1d).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index" title="maad.features.region_of_interest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_of_interest_index</span></code></a>(Sxx_dB_noNoise, tn, fn)</p></td>
-<td><p>Compute an acoustic activity index based on the regions of interested detected on a spectrogram.</p></td>
+<td><p>Compute an acoustic activity index based on the regions of interested  detected on a spectrogram.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices" title="maad.features.all_temporal_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_temporal_alpha_indices</span></code></a>(s, fs[, verbose, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices" title="maad.features.all_temporal_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_temporal_alpha_indices</span></code></a>(s, fs[, verbose, ...])</p></td>
 <td><p>Compute 16 temporal domain acoustic indices.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices" title="maad.features.all_spectral_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_spectral_alpha_indices</span></code></a>(Sxx_power, tn, fn)</p></td>
@@ -350,8 +354,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="temporal-features">
+</section>
+<section id="temporal-features">
 <h2>Temporal features<a class="headerlink" href="#temporal-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -367,8 +371,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="spectral-features">
+</section>
+<section id="spectral-features">
 <h2>Spectral features<a class="headerlink" href="#spectral-features" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -381,8 +385,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

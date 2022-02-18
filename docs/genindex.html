@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; scikit-maad 1.2 documentation</title>
+  <title>Index &mdash; scikit-maad 1.3 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -89,13 +92,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rois.html">Segmentation methods</a></li>
@@ -103,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spl.html">Sound pressure level</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Gallery</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
@@ -192,6 +195,7 @@
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
  | <a href="#Z"><strong>Z</strong></a>
  
 </div>
@@ -210,10 +214,10 @@
 </li>
       <li><a href="generated/maad.util.add_dB.html#maad.util.add_dB">add_dB() (in module maad.util)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.features.all_shape_features.html#maad.features.all_shape_features">all_shape_features() (in module maad.features)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices">all_spectral_alpha_indices() (in module maad.features)</a>
 </li>
       <li><a href="generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices">all_temporal_alpha_indices() (in module maad.features)</a>
@@ -221,6 +225,10 @@
       <li><a href="generated/maad.util.amplitude2dB.html#maad.util.amplitude2dB">amplitude2dB() (in module maad.util)</a>
 </li>
       <li><a href="generated/maad.spl.amplitude2dBSPL.html#maad.spl.amplitude2dBSPL">amplitude2dBSPL() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation">apply_attenuation() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB">attenuation_dB() (in module maad.spl)</a>
 </li>
       <li><a href="generated/maad.sound.avg_amplitude_spectro.html#maad.sound.avg_amplitude_spectro">avg_amplitude_spectro() (in module maad.sound)</a>
 </li>
@@ -262,11 +270,17 @@
 </li>
       <li><a href="generated/maad.util.dB2amplitude.html#maad.util.dB2amplitude">dB2amplitude() (in module maad.util)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.util.dB2power.html#maad.util.dB2power">dB2power() (in module maad.util)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.spl.dBSPL2pressure.html#maad.spl.dBSPL2pressure">dBSPL2pressure() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0">dBSPL_at_r0() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.dBSPL_per_bin.html#maad.spl.dBSPL_per_bin">dBSPL_per_bin() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.detection_distance.html#maad.spl.detection_distance">detection_distance() (in module maad.spl)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -430,6 +444,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/maad.sound.normalize.html#maad.sound.normalize">normalize() (in module maad.sound)</a>
+</li>
       <li><a href="generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks">number_of_peaks() (in module maad.features)</a>
 </li>
   </ul></td>
@@ -466,10 +482,10 @@
 </li>
       <li><a href="generated/maad.util.plot_shape.html#maad.util.plot_shape">plot_shape() (in module maad.util)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.util.plot_spectrogram.html#maad.util.plot_spectrogram">plot_spectrogram() (in module maad.util)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/maad.util.plot_spectrum.html#maad.util.plot_spectrum">plot_spectrum() (in module maad.util)</a>
 </li>
       <li><a href="generated/maad.util.plot_wave.html#maad.util.plot_wave">plot_wave() (in module maad.util)</a>
@@ -481,6 +497,8 @@
       <li><a href="generated/maad.spl.pressure2dBSPL.html#maad.spl.pressure2dBSPL">pressure2dBSPL() (in module maad.spl)</a>
 </li>
       <li><a href="generated/maad.spl.pressure2leq.html#maad.spl.pressure2leq">pressure2leq() (in module maad.spl)</a>
+</li>
+      <li><a href="generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0">pressure_at_r0() (in module maad.spl)</a>
 </li>
       <li><a href="generated/maad.spl.psd2leq.html#maad.spl.psd2leq">psd2leq() (in module maad.spl)</a>
 </li>
@@ -621,6 +639,22 @@
       <li><a href="generated/maad.sound.write.html#maad.sound.write">write() (in module maad.sound)</a>
 </li>
       <li><a href="generated/maad.util.write_audacity_annot.html#maad.util.write_audacity_annot">write_audacity_annot() (in module maad.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/maad.util.xc_download.html#maad.util.xc_download">xc_download() (in module maad.util)</a>
+</li>
+      <li><a href="generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query">xc_multi_query() (in module maad.util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/maad.util.xc_query.html#maad.util.xc_query">xc_query() (in module maad.util)</a>
+</li>
+      <li><a href="generated/maad.util.xc_selection.html#maad.util.xc_selection">xc_selection() (in module maad.util)</a>
 </li>
   </ul></td>
 </tr></table>
