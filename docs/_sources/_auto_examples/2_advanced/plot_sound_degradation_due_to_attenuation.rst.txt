@@ -25,7 +25,7 @@ attenuation and might be seen as a proxy.
 
 .. code-block:: default
 
-
+    import matplotlib.pyplot as plt
     from maad import sound, spl, util
 
 
@@ -279,25 +279,6 @@ Simulation of the attenuation of the acoustic signature at different distances
  Here, we will simulate the attenuation of the signal after propagating 10m, 
  50m, 100m, 200m
 
-
-.. code-block:: default
-
-
-    # plot original spectrogram
-    import matplotlib.pyplot as plt
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, sharex=True, figsize=(15,3))
-
-
-
-
-.. image:: /_auto_examples/2_advanced/images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png
-    :alt: plot sound degradation due to attenuation
-    :class: sphx-glr-single-img
-
-
-
-
-
 Compute the attenuation of the recorded spinetail song at 10m.
 
 
@@ -368,19 +349,30 @@ We add real noise recorded just after the song of the spinetail.
     Sxx_dB_att_50m = util.add_dB(Sxx_dB_att_50m,Sxx_dB_noise)  
     Sxx_dB_att_100m = util.add_dB(Sxx_dB_att_100m,Sxx_dB_noise)  
     Sxx_dB_att_200m = util.add_dB(Sxx_dB_att_200m,Sxx_dB_noise)  
-      #%%
-    # Plot attenuated spectrograms at different distances of propagation.
-    # We can observe that the highest frequency content (harmonics) disappears first.
-    # We can also observe that at 200m, almost none of the spinetail signal is still
-    # visible. Only the background noise, with the call of another species remains
+
+
+
+
+
+
+
+Plot attenuated spectrograms at different distances of propagation.
+We can observe that the highest frequency content (harmonics) disappears first.
+We can also observe that at 200m, almost none of the spinetail signal is still
+visible. Only the background noise, with the call of another species remains
+
+
+.. code-block:: default
+
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, sharex=True, figsize=(15,3))
     util.plot2d(Sxx_dB_att_10m, title='10m', ax=ax1, extent=ext, vmin=0, vmax=96, figsize=[3,3])
     util.plot2d(Sxx_dB_att_50m, title='50m', ax=ax2, extent=ext, vmin=0, vmax=96, figsize=[3,3])
     util.plot2d(Sxx_dB_att_100m, title='100m', ax=ax3, extent=ext, vmin=0, vmax=96, figsize=[3,3])
     util.plot2d(Sxx_dB_att_200m, title='200m', ax=ax4, extent=ext, vmin=0, vmax=96, figsize=[3,3])  
 
 
-.. image:: /_auto_examples/2_advanced/images/sphx_glr_plot_sound_degradation_due_to_attenuation_004.png
-    :alt: plot sound degradation due to attenuation
+.. image:: /_auto_examples/2_advanced/images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png
+    :alt: 10m, 50m, 100m, 200m
     :class: sphx-glr-single-img
 
 
@@ -390,7 +382,7 @@ We add real noise recorded just after the song of the spinetail.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.866 seconds)
+   **Total running time of the script:** ( 0 minutes  0.944 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py:
