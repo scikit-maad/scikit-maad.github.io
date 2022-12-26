@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.spl.dBSPL_at_r0 &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.spl.dBSPL_at_r0 &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -192,7 +193,7 @@
            <div itemprop="articleBody">
             
   <section id="maad-spl-dbspl-at-r0">
-<h1>maad.spl.dBSPL_at_r0<a class="headerlink" href="#maad-spl-dbspl-at-r0" title="Permalink to this headline">¶</a></h1>
+<h1>maad.spl.dBSPL_at_r0<a class="headerlink" href="#maad-spl-dbspl-at-r0" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.spl.dBSPL_at_r0">
 <span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">dBSPL_at_r0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101325</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/active_space.html#dBSPL_at_r0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.dBSPL_at_r0" title="Permalink to this definition">¶</a></dt>
@@ -202,7 +203,7 @@ level L measured at distance r.</p>
 <p>This function takes into account the geometric, atmospheric and habitat attenuations.</p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>f: scalar or array-like</strong></dt><dd><p>frequency in Hz</p>
 </dd>
@@ -224,7 +225,7 @@ if L is a vector, L must have the same length as r</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>L0</strong><span class="classifier">scalar or array-like</span></dt><dd><p>estimated sound presssure level L0 at distance r0 [SCALAR]</p>
 </dd>

@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sound processing &mdash; scikit-maad 1.3 documentation</title>
+  <title>Sound processing &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -134,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.sound.resample.html">maad.sound.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.sound.trim.html">maad.sound.trim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.sound.normalize.html">maad.sound.normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.sound.gain.html">maad.sound.gain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a><ul>
@@ -218,15 +220,11 @@
            <div itemprop="articleBody">
             
   <span class="target" id="module-maad.sound"></span><section id="sound-processing">
-<h1>Sound processing<a class="headerlink" href="#sound-processing" title="Permalink to this headline">¶</a></h1>
+<h1>Sound processing<a class="headerlink" href="#sound-processing" title="Permalink to this heading">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">sound</span></code> is an ensemble of functions to load and preprocess audio signals.</p>
 <section id="input-and-output">
-<h2>Input and output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Input and output<a class="headerlink" href="#input-and-output" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.load.html#maad.sound.load" title="maad.sound.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(filename[, channel, detrend, verbose, ...])</p></td>
 <td><p>Load an audio file (stereo or mono).</p></td>
@@ -244,12 +242,8 @@
 </table>
 </section>
 <section id="preprocess-audio">
-<h2>Preprocess audio<a class="headerlink" href="#preprocess-audio" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Preprocess audio<a class="headerlink" href="#preprocess-audio" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.fir_filter.html#maad.sound.fir_filter" title="maad.sound.fir_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fir_filter</span></code></a>(x, kernel[, axis])</p></td>
 <td><p>Filter a signal using a 1d finite impulse response filter.</p></td>
@@ -285,12 +279,8 @@
 </table>
 </section>
 <section id="transform-audio">
-<h2>Transform audio<a class="headerlink" href="#transform-audio" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Transform audio<a class="headerlink" href="#transform-audio" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.spectrogram.html#maad.sound.spectrogram" title="maad.sound.spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrogram</span></code></a>(x, fs[, window, nperseg, ...])</p></td>
 <td><p>Compute a spectrogram using the short-time Fourier transform from an audio signal.</p></td>
@@ -319,16 +309,15 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.normalize.html#maad.sound.normalize" title="maad.sound.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(s[, max_amp, max_db])</p></td>
 <td><p>Normalize audio signal to desired amplitude or decibell full scale value (dBFS).</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.gain.html#maad.sound.gain" title="maad.sound.gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gain</span></code></a>(s[, gain_db])</p></td>
+<td><p>Amply amplification or attenuation to the audio signal.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
 <section id="metrics">
-<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.temporal_snr.html#maad.sound.temporal_snr" title="maad.sound.temporal_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_snr</span></code></a>(s[, mode, Nt])</p></td>
 <td><p>Compute the signal to noise ratio (SNR) of an audio signal in the time domain.</p></td>

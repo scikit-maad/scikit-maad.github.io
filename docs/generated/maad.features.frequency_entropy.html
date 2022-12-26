@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.frequency_entropy &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.frequency_entropy &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,14 +216,14 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-frequency-entropy">
-<h1>maad.features.frequency_entropy<a class="headerlink" href="#maad-features-frequency-entropy" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.frequency_entropy<a class="headerlink" href="#maad-features-frequency-entropy" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.frequency_entropy">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">frequency_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUT'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#frequency_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.frequency_entropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the spectral entropy of a power spectral density (1d) or power
 spectrogram density (2d).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">1D or 2D array</span></dt><dd><p>Power Spectral/Spectrogram Density (PSD) of an audio
 Better to work with PSD (amplitude¹) than with amplitude for energy 
@@ -236,7 +237,7 @@ conservation</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>Hf: float</dt><dd><p>spectral entropy of the audio</p>
 </dd>
@@ -252,14 +253,16 @@ indicates a concentration of energy around a narrow frequency band.
 If the DC value is not removed before processing the large peak at f=0Hz will 
 lower the entropy of the signal.</p>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="rc9a28829ad39-1"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></p>
-</dd>
-<dt class="label" id="rc9a28829ad39-2"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
-<dd><p>QUT : <a class="reference external" href="https://github.com/QutEcoacoustics/audio-analysis">https://github.com/QutEcoacoustics/audio-analysis</a>. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.1188744">http://doi.org/10.5281/zenodo.1188744</a></p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="rc9a28829ad39-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></p>
+</div>
+<div class="citation" id="rc9a28829ad39-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>QUT : <a class="reference external" href="https://github.com/QutEcoacoustics/audio-analysis">https://github.com/QutEcoacoustics/audio-analysis</a>. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.1188744">http://doi.org/10.5281/zenodo.1188744</a></p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>   

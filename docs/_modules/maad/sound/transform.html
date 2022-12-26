@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.sound.transform &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.sound.transform &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -34,6 +34,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -67,7 +68,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -640,6 +641,53 @@
     <span class="c1"># compute and apply gain value</span>
     <span class="n">gain</span> <span class="o">=</span> <span class="n">max_amp</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
     <span class="n">s_out</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">gain</span>
+    
+    <span class="k">return</span> <span class="n">s_out</span></div>
+
+<div class="viewcode-block" id="gain"><a class="viewcode-back" href="../../../generated/maad.sound.gain.html#maad.sound.gain">[docs]</a><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain_db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Amply amplification or attenuation to the audio signal.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : np.ndarray </span>
+<span class="sd">        Mono audio signal as NumPy array.</span>
+<span class="sd">    gain_db : float, optional</span>
+<span class="sd">        Gain value to amplify (positive values), or attenuate (negative values) the </span>
+<span class="sd">        signal in dB.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    s_out : np.ndarray</span>
+<span class="sd">        Amplified or attenuated audio signal.</span>
+<span class="sd">        </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    sound.normalize, sound.trim</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound</span>
+<span class="sd">    </span>
+<span class="sd">    Amplify the signal by 3 dB</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; s_out = sound.gain(s, gain_db=3)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;Signal amplified by:&#39;, 20*np.log10((s_out.max()/s.max())), &#39;dB&#39;)</span>
+<span class="sd">    Signal amplified by: 3 dB</span>
+<span class="sd">    </span>
+<span class="sd">    Attenuate the signal by 3 dB</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; s_out = sound.gain(s, gain_db=-3)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;Signal amplified by:&#39;, 20*np.log10((s_out.max()/s.max())), &#39;dB&#39;)</span>
+<span class="sd">    Signal amplified by: -3 dB</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>        
+    <span class="c1"># Apply the gain value</span>
+    
+    <span class="n">s_out</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">gain_db</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">s_out</span></div>
 </pre></div>

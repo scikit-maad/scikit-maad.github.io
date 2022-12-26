@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.more_entropy &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.more_entropy &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,7 +216,7 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-more-entropy">
-<h1>maad.features.more_entropy<a class="headerlink" href="#maad-features-more-entropy" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.more_entropy<a class="headerlink" href="#maad-features-more-entropy" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.more_entropy">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">more_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#more_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.more_entropy" title="Permalink to this definition">¶</a></dt>
@@ -231,7 +232,7 @@
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">ndarray of floats</span></dt><dd><p>vector (1d) or matrix (2d) of scalars.
 Vector could be audio recording or spectrum
@@ -245,7 +246,7 @@ of the matrix to compute the entropies.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>H_Havrda</strong><span class="classifier">scalar</span></dt><dd><p>Havrda entropy</p>
 </dd>
@@ -261,11 +262,12 @@ of the matrix to compute the entropies.</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r388ca7b1b126-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Zhao, Yueqin. “Rao’s Quadratic Entropy and Some New Applications” (2010). Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, Old Dominion University. <a class="reference external" href="https://doi.org/10.25777/qgak-sf09">DOI: 10.25777/qgak-sf09</a></p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="r388ca7b1b126-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Zhao, Yueqin. “Rao’s Quadratic Entropy and Some New Applications” (2010). Doctor of Philosophy (PhD), dissertation,Mathematics and Statistics, Old Dominion University. <a class="reference external" href="https://doi.org/10.25777/qgak-sf09">DOI: 10.25777/qgak-sf09</a></p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <p>Compute entropy in time domain.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>

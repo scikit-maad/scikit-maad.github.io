@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.3 documentation</title>
+  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -129,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -206,7 +208,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-wookpecker-activities-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="download-metadata-from-xeno-canto-to-infer-species-activities">
-<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-wookpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-wookpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Permalink to this heading">¶</a></h1>
 <p>The goal of this example is to show how to download metadata from Xeno-Canto
 to infer species activities.
 We focus on the activity of european woodpeckers.</p>
@@ -241,7 +243,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </pre></div>
 </div>
 <section id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this headline">¶</a></h2>
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this heading">¶</a></h2>
 <p>array with english name and scientific name of all european woodpeckers</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Eurasian Three-toed&#39;</span><span class="p">,</span> <span class="s1">&#39;Picoides tridactylus&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;White-backed&#39;</span><span class="p">,</span>        <span class="s1">&#39;Dendrocopos leucotos&#39;</span><span class="p">],</span>
@@ -288,7 +290,7 @@ Please have a look here to know all the parameters and how to use them :
 </pre></div>
 </div>
 <p>Get recordings metadata corresponding to the query</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span><span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
                                  <span class="n">format_time</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
                                  <span class="n">format_date</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
                                  <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -296,81 +298,116 @@ Please have a look here to know all the parameters and how to use them :
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Picoides%20tridactylus%20type:drumming%20area:europe&amp;page=1
+https://www.xeno-canto.org/api/2/recordings?query=Picoides%20tridactylus%20area:europe&amp;page=1
+searchTerms [&#39;Picoides&#39;, &#39;tridactylus&#39;, &#39;area:europe&#39;]
+Keeped metadata for 189 files after formating time
+Keeped metadata for 125 files after formating date
 Found 1 pages in total.
-Saved metadata for 177 files
-Keeped metadata for 168 files after formating time
-Keeped metadata for 111 files after formating date
+Saved metadata for 125 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20leucotos%20type:drumming%20area:europe&amp;page=1
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20leucotos%20area:europe&amp;page=1
+searchTerms [&#39;Dendrocopos&#39;, &#39;leucotos&#39;, &#39;area:europe&#39;]
+Keeped metadata for 138 files after formating time
+Keeped metadata for 103 files after formating date
 Found 1 pages in total.
-Saved metadata for 132 files
-Keeped metadata for 124 files after formating time
-Keeped metadata for 91 files after formating date
+Saved metadata for 103 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 344 files
-Keeped metadata for 327 files after formating time
-Keeped metadata for 253 files after formating date
-Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
+https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20area:europe&amp;page=1
 Loading page 2...
-https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=2
+https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20area:europe&amp;page=2
+searchTerms [&#39;Dryobates&#39;, &#39;minor&#39;, &#39;area:europe&#39;]
+Keeped metadata for 385 files after formating time
+Keeped metadata for 296 files after formating date
 Found 2 pages in total.
-Saved metadata for 643 files
-Keeped metadata for 576 files after formating time
-Keeped metadata for 425 files after formating date
+Saved metadata for 296 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 230 files
-Keeped metadata for 218 files after formating time
-Keeped metadata for 166 files after formating date
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20area:europe&amp;page=2
+Loading page 3...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20area:europe&amp;page=3
+Loading page 4...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20area:europe&amp;page=4
+Loading page 5...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20area:europe&amp;page=5
+searchTerms [&#39;Dendrocopos&#39;, &#39;major&#39;, &#39;area:europe&#39;]
+Keeped metadata for 653 files after formating time
+Keeped metadata for 483 files after formating date
+Found 5 pages in total.
+Saved metadata for 483 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 68 files
-Keeped metadata for 65 files after formating time
-Keeped metadata for 51 files after formating date
+https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20area:europe&amp;page=2
+Loading page 3...
+https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20area:europe&amp;page=3
+searchTerms [&#39;Dryocopus&#39;, &#39;martius&#39;, &#39;area:europe&#39;]
+Keeped metadata for 263 files after formating time
+Keeped metadata for 198 files after formating date
+Found 3 pages in total.
+Saved metadata for 198 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20syriacus%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 22 files
+https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20area:europe&amp;page=2
+searchTerms [&#39;Picus&#39;, &#39;canus&#39;, &#39;area:europe&#39;]
+Keeped metadata for 79 files after formating time
+Keeped metadata for 58 files after formating date
+Found 2 pages in total.
+Saved metadata for 58 files
+Loading page 1...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20syriacus%20area:europe&amp;page=1
+searchTerms [&#39;Dendrocopos&#39;, &#39;syriacus&#39;, &#39;area:europe&#39;]
+/Volumes/lacie_macosx/github/scikit-maad/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_dataset[&#39;time&#39;][df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)] = &#39;0&#39; + df_dataset[df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)].time
 Keeped metadata for 22 files after formating time
 Keeped metadata for 18 files after formating date
-Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Jynx%20torquilla%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
+Saved metadata for 18 files
+Loading page 1...
+https://www.xeno-canto.org/api/2/recordings?query=Jynx%20torquilla%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Jynx%20torquilla%20area:europe&amp;page=2
+searchTerms [&#39;Jynx&#39;, &#39;torquilla&#39;, &#39;area:europe&#39;]
+Keeped metadata for 0 files after formating time
+Keeped metadata for 0 files after formating date
+Found 2 pages in total.
 Saved metadata for 0 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 33 files
+https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20area:europe&amp;page=2
+searchTerms [&#39;Picus&#39;, &#39;viridis&#39;, &#39;area:europe&#39;]
 Keeped metadata for 32 files after formating time
 Keeped metadata for 19 files after formating date
+Found 2 pages in total.
+Saved metadata for 19 files
 Loading page 1...
-https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20type:drumming%20area:europe&amp;page=1
-Found 1 pages in total.
-Saved metadata for 20 files
-Keeped metadata for 20 files after formating time
-Keeped metadata for 16 files after formating date
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20area:europe&amp;page=1
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20area:europe&amp;page=2
+searchTerms [&#39;Dendrocoptes&#39;, &#39;medius&#39;, &#39;area:europe&#39;]
+Keeped metadata for 22 files after formating time
+Keeped metadata for 17 files after formating date
+Found 2 pages in total.
+Saved metadata for 17 files
 </pre></div>
 </div>
 </section>
 <section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins">
-<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Using the metadata collected from Xeno-Canto, we create a new dataframe
+<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Permalink to this heading">¶</a></h2>
+<p>Using the metadata collected from Xeno-Canto, we create a new dataframe
 containing the number of files per species and per time slot (30 mins). The
 goal is to create a dataframe with diel pattern of activity for all species
 with a time resolution of 30 mins.</p>
-</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="c1"># remove all rows where data is missing (NA)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="c1"># Convert time into datetime (add a fake year 1900-01-01)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Convert time into datetime</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -385,22 +422,20 @@ The period of the time slot is 30 min</p>
     <span class="n">df_count</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
 
 <span class="c1"># create a column with time only</span>
-<span class="n">df_count</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span>
+<span class="n">df_count</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-week">
-<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Using the metadata collected from Xeno-Cant, we create a new dataframe
+<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Permalink to this heading">¶</a></h2>
+<p>Using the metadata collected from Xeno-Cant, we create a new dataframe
 containing the number of files per species and per week. The goal is to
 create a dataframe with annual pattern of activity for all species
 with a week (7 days) resolution.</p>
-</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="c1"># remove all rows where data is missing (NA)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>New dataframe with the number of audio files per week</p>
@@ -418,10 +453,8 @@ with a week (7 days) resolution.</p>
 </div>
 </section>
 <section id="display-a-heatmap-of-diel-activity">
-<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>make a copy of the dataset to avoid any modification of the original dataset</p>
-</div></blockquote>
+<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Permalink to this heading">¶</a></h2>
+<p>make a copy of the dataset to avoid any modification of the original dataset</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -478,10 +511,8 @@ Woodpeckers are the most active during the morning, between 6:00am till
 <img alt="plot xenocanto wookpecker activities" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_xenocanto_wookpecker_activities_001.png" />
 </section>
 <section id="display-a-heatmap-of-annual-activity-with-week-resolution">
-<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>make a copy of the dataset to avoid any modification of the original dataset</p>
-</div></blockquote>
+<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Permalink to this heading">¶</a></h2>
+<p>make a copy of the dataset to avoid any modification of the original dataset</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_week_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -530,7 +561,7 @@ Woodpeckers are the most active during the winter and beginning of spring
 </pre></div>
 </div>
 <img alt="plot xenocanto wookpecker activities" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_xenocanto_wookpecker_activities_002.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  4.240 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.825 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-wookpecker-activities-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/82d5164ad6aea8f14a5ade004c423606/plot_xenocanto_wookpecker_activities.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_xenocanto_wookpecker_activities.py</span></code></a></p>

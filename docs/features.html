@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Acoustic features &mdash; scikit-maad 1.3 documentation</title>
+  <title>Acoustic features &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -229,15 +230,11 @@
            <div itemprop="articleBody">
             
   <span class="target" id="module-maad.features"></span><section id="acoustic-features">
-<h1>Acoustic features<a class="headerlink" href="#acoustic-features" title="Permalink to this headline">¶</a></h1>
+<h1>Acoustic features<a class="headerlink" href="#acoustic-features" title="Permalink to this heading">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">features</span></code> is an ensemble of functions to characterize audio signals using temporal and spectral features, and ecoacoustic indices.</p>
 <section id="spectro-temporal-features">
-<h2>Spectro-temporal features<a class="headerlink" href="#spectro-temporal-features" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Spectro-temporal features<a class="headerlink" href="#spectro-temporal-features" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.shape_features.html#maad.features.shape_features" title="maad.features.shape_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_features</span></code></a>(Sxx[, resolution, rois])</p></td>
 <td><p>Computes time-frequency shape coefficients at multiple resolutions using 2D Gabor filters.</p></td>
@@ -264,12 +261,8 @@
 </table>
 </section>
 <section id="alpha-acoustic-indices">
-<h2>Alpha acoustic indices<a class="headerlink" href="#alpha-acoustic-indices" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Alpha acoustic indices<a class="headerlink" href="#alpha-acoustic-indices" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.temporal_median.html#maad.features.temporal_median" title="maad.features.temporal_median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_median</span></code></a>(s[, mode, Nt])</p></td>
 <td><p>Computes the median of the envelope of an audio signal.</p></td>
@@ -356,12 +349,8 @@
 </table>
 </section>
 <section id="temporal-features">
-<h2>Temporal features<a class="headerlink" href="#temporal-features" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Temporal features<a class="headerlink" href="#temporal-features" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.temporal_moments.html#maad.features.temporal_moments" title="maad.features.temporal_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_moments</span></code></a>(s)</p></td>
 <td><p>Computes the first 4th moments of an audio signal, mean, variance, skewness, kurtosis.</p></td>
@@ -373,12 +362,8 @@
 </table>
 </section>
 <section id="spectral-features">
-<h2>Spectral features<a class="headerlink" href="#spectral-features" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Spectral features<a class="headerlink" href="#spectral-features" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.spectral_moments.html#maad.features.spectral_moments" title="maad.features.spectral_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_moments</span></code></a>(X[, axis])</p></td>
 <td><p>Computes the first 4th moments of an amplitude spectrum (1d) or spectrogram (2d),  mean, variance, skewness, kurtosis.</p></td>

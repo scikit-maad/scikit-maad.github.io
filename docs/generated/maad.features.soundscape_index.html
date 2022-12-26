@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.soundscape_index &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.soundscape_index &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,13 +216,13 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-soundscape-index">
-<h1>maad.features.soundscape_index<a class="headerlink" href="#maad-features-soundscape-index" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.soundscape_index<a class="headerlink" href="#maad-features-soundscape-index" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.soundscape_index">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">soundscape_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_bioPh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">10000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_antroPh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_compatible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'soundecology'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#soundscape_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.soundscape_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Normalized Difference Soundscape Index from a power spectrogram <a class="reference internal" href="#re8a3e6a1d49a-1" id="id1">[1]</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>Sxx_power</strong><span class="classifier">ndarray of floats</span></dt><dd><p>2d : Power Spectrogram</p>
 </dd>
@@ -236,7 +237,7 @@ Otherwise, the result is specific to maad or Seewave R package</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>NDSI</strong><span class="classifier">scalar</span></dt><dd><p>(bioPh-antroPh)/(bioPh+antroPh)</p>
 </dd>
@@ -250,11 +251,12 @@ Otherwise, the result is specific to maad or Seewave R package</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="re8a3e6a1d49a-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Kasten, Eric P., Stuart H. Gage, Jordan Fox, and Wooyeong Joo. 2012. The Remote Environmental Assessment Laboratory’s Acoustic Library: An Archive for Studying Soundscape Ecology. Ecological Informatics 12: 50-67. <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2012.08.001">DOI: 10.1016/j.ecoinf.2012.08.001</a> <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2012.08.001">https://doi.org/10.1016/j.ecoinf.2012.08.001</a></p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="re8a3e6a1d49a-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Kasten, Eric P., Stuart H. Gage, Jordan Fox, and Wooyeong Joo. 2012. The Remote Environmental Assessment Laboratory’s Acoustic Library: An Archive for Studying Soundscape Ecology. Ecological Informatics 12: 50-67. <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2012.08.001">DOI: 10.1016/j.ecoinf.2012.08.001</a> <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2012.08.001">https://doi.org/10.1016/j.ecoinf.2012.08.001</a></p>
+</div>
+</div>
 <p>Ported from Seewave (<a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>) and soundecology R packages (cran.ms.unimelb.edu.au/web/packages/soundecology/soundecology.pdf).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>

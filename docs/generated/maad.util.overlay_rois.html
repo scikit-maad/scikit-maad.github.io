@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.util.overlay_rois &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.util.overlay_rois &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -130,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../util.html#parser">Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#miscellaneous">Miscellaneous</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#xeno-canto">Xeno-Canto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html#audio-metadata">Audio metadata</a></li>
 </ul>
 </li>
 </ul>
@@ -204,14 +206,14 @@
            <div itemprop="articleBody">
             
   <section id="maad-util-overlay-rois">
-<h1>maad.util.overlay_rois<a class="headerlink" href="#maad-util-overlay-rois" title="Permalink to this headline">¶</a></h1>
+<h1>maad.util.overlay_rois<a class="headerlink" href="#maad-util-overlay-rois" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.overlay_rois">
-<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">overlay_rois</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rois</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textbox_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#overlay_rois"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.overlay_rois" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">overlay_rois</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rois</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textbox_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#overlay_rois"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.overlay_rois" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display bounding boxes with time-frequency regions of interest over a spectrogram.</p>
 <p>Regions of interest (ROIs) must be provided. They can be loaded as manual annotations or computed using automated methods (see the example section).</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>im_ref</strong><span class="classifier">2d ndarray of scalars</span></dt><dd><p>Spectrogram (or image)</p>
 </dd>
@@ -220,6 +222,22 @@
 format [‘min_t’, ‘max_t’, ‘min_f’, ‘max_f’], use the function
 maad.util.format_features to get the cooresponding
 x, y coordinates.</p>
+</dd>
+<dt><strong>edge_color</strong><span class="classifier">{None, string, tuple, list of tuples}, default is None</span></dt><dd><p>Define the color of the bounding-box to display.
+if it’s a string, select a color name 
+if it’s a tuple, give a tuple of floats [0,1] in the form (r,g,b,a), 
+with r for red, g for green, b for blue and a for alpha (i.e transparency)
+for example
+- pure red : (1,0,0,0)
+- pure yellow : (1,1,0,0)
+- pure blue with transparency(0,0,1,0.5)
+if it’s a list, give a list of tuple or string. The number of element 
+in the list should be equal to the number of elements in unique_labels.
+if it’s set to None, a random list of colors is used.</p>
+</dd>
+<dt><strong>unique_labels</strong><span class="classifier">list, default is None</span></dt><dd><p>list of unique labels that could be either strings or numbers. When
+a list is given as argument, the number element in the list should 
+be the same as the number of edge_color</p>
 </dd>
 <dt><strong>textbox_label: bool</strong></dt><dd><p>Display a text box above the bounding box indicating the name of the label.
 The rois_bbox pandas.DataFrame must have a column called ‘label’ with names
@@ -288,7 +306,7 @@ For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>ax</strong><span class="classifier">axis object (see matplotlib)</span></dt><dd></dd>
 <dt><strong>fig</strong><span class="classifier">figure object (see matplotlib)</span></dt><dd></dd>

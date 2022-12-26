@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.util.rand_cmap &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.util.rand_cmap &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -130,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../util.html#parser">Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#miscellaneous">Miscellaneous</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#xeno-canto">Xeno-Canto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html#audio-metadata">Audio metadata</a></li>
 </ul>
 </li>
 </ul>
@@ -204,27 +206,29 @@
            <div itemprop="articleBody">
             
   <section id="maad-util-rand-cmap">
-<h1>maad.util.rand_cmap<a class="headerlink" href="#maad-util-rand-cmap" title="Permalink to this headline">¶</a></h1>
+<h1>maad.util.rand_cmap<a class="headerlink" href="#maad-util-rand-cmap" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.rand_cmap">
-<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">rand_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlabels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bright'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#rand_cmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.rand_cmap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">rand_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlabels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bright'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_color_black</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">321</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#rand_cmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.rand_cmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a random colormap to be used together with matplotlib. Useful for segmentation tasks</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>nlabels</strong><span class="classifier">Integer</span></dt><dd><p>Number of labels (size of colormap)</p>
+<dt><strong>nlabels</strong><span class="classifier">int</span></dt><dd><p>Number of labels (size of colormap)</p>
 </dd>
-<dt><strong>type</strong><span class="classifier">String</span></dt><dd><p>‘bright’ for strong colors, ‘soft’ for pastel colors. Default is ‘bright’</p>
+<dt><strong>type</strong><span class="classifier">string</span></dt><dd><p>‘bright’ for strong colors, ‘soft’ for pastel colors. Default is ‘bright’</p>
 </dd>
-<dt><strong>first_color_black</strong><span class="classifier">Boolean</span></dt><dd><p>Option to use first color as black. Default is True</p>
+<dt><strong>first_color_black</strong><span class="classifier">bool, optional</span></dt><dd><p>Option to use first color as black. Default is True</p>
 </dd>
-<dt><strong>last_color_black</strong><span class="classifier">Boolean</span></dt><dd><p>Option to use last color as black, Default is False</p>
+<dt><strong>last_color_black</strong><span class="classifier">bool, optional</span></dt><dd><p>Option to use last color as black. Default is False</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">Boolean</span></dt><dd><p>Prints the number of labels and shows the colormap. Default is False</p>
+<dt><strong>seed</strong><span class="classifier">int, optional</span></dt><dd><p>Fix the seed of the random engine. Default is 321</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool, optional</span></dt><dd><p>Prints the number of labels and shows the colormap. Default is False</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>random_colormap</strong><span class="classifier">Colormap</span></dt><dd><p>Colormap type used by matplotlib</p>
 </dd>

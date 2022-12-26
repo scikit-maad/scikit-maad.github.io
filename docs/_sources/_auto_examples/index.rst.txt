@@ -286,6 +286,27 @@ Advanced examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ...">
+
+.. only:: html
+
+ .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_extract_alpha_indices_multicpu_thumb.png
+     :alt: USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES
+
+     :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices_multicpu.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_auto_examples/2_advanced/plot_extract_alpha_indices_multicpu
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="**Dependencies**: To execute this example you need to have installed the  librosa, sklearn and ...">
 
 .. only:: html

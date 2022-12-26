@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Example gallery &mdash; scikit-maad 1.3 documentation</title>
+  <title>Example gallery &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -43,7 +44,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simple audio segmentation" href="1_basic/plot_find_rois_simple.html" />
-    <link rel="prev" title="maad.util.xc_download" href="../generated/maad.util.xc_download.html" /> 
+    <link rel="prev" title="maad.util.get_metadata_dir" href="../generated/maad.util.get_metadata_dir.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -128,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_advanced/wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -199,10 +201,10 @@
            <div itemprop="articleBody">
             
   <section id="example-gallery">
-<span id="sphx-glr-auto-examples"></span><h1>Example gallery<a class="headerlink" href="#example-gallery" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples"></span><h1>Example gallery<a class="headerlink" href="#example-gallery" title="Permalink to this heading">¶</a></h1>
 <p>This gallery is intended to present examples on how to use scikit-maad to analyse audio recordings.</p>
 <div class="sphx-glr-clear"></div><section id="basic-examples">
-<span id="sphx-glr-auto-examples-1-basic"></span><h2>Basic examples<a class="headerlink" href="#basic-examples" title="Permalink to this headline">¶</a></h2>
+<span id="sphx-glr-auto-examples-1-basic"></span><h2>Basic examples<a class="headerlink" href="#basic-examples" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="In audio signals, regions of interest are usually regions with high density of energy. The func..."><figure class="align-default" id="id1">
 <img alt="Simple audio segmentation" src="../_images/sphx_glr_plot_find_rois_simple_thumb.png" />
 <figcaption>
@@ -237,7 +239,7 @@
 </div>
 <div class="sphx-glr-clear"></div></section>
 <section id="advanced-examples">
-<span id="sphx-glr-auto-examples-2-advanced"></span><h2>Advanced examples<a class="headerlink" href="#advanced-examples" title="Permalink to this headline">¶</a></h2>
+<span id="sphx-glr-auto-examples-2-advanced"></span><h2>Advanced examples<a class="headerlink" href="#advanced-examples" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single tim..."><figure class="align-default" id="id5">
 <img alt="Signal decomposition and false-color spectrograms" src="../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png" />
 <figcaption>
@@ -302,10 +304,18 @@
 </figure>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="**Dependencies**: To execute this example you need to have installed the  librosa, sklearn and ..."><figure class="align-default" id="id13">
+<div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ..."><figure class="align-default" id="id13">
+<img alt="USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES" src="../_images/sphx_glr_plot_extract_alpha_indices_multicpu_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/plot_extract_alpha_indices_multicpu.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-multicpu-py"><span class="std std-ref">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="**Dependencies**: To execute this example you need to have installed the  librosa, sklearn and ..."><figure class="align-default" id="id14">
 <img alt="Download audio files from Xeno-Canto and automatically extract characteristics" src="../_images/sphx_glr_wookpecker_drumming_characteristics_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="2_advanced/wookpecker_drumming_characteristics.html#sphx-glr-auto-examples-2-advanced-wookpecker-drumming-characteristics-py"><span class="std std-ref">Download audio files from Xeno-Canto and automatically extract characteristics</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="2_advanced/wookpecker_drumming_characteristics.html#sphx-glr-auto-examples-2-advanced-wookpecker-drumming-characteristics-py"><span class="std std-ref">Download audio files from Xeno-Canto and automatically extract characteristics</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </div><div class="toctree-wrapper compound">
@@ -333,7 +343,7 @@
         <a href="1_basic/plot_find_rois_simple.html" class="btn btn-neutral float-right" title="Simple audio segmentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../generated/maad.util.xc_download.html" class="btn btn-neutral float-left" title="maad.util.xc_download" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../generated/maad.util.get_metadata_dir.html" class="btn btn-neutral float-left" title="maad.util.get_metadata_dir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

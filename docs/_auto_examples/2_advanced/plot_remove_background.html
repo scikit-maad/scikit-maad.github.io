@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remove background noise with signal processing tools &mdash; scikit-maad 1.3 documentation</title>
+  <title>Remove background noise with signal processing tools &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -126,6 +127,7 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -203,7 +205,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="remove-background-noise-with-signal-processing-tools">
-<span id="sphx-glr-auto-examples-2-advanced-plot-remove-background-py"></span><h1>Remove background noise with signal processing tools<a class="headerlink" href="#remove-background-noise-with-signal-processing-tools" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-remove-background-py"></span><h1>Remove background noise with signal processing tools<a class="headerlink" href="#remove-background-noise-with-signal-processing-tools" title="Permalink to this heading">¶</a></h1>
 <p>Environmental audio recordings usually have stationary noise that needs to be removed to
 enhance the signal to noise ratio of biological sounds.
 This example shows different ways to remove stationary background noise using spectral
@@ -225,7 +227,7 @@ reduction. For a more comprehensive analysis, other metrics should be use in com
 </pre></div>
 </div>
 <section id="load-and-plot-the-spectrogram-of-the-original-audio-file">
-<h2>Load and plot the spectrogram of the original audio file<a class="headerlink" href="#load-and-plot-the-spectrogram-of-the-original-audio-file" title="Permalink to this headline">¶</a></h2>
+<h2>Load and plot the spectrogram of the original audio file<a class="headerlink" href="#load-and-plot-the-spectrogram-of-the-original-audio-file" title="Permalink to this heading">¶</a></h2>
 <p>First, we load the audio file and take its spectrogram.
 The linear spectrogram is then transformed into dB. The dB range is  96dB
 which is the maximum dB range value for a 16bits audio recording. We add
@@ -248,7 +250,7 @@ Original sharpness : 1.885
 </div>
 </section>
 <section id="test-different-methods-to-remove-stationary-background-noise">
-<h2>Test different methods to remove stationary background noise<a class="headerlink" href="#test-different-methods-to-remove-stationary-background-noise" title="Permalink to this headline">¶</a></h2>
+<h2>Test different methods to remove stationary background noise<a class="headerlink" href="#test-different-methods-to-remove-stationary-background-noise" title="Permalink to this heading">¶</a></h2>
 <p>Test the function “remove_background”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/timeit.html#timeit.default_timer" title="timeit.default_timer" class="sphx-glr-backref-module-timeit sphx-glr-backref-type-py-function"><span class="n">timer</span></a><span class="p">()</span>
 <span class="n">X1</span><span class="p">,</span> <span class="n">noise_profile1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">remove_background</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">)</span>

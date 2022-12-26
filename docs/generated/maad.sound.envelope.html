@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.sound.envelope &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.sound.envelope &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -116,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.resample.html">maad.sound.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.trim.html">maad.sound.trim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.normalize.html">maad.sound.normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.sound.gain.html">maad.sound.gain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../sound.html#metrics">Metrics</a></li>
@@ -197,13 +199,13 @@
            <div itemprop="articleBody">
             
   <section id="maad-sound-envelope">
-<h1>maad.sound.envelope<a class="headerlink" href="#maad-sound-envelope" title="Permalink to this headline">¶</a></h1>
+<h1>maad.sound.envelope<a class="headerlink" href="#maad-sound-envelope" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.sound.envelope">
 <span class="sig-prename descclassname"><span class="pre">maad.sound.</span></span><span class="sig-name descname"><span class="pre">envelope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/transform.html#envelope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.envelope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the envelope of a sound waveform (1d)</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>s</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>Vector containing sound waveform</p>
 </dd>
@@ -225,7 +227,7 @@ good approximation of the envelope.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>env</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>Envelope of the sound</p>
 </dd>
@@ -233,14 +235,16 @@ good approximation of the envelope.</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r13f96ea85690-1"><span class="brackets">1</span></dt>
-<dd><p>Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</p>
-</dd>
-<dt class="label" id="r13f96ea85690-2"><span class="brackets">2</span></dt>
-<dd><p>Towsey, Michael (2017),The calculation of acoustic indices derived from long-duration recordings of the natural environment. Queensland University of Technology, Brisbane.</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="r13f96ea85690-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Towsey, Michael (2013), Noise Removal from Waveforms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane.</p>
+</div>
+<div class="citation" id="r13f96ea85690-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Towsey, Michael (2017),The calculation of acoustic indices derived from long-duration recordings of the natural environment. Queensland University of Technology, Brisbane.</p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span><span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/rock_savanna.wav&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">env_fast</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">envelope</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>

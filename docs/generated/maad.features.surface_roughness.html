@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.surface_roughness &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.surface_roughness &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,7 +216,7 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-surface-roughness">
-<h1>maad.features.surface_roughness<a class="headerlink" href="#maad-features-surface-roughness" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.surface_roughness<a class="headerlink" href="#maad-features-surface-roughness" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.surface_roughness">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">surface_roughness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'global'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#surface_roughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.surface_roughness" title="Permalink to this definition">¶</a></dt>
@@ -224,7 +225,7 @@
 vector of a real surface from its ideal form. If these deviations are large, 
 the surface is rough; if they are small, the surface is smooth <a class="reference internal" href="#r44ea32cdaa02-1" id="id1">[1]</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">ndarray of floats</span></dt><dd><p>vector (1d) or matrix (2d)</p>
 </dd>
@@ -234,7 +235,7 @@ the surface is rough; if they are small, the surface is smooth <a class="referen
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>Ra</strong><span class="classifier">scalar or 1d ndarray of scalars</span></dt><dd><p>if x is a vector =&gt; Arithmetical mean deviation of x.
 if x is a matrix =&gt; Arithmetical mean deviation of each line of x.</p>
@@ -246,11 +247,12 @@ if x is a matrix =&gt; Root mean squared of deviation of each line of x.</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r44ea32cdaa02-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Wikipedia, <a class="reference external" href="https://en.wikipedia.org/wiki/Surface_roughness">https://en.wikipedia.org/wiki/Surface_roughness</a></p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="r44ea32cdaa02-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Wikipedia, <a class="reference external" href="https://en.wikipedia.org/wiki/Surface_roughness">https://en.wikipedia.org/wiki/Surface_roughness</a></p>
+</div>
+</div>
 </dd></dl>
 
 </section>

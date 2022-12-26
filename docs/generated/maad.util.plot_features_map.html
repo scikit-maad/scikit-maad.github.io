@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.util.plot_features_map &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.util.plot_features_map &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -130,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../util.html#parser">Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#miscellaneous">Miscellaneous</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../util.html#xeno-canto">Xeno-Canto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html#audio-metadata">Audio metadata</a></li>
 </ul>
 </li>
 </ul>
@@ -204,14 +206,14 @@
            <div itemprop="articleBody">
             
   <section id="maad-util-plot-features-map">
-<h1>maad.util.plot_features_map<a class="headerlink" href="#maad-util-plot-features-map" title="Permalink to this headline">¶</a></h1>
+<h1>maad.util.plot_features_map<a class="headerlink" href="#maad-util-plot-features-map" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.plot_features_map">
 <span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">plot_features_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'24h'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#plot_features_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.plot_features_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot features values on a heatmap.</p>
 <p>The plot has the features the vertical axis and the time on the horizontal axis.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>df</strong><span class="classifier">Panda DataFrame</span></dt><dd><p>DataFrame with features (ie. indices).</p>
 </dd>
@@ -283,7 +285,7 @@ the last image</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>fig</strong><span class="classifier">Figure</span></dt><dd><p>The Figure instance</p>
 </dd>

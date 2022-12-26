@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.sound.avg_power_spectro &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.sound.avg_power_spectro &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -116,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.resample.html">maad.sound.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.trim.html">maad.sound.trim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.normalize.html">maad.sound.normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.sound.gain.html">maad.sound.gain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../sound.html#metrics">Metrics</a></li>
@@ -197,19 +199,19 @@
            <div itemprop="articleBody">
             
   <section id="maad-sound-avg-power-spectro">
-<h1>maad.sound.avg_power_spectro<a class="headerlink" href="#maad-sound-avg-power-spectro" title="Permalink to this headline">¶</a></h1>
+<h1>maad.sound.avg_power_spectro<a class="headerlink" href="#maad-sound-avg-power-spectro" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.sound.avg_power_spectro">
 <span class="sig-prename descclassname"><span class="pre">maad.sound.</span></span><span class="sig-name descname"><span class="pre">avg_power_spectro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_power</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/spectro_func.html#avg_power_spectro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.avg_power_spectro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the average of a power spectrogram along the time axis.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>Sxx_power</strong><span class="classifier">2d ndarray of floats</span></dt><dd><p>Power spectrogram [Matrix]</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>S_power_mean</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>Power spectrum [Vector]</p>
 </dd>

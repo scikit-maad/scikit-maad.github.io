@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,13 +216,13 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-all-spectral-alpha-indices">
-<h1>maad.features.all_spectral_alpha_indices<a class="headerlink" href="#maad-features-all-spectral-alpha-indices" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.all_spectral_alpha_indices<a class="headerlink" href="#maad-features-all-spectral-alpha-indices" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.all_spectral_alpha_indices">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">all_spectral_alpha_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_mid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1000,</span> <span class="pre">10000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_hi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10000,</span> <span class="pre">20000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#all_spectral_alpha_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_spectral_alpha_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the acoustic indices in spectral (spectrum (1d) or spectrogram (2d)) domain.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>Sxx_power</strong><span class="classifier">2D array of floats</span></dt><dd><p>Power spectrogram to process (taken directly from maad.sound.spectrogram)</p>
 </dd>
@@ -308,6 +309,11 @@ if ‘absolute’ : bin_per</p>
 <dt>remove_rain<span class="classifier">boolean, default is False</span></dt><dd><p>If True, most of spikes in spectrogram due to rain are removed using
 a math morphological method, the grey opening</p>
 </dd>
+<dt>max_ratio_yx<span class="classifier">scalar, optional, default</span><span class="classifier">None</span></dt><dd><p>Define the maximum ratio between the vertical axis (y) and horizontal 
+axis (x) that is allowed for a ROI. This is very convenient to remove
+vertical spikes (e.g. rain). 10 seems a reasonable value to remove most
+of spikes due to light to medium rainfall.</p>
+</dd>
 <dt>min_roi, max_roi<span class="classifier">scalars, optional, default</span><span class="classifier">9,  512*10000</span></dt><dd><p>Define the minimum and the maximum area possible for an ROI. If None,  
 the minimum ROI area is 1 pixel and the maximum ROI area is the area of  
 the image</p>
@@ -321,7 +327,7 @@ the image</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>df_spectral_indices: Panda dataframe</dt><dd><p>Dataframe containing of the calculated spectral indices :</p>
 </dd>

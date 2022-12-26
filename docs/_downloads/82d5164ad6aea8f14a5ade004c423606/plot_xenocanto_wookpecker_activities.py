@@ -45,6 +45,7 @@ from maad import util
 # Query Xeno-Canto
 # ----------------
 # array with english name and scientific name of all european woodpeckers
+
 data = [['Eurasian Three-toed', 'Picoides tridactylus'],
         ['White-backed',        'Dendrocopos leucotos'],
         ['Lesser Spotted',     	'Dryobates minor'],
@@ -80,6 +81,7 @@ for name in df_species['scientific name']:
 # type : type of sound : 'song' or 'call' or 'drumming'
 # Please have a look here to know all the parameters and how to use them :
 # https://xeno-canto.org/help/search
+
 df_query = pd.DataFrame()
 df_query['param1'] = gen
 df_query['param2'] = sp
@@ -88,14 +90,14 @@ df_query['param5'] ='area:europe'
 
 #%%
 # Get recordings metadata corresponding to the query
-df_dataset= util.xc_multi_query(df_query, 
+df_dataset = util.xc_multi_query(df_query, 
                                  format_time = True,
                                  format_date = True,
                                  verbose=True)
 
 #%%
 # Creation of a dataframe with the number of files per species per 30mins
-#------------------------------------------------------------------------
+# -----------------------------------------------------------------------
 # Using the metadata collected from Xeno-Canto, we create a new dataframe
 # containing the number of files per species and per time slot (30 mins). The
 # goal is to create a dataframe with diel pattern of activity for all species
@@ -104,13 +106,14 @@ df_dataset= util.xc_multi_query(df_query,
 # make a copy of the dataset to avoid any modification of the original dataset
 df = df_dataset.copy()
 # remove all rows where data is missing (NA)
-df['time'].dropna()
-# Convert time into datetime (add a fake year 1900-01-01)
+df.dropna(subset=['time'], inplace=True)
+# Convert time into datetime
 df['time'] = pd.to_datetime(df['time'], format="%H:%M")
 
 #%%
 # New dataframe with the number of audio files per time slot.
 # The period of the time slot is 30 min
+
 df_count = pd.DataFrame()
 list_species = df['en'].unique()
 for species in list_species :
@@ -120,11 +123,11 @@ for species in list_species :
     df_count = df_count.append(df_temp)
 
 # create a column with time only
-df_count["time"] = df_count.index.strftime('%H:%M')
+df_count['time'] = df_count.index.strftime('%H:%M')
 
 #%% 
 # Creation of a dataframe with the number of files per species per week
-#-----------------------------------------------------------------------
+# ---------------------------------------------------------------------
 # Using the metadata collected from Xeno-Cant, we create a new dataframe
 # containing the number of files per species and per week. The goal is to 
 # create a dataframe with annual pattern of activity for all species
@@ -133,7 +136,7 @@ df_count["time"] = df_count.index.strftime('%H:%M')
 # make a copy of the dataset to avoid any modification of the original dataset
 df = df_dataset.copy()
 # remove all rows where data is missing (NA)
-df['week'].dropna()
+df.dropna(subset=['week'], inplace=True)
 
 #%%
 # New dataframe with the number of audio files per week
@@ -150,7 +153,7 @@ df_week_count["week"] = df_week_count.index
 
 #%%
 # Display a heatmap of diel activity
-#-----------------------------------
+# ----------------------------------
 # make a copy of the dataset to avoid any modification of the original dataset
 df = df_count.copy()
 
@@ -206,7 +209,7 @@ fig.tight_layout()
 
 #%%
 # Display a heatmap of annual activity with week resolution
-#----------------------------------------------------------
+# ---------------------------------------------------------
 # make a copy of the dataset to avoid any modification of the original dataset
 df = df_week_count.copy()
 #%%
@@ -215,6 +218,7 @@ for species in list_species:
     df.loc[df['species'] == species, 'count'] = (df[df['species'] == species]['count']
                                                  /
                                                  np.max(df[df['species'] == species]['count']))
+
 #%%
 # Display the heatmap to see when (annually) the woodpeckers are active.
 # Woodpeckers are the most active during the winter and beginning of spring 

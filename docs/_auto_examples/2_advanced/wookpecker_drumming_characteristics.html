@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Download audio files from Xeno-Canto and automatically extract characteristics &mdash; scikit-maad 1.3 documentation</title>
+  <title>Download audio files from Xeno-Canto and automatically extract characteristics &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -42,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" /> 
+    <link rel="prev" title="USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES" href="plot_extract_alpha_indices_multicpu.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -69,7 +70,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -121,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Download audio files from Xeno-Canto and automatically extract characteristics</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#define-local-function">Define local function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#define-constants">Define constants</a></li>
@@ -208,7 +210,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-wookpecker-drumming-characteristics-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="download-audio-files-from-xeno-canto-and-automatically-extract-characteristics">
-<span id="sphx-glr-auto-examples-2-advanced-wookpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-wookpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Permalink to this heading">¶</a></h1>
 <p>The goal of this example is to show how to automatically download audio files
 from Xeno-Canto and process them to automatically extract audio characteristics
 in order to classify the sound made by different species.
@@ -258,7 +260,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </pre></div>
 </div>
 <section id="define-local-function">
-<h2>Define local function<a class="headerlink" href="#define-local-function" title="Permalink to this headline">¶</a></h2>
+<h2>Define local function<a class="headerlink" href="#define-local-function" title="Permalink to this heading">¶</a></h2>
 <p>function to grab all audio files in a folder</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grab_audio</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">audio_format</span><span class="o">=</span><span class="s1">&#39;mp3&#39;</span><span class="p">):</span>
     <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -271,7 +273,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </div>
 </section>
 <section id="define-constants">
-<h2>Define constants<a class="headerlink" href="#define-constants" title="Permalink to this headline">¶</a></h2>
+<h2>Define constants<a class="headerlink" href="#define-constants" title="Permalink to this heading">¶</a></h2>
 <p>Directory where to download the audiofile from xeno-canto</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">XC_ROOTDIR</span> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
 </pre></div>
@@ -293,7 +295,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </div>
 </section>
 <section id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this headline">¶</a></h2>
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this heading">¶</a></h2>
 <p>get the genus and species needed for Xeno-Canto</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;english name&#39;</span><span class="p">,</span>
                                          <span class="s1">&#39;scientific name&#39;</span><span class="p">])</span>
@@ -308,12 +310,9 @@ Middle Spotted : Dendrocoptes medius</p>
 gen : genus
 cnt : country
 area : continent (europe, america, asia, africa)
-q : quality (q_gt =&gt; quality equal or greater than)
-len : length of the audio file (len_lt =&gt; length lower than;</p>
-<blockquote>
-<div><p>len_gt =&gt; length greater than )</p>
-</div></blockquote>
-<p>type : type of sound : ‘song’ or ‘call’ or ‘drumming’
+q : quality
+len : length of the audio file
+type : type of sound : ‘song’ or ‘call’ or ‘drumming’
 Please have a look here to know all the parameters and how to use them :
 <a class="reference external" href="https://xeno-canto.org/help/search">https://xeno-canto.org/help/search</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -321,9 +320,8 @@ Please have a look here to know all the parameters and how to use them :
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp</span>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param3&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;type:drumming&#39;</span>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param4&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;area:europe&#39;</span>
-<span class="c1"># df_query[&#39;param5 =&#39;len_lt:120&#39;</span>
-<span class="c1"># df_query[&#39;param6&#39;] =&#39;len_gt:5&#39;</span>
-<span class="c1"># df_query[&#39;param7&#39;] =&#39;q_gt:C&#39;</span>
+<span class="c1"># df_query[&#39;param5 =&#39;len:&quot;5-120&quot;&#39;</span>
+<span class="c1"># df_query[&#39;param6&#39;] =&#39;q:&quot;&gt;C&quot;&#39;</span>
 
 <span class="c1"># Get recordings metadata corresponding to the query</span>
 <span class="n">df_dataset</span><span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
@@ -334,7 +332,7 @@ Please have a look here to know all the parameters and how to use them :
 </div>
 </section>
 <section id="download-audio-xeno-canto">
-<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Permalink to this headline">¶</a></h2>
+<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Permalink to this heading">¶</a></h2>
 <p>From the metadata that was collected in the previous section,
 select a maximum of 20 files per species, regarding the quality and the length</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
@@ -357,7 +355,7 @@ species</p>
 </div>
 </section>
 <section id="grab-all-audio-filenames-in-the-directory">
-<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Permalink to this headline">¶</a></h2>
+<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>create a dataframe with all recordings in the directory</p>
 </div></blockquote>
@@ -380,7 +378,7 @@ species</p>
 </div>
 </section>
 <section id="process-all-audio-files-species-by-species">
-<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Permalink to this headline">¶</a></h2>
+<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>In this part, all audio file will be processed in order to extract each
 drumming portion separately.
@@ -546,7 +544,7 @@ drumming parameters such as median pulse rate, duration, number of pulses…</p>
 </div>
 </section>
 <section id="display-boxplot">
-<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Permalink to this headline">¶</a></h2>
+<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>Display a boxplot of the feature “pulseRateMedian” for each species</p>
 </div></blockquote>
@@ -576,7 +574,7 @@ drumming parameters such as median pulse rate, duration, number of pulses…</p>
 </div>
 </section>
 <section id="display-clusters-based-on-the-drummings-features">
-<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Permalink to this headline">¶</a></h2>
+<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>A collection of features is associated to each drumming found in the audio
 recordings. The goal is to display clusters in 2D with the dimensionality
@@ -641,7 +639,7 @@ others</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-left" title="Extract acoustic indices from audio recordings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_extract_alpha_indices_multicpu.html" class="btn btn-neutral float-left" title="USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.zero_crossing_rate &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.zero_crossing_rate &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -190,7 +191,7 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-zero-crossing-rate">
-<h1>maad.features.zero_crossing_rate<a class="headerlink" href="#maad-features-zero-crossing-rate" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.zero_crossing_rate<a class="headerlink" href="#maad-features-zero-crossing-rate" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.zero_crossing_rate">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">zero_crossing_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/temporal.html#zero_crossing_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.zero_crossing_rate" title="Permalink to this definition">¶</a></dt>
@@ -201,7 +202,7 @@ from negative to zero to positive. This feature has been used widely
 in speech recognition and music information retrieval, 
 being a key feature to classify percussive sounds <a class="reference internal" href="#r238e85e68264-1" id="id1">[1]</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">1D array</span></dt><dd><p>Audio to process (wav)</p>
 </dd>
@@ -209,7 +210,7 @@ being a key feature to classify percussive sounds <a class="reference internal" 
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>zcr</strong><span class="classifier">float</span></dt><dd><p>number of zero crossing /s</p>
 </dd>
@@ -217,11 +218,12 @@ being a key feature to classify percussive sounds <a class="reference internal" 
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r238e85e68264-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Zero-crossing_rate">https://en.wikipedia.org/wiki/Zero-crossing_rate</a></p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="r238e85e68264-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Zero-crossing_rate">https://en.wikipedia.org/wiki/Zero-crossing_rate</a></p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">features</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>

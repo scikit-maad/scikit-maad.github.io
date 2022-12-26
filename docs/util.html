@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Utilities &mdash; scikit-maad 1.3 documentation</title>
+  <title>Utilities &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -139,6 +140,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#parser">Parser</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.read_audacity_annot.html">maad.util.read_audacity_annot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.write_audacity_annot.html">maad.util.write_audacity_annot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.read_raven_annot.html">maad.util.read_raven_annot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.write_raven_annot.html">maad.util.write_raven_annot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.date_parser.html">maad.util.date_parser</a></li>
 </ul>
 </li>
@@ -166,6 +169,14 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_multi_query.html">maad.util.xc_multi_query</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_selection.html">maad.util.xc_selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.util.xc_download.html">maad.util.xc_download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#audio-metadata">Audio metadata</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.check_file_format.html">maad.util.check_file_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.audio_header.html">maad.util.audio_header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.filename_info.html">maad.util.filename_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.get_metadata_file.html">maad.util.get_metadata_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.util.get_metadata_dir.html">maad.util.get_metadata_dir</a></li>
 </ul>
 </li>
 </ul>
@@ -240,15 +251,11 @@
            <div itemprop="articleBody">
             
   <span class="target" id="module-maad.util"></span><section id="utilities">
-<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
-<p>The module <code class="docutils literal notranslate"><span class="pre">utils</span></code> has a handfull of useful set of tools used in the audio analysis framework.</p>
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading">¶</a></h1>
+<p>The module <code class="docutils literal notranslate"><span class="pre">utils</span></code> has a handful of useful set of tools used in the audio analysis framework.</p>
 <section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.rand_cmap.html#maad.util.rand_cmap" title="maad.util.rand_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_cmap</span></code></a>(nlabels[, type, ...])</p></td>
 <td><p>Creates a random colormap to be used together with matplotlib.</p></td>
@@ -274,7 +281,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.plot_spectrogram.html#maad.util.plot_spectrogram" title="maad.util.plot_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrogram</span></code></a>(Sxx, extent[, db_range, ...])</p></td>
 <td><p>Plot spectrogram represenation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.overlay_rois.html#maad.util.overlay_rois" title="maad.util.overlay_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_rois</span></code></a>(im_ref, rois[, textbox_label, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.overlay_rois.html#maad.util.overlay_rois" title="maad.util.overlay_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_rois</span></code></a>(im_ref, rois[, edge_color, ...])</p></td>
 <td><p>Display bounding boxes with time-frequency regions of interest over a spectrogram.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.overlay_centroid.html#maad.util.overlay_centroid" title="maad.util.overlay_centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_centroid</span></code></a>(im_ref, centroid[, savefig])</p></td>
@@ -299,12 +306,8 @@
 </table>
 </section>
 <section id="mathematical">
-<h2>Mathematical<a class="headerlink" href="#mathematical" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Mathematical<a class="headerlink" href="#mathematical" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.running_mean.html#maad.util.running_mean" title="maad.util.running_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">running_mean</span></code></a>(x, N[, mode])</p></td>
 <td><p>Compute fast running mean for a window size N.</p></td>
@@ -331,18 +334,20 @@
 </table>
 </section>
 <section id="parser">
-<h2>Parser<a class="headerlink" href="#parser" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Parser<a class="headerlink" href="#parser" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.read_audacity_annot.html#maad.util.read_audacity_annot" title="maad.util.read_audacity_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_audacity_annot</span></code></a>(audacity_filename)</p></td>
-<td><p>Read audacity annotations file (or labeling file) and return a Pandas Dataframe with the bounding box and the label of each region of interest (ROI).</p></td>
+<td><p>Read Audacity annotations file (or labeling file) and return a Pandas Dataframe with the bounding box and the label of each region of interest (ROI).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.write_audacity_annot.html#maad.util.write_audacity_annot" title="maad.util.write_audacity_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_audacity_annot</span></code></a>(fname, df_rois)</p></td>
-<td><p>Write audio segmentation to file (Audacity format).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.write_audacity_annot.html#maad.util.write_audacity_annot" title="maad.util.write_audacity_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_audacity_annot</span></code></a>(fname, df_rois[, save_file])</p></td>
+<td><p>Write audio segmentation to text file in Audacity format, a file that can be imported and modified with Audacity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.read_raven_annot.html#maad.util.read_raven_annot" title="maad.util.read_raven_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_raven_annot</span></code></a>(raven_filename)</p></td>
+<td><p>Read Raven annotations file (or labeling file) and return a Pandas Dataframe with the bounding box and the label of each region of interest (ROI).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.write_raven_annot.html#maad.util.write_raven_annot" title="maad.util.write_raven_annot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_raven_annot</span></code></a>(fname, df_rois[, save_file])</p></td>
+<td><p>Write audio segmentation to text file in Raven format, a file that can be imported and modified with Raven.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.date_parser.html#maad.util.date_parser" title="maad.util.date_parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">date_parser</span></code></a>(datadir[, dateformat, ...])</p></td>
 <td><p>Parse all filenames contained in a directory and its subdirectories.</p></td>
@@ -351,12 +356,8 @@
 </table>
 </section>
 <section id="miscellaneous">
-<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.index_bw.html#maad.util.index_bw" title="maad.util.index_bw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_bw</span></code></a>(fn, bw)</p></td>
 <td><p>Select all the index coresponding to a selected frequency band.</p></td>
@@ -410,17 +411,13 @@
 </table>
 </section>
 <section id="xeno-canto">
-<h2>Xeno-Canto<a class="headerlink" href="#xeno-canto" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Xeno-Canto<a class="headerlink" href="#xeno-canto" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.xc_query.html#maad.util.xc_query" title="maad.util.xc_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_query</span></code></a>(searchTerms[, format_time, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.xc_query.html#maad.util.xc_query" title="maad.util.xc_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_query</span></code></a>(searchTerms[, max_nb_files, ...])</p></td>
 <td><p>Query metadata from Xeno-Canto website depending on the search terms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query" title="maad.util.xc_multi_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_multi_query</span></code></a>(df_query[, format_time, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query" title="maad.util.xc_multi_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_multi_query</span></code></a>(df_query[, max_nb_files, ...])</p></td>
 <td><p>Multi_query performs multiple queries following the search terms defined in the input dataframe</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.xc_selection.html#maad.util.xc_selection" title="maad.util.xc_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_selection</span></code></a>(df_dataset[, max_nb_files, ...])</p></td>
@@ -428,6 +425,28 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.xc_download.html#maad.util.xc_download" title="maad.util.xc_download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xc_download</span></code></a>(df, rootdir[, dataset_name, ...])</p></td>
 <td><p>Download the audio files from Xeno-Canto based on the input dataframe It will create directories for each species if needed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="audio-metadata">
+<h2>Audio metadata<a class="headerlink" href="#audio-metadata" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.check_file_format.html#maad.util.check_file_format" title="maad.util.check_file_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_file_format</span></code></a>(path_audio)</p></td>
+<td><p>Check Wave file consistency.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.audio_header.html#maad.util.audio_header" title="maad.util.audio_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">audio_header</span></code></a>(path_audio)</p></td>
+<td><p>Get audio header information from WAVE file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.filename_info.html#maad.util.filename_info" title="maad.util.filename_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filename_info</span></code></a>(path_audio[, verbose])</p></td>
+<td><p>Get information from filename when using standard format.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.util.get_metadata_file.html#maad.util.get_metadata_file" title="maad.util.get_metadata_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_file</span></code></a>(path_audio[, verbose])</p></td>
+<td><p>Get metadata asociated with audio recordings in audio file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.util.get_metadata_dir.html#maad.util.get_metadata_dir" title="maad.util.get_metadata_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_dir</span></code></a>(path_dir[, verbose])</p></td>
+<td><p>Get metadata asociated with audio recordings in a directory.</p></td>
 </tr>
 </tbody>
 </table>

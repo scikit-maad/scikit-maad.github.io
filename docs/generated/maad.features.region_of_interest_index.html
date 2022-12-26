@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.region_of_interest_index &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.region_of_interest_index &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,18 +216,18 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-region-of-interest-index">
-<h1>maad.features.region_of_interest_index<a class="headerlink" href="#maad-features-region-of-interest-index" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.region_of_interest_index<a class="headerlink" href="#maad-features-region-of-interest-index" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.region_of_interest_index">
-<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">region_of_interest_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_dB_noNoise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'relative'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5120000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">region_of_interest_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_dB_noNoise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'relative'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5120000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ratio_xy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute an acoustic activity index based on the regions of interested 
 detected on a spectrogram.</p>
 <p>The function first find regions of interest (ROI) and then compute the number
 or ROIs and the cover area of these ROIS
 on the spectrogram.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>Sxx_dB_noNoise</strong><span class="classifier">ndarray of floats</span></dt><dd><p>Spectrogram without noise (i.e matrix of spectrum)</p>
 </dd>
 <dt><strong>tn</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>time vector (horizontal x-axis)</p>
@@ -247,26 +248,45 @@ The values used for the thresholding are independent of the values
 in the image =&gt; absolute threshold</p>
 </dd>
 </dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default <code class="docutils literal notranslate"><span class="pre">mask_mode</span></code> parameter is deprecated in</p>
+</div>
+<p>version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">absolute</span></code> in 1.4.</p>
 </dd>
-<dt><strong>mask_param1</strong><span class="classifier">scalar, default is 6</span></dt><dd><p>if ‘relative’ : bin_h
-if ‘absolute’ : bin_std</p>
+<dt><strong>mask_param1</strong><span class="classifier">scalar, default is 6</span></dt><dd><p>if ‘relative’ : bin_std 
+if ‘absolute’ : bin_h
+.. warning:: The default <code class="docutils literal notranslate"><span class="pre">mask_param1</span></code> parameter is deprecated in 
+version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">10</span></code> in 1.4.</p>
 </dd>
-<dt><strong>mask_param2</strong><span class="classifier">scalar, default is 0.5</span></dt><dd><p>if ‘relative’ : bin_l
-if ‘absolute’ : bin_per</p>
+<dt><strong>mask_param2</strong><span class="classifier">scalar, default is 0.5</span></dt><dd><p>if ‘relative’ : bin_per
+if ‘absolute’ : bin_l
+.. warning:: The default <code class="docutils literal notranslate"><span class="pre">mask_param2</span></code> parameter is deprecated in 
+version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">3</span></code> in 1.4.</p>
 </dd>
-<dt><strong>min_roi, max_roi</strong><span class="classifier">scalars, optional, default</span></dt><dd><p>Define the minimum and the maximum area possible for an ROI. If None,  
+<dt><strong>min_roi, max_roi</strong><span class="classifier">scalars, optional, default</span><span class="classifier">9,  512*10000</span></dt><dd><p>Define the minimum and the maximum area possible for a ROI. If None,  
 the minimum ROI area is 1 pixel and the maximum ROI area is the area of  
-the image</p>
+the image 
+.. warning:: The default <code class="docutils literal notranslate"><span class="pre">min_roi</span></code> and <code class="docutils literal notranslate"><span class="pre">max_roi</span></code> parameter is 
+deprecated in version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">None</span></code> in 1.4.</p>
+</dd>
+<dt><strong>max_ratio_xy</strong><span class="classifier">scalar, optional, default</span><span class="classifier">None</span></dt><dd><p>Define the maximum ratio between the vertical axis (y) and horizontal 
+axis (x) that is allowed for a ROI. This is very convenient to remove
+vertical spikes (e.g. rain). 10 seems a reasonable value to remove most
+of spikes due to light to medium rainfall.</p>
 </dd>
 <dt><strong>remove_rain</strong><span class="classifier">boolean, default is False</span></dt><dd><p>If True, vertical frequency spikes due to rain are removed as possible
-by applying a morphological mathematical image processing : grey opening</p>
+by applying a morphological mathematical image processing : grey opening
+.. warning:: The <code class="docutils literal notranslate"><span class="pre">remove_rain</span></code> parameter is deprecated in version 1.3 
+and will be removed in 1.4. It’s better to use the <code class="docutils literal notranslate"><span class="pre">max_ratio_yx</span></code> 
+parameter</p>
 </dd>
 <dt><strong>display</strong><span class="classifier">boolean, default is false</span></dt><dd><p>plot graphs and spectrograms</p>
 </dd>
 <dt><strong>/*/*kwargs optional. This parameter is used by plt.plot and savefig functions</strong></dt><dd></dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>ROItotal</strong><span class="classifier">float</span></dt><dd><p>Total number of ROIs found. The higher is the number of ROI, the higher
 is the acoustic abondance and/or richness expected</p>

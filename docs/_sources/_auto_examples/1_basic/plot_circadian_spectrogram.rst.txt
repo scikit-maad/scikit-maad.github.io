@@ -55,7 +55,7 @@ Build a long list of audio slices of length `sample_len`.
 
 
 
-Combine all audio recordings applying a crossfade and compute a the spectrogram of
+Combine all audio recordings applying a crossfade and compute the spectrogram of
 the resulting mixed audio.
 
 
@@ -96,7 +96,7 @@ dusk (20-21 h), as well as the wind and airplanes sounds at low frequencies.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.233 seconds)
+   **Total running time of the script:** ( 0 minutes  3.031 seconds)
 
 
 .. _sphx_glr_download__auto_examples_1_basic_plot_circadian_spectrogram.py:

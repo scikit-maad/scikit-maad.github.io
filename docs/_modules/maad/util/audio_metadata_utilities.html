@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>maad.util.audio_metadata_utilities &mdash; scikit-maad 1.3.12 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
+          
+
+          
+            
+            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.12
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">scikit-maad</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>maad.util.audio_metadata_utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for maad.util.audio_metadata_utilities</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions to get audio metadata from files</span>
+
+<span class="sd">Warning for Windows users. Due to problems using slashes and backslashes, Paths must be raw strings</span>
+<span class="sd">instead of regular strings, to convert a regular string into a raw string simply add an r before the string.</span>
+<span class="sd">for example:</span>
+<span class="sd">    raw string:        r&#39;C:/Users/Documents/Folder/SubFolder/file.wav&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">wave</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="check_file_format"><a class="viewcode-back" href="../../../generated/maad.util.check_file_format.html#maad.util.check_file_format">[docs]</a><span class="k">def</span> <span class="nf">check_file_format</span><span class="p">(</span><span class="n">path_audio</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check Wave file consistency. Check if WAVE format is correct and if file name </span>
+<span class="sd">    follows standard format. The standard format is SITENAME_DATE_TIME.WAV, with </span>
+<span class="sd">    DATE as YYYYMMDD and TIME as HHMMSS.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_audio : str</span>
+<span class="sd">        Location of audio filename.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    File Not Found</span>
+<span class="sd">        If file does not exist.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    error : int</span>
+<span class="sd">        0 if no error is found, 1 if WAVE format is incorrect and 2 if filename has no</span>
+<span class="sd">        standard format.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+
+    <span class="c1"># Check Wave format:</span>
+    <span class="c1"># try to open wav file, if error return only file name and null values on fields</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">getparams</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fnfe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">fnfe</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">error</span>
+
+    <span class="c1"># Check file name format:</span>
+    <span class="c1"># 1. File name must have 3 fields separated by underscore &#39;_&#39;</span>
+    <span class="c1"># 2. Second field (date) must have 8 characters</span>
+    <span class="c1"># 3. Third field (time) must have 6 charcaters + 4 = 10 (&#39;.WAV&#39;)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">error</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">date_str</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">time_str</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">date_str</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span>  <span class="c1"># date_str should have 8 characters</span>
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_str</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span>  <span class="c1"># time_str + &#39;.wav&#39; should have 10 characters</span>
+                <span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="n">date_str</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()))</span> <span class="o">|</span>  <span class="c1"># date_str should be numeric</span>
+                <span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="n">time_str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()))</span>  <span class="c1"># time_str should be numeric</span>
+        <span class="p">):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">error</span></div>
+
+<span class="c1">#%% </span>
+<div class="viewcode-block" id="audio_header"><a class="viewcode-back" href="../../../generated/maad.util.audio_header.html#maad.util.audio_header">[docs]</a><span class="k">def</span> <span class="nf">audio_header</span><span class="p">(</span><span class="n">path_audio</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get audio header information from WAVE file. </span>
+<span class="sd">    Header information includes, sample rate, bit depth, number of channels, </span>
+<span class="sd">    number of samples, file size and duration.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_audio : str</span>
+<span class="sd">        Location of audio file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    metadata : dictionary</span>
+<span class="sd">        header information.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import util</span>
+<span class="sd">    &gt;&gt;&gt; dic_metadata = util.audio_header(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(dic_metadata)</span>
+<span class="sd">    {&#39;path_audio&#39;: &#39;../data/spinetail.wav&#39;, &#39;fname&#39;: &#39;spinetail.wav&#39;, &#39;sample_rate&#39;: 44100, &#39;channels&#39;: 1, &#39;bits&#39;: 16, &#39;samples&#39;: 861799, &#39;fsize&#39;: 1723642, &#39;length&#39;: 19.541927437641725}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">getparams</span><span class="p">()</span>
+
+    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;path_audio&#39;</span><span class="p">:</span> <span class="n">path_audio</span><span class="p">,</span>
+                <span class="s1">&#39;fname&#39;</span><span class="p">:</span> <span class="n">basename</span><span class="p">,</span>
+                <span class="s1">&#39;sample_rate&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">framerate</span><span class="p">,</span>
+                <span class="s1">&#39;channels&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">nchannels</span><span class="p">,</span>
+                <span class="s1">&#39;bits&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">sampwidth</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span>
+                <span class="s1">&#39;samples&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">nframes</span><span class="p">,</span>
+                <span class="s1">&#39;fsize&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_audio</span><span class="p">),</span>
+                <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">nframes</span> <span class="o">/</span> <span class="n">meta</span><span class="o">.</span><span class="n">framerate</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">metadata</span></div>
+
+<span class="c1">#%% </span>
+<div class="viewcode-block" id="filename_info"><a class="viewcode-back" href="../../../generated/maad.util.filename_info.html#maad.util.filename_info">[docs]</a><span class="k">def</span> <span class="nf">filename_info</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get information from filename when using standard format. The standard format is</span>
+<span class="sd">    SITENAME_DATE_TIME.WAV, with DATE as YYYYMMDD and TIME as HHMMSS.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_audio : str</span>
+<span class="sd">        Location of audio file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    metadata : dictionary</span>
+<span class="sd">        file name information.</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">check_file_format</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">hour</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">date_fmt</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="n">date</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="n">date</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">hour</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">hour</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">hour</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+        <span class="c1"># structure data</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;path_audio&#39;</span><span class="p">:</span> <span class="n">path_audio</span><span class="p">,</span>
+                    <span class="s1">&#39;fname&#39;</span><span class="p">:</span> <span class="n">basename</span><span class="p">,</span>
+                    <span class="s1">&#39;sensor_name&#39;</span><span class="p">:</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date_fmt</span><span class="p">,</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s1">&#39;File name format not supported. The standard format must be SITENAME_DATE_TIME.WAV, with DATE as YYYYMMDD and TIME as HHMMSS.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">metadata</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="get_metadata_file"><a class="viewcode-back" href="../../../generated/maad.util.get_metadata_file.html#maad.util.get_metadata_file">[docs]</a><span class="k">def</span> <span class="nf">get_metadata_file</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get metadata asociated with audio recordings in audio file. Metadata includes basic </span>
+<span class="sd">    information of the audio file format (sample rate, number of channels, bit depth and </span>
+<span class="sd">    file size), and date information from the filename. Note however, that this function </span>
+<span class="sd">    is intended for use only with audio files with a self-describing header.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_audio : str</span>
+<span class="sd">        Path to the audio file name.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Display error messages. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    metadata : dictionary</span>
+<span class="sd">        Dictionary with metadata.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path_audio</span> <span class="o">=</span> <span class="n">path_audio</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>  <span class="c1"># for compatibility with Windows</span>
+
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">check_file_format</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;path_audio&#39;</span><span class="p">:</span> <span class="n">path_audio</span><span class="p">,</span>
+                    <span class="s1">&#39;fname&#39;</span><span class="p">:</span> <span class="n">basename</span><span class="p">,</span>
+                    <span class="s1">&#39;sample_rate&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;channels&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;bits&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;samples&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;fsize&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;sensor_name&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Incorrect name or wave format. Return null values for: &#39;</span><span class="p">,</span> <span class="n">path_audio</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">metadata</span>
+
+
+    <span class="c1"># Execute function if no error</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">info_header</span> <span class="o">=</span> <span class="n">audio_header</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+        <span class="n">info_fname</span> <span class="o">=</span> <span class="n">filename_info</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;path_audio&#39;</span><span class="p">:</span> <span class="n">path_audio</span><span class="p">,</span>
+                    <span class="s1">&#39;fname&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;fname&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;sample_rate&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;sample_rate&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;channels&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;channels&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;bits&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;bits&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;samples&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;fsize&#39;</span><span class="p">:</span> <span class="n">info_header</span><span class="p">[</span><span class="s1">&#39;fsize&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;sensor_name&#39;</span><span class="p">:</span> <span class="n">info_fname</span><span class="p">[</span><span class="s1">&#39;sensor_name&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">info_fname</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">info_fname</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="n">metadata</span></div>
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="get_metadata_dir"><a class="viewcode-back" href="../../../generated/maad.util.get_metadata_dir.html#maad.util.get_metadata_dir">[docs]</a><span class="k">def</span> <span class="nf">get_metadata_dir</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get metadata asociated with audio recordings in a directory. Metadata includes basic </span>
+<span class="sd">    information of the audio file format (sample rate, number of channels, bit depth and </span>
+<span class="sd">    file size), and date information from the filename. Note however, that this function </span>
+<span class="sd">    is intended for use only with audio files with a self-describing header.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_dir : str</span>
+<span class="sd">        Path of either a directory or a file. it will select all wav files in the parent folder</span>
+<span class="sd">        (of either the file or directory in path_dir). The search for file is performed recursively.</span>
+<span class="sd">    verbose : boolean, optional</span>
+<span class="sd">        Output file progress. The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_metadata : pandas.DataFrame</span>
+<span class="sd">        Dataframe with metadata, files as rows and metadata as columns.</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    maad.util.get_metadata_file, maad.util.audio_header, maad.util.filename_info</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import util</span>
+<span class="sd">    &gt;&gt;&gt; df_metadata = util.get_metadata_dir(&#39;../data/indices/&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># List all files recursively and select only wav files.</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path_dir</span><span class="p">)</span>  <span class="c1"># if filename is given, look for the directory.</span>
+    <span class="n">flist</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">path_dir</span><span class="p">,</span> <span class="n">subdirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+    <span class="n">flist_wav</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">flist</span> <span class="k">if</span> <span class="s1">&#39;.WAV&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">flist</span> <span class="k">if</span> <span class="s1">&#39;.wav&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]</span>
+
+    <span class="c1"># Get metadata for each file</span>
+    <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">flist_wav</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">flist_wav</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">get_metadata_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([</span><span class="n">data</span><span class="p">])])</span>
+
+    <span class="n">df_metadata</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df_metadata</span></div>
+
+
+
+<span class="c1">#%% Examples of use</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Test functions </span>
+
+
+<span class="sd"># 1. Read metadata from a valid file with correct name format -&gt; read ok</span>
+<span class="sd">path_audio = &#39;./test_data/S4A03895_20190522_000000.wav&#39;</span>
+<span class="sd">get_metadata_file(path_audio)</span>
+<span class="sd">audio_header(path_audio)</span>
+<span class="sd">filename_info(path_audio)</span>
+<span class="sd">check_file_format(path_audio)  # should be 0</span>
+
+<span class="sd"># 2. Read metadata from a valid file with incorrect name format -&gt; null output</span>
+<span class="sd">path_audio = &#39;./test_data/spinetail_20220219_30222L.wav&#39;</span>
+<span class="sd">get_metadata_file(path_audio)</span>
+<span class="sd">audio_header(path_audio)</span>
+<span class="sd">filename_info(path_audio)</span>
+<span class="sd">check_file_format(path_audio) # should be error=2</span>
+
+<span class="sd"># 3. Read metadata from a wav file with incorrect format and correct name format -&gt; null output</span>
+<span class="sd">path_audio = &#39;./test_data/NOHEADER_20190522_000000.wav&#39;</span>
+<span class="sd">get_metadata_file(path_audio)</span>
+<span class="sd">audio_header(path_audio)</span>
+<span class="sd">filename_info(path_audio)</span>
+<span class="sd">check_file_format(path_audio)  # should be error=1</span>
+
+<span class="sd"># 4. Read metadata from a file with no header and incorrect name format -&gt; null output</span>
+<span class="sd">path_audio = &#39;./test_data/NOHEADER_BAD_FNAME_FORMAT.wav&#39;</span>
+<span class="sd">get_metadata_file(path_audio)</span>
+<span class="sd">audio_header(path_audio)</span>
+<span class="sd">filename_info(path_audio)</span>
+<span class="sd">check_file_format(path_audio)  # should be error=1</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, scikit-maad development team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

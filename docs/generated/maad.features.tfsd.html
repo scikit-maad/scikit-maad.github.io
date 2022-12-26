@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maad.features.tfsd &mdash; scikit-maad 1.3 documentation</title>
+  <title>maad.features.tfsd &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -215,13 +216,13 @@
            <div itemprop="articleBody">
             
   <section id="maad-features-tfsd">
-<h1>maad.features.tfsd<a class="headerlink" href="#maad-features-tfsd" title="Permalink to this headline">¶</a></h1>
+<h1>maad.features.tfsd<a class="headerlink" href="#maad-features-tfsd" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.tfsd">
 <span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">tfsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(2000,</span> <span class="pre">8000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'thirdOctave'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#tfsd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.tfsd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Time frequency derivation index (tfsd) from a spectrogram. <a class="reference internal" href="#rc302934b69fd-1" id="id1">[1]</a> <a class="reference internal" href="#rc302934b69fd-2" id="id2">[2]</a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>Sxx</strong><span class="classifier">ndarray of floats</span></dt><dd><p>matrix : Spectrogram</p>
 </dd>
@@ -238,7 +239,7 @@ octave bands</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>tfsd</strong><span class="classifier">scalar</span></dt><dd><p>Time frequency derivation index</p>
 </dd>
@@ -252,14 +253,16 @@ With the default configuration, a TFSD &gt; 0.3 indicates a very important
 presence time of the vocalizations in the signal. 
 The TFSD is always greater than 0.</p>
 <p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="rc302934b69fd-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Aumond, P., Can, A., De Coensel, B., Botteldooren, D., Ribeiro, C., &amp; Lavandier, C. (2017). Modeling soundscape pleasantness using perceptual assessments and acoustic measurements along paths in urban context. Acta Acustica united with Acustica. <a class="reference external" href="https://doi.org/10.3813/AAA.919073">DOI: 10.3813/AAA.919073</a></p>
-</dd>
-<dt class="label" id="rc302934b69fd-2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Gontier, F., Lavandier, C., Aumond, P., Lagrange, M., &amp; Petiot, J. F. (2019). Estimation of the perceived time of presence of sources in urban acoustic environments using deep learning techniques. Acta Acustica united with Acustica.`DOI: 10.3813/AAA.919384 &lt;<a class="reference external" href="https://doi.org/10.3813/AAA.919384">https://doi.org/10.3813/AAA.919384</a>&gt;`_</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="rc302934b69fd-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Aumond, P., Can, A., De Coensel, B., Botteldooren, D., Ribeiro, C., &amp; Lavandier, C. (2017). Modeling soundscape pleasantness using perceptual assessments and acoustic measurements along paths in urban context. Acta Acustica united with Acustica. <a class="reference external" href="https://doi.org/10.3813/AAA.919073">DOI: 10.3813/AAA.919073</a></p>
+</div>
+<div class="citation" id="rc302934b69fd-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Gontier, F., Lavandier, C., Aumond, P., Lagrange, M., &amp; Petiot, J. F. (2019). Estimation of the perceived time of presence of sources in urban acoustic environments using deep learning techniques. Acta Acustica united with Acustica.`DOI: 10.3813/AAA.919384 &lt;<a class="reference external" href="https://doi.org/10.3813/AAA.919384">https://doi.org/10.3813/AAA.919384</a>&gt;`_</p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <p>During the day</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>

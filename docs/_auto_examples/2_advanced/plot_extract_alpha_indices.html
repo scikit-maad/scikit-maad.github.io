@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extract acoustic indices from audio recordings &mdash; scikit-maad 1.3 documentation</title>
+  <title>Extract acoustic indices from audio recordings &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -42,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Download audio files from Xeno-Canto and automatically extract characteristics" href="wookpecker_drumming_characteristics.html" />
+    <link rel="next" title="USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES" href="plot_extract_alpha_indices_multicpu.html" />
     <link rel="prev" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" /> 
 </head>
 
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -128,6 +129,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -205,7 +207,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="extract-acoustic-indices-from-audio-recordings">
-<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Permalink to this heading">¶</a></h1>
 <p>Acoustic indices can summarize aspects of the acoustic energy distribution in
 audio recordings and are widely used to characterize animal acoustic communities[1-3].
 In this example, we will see how to eficiently compute multiple acoustic indices,
@@ -222,7 +224,7 @@ example can be downloaded from the open GitHub repository
 </pre></div>
 </div>
 <section id="set-variables">
-<h2>Set Variables<a class="headerlink" href="#set-variables" title="Permalink to this headline">¶</a></h2>
+<h2>Set Variables<a class="headerlink" href="#set-variables" title="Permalink to this heading">¶</a></h2>
 <p>We list all spectral and temporal acoustic indices that will be computed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SPECTRAL_FEATURES</span></a><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MEANf&#39;</span><span class="p">,</span><span class="s1">&#39;VARf&#39;</span><span class="p">,</span><span class="s1">&#39;SKEWf&#39;</span><span class="p">,</span><span class="s1">&#39;KURTf&#39;</span><span class="p">,</span><span class="s1">&#39;NBPEAKS&#39;</span><span class="p">,</span><span class="s1">&#39;LEQf&#39;</span><span class="p">,</span>
 <span class="s1">&#39;ENRf&#39;</span><span class="p">,</span><span class="s1">&#39;BGNf&#39;</span><span class="p">,</span><span class="s1">&#39;SNRf&#39;</span><span class="p">,</span><span class="s1">&#39;Hf&#39;</span><span class="p">,</span> <span class="s1">&#39;EAS&#39;</span><span class="p">,</span><span class="s1">&#39;ECU&#39;</span><span class="p">,</span><span class="s1">&#39;ECV&#39;</span><span class="p">,</span><span class="s1">&#39;EPS&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_KURT&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_SKEW&#39;</span><span class="p">,</span><span class="s1">&#39;ACI&#39;</span><span class="p">,</span>
@@ -352,7 +354,7 @@ S4A03895_20190522_234500.wav
 </div>
 </section>
 <section id="batch-compute-acoustic-indices-on-the-audio-dataset">
-<h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_indices_per_bin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -736,7 +738,7 @@ S4A03895_20190522_234500.wav
 </div>
 </section>
 <section id="display-results">
-<h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this headline">¶</a></h2>
+<h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this heading">¶</a></h2>
 <p>After calculating all alpha indices (in audio and spectral domain), let’s
 have a look to the data.
 First, plot correlation map of all indices. We set the R threshold to 0 in
@@ -789,7 +791,7 @@ For a better view, we seperate spectral and audio indices.</p>
 <img alt="False Color Spectro   [R:KURTt; G:EVNspCount; B:MEANt]" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_extract_alpha_indices_005.png" />
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Sueur, J., Farina, A., Gasc, A., Pieretti, N., &amp; Pavoine, S. (2014). Acoustic Indices for Biodiversity Assessment and Landscape Investigation. Acta Acustica United with Acustica, 100(4), 772–781. <a class="reference external" href="https://doi.org/10.3813/AAA.918757">https://doi.org/10.3813/AAA.918757</a></p></li>
 <li><p>Buxton, R. T., McKenna, M. F., Clapp, M., Meyer, E., Stabenau, E., Angeloni, L. M., Crooks, K., &amp; Wittemyer, G. (2018). Efficacy of extracting indices from large-scale acoustic recordings to monitor biodiversity: Acoustical Monitoring. Conservation Biology, 32(5), 1174–1184. <a class="reference external" href="https://doi.org/10.1111/cobi.13119">https://doi.org/10.1111/cobi.13119</a></p></li>
@@ -816,7 +818,7 @@ For a better view, we seperate spectral and audio indices.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="wookpecker_drumming_characteristics.html" class="btn btn-neutral float-right" title="Download audio files from Xeno-Canto and automatically extract characteristics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_extract_alpha_indices_multicpu.html" class="btn btn-neutral float-right" title="USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-left" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

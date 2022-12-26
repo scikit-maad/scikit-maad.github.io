@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Audio dataset &mdash; scikit-maad 1.3 documentation</title>
+  <title>Audio dataset &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -182,16 +183,9 @@
            <div itemprop="articleBody">
             
   <section id="audio-dataset">
-<h1>Audio dataset<a class="headerlink" href="#audio-dataset" title="Permalink to this headline">¶</a></h1>
+<h1>Audio dataset<a class="headerlink" href="#audio-dataset" title="Permalink to this heading">¶</a></h1>
 <p><em>scikit-maad</em> provides a diversified audio dataset with samples from tropical (French Guiana and Colombia) and temperate habitats (France). All files were recorded using passive acoustic sensors. More sounds from other ecosystems will be added soon.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 20%" />
-<col style="width: 45%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code name</p></th>
 <th class="head"><p>Date</p></th>
@@ -240,7 +234,7 @@
 </tbody>
 </table>
 <section id="downloading-the-audio-dataset">
-<h2>Downloading the audio dataset<a class="headerlink" href="#downloading-the-audio-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>Downloading the audio dataset<a class="headerlink" href="#downloading-the-audio-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Most of the examples found in modules and in the example gallery use these audio recordings. To test and run the scripts, we recommend downloading these files to your local hard drive. The files can be downloaded from the GitHub repository (<a class="reference external" href="https://github.com/scikit-maad/scikit-maad">https://github.com/scikit-maad/scikit-maad</a>). Once in your local hard drive, the audio examples can be loaded by adding the path to these files:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;&lt;PATH TO AUDIO DATA&gt;/spinetail.wav&#39;</span><span class="p">)</span>
@@ -248,7 +242,7 @@
 </div>
 </section>
 <section id="downloading-a-single-audio-example">
-<h2>Downloading a single audio example<a class="headerlink" href="#downloading-a-single-audio-example" title="Permalink to this headline">¶</a></h2>
+<h2>Downloading a single audio example<a class="headerlink" href="#downloading-a-single-audio-example" title="Permalink to this heading">¶</a></h2>
 <p><em>scikit-maad</em> also provide a simple function to load audio examples using their URL. Note however, that the function will download the file each time you run the script.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load_url</span><span class="p">(</span><span class="s1">&#39;spinetail&#39;</span><span class="p">)</span>

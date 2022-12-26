@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Signal decomposition and false-color spectrograms &mdash; scikit-maad 1.3 documentation</title>
+  <title>Signal decomposition and false-color spectrograms &mdash; scikit-maad 1.3.12 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.3
+                1.3.12
               </div>
             
           
@@ -128,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -205,7 +207,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="signal-decomposition-and-false-color-spectrograms">
-<span id="sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"></span><h1>Signal decomposition and false-color spectrograms<a class="headerlink" href="#signal-decomposition-and-false-color-spectrograms" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"></span><h1>Signal decomposition and false-color spectrograms<a class="headerlink" href="#signal-decomposition-and-false-color-spectrograms" title="Permalink to this heading">¶</a></h1>
 <p>Soundscapes result from a combination of multiple signals that are mixed-down
 into a single time-series. Unmixing these signals can be regarded as an
 important preprocessing step for further analyses of individual components.
@@ -231,7 +233,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 </pre></div>
 </div>
 <section id="load-audio-from-disk">
-<h2>Load audio from disk<a class="headerlink" href="#load-audio-from-disk" title="Permalink to this headline">¶</a></h2>
+<h2>Load audio from disk<a class="headerlink" href="#load-audio-from-disk" title="Permalink to this heading">¶</a></h2>
 <p>Load the audio file and compute the spectrogram.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
@@ -244,7 +246,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 <img alt="plot nmf and false color spectrogram" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_001.png" />
 </section>
 <section id="filter-the-spectrogram-with-2d-wavelets">
-<h2>Filter the spectrogram with 2D wavelets<a class="headerlink" href="#filter-the-spectrogram-with-2d-wavelets" title="Permalink to this headline">¶</a></h2>
+<h2>Filter the spectrogram with 2D wavelets<a class="headerlink" href="#filter-the-spectrogram-with-2d-wavelets" title="Permalink to this heading">¶</a></h2>
 <p>Compute feature with <code class="docutils literal notranslate"><span class="pre">shape_features_raw</span></code> to get the raw output of the
 spectrogram filtered by the filterbank composed of 2D Gabor wavelets. This
 raw output can be fed to the NMF algorithm to decompose the spectrogram into
@@ -260,7 +262,7 @@ elementary basis spectrograms.</p>
 </div>
 </section>
 <section id="arrange-into-rgba-color-model">
-<h2>Arrange into RGBA color model<a class="headerlink" href="#arrange-into-rgba-color-model" title="Permalink to this headline">¶</a></h2>
+<h2>Arrange into RGBA color model<a class="headerlink" href="#arrange-into-rgba-color-model" title="Permalink to this heading">¶</a></h2>
 <p>Normalize the data and combine the three NMF basis spectrograms and the
 intensity spectrogram into a single array to fit the RGBA color model. RGBA
 stands for Red, Green, Blue and Alpha, where alpha indicates how opaque each
@@ -273,7 +275,7 @@ pixel is.</p>
 </div>
 </section>
 <section id="visualize-output">
-<h2>Visualize output<a class="headerlink" href="#visualize-output" title="Permalink to this headline">¶</a></h2>
+<h2>Visualize output<a class="headerlink" href="#visualize-output" title="Permalink to this heading">¶</a></h2>
 <p>Finally, plot the resulting basis spectrogram as separate elements and
 combine them to produce a false-colour spectrogram using the RGBA color
 model.</p>
