@@ -74,7 +74,7 @@ which is the maximum dB range value for a 16bits audio recording. We add
 
  .. code-block:: none
 
-    /Volumes/lacie_macosx/numerical_analysis_toolbox/scikit-maad/maad/sound/input_output.py:112: WavFileWarning: Chunk (non-data) not understood, skipping it.
+    /Volumes/lacie_macosx/github/scikit-maad/maad/sound/input_output.py:113: WavFileWarning: Chunk (non-data) not understood, skipping it.
       fs, s = wavfile.read(filename)
     Original sharpness : 1.885
 
@@ -113,7 +113,7 @@ Test the function "remove_background"
  .. code-block:: none
 
     ---- test remove_background -----
-    duration 0.161 s
+    duration 0.149 s
     sharpness : 1.434
 
 
@@ -150,7 +150,7 @@ Test the function "median_equalizer"
  .. code-block:: none
 
     ---- test median_equalizer -----
-    duration 0.248 s
+    duration 0.322 s
     sharpness : 1.500
 
 
@@ -186,7 +186,7 @@ Test the function "remove_background_morpho"
  .. code-block:: none
 
     ---- test remove_background_morpho -----
-    duration 1.596 s
+    duration 1.574 s
     sharpness : 0.885
 
 
@@ -224,7 +224,7 @@ Test the function "remove_background_along_axis"
  .. code-block:: none
 
     ---- test remove_background_along_axis -----
-    duration 0.087 s
+    duration 0.130 s
     sharpness : 0.984
 
 
@@ -233,7 +233,7 @@ Test the function "remove_background_along_axis"
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.640 seconds)
+   **Total running time of the script:** ( 0 minutes  5.931 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_remove_background.py:

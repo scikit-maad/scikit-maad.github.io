@@ -184,7 +184,14 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">maad</span>
 </pre></div>
 </div>
-<p>All functions are organized within modules. The module <a class="reference internal" href="sound.html#module-maad.sound" title="maad.sound"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.sound</span></code></a> has functions to load and preprocess audio signals, <a class="reference internal" href="rois.html#module-maad.rois" title="maad.rois"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.rois</span></code></a> provides tools to find regions of interest in audio (<strong>1D</strong>) and spectrogram signals (<strong>2D</strong>), <a class="reference internal" href="features.html#module-maad.features" title="maad.features"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.features</span></code></a> include functions to compute robust descriptors to characterize audio signals, and <a class="reference internal" href="util.html#module-maad.util" title="maad.util"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.util</span></code></a> has a handfull of useful set of tools used in the audio analysis framework.</p>
+<p>All functions are organized within five main modules.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="sound.html#module-maad.sound" title="maad.sound"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.sound</span></code></a> has functions to load and preprocess audio signals.</p></li>
+<li><p><a class="reference internal" href="rois.html#module-maad.rois" title="maad.rois"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.rois</span></code></a> provides tools to find regions of interest in audio (<strong>1D</strong>) and spectrogram signals (<strong>2D</strong>).</p></li>
+<li><p><a class="reference internal" href="features.html#module-maad.features" title="maad.features"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.features</span></code></a> include functions to compute robust descriptors to characterize audio signals.</p></li>
+<li><p><a class="reference internal" href="spl.html#module-maad.spl" title="maad.spl"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.spl</span></code></a> provides tools to describe the physics of acoustic waves.</p></li>
+<li><p><a class="reference internal" href="util.html#module-maad.util" title="maad.util"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">maad.util</span></code></a> has a handfull of useful set of tools used in the audio analysis framework.</p></li>
+</ol>
 <p>To load submodules juste type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">rois</span>
 </pre></div>
@@ -197,6 +204,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">(</span><span class="mi">4500</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">tlen</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">th</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="_images/sphx_glr_plot_find_rois_simple_0021.png" class="align-center" src="_images/sphx_glr_plot_find_rois_simple_0021.png" />
 <p>We provide a diversified audio dataset in our <a class="reference external" href="https://scikit-maad.github.io/scikit-maad/">repository</a> to test the package functions. For more information, visit the <a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a> and the <a class="reference internal" href="_auto_examples/index.html#example-gallery"><span class="std std-ref">Example gallery</span></a>.</p>
 </section>
 
