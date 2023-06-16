@@ -1,105 +1,56 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Download metadata from Xeno-Canto to infer species activities" href="plot_xenocanto_wookpecker_activities.html" />
+    <link rel="next" title="Download metadata from Xeno-Canto to infer species activities" href="plot_xenocanto_woodpecker_activities.html" />
     <link rel="prev" title="Classify soundtypes with unsupervised learning" href="plot_unsupervised_sound_classification.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -115,100 +66,58 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#load-the-sound-and-conversion-into-sound-pressure">Load the sound and conversion into sound pressure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#selection-of-the-signal-and-the-background-noise">Selection of the signal and the background noise</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#evalution-of-the-distance-and-sound-level-of-the-spinetail">Evalution of the distance and sound level of the spinetail</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#evalution-of-the-distance-between-the-aru-and-the-spinetail">Evalution of the distance between the ARU and the spinetail</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song">Evalution of the maximum distance of propagation of the spinetail song</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances">Simulation of the attenuation of the acoustic signature at different distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Example gallery</a> &raquo;</li>
-        
-      <li>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Advanced examples</a></li>
+      <li class="breadcrumb-item active">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/_auto_examples/2_advanced/plot_sound_degradation_due_to_attenuation.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation">
+<div class="sphx-glr-example-title section" id="simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation">
 <span id="sphx-glr-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"></span><h1>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation<a class="headerlink" href="#simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation" title="Permalink to this heading">¶</a></h1>
 <p>When sound travels in air (or in water), initial acoustic signature may change
 regarding distances due to attenuation. Sound attenuation in natural environment
@@ -223,10 +132,10 @@ attenuation and might be seen as a proxy.</p>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">util</span>
 </pre></div>
 </div>
-<section id="load-the-sound-and-conversion-into-sound-pressure">
+<div class="section" id="load-the-sound-and-conversion-into-sound-pressure">
 <h2>Load the sound and conversion into sound pressure<a class="headerlink" href="#load-the-sound-and-conversion-into-sound-pressure" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>When working with sound attenuation in real environment, it is essential to
+<div>When working with sound attenuation in real environment, it is essential to
 know the sound pressure level at a certain distance (generally 1m). Here
 we used spinetail sound. We assume that its sound level at 1m = 85dB SPL.
 It is also essential to be able to tranform the signal recorded by the
@@ -236,20 +145,18 @@ Wildlife. The sensitivity of the internal microphone is -35dBV and the
 maximal voltage converted by the analog to digital convertor (ADC) is 2Vpp
 (peak to peak). The gain used for the recording is a combination of
 the internal pre-amplifier of the SM4, which is 26dB and the adjustable gain
-which was 16dB. So the total gain applied to the signal is : 42dB</p>
-</div></blockquote>
+which was 16dB. So the total gain applied to the signal is : 42dB</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We load the sound</span>
 <span class="n">w</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="c1"># We convert the sound into sound pressure level (Pa)</span>
 <span class="n">p0</span> <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">wav2pressure</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="selection-of-the-signal-and-the-background-noise">
+</div>
+<div class="section" id="selection-of-the-signal-and-the-background-noise">
 <h2>Selection of the signal and the background noise<a class="headerlink" href="#selection-of-the-signal-and-the-background-noise" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>We select part of the sound with the spinetail signal</p>
-</div></blockquote>
+<div>We select part of the sound with the spinetail signal</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p0_sig</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mf">5.68</span><span class="o">*</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="mf">7.48</span><span class="o">*</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">)]</span>
 <span class="c1"># We select part of the sound with background</span>
 <span class="n">p0_noise</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mf">8.32</span><span class="o">*</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="mf">10.12</span><span class="o">*</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">)]</span>
@@ -257,34 +164,31 @@ which was 16dB. So the total gain applied to the signal is : 42dB</p>
 </div>
 <p>We convert the spinetail signal into spectrogram</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">p0_sig</span> <span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
-                                           <span class="n">display</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;signal + noise&#39;</span><span class="p">)</span>
+                                           <span class="n">display</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;signal + noise&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="signal + noise" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_001.png" />
-<p>We convert the background signal into spectrogram</p>
+<img src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_001.png" srcset="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_001.png" alt="signal + noise" class = "sphx-glr-single-img"/><p>We convert the background signal into spectrogram</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sxx_power_noise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">p0_noise</span> <span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
-                                                 <span class="n">display</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;noise alone&#39;</span><span class="p">)</span>
+                                                 <span class="n">display</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;noise alone&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="noise alone" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_002.png" />
-<p>Then, we convert both spectrograms into dB. We choose a dB range of 96dB which
+<img src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_002.png" srcset="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_002.png" alt="noise alone" class = "sphx-glr-single-img"/><p>Then, we convert both spectrograms into dB. We choose a dB range of 96dB which
 is the maximal range for a 16 bits signal.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span> <span class="o">+</span> <span class="mi">96</span>
 <span class="n">Sxx_dB_noise</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_power_noise</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span> <span class="o">+</span> <span class="mi">96</span>
 </pre></div>
 </div>
-</section>
-<section id="evalution-of-the-distance-and-sound-level-of-the-spinetail">
+</div>
+<div class="section" id="evalution-of-the-distance-and-sound-level-of-the-spinetail">
 <h2>Evalution of the distance and sound level of the spinetail<a class="headerlink" href="#evalution-of-the-distance-and-sound-level-of-the-spinetail" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>Before simulating the attenuation of the acoustic signature depending on
+<div>Before simulating the attenuation of the acoustic signature depending on
 the distance, we need to evaluate the distance at which the signal of the
 spinetail was recordered.
 First, we estimate the sound level L of the spinetail song in the recording
 by selecting the sound between 6000-7000 Hz.
 We compute fast Leq (the equivalent sound level) within 100ms window and
-take the maximum Leq to be the estimated L of the call</p>
-</div></blockquote>
+take the maximum Leq to be the estimated L of the call</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F1</span></a> <span class="o">=</span> <span class="mi">6000</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F2</span></a> <span class="o">=</span> <span class="mi">7000</span>
 <span class="n">p0_sig_bw</span><span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">select_bandwidth</span><span class="p">(</span><span class="n">p0_sig</span><span class="p">,</span>
@@ -296,43 +200,39 @@ take the maximum Leq to be the estimated L of the call</p>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Sound Level measured : </span><span class="si">%2.2f</span><span class="s1">dB SPL&#39;</span> <span class="o">%</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Sound Level measured : 71.57dB SPL
 </pre></div>
 </div>
-</section>
-<section id="evalution-of-the-distance-between-the-aru-and-the-spinetail">
+</div>
+<div class="section" id="evalution-of-the-distance-between-the-aru-and-the-spinetail">
 <h2>Evalution of the distance between the ARU and the spinetail<a class="headerlink" href="#evalution-of-the-distance-between-the-aru-and-the-spinetail" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>Then, knowing the sound level L at the position of the ARU, we can estimate
+<div>Then, knowing the sound level L at the position of the ARU, we can estimate
 the maximum distance between the ARU and the position of the spinetail.
 This estimation takes into account the geometric, atmospheric and habitat
 attenuation (here, we use the default values to define atmospheric and
-habitat attenuation). This distance will be the reference distance r0</p>
-</div></blockquote>
+habitat attenuation). This distance will be the reference distance r0</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="n">r0</span> <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">detection_distance</span><span class="p">(</span><span class="n">L</span><span class="p">,</span>
                               <span class="n">L0</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span>
                               <span class="n">f</span><span class="o">=</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F1</span></a><span class="o">+</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F2</span></a><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Max distance between ARU and spinetail is estimated to be </span><span class="si">%2.0f</span><span class="s1">m&#39;</span> <span class="o">%</span> <span class="n">r0</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Max distance between ARU and spinetail is estimated to be  4m
 </pre></div>
 </div>
-</section>
-<section id="evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song">
+</div>
+<div class="section" id="evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song">
 <h2>Evalution of the maximum distance of propagation of the spinetail song<a class="headerlink" href="#evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>Finally, we can estimate the detection distance or active distance of the
+<div>Finally, we can estimate the detection distance or active distance of the
 spinetail which corresponds to the distance at which the call of the spinetail
 is below the noise level.
 First, we estimate the sound level of the background noise L_bkg_bw
 around the frequency bandwidth of the spinetail. We set background noise
 to min Leq.
 Then we estimate the average detection distance of the spinetail call
-(assuming that the initial level of the call &#64;1m is 85dB SPL)</p>
-</div></blockquote>
+(assuming that the initial level of the call &#64;1m is 85dB SPL)</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p0_noise_bw</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">select_bandwidth</span><span class="p">(</span><span class="n">p0_noise</span><span class="p">,</span>
                                      <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
                                      <span class="n">fcut</span><span class="o">=</span><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F1</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">F2</span></a><span class="p">],</span>
@@ -345,7 +245,6 @@ Then we estimate the average detection distance of the spinetail call
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max active distance is </span><span class="si">%2.1f</span><span class="s1">m&#39;</span> <span class="o">%</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Max active distance is 143.0m
 </pre></div>
 </div>
@@ -357,21 +256,19 @@ Then we estimate the average detection distance of the spinetail call
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>        f      r    Ageo_dB   Aatm_dB  Ahab_dB    Asum_dB
 0  6500.0  143.0  43.106721  8.604484    18.46  70.171204
 </pre></div>
 </div>
-</section>
-<section id="simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances">
+</div>
+<div class="section" id="simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances">
 <h2>Simulation of the attenuation of the acoustic signature at different distances<a class="headerlink" href="#simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><p>Knowing the distance r0 at which the signal was recorded from the source,
+<div>Knowing the distance r0 at which the signal was recorded from the source,
 we can simulate the attenuation of the acoustic signature depending on
 different distance of propagation.
 Here, we will simulate the attenuation of the signal after propagating 10m,
-50m, 100m, 200m</p>
-</div></blockquote>
+50m, 100m, 200m</div></blockquote>
 <p>Compute the attenuation of the recorded spinetail song at 10m.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_att</span> <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">apply_attenuation</span><span class="p">(</span><span class="n">p0_sig</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">r0</span> <span class="o">=</span> <span class="n">r0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">Sxx_power_att</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">p_att</span><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">)</span>
@@ -409,80 +306,52 @@ We can observe that the highest frequency content (harmonics) disappears first.
 We can also observe that at 200m, almost none of the spinetail signal is still
 visible. Only the background noise, with the call of another species remains</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_10m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;10m&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_50m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_10m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;10m&#39;</span><span class="p">,</span>   <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_50m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span>   <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_100m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;100m&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_200m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;200m&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax4</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<img alt="10m, 50m, 100m, 200m" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.030 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py">
+<img src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" srcset="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" alt="10m, 50m, 100m, 200m" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.898 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/0eaba6aebe630922ef4939cd24036daa/plot_sound_degradation_due_to_attenuation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_degradation_due_to_attenuation.py</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/0eaba6aebe630922ef4939cd24036daa/plot_sound_degradation_due_to_attenuation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_degradation_due_to_attenuation.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/28df1d2dae51cc968831d82e4b5d8161/plot_sound_degradation_due_to_attenuation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_degradation_due_to_attenuation.ipynb</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/28df1d2dae51cc968831d82e4b5d8161/plot_sound_degradation_due_to_attenuation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_degradation_due_to_attenuation.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_xenocanto_wookpecker_activities.html" class="btn btn-neutral float-right" title="Download metadata from Xeno-Canto to infer species activities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_unsupervised_sound_classification.html" class="btn btn-neutral float-left" title="Classify soundtypes with unsupervised learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_unsupervised_sound_classification.html" class="btn btn-neutral float-left" title="Classify soundtypes with unsupervised learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_xenocanto_woodpecker_activities.html" class="btn btn-neutral float-right" title="Download metadata from Xeno-Canto to infer species activities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

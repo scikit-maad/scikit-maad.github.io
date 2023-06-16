@@ -1,102 +1,54 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>maad.features.temporal &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.features.temporal &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -112,146 +64,129 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>maad.features.temporal</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">maad.features.temporal</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for maad.features.temporal</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">Collection of functions to extract features from music</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="c1">#</span>
-<span class="c1"># Authors:  Juan Sebastian ULLOA &lt;lisofomia@gmail.com&gt;</span>
-<span class="c1">#           Sylvain HAUPERT &lt;sylvain.haupert@mnhn.fr&gt;</span>
-<span class="c1">#</span>
-<span class="c1"># License: New BSD License</span>
+<span class="sd">Collection of functions to extract features from audio signals</span>
+<span class="sd">License: New BSD License</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Load the modules</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
 
 <span class="c1"># Import internal modules</span>
 <span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">moments</span>
+<span class="kn">from</span> <span class="nn">maad.sound</span> <span class="kn">import</span> <span class="n">envelope</span><span class="p">,</span> <span class="n">trim</span>
+<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.function_base</span> <span class="kn">import</span> <span class="n">_quantile_is_valid</span>
 
 <span class="c1">#%%</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="temporal_moments"><a class="viewcode-back" href="../../../generated/maad.features.temporal_moments.html#maad.features.temporal_moments">[docs]</a><span class="k">def</span> <span class="nf">temporal_moments</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="temporal_moments"><a class="viewcode-back" href="../../../generated/maad.features.temporal_moments.html#maad.features.temporal_moments">[docs]</a><span class="k">def</span> <span class="nf">temporal_moments</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the first 4th moments of an audio signal, mean, variance, skewness, kurtosis.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    s : 1D array</span>
 <span class="sd">        Audio to process</span>
-<span class="sd">        </span>
+<span class="sd">    fs : float, optional</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">        The default is None</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    mean : float </span>
+<span class="sd">    mean : float</span>
 <span class="sd">        mean of the audio</span>
-<span class="sd">    var : float </span>
+<span class="sd">    var : float</span>
 <span class="sd">        variance  of the audio</span>
 <span class="sd">    skew : float</span>
 <span class="sd">        skewness of the audio</span>
 <span class="sd">    kurt : float</span>
 <span class="sd">        kurtosis of the audio</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;)</span>
-<span class="sd">    &gt;&gt;&gt; sm, sv, ss, sk = maad.features.temporal_moments (s)</span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound, features</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; sm, sv, ss, sk = features.temporal_moments (s, fs)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;mean: %2.2f / var: %2.5f / skewness: %2.4f / kurtosis: %2.2f&#39; % (sm, sv, ss, sk))</span>
 <span class="sd">    mean: -0.00 / var: 0.00117 / skewness: -0.0065 / kurtosis: 24.71</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># force s to be ndarray</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">roi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span> 
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;If &#39;roi&#39; is not None, &#39;fs&#39; must be defined&quot;</span><span class="p">)</span>     
+        
     <span class="k">return</span> <span class="n">moments</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="zero_crossing_rate"><a class="viewcode-back" href="../../../generated/maad.features.zero_crossing_rate.html#maad.features.zero_crossing_rate">[docs]</a><span class="k">def</span> <span class="nf">zero_crossing_rate</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="zero_crossing_rate"><a class="viewcode-back" href="../../../generated/maad.features.zero_crossing_rate.html#maad.features.zero_crossing_rate">[docs]</a><span class="k">def</span> <span class="nf">zero_crossing_rate</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the zero crossing rate feature of an audio signal.</span>
-<span class="sd">    </span>
-<span class="sd">    The zero-crossing rate is the rate of sign-changes along a signal, i.e., </span>
-<span class="sd">    the rate at which the signal changes from positive to zero to negative or </span>
-<span class="sd">    from negative to zero to positive. This feature has been used widely </span>
-<span class="sd">    in speech recognition and music information retrieval, </span>
+
+<span class="sd">    The zero-crossing rate is the rate of sign-changes along a signal, i.e.,</span>
+<span class="sd">    the rate at which the signal changes from positive to zero to negative or</span>
+<span class="sd">    from negative to zero to positive. This feature has been used widely</span>
+<span class="sd">    in speech recognition and music information retrieval,</span>
 <span class="sd">    being a key feature to classify percussive sounds [1]_.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    s : 1D array</span>
 <span class="sd">        Audio to process (wav)</span>
 <span class="sd">    fs : float</span>
-<span class="sd">        Sampling frequency of the audio (Hz)</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.        </span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    ------- </span>
-<span class="sd">    zcr : float   </span>
+<span class="sd">    -------</span>
+<span class="sd">    zcr : float</span>
 <span class="sd">        number of zero crossing /s</span>
 
 <span class="sd">    References</span>
@@ -263,65 +198,317 @@
 <span class="sd">    &gt;&gt;&gt; from maad import sound, features</span>
 <span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; features.zero_crossing_rate(s,fs)</span>
-<span class="sd">    10500.397192384766    </span>
-<span class="sd">    </span>
+<span class="sd">    10500.397192384766</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">roi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">)</span>
+
     <span class="n">zero_crosses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
     <span class="n">zcr</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">duration</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">zero_crosses</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">zcr</span></div>
 
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="temporal_quantile"><a class="viewcode-back" href="../../../generated/maad.features.temporal_quantile.html#maad.features.temporal_quantile">[docs]</a><span class="k">def</span> <span class="nf">temporal_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;spectrum&quot;</span><span class="p">,</span>
+                      <span class="n">env_mode</span><span class="o">=</span><span class="s2">&quot;fast&quot;</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the q-th temporal quantile of the waveform or spectrum. If a</span>
+<span class="sd">    region of interest with time and spectral limits is provided, the q-th</span>
+<span class="sd">    temporal quantile is computed on the selection.</span>
 
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    q : array or float, optional</span>
+<span class="sd">        Quantile or sequence of quantiles to compute, which must be between 0 and 1</span>
+<span class="sd">        inclusive.</span>
+<span class="sd">        The defaul is [0.05, 0.25, 0.5, 0.75, 0.95].</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT when mode is spectrum. The default is 1024.</span>
+<span class="sd">        Size of each frame to compute the envelope. The largest, the highest is</span>
+<span class="sd">        the approximation. The default is 5000.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    mode : str, optional, default is &#39;spectrum&#39;</span>
+<span class="sd">        - &#39;spectrum&#39; : The quantile is calculated in the espectrum.</span>
+<span class="sd">        - &#39;envelope&#39; : The quantile is calculated in the sound wave.</span>
+<span class="sd">    env_mode : str, optional, default is `fast`</span>
+<span class="sd">        - `fast` : The sound is first divided into frames (2d) using the</span>
+<span class="sd">            function wave2timeframes(s), then the max of each frame gives a</span>
+<span class="sd">            good approximation of the envelope.</span>
+<span class="sd">        - `Hilbert` : estimation of the envelope from the Hilbert transform.</span>
+<span class="sd">            The method is slow</span>
+<span class="sd">    as_pandas: bool</span>
+<span class="sd">        Return data as a pandas.Series. This is usefull when computing multiple features</span>
+<span class="sd">        over a signal. Default is False.</span>
+<span class="sd">    amp: bool, default is False</span>
+<span class="sd">        Return the quantiles with its amplitude.</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    quantiles: pandas Series/DataFrame or Numpy array</span>
+<span class="sd">        Temporal quantiles of waveform and its amplitude (optional).</span>
 
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute the q-th temporal quantile in the spectrum</span>
+
+<span class="sd">    &gt;&gt;&gt; qt = features.temporal_quantile(s, fs, [0.05, 0.25, 0.5, 0.75, 0.95], as_pandas=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(qt)</span>
+<span class="sd">    0.05     1.219048</span>
+<span class="sd">    0.25     5.712109</span>
+<span class="sd">    0.50    11.818957</span>
+<span class="sd">    0.75    16.555828</span>
+<span class="sd">    0.95    17.751655</span>
+<span class="sd">    dtype: float64</span>
+
+<span class="sd">    Compute the q-th temporal quantile in the waveform, using the envelope</span>
+
+<span class="sd">    &gt;&gt;&gt; qt = features.temporal_quantile(s, fs, [0.05, 0.25, 0.5, 0.75, 0.95], mode=&quot;envelope&quot;, as_pandas=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(qt)</span>
+<span class="sd">    0.05     1.208300</span>
+<span class="sd">    0.25     5.716188</span>
+<span class="sd">    0.50    11.804161</span>
+<span class="sd">    0.75    15.731135</span>
+<span class="sd">    0.95    17.752714</span>
+<span class="sd">    dtype: float64</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_quantile_is_valid</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Percentiles must be in the range [0, 1]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># compute quantiles in the time amp</span>
+    <span class="k">if</span> <span class="n">mode</span><span class="o">==</span><span class="s2">&quot;envelope&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">roi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">min_t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">fs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">)</span>
+            <span class="n">min_t</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">min_t</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;If &#39;roi&#39; is not None, &#39;fs&#39; must be defined&quot;</span><span class="p">)</span>
+
+        <span class="n">env</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">envelope</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">env_mode</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">min_t</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">env</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="c1"># Compute temporal quantile</span>
+        <span class="n">norm_cumsum</span> <span class="o">=</span> <span class="n">energy</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">/</span><span class="n">energy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">spec_quantile</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">quantile</span> <span class="ow">in</span> <span class="n">q</span><span class="p">:</span>
+            <span class="n">spec_quantile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">norm_cumsum</span><span class="o">&gt;=</span><span class="n">quantile</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+
+        <span class="k">if</span> <span class="n">amp</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="s2">&quot;amp&quot;</span><span class="p">:</span><span class="n">energy</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">q</span><span class="p">,</span> <span class="n">spec_quantile</span><span class="p">,</span> <span class="n">energy</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">elif</span> <span class="n">mode</span><span class="o">==</span><span class="s2">&quot;spectrum&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">roi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Sxx</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Sxx</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">,</span>
+                                        <span class="n">tlims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">],</span>
+                                        <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_f</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_f</span><span class="p">],</span>
+                                        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">Sxx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">tn</span><span class="p">)</span>
+
+        <span class="c1"># Compute spectral q</span>
+        <span class="n">norm_cumsum</span> <span class="o">=</span> <span class="n">Sxx</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">/</span><span class="n">Sxx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">spec_quantile</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">quantile</span> <span class="ow">in</span> <span class="n">q</span><span class="p">:</span>
+            <span class="n">spec_quantile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Sxx</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">norm_cumsum</span><span class="o">&gt;=</span><span class="n">quantile</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+
+        <span class="k">if</span> <span class="n">amp</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="s2">&quot;amp&quot;</span><span class="p">:</span><span class="n">Sxx</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">q</span><span class="p">,</span> <span class="n">spec_quantile</span><span class="p">,</span> <span class="n">Sxx</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid mode. Mode should be &#39;spectrum&#39; or &#39;envelope&#39;&quot;</span><span class="p">)</span></div>
     
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="temporal_duration"><a class="viewcode-back" href="../../../generated/maad.features.temporal_duration.html#maad.features.temporal_duration">[docs]</a><span class="k">def</span> <span class="nf">temporal_duration</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;spectrum&quot;</span><span class="p">,</span>
+                      <span class="n">env_mode</span><span class="o">=</span><span class="s2">&quot;fast&quot;</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the temporal duration of the waveform. If a region of interest with time</span>
+<span class="sd">    and spectral limits is provided, the temporal duration is computed on the selection.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where temporal duration will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    mode : str, optional, default is &#39;spectrum&#39;</span>
+<span class="sd">        - &#39;spectrum&#39; : The quantile is calculated using the spectrum.</span>
+<span class="sd">        - &#39;amplitude&#39; : The quantile is calculated using the enveloppe sound wave.</span>
+<span class="sd">    env_mode : str, optional, default is `fast`</span>
+<span class="sd">        - `fast` : The sound is first divided into frames (2d) using the</span>
+<span class="sd">            function wave2timeframes(s), then the max of each frame gives a</span>
+<span class="sd">            good approximation of the envelope.</span>
+<span class="sd">        - `Hilbert` : estimation of the envelope from the Hilbert transform.</span>
+<span class="sd">            The method is slow</span>
+<span class="sd">    as_pandas_series: bool</span>
+<span class="sd">        Return data as a pandas.Series. This is usefull when computing multiple features</span>
+<span class="sd">        over a signal. Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    duration: pandas Series/DataFrame or Numpy array</span>
+<span class="sd">        Temporal duration of signal using energy quantiles.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute the temporal duration of the time energy</span>
+
+<span class="sd">    &gt;&gt;&gt; duration, duration_90 = features.temporal_duration(s, fs)</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;Duration 50%: {:.4f} / Duration 90%: {:.4f}&quot;.format(duration, duration_90))</span>
+<span class="sd">    Duration 50%: 10.8437 / Duration 90%: 16.5326</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute temporal quantile</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">temporal_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> 
+                          <span class="n">env_mode</span><span class="p">,</span> <span class="n">as_pandas</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Compute temporal duration</span>
+    <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])],</span>
+                        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;duration_50&quot;</span><span class="p">,</span> <span class="s2">&quot;duration_90&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="all_temporal_features"><a class="viewcode-back" href="../../../generated/maad.features.all_temporal_features.html#maad.features.all_temporal_features">[docs]</a><span class="k">def</span> <span class="nf">all_temporal_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute all the temporal features for a signal.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where temporal features will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        If `window=&#39;hann&#39;`, additional keyword arguments to pass to</span>
+<span class="sd">        `sound.spectrum`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    temporal_features : pandas DataFrame</span>
+<span class="sd">        DataFrame with all temporal features computed in the spectrum</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute all the temporal features</span>
+
+<span class="sd">    &gt;&gt;&gt; temporal_features = features.all_temporal_features(s,fs)</span>
+<span class="sd">    &gt;&gt;&gt; print(temporal_features.iloc[0])</span>
+<span class="sd">    sm            -2.043264e-19</span>
+<span class="sd">    sv             1.167074e-03</span>
+<span class="sd">    ss            -6.547980e-03</span>
+<span class="sd">    sk             2.471161e+01</span>
+<span class="sd">    Time 5%        1.219048e+00</span>
+<span class="sd">    Time 25%       5.712109e+00</span>
+<span class="sd">    Time 50%       1.181896e+01</span>
+<span class="sd">    Time 75%       1.655583e+01</span>
+<span class="sd">    Time 95%       1.775166e+01</span>
+<span class="sd">    zcr            1.050040e+04</span>
+<span class="sd">    duration_50    1.001495e+01</span>
+<span class="sd">    duration_90    1.654441e+01</span>
+<span class="sd">    Name: 0, dtype: float64</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tm</span>  <span class="o">=</span> <span class="n">temporal_moments</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">roi</span><span class="p">)</span>
+    <span class="n">zcr</span> <span class="o">=</span> <span class="n">zero_crossing_rate</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">roi</span><span class="p">)</span>
+    <span class="n">qt</span> <span class="o">=</span> <span class="n">temporal_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;spectrum&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">duration_50</span><span class="p">,</span> <span class="n">duration_90</span> <span class="o">=</span> <span class="n">temporal_duration</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;envelope&quot;</span><span class="p">)</span>
+
+    <span class="n">temporal_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;sm&quot;</span><span class="p">:</span><span class="n">tm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;sv&quot;</span><span class="p">:</span><span class="n">tm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;ss&quot;</span><span class="p">:</span><span class="n">tm</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;sk&quot;</span><span class="p">:</span><span class="n">tm</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                                    <span class="s2">&quot;Time 5%&quot;</span><span class="p">:</span><span class="n">qt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Time 25%&quot;</span><span class="p">:</span><span class="n">qt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Time 50%&quot;</span><span class="p">:</span><span class="n">qt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
+                                    <span class="s2">&quot;Time 75%&quot;</span><span class="p">:</span><span class="n">qt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;Time 95%&quot;</span><span class="p">:</span><span class="n">qt</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;zcr&quot;</span><span class="p">:</span><span class="n">zcr</span><span class="p">,</span>
+                                    <span class="s2">&quot;duration_50&quot;</span><span class="p">:</span><span class="n">duration_50</span><span class="p">,</span> <span class="s2">&quot;duration_90&quot;</span><span class="p">:</span><span class="n">duration_90</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">display</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">temporal_features</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">temporal_features</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

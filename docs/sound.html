@@ -1,105 +1,56 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Sound processing &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sound processing &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="maad.sound.load" href="generated/maad.sound.load.html" />
     <link rel="prev" title="Audio dataset" href="audio_dataset.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="index.html" class="icon icon-home">
+            scikit-maad
+              <img src="_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -156,237 +107,189 @@
 <li class="toctree-l1"><a class="reference internal" href="_auto_examples/index.html">Example gallery</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Sound processing</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sound processing</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/sound.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <span class="target" id="module-maad.sound"></span><section id="sound-processing">
+             
+  <span class="target" id="module-maad.sound"></span><div class="section" id="sound-processing">
 <h1>Sound processing<a class="headerlink" href="#sound-processing" title="Permalink to this heading">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">sound</span></code> is an ensemble of functions to load and preprocess audio signals.</p>
-<section id="input-and-output">
+<div class="section" id="input-and-output">
 <h2>Input and output<a class="headerlink" href="#input-and-output" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.load.html#maad.sound.load" title="maad.sound.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(filename[, channel, detrend, verbose, ...])</p></td>
-<td><p>Load an audio file (stereo or mono).</p></td>
+<table border="1" class="autosummary longtable docutils align-default">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.load.html#maad.sound.load" title="maad.sound.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(filename[,&nbsp;channel,&nbsp;detrend,&nbsp;verbose,&nbsp;...])</td>
+<td>Load an audio file (stereo or mono).</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.load_url.html#maad.sound.load_url" title="maad.sound.load_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_url</span></code></a>(url)</p></td>
-<td><p>Download audio file from the web and load it as a variable.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.load_url.html#maad.sound.load_url" title="maad.sound.load_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_url</span></code></a>(url)</td>
+<td>Download audio file from the web and load it as a variable.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.load_spectrogram.html#maad.sound.load_spectrogram" title="maad.sound.load_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_spectrogram</span></code></a>(filename, fs, duration[, ...])</p></td>
-<td><p>Load an image from a file or an URL</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.load_spectrogram.html#maad.sound.load_spectrogram" title="maad.sound.load_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_spectrogram</span></code></a>(filename,&nbsp;fs,&nbsp;duration[,&nbsp;...])</td>
+<td>Load an image from a file or an URL</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.write.html#maad.sound.write" title="maad.sound.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(filename, fs, data[, bit_depth])</p></td>
-<td><p>Write a NumPy array as a WAV file with the Scipy method.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.write.html#maad.sound.write" title="maad.sound.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(filename,&nbsp;fs,&nbsp;data[,&nbsp;bit_depth])</td>
+<td>Write a NumPy array as a WAV file with the Scipy method.</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="preprocess-audio">
+</div>
+<div class="section" id="preprocess-audio">
 <h2>Preprocess audio<a class="headerlink" href="#preprocess-audio" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.fir_filter.html#maad.sound.fir_filter" title="maad.sound.fir_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fir_filter</span></code></a>(x, kernel[, axis])</p></td>
-<td><p>Filter a signal using a 1d finite impulse response filter.</p></td>
+<table border="1" class="autosummary longtable docutils align-default">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.fir_filter.html#maad.sound.fir_filter" title="maad.sound.fir_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fir_filter</span></code></a>(x,&nbsp;kernel[,&nbsp;axis])</td>
+<td>Filter a signal using a 1d finite impulse response filter.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.sinc.html#maad.sound.sinc" title="maad.sound.sinc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinc</span></code></a>(s, cutoff, fs[, atten, transition_bw, ...])</p></td>
-<td><p>Filter 1D signal with a Kaiser-windowed filter.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.sinc.html#maad.sound.sinc" title="maad.sound.sinc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinc</span></code></a>(s,&nbsp;cutoff,&nbsp;fs[,&nbsp;atten,&nbsp;transition_bw,&nbsp;...])</td>
+<td>Filter 1D signal with a Kaiser-windowed filter.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.smooth.html#maad.sound.smooth" title="maad.sound.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth</span></code></a>(Sxx[, std, verbose, display, savefig])</p></td>
-<td><p>Smooth a spectrogram with a gaussian filter.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.smooth.html#maad.sound.smooth" title="maad.sound.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth</span></code></a>(Sxx[,&nbsp;std,&nbsp;verbose,&nbsp;display,&nbsp;savefig])</td>
+<td>Smooth a spectrogram with a gaussian filter.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.select_bandwidth.html#maad.sound.select_bandwidth" title="maad.sound.select_bandwidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_bandwidth</span></code></a>(x, fs, fcut, forder[, ...])</p></td>
-<td><p>Use a lowpass, highpass, bandpass or bandstop filter to process a 1d signal with an iir filter.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.select_bandwidth.html#maad.sound.select_bandwidth" title="maad.sound.select_bandwidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_bandwidth</span></code></a>(x,&nbsp;fs,&nbsp;fcut,&nbsp;forder[,&nbsp;...])</td>
+<td>Use a lowpass, highpass, bandpass or bandstop filter to process a 1d signal with an iir filter.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.pcen.html#maad.sound.pcen" title="maad.sound.pcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcen</span></code></a>(Sxx[, gain, bias, power, b, eps, ...])</p></td>
-<td><p>Per-Channel Energy Normalization (PCEN)</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.pcen.html#maad.sound.pcen" title="maad.sound.pcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcen</span></code></a>(Sxx[,&nbsp;gain,&nbsp;bias,&nbsp;power,&nbsp;b,&nbsp;eps,&nbsp;...])</td>
+<td>Per-Channel Energy Normalization (PCEN)</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.remove_background.html#maad.sound.remove_background" title="maad.sound.remove_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background</span></code></a>(Sxx[, gauss_win, ...])</p></td>
-<td><p>Remove background noise using spectral subtraction.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.remove_background.html#maad.sound.remove_background" title="maad.sound.remove_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background</span></code></a>(Sxx[,&nbsp;gauss_win,&nbsp;...])</td>
+<td>Remove background noise using spectral subtraction.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.remove_background_morpho.html#maad.sound.remove_background_morpho" title="maad.sound.remove_background_morpho"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background_morpho</span></code></a>(Sxx[, q, display, ...])</p></td>
-<td><p>Remove background noise in a spectrogram using mathematical morphology tool.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.remove_background_morpho.html#maad.sound.remove_background_morpho" title="maad.sound.remove_background_morpho"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background_morpho</span></code></a>(Sxx[,&nbsp;q,&nbsp;display,&nbsp;...])</td>
+<td>Remove background noise in a spectrogram using mathematical morphology tool.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.remove_background_along_axis.html#maad.sound.remove_background_along_axis" title="maad.sound.remove_background_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background_along_axis</span></code></a>(Sxx[, mode, ...])</p></td>
-<td><p>Get the noisy profile along the defined axis and remove this profile from the spectrogram.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.remove_background_along_axis.html#maad.sound.remove_background_along_axis" title="maad.sound.remove_background_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_background_along_axis</span></code></a>(Sxx[,&nbsp;mode,&nbsp;...])</td>
+<td>Get the noisy profile along the defined axis and remove this profile from the spectrogram.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.median_equalizer.html#maad.sound.median_equalizer" title="maad.sound.median_equalizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">median_equalizer</span></code></a>(Sxx[, display, savefig])</p></td>
-<td><p>Remove background noise in spectrogram using median equalizer.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.median_equalizer.html#maad.sound.median_equalizer" title="maad.sound.median_equalizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">median_equalizer</span></code></a>(Sxx[,&nbsp;display,&nbsp;savefig])</td>
+<td>Remove background noise in spectrogram using median equalizer.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.wave2frames.html#maad.sound.wave2frames" title="maad.sound.wave2frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wave2frames</span></code></a>(s[, Nt])</p></td>
-<td><p>Reshape a sound waveform (ie vector) into a serie of frames (ie matrix) of length Nt.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.wave2frames.html#maad.sound.wave2frames" title="maad.sound.wave2frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wave2frames</span></code></a>(s[,&nbsp;Nt])</td>
+<td>Reshape a sound waveform (ie vector) into a serie of frames (ie matrix) of length Nt.</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="transform-audio">
+</div>
+<div class="section" id="transform-audio">
 <h2>Transform audio<a class="headerlink" href="#transform-audio" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.spectrogram.html#maad.sound.spectrogram" title="maad.sound.spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrogram</span></code></a>(x, fs[, window, nperseg, ...])</p></td>
-<td><p>Compute a spectrogram using the short-time Fourier transform from an audio signal.</p></td>
+<table border="1" class="autosummary longtable docutils align-default">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.spectrogram.html#maad.sound.spectrogram" title="maad.sound.spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrogram</span></code></a>(x,&nbsp;fs[,&nbsp;window,&nbsp;nperseg,&nbsp;...])</td>
+<td>Compute a spectrogram using the short-time Fourier transform from an audio signal.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.avg_power_spectro.html#maad.sound.avg_power_spectro" title="maad.sound.avg_power_spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avg_power_spectro</span></code></a>(Sxx_power)</p></td>
-<td><p>Computes the average of a power spectrogram along the time axis.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.avg_power_spectro.html#maad.sound.avg_power_spectro" title="maad.sound.avg_power_spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avg_power_spectro</span></code></a>(Sxx_power)</td>
+<td>Computes the average of a power spectrogram along the time axis.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.avg_amplitude_spectro.html#maad.sound.avg_amplitude_spectro" title="maad.sound.avg_amplitude_spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avg_amplitude_spectro</span></code></a>(Sxx_ampli)</p></td>
-<td><p>Computes the average of an amplitude spectrogram along the time axis.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.avg_amplitude_spectro.html#maad.sound.avg_amplitude_spectro" title="maad.sound.avg_amplitude_spectro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">avg_amplitude_spectro</span></code></a>(Sxx_ampli)</td>
+<td>Computes the average of an amplitude spectrogram along the time axis.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.linear_to_octave.html#maad.sound.linear_to_octave" title="maad.sound.linear_to_octave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_to_octave</span></code></a>(X, fn[, thirdOctave, display])</p></td>
-<td><p>Transform a linear spectrum (1d) or Spectrogram (2d into octave or 1/3 octave spectrum (1d) or Spectrogram (2d).</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.linear_to_octave.html#maad.sound.linear_to_octave" title="maad.sound.linear_to_octave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_to_octave</span></code></a>(X,&nbsp;fn[,&nbsp;thirdOctave,&nbsp;display])</td>
+<td>Transform a linear spectrum (1d) or Spectrogram (2d into octave or 1/3 octave spectrum (1d) or Spectrogram (2d).</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.envelope.html#maad.sound.envelope" title="maad.sound.envelope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">envelope</span></code></a>(s[, mode, Nt])</p></td>
-<td><p>Calculate the envelope of a sound waveform (1d)</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.envelope.html#maad.sound.envelope" title="maad.sound.envelope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">envelope</span></code></a>(s[,&nbsp;mode,&nbsp;Nt])</td>
+<td>Calculate the envelope of a sound waveform (1d)</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.spectrum.html#maad.sound.spectrum" title="maad.sound.spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrum</span></code></a>(s, fs[, nperseg, noverlap, nfft, ...])</p></td>
-<td><p>Estimate the power spectral density or power spectrum of 1D signal.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.spectrum.html#maad.sound.spectrum" title="maad.sound.spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrum</span></code></a>(s,&nbsp;fs[,&nbsp;nperseg,&nbsp;noverlap,&nbsp;nfft,&nbsp;...])</td>
+<td>Estimate the power spectral density or power spectrum of 1D signal.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.resample.html#maad.sound.resample" title="maad.sound.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a>(s, fs, target_fs[, res_type])</p></td>
-<td><p>Changes the sample rate of an audio file or any time series.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.resample.html#maad.sound.resample" title="maad.sound.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a>(s,&nbsp;fs,&nbsp;target_fs[,&nbsp;res_type])</td>
+<td>Changes the sample rate of an audio file or any time series.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.trim.html#maad.sound.trim" title="maad.sound.trim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim</span></code></a>(s, fs, min_t, max_t[, pad, pad_constant])</p></td>
-<td><p>Slices a time series, from a initial time <cite>min_t</cite> to an ending time <cite>max_t</cite>.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.trim.html#maad.sound.trim" title="maad.sound.trim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim</span></code></a>(s,&nbsp;fs,&nbsp;min_t,&nbsp;max_t[,&nbsp;pad,&nbsp;pad_constant])</td>
+<td>Slices a time series, from a initial time <cite>min_t</cite> to an ending time <cite>max_t</cite>.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.normalize.html#maad.sound.normalize" title="maad.sound.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(s[, max_amp, max_db])</p></td>
-<td><p>Normalize audio signal to desired amplitude or decibell full scale value (dBFS).</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.normalize.html#maad.sound.normalize" title="maad.sound.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(s[,&nbsp;max_amp,&nbsp;max_db])</td>
+<td>Normalize audio signal to desired amplitude or decibell full scale value (dBFS).</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.gain.html#maad.sound.gain" title="maad.sound.gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gain</span></code></a>(s[, gain_db])</p></td>
-<td><p>Amply amplification or attenuation to the audio signal.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.gain.html#maad.sound.gain" title="maad.sound.gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gain</span></code></a>(s[,&nbsp;gain_db])</td>
+<td>Amply amplification or attenuation to the audio signal.</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="metrics">
+</div>
+<div class="section" id="metrics">
 <h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.temporal_snr.html#maad.sound.temporal_snr" title="maad.sound.temporal_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_snr</span></code></a>(s[, mode, Nt])</p></td>
-<td><p>Compute the signal to noise ratio (SNR) of an audio signal in the time domain.</p></td>
+<table border="1" class="autosummary longtable docutils align-default">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.temporal_snr.html#maad.sound.temporal_snr" title="maad.sound.temporal_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_snr</span></code></a>(s[,&nbsp;mode,&nbsp;Nt])</td>
+<td>Compute the signal to noise ratio (SNR) of an audio signal in the time domain.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.sound.spectral_snr.html#maad.sound.spectral_snr" title="maad.sound.spectral_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_snr</span></code></a>(Sxx_power)</p></td>
-<td><p>Compute the signal to noise ratio (SNR) of an audio from its spectrogram in the time-frequency domain.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/maad.sound.spectral_snr.html#maad.sound.spectral_snr" title="maad.sound.spectral_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_snr</span></code></a>(Sxx_power)</td>
+<td>Compute the signal to noise ratio (SNR) of an audio from its spectrogram in the time-frequency domain.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.sound.sharpness.html#maad.sound.sharpness" title="maad.sound.sharpness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sharpness</span></code></a>(Sxx)</p></td>
-<td><p>Compute the sharpness of a spectrogram</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/maad.sound.sharpness.html#maad.sound.sharpness" title="maad.sound.sharpness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sharpness</span></code></a>(Sxx)</td>
+<td>Compute the sharpness of a spectrogram</td>
 </tr>
 </tbody>
 </table>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="generated/maad.sound.load.html" class="btn btn-neutral float-right" title="maad.sound.load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="audio_dataset.html" class="btn btn-neutral float-left" title="Audio dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="audio_dataset.html" class="btn btn-neutral float-left" title="Audio dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/maad.sound.load.html" class="btn btn-neutral float-right" title="maad.sound.load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

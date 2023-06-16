@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.rois.template_matching_func &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">scikit-maad</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">maad.rois.template_matching_func</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for maad.rois.template_matching_func</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Template matching functions</span>
+
+<span class="sd">New BSD License</span>
+
+<span class="sd">TODO:</span>
+<span class="sd">    - min_t and max_t should be 0 to len(Sxx_audio)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+<span class="kn">from</span> <span class="nn">skimage.feature</span> <span class="kn">import</span> <span class="n">match_template</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span>
+<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="template_matching"><a class="viewcode-back" href="../../../generated/maad.rois.template_matching.html#maad.rois.template_matching">[docs]</a><span class="k">def</span> <span class="nf">template_matching</span><span class="p">(</span>
+    <span class="n">Sxx</span><span class="p">,</span> <span class="n">Sxx_template</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span> <span class="n">peak_th</span><span class="p">,</span> <span class="n">peak_distance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Use normalized spectrogram cross-correlation to detect the occurrence of a template</span>
+<span class="sd">    sound in a target audio.</span>
+
+<span class="sd">    The output is an array with values between -1.0 and 1.0. The value at a given</span>
+<span class="sd">    position corresponds to the correlation coefficient between the spectrograms of</span>
+<span class="sd">    the target audio and the template. The function also delivers the detection found</span>
+<span class="sd">    as peaks and as regions of interest (rois).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Sxx : 2D array</span>
+<span class="sd">        Spectrogram of audio signal.</span>
+
+<span class="sd">    Sxx_template : TYPE</span>
+<span class="sd">        Spectrogram of target sound.</span>
+
+<span class="sd">    tn : 1d array</span>
+<span class="sd">        Time vector of target audio, which results from the maad.sound.spectrogram function.</span>
+
+<span class="sd">    fn : 1d array</span>
+<span class="sd">        Frecuency vector of target audio, which results from the maad.sound.spectrogram function.</span>
+
+<span class="sd">    ext : list of scalars [left, right, bottom, top]</span>
+<span class="sd">        Extent keyword arguments controls the bounding box in data coordinates for the</span>
+<span class="sd">        spectrogram of the target audio, which results from the maad.sound.spectrogram function.</span>
+
+<span class="sd">    peak_th : float, optional</span>
+<span class="sd">        Threshold applied to find peaks in the cross-correlation array.</span>
+<span class="sd">        Should be a value between -1 and 1.</span>
+
+<span class="sd">    peak_distance : float, optional</span>
+<span class="sd">        Required minimal temporal distance (&gt;= 0) in seconds between neighbouring</span>
+<span class="sd">        peaks. If set to `None`, the minimum temporal resolution will be used.</span>
+<span class="sd">        The minimal temporal resolution is given by the array tn and depends on the parameters</span>
+<span class="sd">        used to compute the spectrogram.</span>
+
+<span class="sd">    display : Boolean, optional</span>
+<span class="sd">        display the results of the template matching. The default is False.</span>
+
+<span class="sd">    **kwargs: keywords pair, optional</span>
+<span class="sd">        Set aditional specificities to find peaks in xcorroelation array.</span>
+<span class="sd">        Arguments are passed to the the function scipy.signal.find_peaks.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    xcorrcoef : 1D array</span>
+<span class="sd">        Correlation coefficients resulting from the cross-correlation between</span>
+<span class="sd">        audio and target template.</span>
+
+<span class="sd">    rois : pandas DataFrame</span>
+<span class="sd">        Detections found based on cross-correlation coefficients. The result is</span>
+<span class="sd">        presented as a DataFrame where each row represent a detection, with the</span>
+<span class="sd">        peak time (peak_time), peak amplitude (xcorrcoef), minimum and maximum time</span>
+<span class="sd">        (min_t, max_t), and minimum and maximum frequency (min_f, max_f).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># check inputs</span>
+    <span class="k">if</span> <span class="n">Sxx</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="n">Sxx</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Dimensionality of template must be less than or &quot;</span>
+            <span class="s2">&quot;equal to the dimensionality of image.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">less</span><span class="p">(</span><span class="n">Sxx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Sxx_template</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Target spectrogram must be larger than template.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">peak_distance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># if not provided, set to minimum distance</span>
+        <span class="n">peak_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tn</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># set temporal distance to spectrogram pixels</span>
+    <span class="n">peak_distance_pixel</span> <span class="o">=</span> <span class="n">peak_distance</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tn</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">peak_distance_pixel</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;`peak_distance` must be greater or equal to spectrogram resolution: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tn</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Pad Sxx to have len(xcorrcoef) == Sxx.shape[1]</span>
+    <span class="c1"># if Sxx_template.shape[1] is even substract 1 to time width</span>
+    <span class="n">time_width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">Sxx_template</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Sxx_template</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="p">(</span><span class="n">time_width</span><span class="p">,</span> <span class="n">time_width</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="p">(</span><span class="n">time_width</span><span class="p">,</span> <span class="n">time_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="n">Sxx_pad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">pad_width</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Compute normalized cross-correlation</span>
+    <span class="n">xcorrcoef</span> <span class="o">=</span> <span class="n">match_template</span><span class="p">(</span><span class="n">Sxx_pad</span><span class="p">,</span> <span class="n">Sxx_template</span><span class="p">)</span>
+
+    <span class="c1"># When flims from Sxx is larger than Sxx_template, take mean value</span>
+    <span class="n">xcorrcoef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xcorrcoef</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1">## Find peaks</span>
+    <span class="n">prominence</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;prominence&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">wlen</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;wlen&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">rel_height</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;rel_height&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plateau_size</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;plateau_size&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">peaks</span><span class="p">,</span> <span class="n">peak_dict</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span>
+        <span class="n">xcorrcoef</span><span class="p">,</span>
+        <span class="n">peak_th</span><span class="p">,</span>
+        <span class="n">threshold</span><span class="p">,</span>
+        <span class="n">peak_distance_pixel</span><span class="p">,</span>
+        <span class="n">prominence</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">,</span>
+        <span class="n">wlen</span><span class="p">,</span>
+        <span class="n">rel_height</span><span class="p">,</span>
+        <span class="n">plateau_size</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">peaks_time</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="n">peaks</span><span class="p">]</span>
+
+    <span class="c1"># Build rois as pandas Dataframe</span>
+    <span class="c1"># Create Dataframe and adjust extreme values for min_t and max_t</span>
+    <span class="n">template_len</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="n">Sxx_template</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rois</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;peak_time&quot;</span><span class="p">:</span> <span class="n">peaks_time</span><span class="p">,</span>
+            <span class="s2">&quot;xcorrcoef&quot;</span><span class="p">:</span> <span class="n">xcorrcoef</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span>
+            <span class="s2">&quot;min_t&quot;</span><span class="p">:</span> <span class="n">peaks_time</span> <span class="o">-</span> <span class="n">template_len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;max_t&quot;</span><span class="p">:</span> <span class="n">peaks_time</span> <span class="o">+</span> <span class="n">template_len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">rois</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rois</span><span class="o">.</span><span class="n">min_t</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">,</span> <span class="s2">&quot;min_t&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rois</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rois</span><span class="o">.</span><span class="n">max_t</span> <span class="o">&gt;</span> <span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;max_t&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">display</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="c1"># plot spectrogram</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">util</span><span class="o">.</span><span class="n">plot_spectrogram</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">rois</span><span class="o">.</span><span class="n">empty</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">rois</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+                <span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="n">rois</span><span class="o">.</span><span class="n">min_t</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">rois</span><span class="o">.</span><span class="n">min_f</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">max_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">rois</span><span class="o">.</span><span class="n">min_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="n">height</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">max_f</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">rois</span><span class="o">.</span><span class="n">min_f</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="n">rect</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+                    <span class="n">xy</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span>
+                <span class="p">)</span>
+                <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+        <span class="c1"># plot corr coef</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tn</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="n">xcorrcoef</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">xcorrcoef</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">peaks_time</span><span class="p">,</span> <span class="n">xcorrcoef</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">peak_th</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.75&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [s]&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Correlation coeficient&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xcorrcoef</span><span class="p">,</span> <span class="n">rois</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

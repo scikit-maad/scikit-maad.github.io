@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced examples &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Signal decomposition and false-color spectrograms" href="plot_nmf_and_false_color_spectrogram.html" />
+    <link rel="prev" title="Detection distance estimation" href="../1_basic/plot_detection_distance.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advanced examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">scikit-maad</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
+      <li class="breadcrumb-item active">Advanced examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_auto_examples/2_advanced/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="advanced-examples">
+<span id="sphx-glr-auto-examples-2-advanced"></span><h1>Advanced examples<a class="headerlink" href="#advanced-examples" title="Permalink to this heading">¶</a></h1>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single tim..."><img alt="" src="../../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png" />
+<p><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html#sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">Signal decomposition and false-color spectrograms</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Signal decomposition and false-color spectrograms</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Environmental audio recordings usually have stationary noise that needs to be removed to enhanc..."><img alt="" src="../../_images/sphx_glr_plot_remove_background_thumb.png" />
+<p><a class="reference internal" href="plot_remove_background.html#sphx-glr-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">Remove background noise with signal processing tools</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Remove background noise with signal processing tools</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Unsupervised learning algorithms search for structures or patterns in a dataset without requiri..."><img alt="" src="../../_images/sphx_glr_plot_unsupervised_sound_classification_thumb.png" />
+<p><a class="reference internal" href="plot_unsupervised_sound_classification.html#sphx-glr-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"><span class="std std-ref">Classify soundtypes with unsupervised learning</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Classify soundtypes with unsupervised learning</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When sound travels in air (or in water), initial acoustic signature may change  regarding dista..."><img alt="" src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_thumb.png" />
+<p><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html#sphx-glr-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"><span class="std std-ref">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The goal of this example is to show how to download metadata from Xeno-Canto to infer species a..."><img alt="" src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_thumb.png" />
+<p><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html#sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"><span class="std std-ref">Download metadata from Xeno-Canto to infer species activities</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Download metadata from Xeno-Canto to infer species activities</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio  recordin..."><img alt="" src="../../_images/sphx_glr_plot_sound_pressure_level_thumb.png" />
+<p><a class="reference internal" href="plot_sound_pressure_level.html#sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">Estimate sound pressure level from audio recordings</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Estimate sound pressure level from audio recordings</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ..."><img alt="" src="../../_images/sphx_glr_plot_extract_alpha_indices_thumb.png" />
+<p><a class="reference internal" href="plot_extract_alpha_indices.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">Extract acoustic indices from audio recordings</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extract acoustic indices from audio recordings</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A spectrogram is a time-frequency (2d) representation of a audio recording.  Each acoustic even..."><img alt="" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png" />
+<p><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html#sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Find Regions of interest (ROIs) in a spectrogram</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Find Regions of interest (ROIs) in a spectrogram</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ..."><img alt="" src="../../_images/sphx_glr_plot_extract_alpha_indices_multicpu_thumb.png" />
+<p><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-multicpu-py"><span class="std std-ref">Use multicpu functionality to compute indices</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Use multicpu functionality to compute indices</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Dependencies: To execute this example you need to have installed the  librosa, sklearn and pand..."><img alt="" src="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_thumb.png" />
+<p><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html#sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"><span class="std std-ref">Download audio files from Xeno-Canto and automatically extract characteristics</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Download audio files from Xeno-Canto and automatically extract characteristics</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../1_basic/plot_detection_distance.html" class="btn btn-neutral float-left" title="Detection distance estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_nmf_and_false_color_spectrogram.html" class="btn btn-neutral float-right" title="Signal decomposition and false-color spectrograms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

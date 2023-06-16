@@ -1,24 +1,27 @@
 :orphan:
 
-
-
-.. _sphx_glr__auto_examples:
-
 Example gallery
 ===============
 
 This gallery is intended to present examples on how to use scikit-maad to analyse audio recordings.
 
+
 .. raw:: html
 
-    <div class="sphx-glr-clear"></div>
+    <div class="sphx-glr-thumbnails">
 
 
+.. raw:: html
 
-.. _sphx_glr__auto_examples_1_basic:
+    </div>
 
 Basic examples
 --------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
 
 
 .. raw:: html
@@ -27,20 +30,16 @@ Basic examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_find_rois_simple_thumb.png
-     :alt: Simple audio segmentation
+  .. image:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_find_rois_simple_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_1_basic_plot_find_rois_simple.py`
+  :ref:`sphx_glr__auto_examples_1_basic_plot_find_rois_simple.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Simple audio segmentation</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/1_basic/plot_find_rois_simple
 
 .. raw:: html
 
@@ -48,20 +47,16 @@ Basic examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_audio_representation_thumb.png
-     :alt: Audio representation
+  .. image:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_audio_representation_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_1_basic_plot_audio_representation.py`
+  :ref:`sphx_glr__auto_examples_1_basic_plot_audio_representation.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Audio representation</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/1_basic/plot_audio_representation
 
 .. raw:: html
 
@@ -69,20 +64,33 @@ Basic examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_circadian_spectrogram_thumb.png
-     :alt: Circadian soundscape
+  .. image:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_circadian_spectrogram_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_1_basic_plot_circadian_spectrogram.py`
+  :ref:`sphx_glr__auto_examples_1_basic_plot_circadian_spectrogram.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Circadian soundscape</div>
     </div>
 
 
-.. toctree::
-   :hidden:
+.. raw:: html
 
-   /_auto_examples/1_basic/plot_circadian_spectrogram
+    <div class="sphx-glr-thumbcontainer" tooltip="Template matching is a simple but powerfull method to detect a stereotyped sound of interest us...">
+
+.. only:: html
+
+  .. image:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_template_matching_example_thumb.png
+    :alt:
+
+  :ref:`sphx_glr__auto_examples_1_basic_plot_template_matching_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Template matching</div>
+    </div>
+
 
 .. raw:: html
 
@@ -90,30 +98,28 @@ Basic examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_detection_distance_thumb.png
-     :alt: Detection distance estimation
+  .. image:: /_auto_examples/1_basic/images/thumb/sphx_glr_plot_detection_distance_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_1_basic_plot_detection_distance.py`
+  :ref:`sphx_glr__auto_examples_1_basic_plot_detection_distance.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Detection distance estimation</div>
+    </div>
+
 
 .. raw:: html
 
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/1_basic/plot_detection_distance
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr__auto_examples_2_advanced:
-
 Advanced examples
 -----------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
 
 
 .. raw:: html
@@ -122,20 +128,16 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png
-     :alt: Signal decomposition and false-color spectrograms
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Signal decomposition and false-color spectrograms</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_nmf_and_false_color_spectrogram
 
 .. raw:: html
 
@@ -143,20 +145,16 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_remove_background_thumb.png
-     :alt: Remove background noise with signal processing tools
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_remove_background_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_remove_background.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_remove_background.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Remove background noise with signal processing tools</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_remove_background
 
 .. raw:: html
 
@@ -164,20 +162,16 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_unsupervised_sound_classification_thumb.png
-     :alt: Classify soundtypes with unsupervised learning
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_unsupervised_sound_classification_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_unsupervised_sound_classification.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_unsupervised_sound_classification.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Classify soundtypes with unsupervised learning</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_unsupervised_sound_classification
 
 .. raw:: html
 
@@ -185,41 +179,33 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_sound_degradation_due_to_attenuation_thumb.png
-     :alt: Simulation of sound degradation due to geometric, atmospheric and habitat attenuation
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_sound_degradation_due_to_attenuation_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</div>
     </div>
 
 
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_sound_degradation_due_to_attenuation
-
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="**Dependencies**: To execute this example you need to have installed  pandas package.">
+    <div class="sphx-glr-thumbcontainer" tooltip="The goal of this example is to show how to download metadata from Xeno-Canto to infer species a...">
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_xenocanto_wookpecker_activities_thumb.png
-     :alt: Download metadata from Xeno-Canto to infer species activities
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_xenocanto_woodpecker_activities_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_xenocanto_wookpecker_activities.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_xenocanto_woodpecker_activities.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Download metadata from Xeno-Canto to infer species activities</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_xenocanto_wookpecker_activities
 
 .. raw:: html
 
@@ -227,20 +213,33 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_sound_pressure_level_thumb.png
-     :alt: Estimate sound pressure level from audio recordings
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_sound_pressure_level_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Estimate sound pressure level from audio recordings</div>
     </div>
 
 
-.. toctree::
-   :hidden:
+.. raw:: html
 
-   /_auto_examples/2_advanced/plot_sound_pressure_level
+    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ...">
+
+.. only:: html
+
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_extract_alpha_indices_thumb.png
+    :alt:
+
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Extract acoustic indices from audio recordings</div>
+    </div>
+
 
 .. raw:: html
 
@@ -248,20 +247,16 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png
-     :alt: Find Regions of interest (ROIs) in a spectrogram
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Find Regions of interest (ROIs) in a spectrogram</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_compare_auto_and_manual_rois_selection
 
 .. raw:: html
 
@@ -269,31 +264,33 @@ Advanced examples
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_extract_alpha_indices_thumb.png
-     :alt: Extract acoustic indices from audio recordings
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_extract_alpha_indices_multicpu_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices_multicpu.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Use multicpu functionality to compute indices</div>
     </div>
 
 
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/plot_extract_alpha_indices
-
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Dependencies: To execute this example you need to have installed the  librosa, sklearn and pand...">
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_extract_alpha_indices_multicpu_thumb.png
-     :alt: USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES
+  .. image:: /_auto_examples/2_advanced/images/thumb/sphx_glr_plot_woodpecker_drumming_characteristics_thumb.png
+    :alt:
 
-     :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices_multicpu.py`
+  :ref:`sphx_glr__auto_examples_2_advanced_plot_woodpecker_drumming_characteristics.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Download audio files from Xeno-Canto and automatically extract characteristics</div>
+    </div>
+
 
 .. raw:: html
 
@@ -302,50 +299,24 @@ Advanced examples
 
 .. toctree::
    :hidden:
+   :includehidden:
 
-   /_auto_examples/2_advanced/plot_extract_alpha_indices_multicpu
 
-.. raw:: html
+   /_auto_examples/1_basic/index.rst
+   /_auto_examples/2_advanced/index.rst
 
-    <div class="sphx-glr-thumbcontainer" tooltip="**Dependencies**: To execute this example you need to have installed the  librosa, sklearn and ...">
 
 .. only:: html
 
- .. figure:: /_auto_examples/2_advanced/images/thumb/sphx_glr_wookpecker_drumming_characteristics_thumb.png
-     :alt: Download audio files from Xeno-Canto and automatically extract characteristics
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
 
-     :ref:`sphx_glr__auto_examples_2_advanced_wookpecker_drumming_characteristics.py`
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-.. raw:: html
+      :download:`Download all examples in Python source code: _auto_examples_python.zip </_auto_examples/_auto_examples_python.zip>`
 
-    </div>
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-.. toctree::
-   :hidden:
-
-   /_auto_examples/2_advanced/wookpecker_drumming_characteristics
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-gallery
-
-
-  .. container:: sphx-glr-download sphx-glr-download-python
-
-    :download:`Download all examples in Python source code: _auto_examples_python.zip <//Volumes/lacie_macosx/github/scikit-maad/docs/_auto_examples/_auto_examples_python.zip>`
-
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-    :download:`Download all examples in Jupyter notebooks: _auto_examples_jupyter.zip <//Volumes/lacie_macosx/github/scikit-maad/docs/_auto_examples/_auto_examples_jupyter.zip>`
+      :download:`Download all examples in Jupyter notebooks: _auto_examples_jupyter.zip </_auto_examples/_auto_examples_jupyter.zip>`
 
 
 .. only:: html

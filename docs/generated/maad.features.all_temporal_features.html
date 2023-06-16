@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.features.all_temporal_features &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="maad.features.spectral_moments" href="maad.features.spectral_moments.html" />
+    <link rel="prev" title="maad.features.temporal_quantile" href="maad.features.temporal_quantile.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../features.html">Acoustic features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../features.html#spectro-temporal-features">Spectro-temporal features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#alpha-acoustic-indices">Alpha acoustic indices</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_moments.html">maad.features.temporal_moments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.zero_crossing_rate.html">maad.features.zero_crossing_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_duration.html">maad.features.temporal_duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.temporal_quantile.html">maad.features.temporal_quantile</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.features.all_temporal_features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maad.features.all_temporal_features"><code class="docutils literal notranslate"><span class="pre">all_temporal_features()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">scikit-maad</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../features.html">Acoustic features</a></li>
+      <li class="breadcrumb-item active">maad.features.all_temporal_features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/maad.features.all_temporal_features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="maad-features-all-temporal-features">
+<h1>maad.features.all_temporal_features<a class="headerlink" href="#maad-features-all-temporal-features" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="maad.features.all_temporal_features">
+<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">all_temporal_features</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">s</span></span></em>, <em><span class="n"><span class="pre">fs</span></span></em>, <em><span class="n"><span class="pre">nperseg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em><span class="n"><span class="pre">roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/temporal.html#all_temporal_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_temporal_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute all the temporal features for a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>s</strong><span class="classifier">1D array</span></dt><dd><p>Input audio signal</p>
+</dd>
+<dt><strong>fs</strong><span class="classifier">float</span></dt><dd><p>Sampling frequency of audio signal</p>
+</dd>
+<dt><strong>nperseg</strong><span class="classifier">int, optional</span></dt><dd><p>Length of segment to compute the FFT. The default is 1024.</p>
+</dd>
+<dt><strong>roi</strong><span class="classifier">pandas.Series, optional</span></dt><dd><p>Region of interest where temporal features will be computed.
+Series must have a valid input format with index: min_t, min_f, max_t, max_f.
+The default is None.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>If <cite>window=’hann’</cite>, additional keyword arguments to pass to
+<cite>sound.spectrum</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>temporal_features</strong><span class="classifier">pandas DataFrame</span></dt><dd><p>DataFrame with all temporal features computed in the spectrum</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">features</span><span class="p">,</span> <span class="n">sound</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Compute all the temporal features</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">temporal_features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">all_temporal_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">fs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">temporal_features</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">sm            -2.043264e-19</span>
+<span class="go">sv             1.167074e-03</span>
+<span class="go">ss            -6.547980e-03</span>
+<span class="go">sk             2.471161e+01</span>
+<span class="go">Time 5%        1.219048e+00</span>
+<span class="go">Time 25%       5.712109e+00</span>
+<span class="go">Time 50%       1.181896e+01</span>
+<span class="go">Time 75%       1.655583e+01</span>
+<span class="go">Time 95%       1.775166e+01</span>
+<span class="go">zcr            1.050040e+04</span>
+<span class="go">duration_50    1.001495e+01</span>
+<span class="go">duration_90    1.654441e+01</span>
+<span class="go">Name: 0, dtype: float64</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="maad.features.temporal_quantile.html" class="btn btn-neutral float-left" title="maad.features.temporal_quantile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maad.features.spectral_moments.html" class="btn btn-neutral float-right" title="maad.features.spectral_moments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

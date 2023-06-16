@@ -1,105 +1,56 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Find Regions of interest (ROIs) in a spectrogram" href="plot_compare_auto_and_manual_rois_selection.html" />
-    <link rel="prev" title="Download metadata from Xeno-Canto to infer species activities" href="plot_xenocanto_wookpecker_activities.html" /> 
+    <link rel="next" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" />
+    <link rel="prev" title="Download metadata from Xeno-Canto to infer species activities" href="plot_xenocanto_woodpecker_activities.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -115,97 +66,58 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Estimate sound pressure level from audio recordings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#set-variables">Set variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#load-and-preprocess-audio">Load and preprocess audio</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#display-results">Display results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Estimate sound pressure level from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Example gallery</a> &raquo;</li>
-        
-      <li>Estimate sound pressure level from audio recordings</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Advanced examples</a></li>
+      <li class="breadcrumb-item active">Estimate sound pressure level from audio recordings</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/_auto_examples/2_advanced/plot_sound_pressure_level.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="estimate-sound-pressure-level-from-audio-recordings">
+<div class="sphx-glr-example-title section" id="estimate-sound-pressure-level-from-audio-recordings">
 <span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Estimate sound pressure level from audio recordings<a class="headerlink" href="#estimate-sound-pressure-level-from-audio-recordings" title="Permalink to this heading">¶</a></h1>
 <p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio
 recordings coming from different datasets and environments. Sound pressure level
@@ -227,7 +139,7 @@ of the ambient sound in a cold temperate forest in France during 24h.</p>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
 </pre></div>
 </div>
-<section id="set-variables">
+<div class="section" id="set-variables">
 <h2>Set variables<a class="headerlink" href="#set-variables" title="Permalink to this heading">¶</a></h2>
 <p>It is very important to always keep the parameters of the ARU that was used
 to collect the audio dataset. This is a mandatory to compute the sound
@@ -247,109 +159,108 @@ filename.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">date_parser</span><span class="p">(</span><span class="s2">&quot;../../data/indices/&quot;</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="s1">&#39;SM4&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>indices.csv
-per_bin_indices.csv
-S4A03895_20190522_000000.wav
-S4A03895_20190522_001500.wav
-S4A03895_20190522_003000.wav
-S4A03895_20190522_004500.wav
-S4A03895_20190522_010000.wav
-S4A03895_20190522_011500.wav
-S4A03895_20190522_013000.wav
-S4A03895_20190522_014500.wav
-S4A03895_20190522_020000.wav
-S4A03895_20190522_021500.wav
-S4A03895_20190522_023000.wav
-S4A03895_20190522_024500.wav
-S4A03895_20190522_030000.wav
-S4A03895_20190522_031500.wav
-S4A03895_20190522_033000.wav
-S4A03895_20190522_034500.wav
-S4A03895_20190522_040000.wav
-S4A03895_20190522_041500.wav
-S4A03895_20190522_043000.wav
-S4A03895_20190522_044500.wav
-S4A03895_20190522_050000.wav
-S4A03895_20190522_051500.wav
-S4A03895_20190522_053000.wav
-S4A03895_20190522_054500.wav
-S4A03895_20190522_060000.wav
-S4A03895_20190522_061500.wav
-S4A03895_20190522_063000.wav
-S4A03895_20190522_064500.wav
-S4A03895_20190522_070000.wav
-S4A03895_20190522_071500.wav
-S4A03895_20190522_073000.wav
-S4A03895_20190522_074500.wav
-S4A03895_20190522_080000.wav
-S4A03895_20190522_081500.wav
-S4A03895_20190522_083000.wav
-S4A03895_20190522_084500.wav
-S4A03895_20190522_090000.wav
-S4A03895_20190522_091500.wav
-S4A03895_20190522_093000.wav
-S4A03895_20190522_094500.wav
-S4A03895_20190522_100000.wav
-S4A03895_20190522_101500.wav
-S4A03895_20190522_103000.wav
-S4A03895_20190522_104500.wav
-S4A03895_20190522_110000.wav
-S4A03895_20190522_111500.wav
-S4A03895_20190522_113000.wav
-S4A03895_20190522_114500.wav
-S4A03895_20190522_120000.wav
-S4A03895_20190522_121500.wav
-S4A03895_20190522_123000.wav
-S4A03895_20190522_124500.wav
-S4A03895_20190522_130000.wav
-S4A03895_20190522_131500.wav
-S4A03895_20190522_133000.wav
-S4A03895_20190522_134500.wav
-S4A03895_20190522_140000.wav
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>S4A03895_20190522_041500.wav
 S4A03895_20190522_141500.wav
-S4A03895_20190522_143000.wav
-S4A03895_20190522_144500.wav
-S4A03895_20190522_150000.wav
-S4A03895_20190522_151500.wav
-S4A03895_20190522_153000.wav
-S4A03895_20190522_154500.wav
-S4A03895_20190522_160000.wav
-S4A03895_20190522_161500.wav
-S4A03895_20190522_163000.wav
-S4A03895_20190522_164500.wav
-S4A03895_20190522_170000.wav
-S4A03895_20190522_171500.wav
+indices.csv
+S4A03895_20190522_073000.wav
 S4A03895_20190522_173000.wav
-S4A03895_20190522_174500.wav
-S4A03895_20190522_180000.wav
-S4A03895_20190522_181500.wav
-S4A03895_20190522_183000.wav
-S4A03895_20190522_184500.wav
-S4A03895_20190522_190000.wav
-S4A03895_20190522_191500.wav
-S4A03895_20190522_193000.wav
-S4A03895_20190522_194500.wav
-S4A03895_20190522_200000.wav
-S4A03895_20190522_201500.wav
-S4A03895_20190522_203000.wav
-S4A03895_20190522_204500.wav
-S4A03895_20190522_210000.wav
-S4A03895_20190522_211500.wav
+per_bin_indices.csv
+S4A03895_20190522_010000.wav
+S4A03895_20190522_014500.wav
+S4A03895_20190522_110000.wav
+S4A03895_20190522_114500.wav
 S4A03895_20190522_213000.wav
-S4A03895_20190522_214500.wav
-S4A03895_20190522_220000.wav
+S4A03895_20190522_180000.wav
+S4A03895_20190522_184500.wav
+S4A03895_20190522_080000.wav
+S4A03895_20190522_084500.wav
 S4A03895_20190522_221500.wav
-S4A03895_20190522_223000.wav
-S4A03895_20190522_224500.wav
-S4A03895_20190522_230000.wav
+S4A03895_20190522_203000.wav
+S4A03895_20190522_094500.wav
+S4A03895_20190522_090000.wav
+S4A03895_20190522_194500.wav
+S4A03895_20190522_190000.wav
 S4A03895_20190522_231500.wav
+S4A03895_20190522_151500.wav
+S4A03895_20190522_051500.wav
+S4A03895_20190522_104500.wav
+S4A03895_20190522_100000.wav
+S4A03895_20190522_004500.wav
+S4A03895_20190522_000000.wav
+S4A03895_20190522_163000.wav
+S4A03895_20190522_063000.wav
+S4A03895_20190522_223000.wav
+S4A03895_20190522_211500.wav
+S4A03895_20190522_071500.wav
+S4A03895_20190522_171500.wav
+S4A03895_20190522_024500.wav
+S4A03895_20190522_020000.wav
+S4A03895_20190522_124500.wav
+S4A03895_20190522_120000.wav
+S4A03895_20190522_043000.wav
+S4A03895_20190522_143000.wav
+S4A03895_20190522_161500.wav
+S4A03895_20190522_061500.wav
+S4A03895_20190522_153000.wav
+S4A03895_20190522_053000.wav
+S4A03895_20190522_130000.wav
+S4A03895_20190522_134500.wav
+S4A03895_20190522_030000.wav
+S4A03895_20190522_034500.wav
 S4A03895_20190522_233000.wav
+S4A03895_20190522_201500.wav
+S4A03895_20190522_193000.wav
+S4A03895_20190522_093000.wav
+S4A03895_20190522_200000.wav
+S4A03895_20190522_204500.wav
+S4A03895_20190522_003000.wav
+S4A03895_20190522_103000.wav
+S4A03895_20190522_060000.wav
+S4A03895_20190522_064500.wav
+S4A03895_20190522_160000.wav
+S4A03895_20190522_164500.wav
+S4A03895_20190522_031500.wav
+S4A03895_20190522_131500.wav
+S4A03895_20190522_174500.wav
+S4A03895_20190522_170000.wav
+S4A03895_20190522_074500.wav
+S4A03895_20190522_070000.wav
+S4A03895_20190522_113000.wav
+S4A03895_20190522_013000.wav
+S4A03895_20190522_121500.wav
+S4A03895_20190522_021500.wav
+S4A03895_20190522_083000.wav
+S4A03895_20190522_183000.wav
+S4A03895_20190522_214500.wav
+S4A03895_20190522_210000.wav
+S4A03895_20190522_054500.wav
+S4A03895_20190522_050000.wav
+S4A03895_20190522_154500.wav
+S4A03895_20190522_150000.wav
+S4A03895_20190522_033000.wav
+S4A03895_20190522_133000.wav
+S4A03895_20190522_001500.wav
+S4A03895_20190522_101500.wav
 S4A03895_20190522_234500.wav
+S4A03895_20190522_230000.wav
+S4A03895_20190522_191500.wav
+S4A03895_20190522_091500.wav
+S4A03895_20190522_220000.wav
+S4A03895_20190522_224500.wav
+S4A03895_20190522_081500.wav
+S4A03895_20190522_181500.wav
+S4A03895_20190522_123000.wav
+S4A03895_20190522_023000.wav
+S4A03895_20190522_140000.wav
+S4A03895_20190522_144500.wav
+S4A03895_20190522_040000.wav
+S4A03895_20190522_044500.wav
+S4A03895_20190522_111500.wav
+S4A03895_20190522_011500.wav
 </pre></div>
 </div>
-</section>
-<section id="load-and-preprocess-audio">
+</div>
+<div class="section" id="load-and-preprocess-audio">
 <h2>Load and preprocess audio<a class="headerlink" href="#load-and-preprocess-audio" title="Permalink to this heading">¶</a></h2>
 <p>Then we process all the files found in the directory /indices.
 Initialisation of an empty dataframe df_spl to store all the dB SPL values
@@ -380,12 +291,12 @@ extracted from the whole audio dataset.</p>
         <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">continue</span>
 
-    <span class="sd">&quot;&quot;&quot; =======================================================================</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; =======================================================================</span>
 <span class="sd">                     Computation in the frequency domain</span>
 <span class="sd">    ========================================================================&quot;&quot;&quot;</span>
 
     <span class="c1"># Compute the Power Spectrogram Density (PSD) : Sxx_power</span>
-    <span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span>
+    <span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span>
                                              <span class="n">nperseg</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">1024</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                                              <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                                              <span class="n">savefig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
@@ -457,7 +368,7 @@ extracted from the whole audio dataset.</p>
                                      <span class="p">])</span>
 
     <span class="c1">#%%</span>
-    <span class="sd">&quot;&quot;&quot; =======================================================================</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; =======================================================================</span>
 <span class="sd">                     Create a dataframe</span>
 <span class="sd">    ========================================================================&quot;&quot;&quot;</span>
     <span class="c1">#### We create a dataframe from row that contains the date and the</span>
@@ -475,298 +386,489 @@ extracted from the whole audio dataset.</p>
 <span class="n">df_spl</span> <span class="o">=</span> <span class="n">df_spl</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>**************************************************************
 S4A03895_20190522_000000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_001500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_003000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_004500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_010000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_011500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_013000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_014500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_020000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_021500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_023000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_024500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_030000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_031500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_033000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_034500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_040000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_041500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_043000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_044500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_050000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_051500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_053000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_054500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_060000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_061500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_063000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_064500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_070000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_071500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_073000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_074500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_080000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_081500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_083000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_084500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_090000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_091500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_093000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_094500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_100000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_101500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_103000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_104500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_110000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_111500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_113000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_114500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_120000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_121500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_123000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_124500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_130000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_131500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_133000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_134500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_140000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_141500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_143000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_144500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_150000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_151500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_153000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_154500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_160000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_161500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_163000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_164500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_170000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_171500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_173000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_174500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_180000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_181500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_183000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_184500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_190000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_191500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_193000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_194500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_200000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_201500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_203000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_204500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_210000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_211500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_213000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_214500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_220000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_221500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_223000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_224500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_230000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_231500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_233000.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 
 **************************************************************
 S4A03895_20190522_234500.wav
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_sound_pressure_level.py:173: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_spl = df_spl.append(pd.concat([df_row, df_leq], axis=1))
 </pre></div>
 </div>
-</section>
-<section id="display-results">
+</div>
+<div class="section" id="display-results">
 <h2>Display results<a class="headerlink" href="#display-results" title="Permalink to this heading">¶</a></h2>
 <p>Display Leq (dB SPL) dynamics for each frequency band.
 One can observe that most of the acoustic energy is between 0-1kHz. Moreover
@@ -784,7 +886,10 @@ is the highest between 5am to 9am, which corresponds to the dawn chorus</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="plot sound pressure level" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_pressure_level_001.png" />
+<img src="../../_images/sphx_glr_plot_sound_pressure_level_001.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_001.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/jsulloa/miniconda3/envs/maad/lib/python3.8/site-packages/maad/util/visualization.py:1320: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+  df = df.groupby(df.index.hour).mean()
+</pre></div>
+</div>
 <p>Display the comparison between the dynamics of the Leq (dB SPL) corresponding
 mainly to the anthropophony (frequency band 0-1kHz) and the biophony
 (frequency band 1-12kHz)</p>
@@ -798,74 +903,46 @@ mainly to the anthropophony (frequency band 0-1kHz) and the biophony
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="plot sound pressure level" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.404 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
+<img src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_002.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.190 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/8e681a4001c99d914bc1442c0d861249/plot_sound_pressure_level.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_pressure_level.py</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/8e681a4001c99d914bc1442c0d861249/plot_sound_pressure_level.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sound_pressure_level.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/3f3ccf7e7d1fbe24a2eca37b593a6a3d/plot_sound_pressure_level.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_pressure_level.ipynb</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/3f3ccf7e7d1fbe24a2eca37b593a6a3d/plot_sound_pressure_level.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_pressure_level.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_compare_auto_and_manual_rois_selection.html" class="btn btn-neutral float-right" title="Find Regions of interest (ROIs) in a spectrogram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_xenocanto_wookpecker_activities.html" class="btn btn-neutral float-left" title="Download metadata from Xeno-Canto to infer species activities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_xenocanto_woodpecker_activities.html" class="btn btn-neutral float-left" title="Download metadata from Xeno-Canto to infer species activities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-right" title="Extract acoustic indices from audio recordings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

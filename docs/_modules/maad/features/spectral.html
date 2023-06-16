@@ -1,102 +1,54 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>maad.features.spectral &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.features.spectral &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -112,186 +64,473 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>maad.features.spectral</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">maad.features.spectral</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for maad.features.spectral</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">Collection of functions to extract features from music</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="c1">#</span>
-<span class="c1"># Authors:  Juan Sebastian ULLOA &lt;lisofomia@gmail.com&gt;</span>
-<span class="c1">#           Sylvain HAUPERT &lt;sylvain.haupert@mnhn.fr&gt;</span>
-<span class="c1">#</span>
-<span class="c1"># License: New BSD License</span>
+<span class="sd">Collection of functions to extract spectral features from audio signals</span>
+<span class="sd">License: New BSD License</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Load the modules</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.function_base</span> <span class="kn">import</span> <span class="n">_quantile_is_valid</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
 
 <span class="c1"># Import internal modules</span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">moments</span>
+<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">moments</span><span class="p">,</span> <span class="n">power2dB</span>
+<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span>
 
+<span class="c1"># define internal functions</span>
+<span class="k">def</span> <span class="nf">_interpolate_peak_location</span><span class="p">(</span><span class="n">pxx</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Estimate peak using quadratic interpolation &quot;&quot;&quot;</span>
+    <span class="n">idxmax</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">pxx</span><span class="o">.</span><span class="n">idxmax</span><span class="p">())</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">idxmax</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">idxmax</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">pxx</span><span class="p">)):</span>
+        <span class="c1"># if maximum is at beginning or at the end os spectrum, take maximum</span>
+        <span class="n">peak</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+        <span class="n">amplitude</span> <span class="o">=</span> <span class="n">pxx</span><span class="p">[</span><span class="n">peak</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># use interpolation</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">idxmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">idxmax</span><span class="p">,</span> <span class="n">idxmax</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">idxmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">idxmax</span><span class="p">,</span> <span class="n">idxmax</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>
+        <span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ynew</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+        <span class="n">peak</span> <span class="o">=</span> <span class="n">xnew</span><span class="p">[</span><span class="n">ynew</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
+        <span class="n">amplitude</span> <span class="o">=</span> <span class="n">ynew</span><span class="p">[</span><span class="n">ynew</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
+    <span class="k">return</span> <span class="n">peak</span><span class="p">,</span> <span class="n">amplitude</span>
 <span class="c1">#%%</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="spectral_moments"><a class="viewcode-back" href="../../../generated/maad.features.spectral_moments.html#maad.features.spectral_moments">[docs]</a><span class="k">def</span> <span class="nf">spectral_moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the first 4th moments of an amplitude spectrum (1d) or spectrogram (2d), </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the first 4th moments of an amplitude spectrum (1d) or spectrogram (2d),</span>
 <span class="sd">    mean, variance, skewness, kurtosis.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    X : ndarray of floats</span>
-<span class="sd">        Amplitude  spectrum (1d) or spectrogram (2d). </span>
+<span class="sd">        Amplitude  spectrum (1d) or spectrogram (2d).</span>
 <span class="sd">    axis : interger, optional, default is None</span>
 <span class="sd">        if spectrogram (2d), select the axis to estimate the moments.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    mean : float </span>
+<span class="sd">    mean : float</span>
 <span class="sd">        mean of the audio</span>
-<span class="sd">    var : float </span>
+<span class="sd">    var : float</span>
 <span class="sd">        variance  of the audio</span>
 <span class="sd">    skew : float</span>
 <span class="sd">        skewness of the audio</span>
 <span class="sd">    kurt : float</span>
 <span class="sd">        kurtosis of the audio</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/spinetail.wav&#39;)</span>
-<span class="sd">    &gt;&gt;&gt; Sxx_power,_,_,_ = maad.sound.spectrogram (s, fs) </span>
-<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound, features</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; Sxx_power,_,_,_ = sound.spectrogram(s, fs)</span>
+
 <span class="sd">    Compute spectral moments on the mean spectrum</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">    &gt;&gt;&gt; S_power = maad.sound.avg_power_spectro(Sxx_power)</span>
-<span class="sd">    &gt;&gt;&gt; sm, sv, ss, sk = maad.features.spectral_moments (S_power)</span>
+<span class="sd">    &gt;&gt;&gt; S_power = sound.avg_power_spectro(Sxx_power)</span>
+<span class="sd">    &gt;&gt;&gt; sm, sv, ss, sk = features.spectral_moments (S_power)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;mean: %2.8f / var: %2.10f / skewness: %2.2f / kurtosis: %2.2f&#39; % (sm, sv, ss, sk))</span>
 <span class="sd">    mean: 0.00000228 / var: 0.0000000001 / skewness: 5.84 / kurtosis: 40.49</span>
-<span class="sd">    </span>
+
 <span class="sd">    Compute spectral moments of the spectrogram along the time axis</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; sm_per_bin, sv_per_bin, ss_per_bin, sk_per_bin = maad.features.spectral_moments (Sxx_power, axis=1)</span>
+
+<span class="sd">    &gt;&gt;&gt; from maad.features import spectral_moments</span>
+<span class="sd">    &gt;&gt;&gt; sm_per_bin, sv_per_bin, ss_per_bin, sk_per_bin = spectral_moments(Sxx_power, axis=1)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;Length of sk_per_bin is : %2.0f&#39; % len(sk_per_bin))</span>
-<span class="sd">    Length of sk is : 512</span>
+<span class="sd">    Length of sk_per_bin is : 512</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># force P to be ndarray</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">moments</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="p">)</span></div>
 
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="peak_frequency"><a class="viewcode-back" href="../../../generated/maad.features.peak_frequency.html#maad.features.peak_frequency">[docs]</a><span class="k">def</span> <span class="nf">peak_frequency</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the peak frequency for audio signal. The peak frequency is the frequency of</span>
+<span class="sd">    maximum power. If a region of interest with time and spectral limits is provided,</span>
+<span class="sd">    the peak frequency is computed on the selection.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    method : {&#39;fast&#39;, &#39;best&#39;}, optional</span>
+<span class="sd">        Method used to compute the peak frequency.</span>
+<span class="sd">        The default is &#39;best&#39;.</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    as_pandas: bool</span>
+<span class="sd">        Return data as a pandas.Series or pandas.DataFrame, when amp</span>
+<span class="sd">        is False or True, respectively. Default is False.</span>
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        Additional keyword arguments to pass to `sound.spectrum`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    peak_freq : float</span>
+<span class="sd">        Peak frequency of audio segment.</span>
+<span class="sd">    amp_peak_freq : float</span>
+<span class="sd">        Amplitud of the peak frequency of audio segment.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute peak frequency</span>
+
+<span class="sd">    &gt;&gt;&gt; peak_freq, peak_freq_amp = features.peak_frequency(s, fs, amp=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;Peak Frequency: {:.5f}, Amplitude: {:.5f}&#39;.format(peak_freq, peak_freq_amp))</span>
+<span class="sd">    Peak Frequency: 6634.16016, Amplitude: 0.00013</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">roi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pxx</span><span class="p">,</span> <span class="n">fidx</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pxx</span><span class="p">,</span> <span class="n">fidx</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span>
+                                   <span class="n">tlims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">],</span>
+                                   <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_f</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_f</span><span class="p">],</span>
+                                   <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">pxx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pxx</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">fidx</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;fast&#39;</span><span class="p">:</span>
+        <span class="c1"># simplest form to get peak frequency, but less precise</span>
+        <span class="n">peak_freq</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+        <span class="n">amp_peak_freq</span> <span class="o">=</span> <span class="n">pxx</span><span class="p">[</span><span class="n">peak_freq</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;best&#39;</span><span class="p">:</span>
+        <span class="c1"># use interpolation get better estimate of peak frequency</span>
+        <span class="n">peak_freq</span><span class="p">,</span> <span class="n">amp_peak_freq</span> <span class="o">=</span> <span class="n">_interpolate_peak_location</span><span class="p">(</span><span class="n">pxx</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid method. Method should be &#39;fast&#39; or &#39;best&#39; &quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">amp</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;freq&quot;</span><span class="p">:</span><span class="n">peak_freq</span><span class="p">,</span> <span class="s2">&quot;amp&quot;</span><span class="p">:</span><span class="n">amp_peak_freq</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">peak_freq</span><span class="p">,</span> <span class="n">amp_peak_freq</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">peak_freq</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;peak_freq&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">peak_freq</span>
+    
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="spectral_quantile"><a class="viewcode-back" href="../../../generated/maad.features.spectral_quantile.html#maad.features.spectral_quantile">[docs]</a><span class="k">def</span> <span class="nf">spectral_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the q-th quantile of the power spectrum. If a region of interest with time and</span>
+<span class="sd">    spectral limits is provided, the q-th quantile is computed on the selection.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    q : array or float, optional</span>
+<span class="sd">        Quantile or sequence of quantiles to compute, which must be between 0 and 1</span>
+<span class="sd">        inclusive.</span>
+<span class="sd">        The defaul is [0.05, 0.25, 0.5, 0.75, 0.95].</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    as_pandas: bool</span>
+<span class="sd">        Return data as a pandas.Series or pandas.DataFrame, when amp</span>
+<span class="sd">        is False or True, respectively. Default is False.</span>
+<span class="sd">    amp: bool</span>
+<span class="sd">        Enable quantiles amplitude output. Default is False.</span>
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        If `window=&#39;hann&#39;`, additional keyword arguments to pass to</span>
+<span class="sd">        `sound.spectrum`.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Pandas Series or Numpy array</span>
+<span class="sd">        Quantiles of power spectrum.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import sound, features</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute the q-th quantile of the power spectrum</span>
+
+<span class="sd">    &gt;&gt;&gt; qs = features.spectral_quantile(s, fs, [0.05, 0.25, 0.5, 0.75, 0.95], as_pandas=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(qs)</span>
+<span class="sd">    0.05    6029.296875</span>
+<span class="sd">    0.25    6416.894531</span>
+<span class="sd">    0.50    6632.226562</span>
+<span class="sd">    0.75    6890.625000</span>
+<span class="sd">    0.95    9216.210938</span>
+<span class="sd">    dtype: float64</span>
+
+<span class="sd">    Compute the q-th quantile of the power spectrum and its amplitude</span>
+
+<span class="sd">    &gt;&gt;&gt; qs = features.spectral_quantile(s, fs, [0.05, 0.25, 0.5, 0.75, 0.95], amp=True, as_pandas=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(qs)</span>
+<span class="sd">                 freq       amp</span>
+<span class="sd">    0.05  6029.296875  0.000007</span>
+<span class="sd">    0.25  6416.894531  0.000067</span>
+<span class="sd">    0.50  6632.226562  0.000087</span>
+<span class="sd">    0.75  6890.625000  0.000022</span>
+<span class="sd">    0.95  9216.210938  0.000004</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_quantile_is_valid</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Percentiles must be in the range [0, 1]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Compute spectrum</span>
+    <span class="c1"># if roi is None:</span>
+    <span class="c1">#     pxx, fidx = sound.spectrum(s, fs, nperseg, **kwargs)</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     pxx, fidx = sound.spectrum(s, fs, nperseg,</span>
+    <span class="c1">#                                tlims=[roi.min_t, roi.max_t],</span>
+    <span class="c1">#                                flims=[roi.min_f, roi.max_f],</span>
+    <span class="c1">#                                **kwargs)</span>
+    <span class="c1"># pxx = pd.Series(pxx, index=fidx)</span>
+    <span class="k">if</span> <span class="n">roi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Sxx</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Sxx</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">,</span>
+                                       <span class="n">tlims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_t</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_t</span><span class="p">],</span>
+                                       <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="n">roi</span><span class="o">.</span><span class="n">min_f</span><span class="p">,</span> <span class="n">roi</span><span class="o">.</span><span class="n">max_f</span><span class="p">],</span>
+                                        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">pxx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">fn</span><span class="p">)</span>
+    
+    <span class="c1"># Compute spectral q</span>
+    <span class="n">norm_cumsum</span> <span class="o">=</span> <span class="n">pxx</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">/</span><span class="n">pxx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">spec_quantile</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">quantile</span> <span class="ow">in</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">spec_quantile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pxx</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">norm_cumsum</span><span class="o">&gt;=</span><span class="n">quantile</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+
+    <span class="k">if</span> <span class="n">amp</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;freq&quot;</span><span class="p">:</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="s2">&quot;amp&quot;</span><span class="p">:</span><span class="n">pxx</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">q</span><span class="p">,</span> <span class="n">spec_quantile</span><span class="p">,</span> <span class="n">pxx</span><span class="p">[</span><span class="n">spec_quantile</span><span class="p">]]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spec_quantile</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="spectral_bandwidth"><a class="viewcode-back" href="../../../generated/maad.features.spectral_bandwidth.html#maad.features.spectral_bandwidth">[docs]</a><span class="k">def</span> <span class="nf">spectral_bandwidth</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the bandwith of the power spectrum. If a region of interest with time</span>
+<span class="sd">    and spectral limits is provided, the spectral bandwidth is computed on the selection.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    as_pandas : bool</span>
+<span class="sd">        Return data as a pandas.Series. This is usefull when computing multiple features</span>
+<span class="sd">        over a signal. Default is False.</span>
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        If `window=&#39;hann&#39;`, additional keyword arguments to pass to</span>
+<span class="sd">        `sound.spectrum`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bandwidth_50 : float</span>
+<span class="sd">        Bandwidth 50% of the audio</span>
+<span class="sd">    bandwidth_90 : float</span>
+<span class="sd">        Bandwidth 90%  of the audio</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; bw_50, bw_90 = features.spectral_bandwidth(s, fs, nperseg=1024)</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;Bandwidth 50% : {:.4f} / Bandwidth 90% : {:.4f}&quot;.format(bw_50, bw_90))</span>
+<span class="sd">    Bandwidth 50% : 473.7305 / Bandwidth 90% : 3186.9141</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute spectral bandwith with the quantiles</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">spectral_quantile</span><span class="p">(</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])])</span>
+
+    <span class="k">if</span> <span class="n">as_pandas</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bw_50&quot;</span><span class="p">,</span> <span class="s2">&quot;bw_90&quot;</span><span class="p">])</span>
+        
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="all_spectral_features"><a class="viewcode-back" href="../../../generated/maad.features.all_spectral_features.html#maad.features.all_spectral_features">[docs]</a><span class="k">def</span> <span class="nf">all_spectral_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute all the spectral features for a signal.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : 1D array</span>
+<span class="sd">        Input audio signal</span>
+<span class="sd">    fs : float</span>
+<span class="sd">        Sampling frequency of audio signal</span>
+<span class="sd">    nperseg : int, optional</span>
+<span class="sd">        Length of segment to compute the FFT. The default is 1024.</span>
+<span class="sd">    roi : pandas.Series, optional</span>
+<span class="sd">        Region of interest where peak frequency will be computed.</span>
+<span class="sd">        Series must have a valid input format with index: min_t, min_f, max_t, max_f.</span>
+<span class="sd">        The default is None.</span>
+<span class="sd">    method : {&#39;fast&#39;, &#39;best&#39;}, optional</span>
+<span class="sd">        Method used to compute the peak frequency.</span>
+<span class="sd">        The default is &#39;fast&#39;.</span>
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        If `window=&#39;hann&#39;`, additional keyword arguments to pass to</span>
+<span class="sd">        `sound.spectrum`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    spectral_features : pandas DataFrame</span>
+<span class="sd">        DataFrame with all spectral features computed in the spectrum</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad import features, sound</span>
+<span class="sd">    &gt;&gt;&gt; s, fs = sound.load(&#39;../data/spinetail.wav&#39;)</span>
+
+<span class="sd">    Compute all the spectral features</span>
+
+<span class="sd">    &gt;&gt;&gt; features.all_spectral_features(s, fs, nperseg=1024, roi=None)</span>
+<span class="sd">    sm           2.276330e-06</span>
+<span class="sd">    sv           8.118042e-11</span>
+<span class="sd">    ss           5.844664e+00</span>
+<span class="sd">    sk           4.048891e+01</span>
+<span class="sd">    freq_05      6.029297e+03</span>
+<span class="sd">    freq_25      6.416895e+03</span>
+<span class="sd">    freq_50      6.632227e+03</span>
+<span class="sd">    freq_75      6.890625e+03</span>
+<span class="sd">    freq_95      9.216211e+03</span>
+<span class="sd">    peak_freq    6.632227e+03</span>
+<span class="sd">    bw_50        4.737305e+02</span>
+<span class="sd">    bw_90        3.186914e+03</span>
+<span class="sd">    dtype: float64</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Compute transformations</span>
+    <span class="n">Sxx_power</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">)</span>
+    <span class="n">S_power</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">avg_power_spectro</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span>
+    
+    <span class="c1"># Compute features</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">spectral_moments</span><span class="p">(</span><span class="n">S_power</span><span class="p">)</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">spectral_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">bw_50</span><span class="p">,</span> <span class="n">bw_90</span> <span class="o">=</span> <span class="n">spectral_bandwidth</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">peak_freq</span> <span class="o">=</span> <span class="n">peak_frequency</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">roi</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Organize data into a Dataframe</span>
+    <span class="n">spectral_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+        <span class="s2">&quot;sm&quot;</span><span class="p">:</span><span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+        <span class="s2">&quot;sv&quot;</span><span class="p">:</span><span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+        <span class="s2">&quot;ss&quot;</span><span class="p">:</span><span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="s2">&quot;sk&quot;</span><span class="p">:</span><span class="n">sm</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;freq_05&quot;</span><span class="p">:</span><span class="n">qs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+        <span class="s2">&quot;freq_25&quot;</span><span class="p">:</span><span class="n">qs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+        <span class="s2">&quot;freq_50&quot;</span><span class="p">:</span><span class="n">qs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="s2">&quot;freq_75&quot;</span><span class="p">:</span><span class="n">qs</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> 
+        <span class="s2">&quot;freq_95&quot;</span><span class="p">:</span><span class="n">qs</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> 
+        <span class="s2">&quot;peak_freq&quot;</span><span class="p">:</span><span class="n">peak_freq</span><span class="p">,</span>
+        <span class="s2">&quot;bw_50&quot;</span><span class="p">:</span><span class="n">bw_50</span><span class="p">,</span> 
+        <span class="s2">&quot;bw_90&quot;</span><span class="p">:</span><span class="n">bw_90</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">spectral_features</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

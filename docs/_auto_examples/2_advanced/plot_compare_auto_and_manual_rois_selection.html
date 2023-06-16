@@ -1,105 +1,56 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" />
-    <link rel="prev" title="Estimate sound pressure level from audio recordings" href="plot_sound_pressure_level.html" /> 
+    <link rel="next" title="Use multicpu functionality to compute indices" href="plot_extract_alpha_indices_multicpu.html" />
+    <link rel="prev" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -115,92 +66,58 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_xenocanto_wookpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">USE MULTICPU FUNCTIONALITY TO COMPUTE INDICES</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wookpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Find Regions of interest (ROIs) in a spectrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Example gallery</a> &raquo;</li>
-        
-      <li>Find Regions of interest (ROIs) in a spectrogram</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Advanced examples</a></li>
+      <li class="breadcrumb-item active">Find Regions of interest (ROIs) in a spectrogram</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/_auto_examples/2_advanced/plot_compare_auto_and_manual_rois_selection.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="find-regions-of-interest-rois-in-a-spectrogram">
+<div class="sphx-glr-example-title section" id="find-regions-of-interest-rois-in-a-spectrogram">
 <span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Permalink to this heading">¶</a></h1>
 <p>A spectrogram is a time-frequency (2d) representation of a audio recording.
 Each acoustic event nested in the audio recording is represented by an acoustic
@@ -210,13 +127,17 @@ by different image processing tools such as binarization, double thresholding,
 mathematical morphology tools…</p>
 <p><strong>Dependencies</strong>: To execute this example you will need to have installed the
 scikit-image, scikit-learn and pandas Python packages.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_compare_auto_and_manual_rois_selection.png&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png&#39;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">features</span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="p">(</span><span class="n">power2dB</span><span class="p">,</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">format_features</span><span class="p">,</span> <span class="n">read_audacity_annot</span><span class="p">,</span>
-                       <span class="n">overlay_rois</span><span class="p">,</span> <span class="n">overlay_centroid</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="p">(</span>
+   <span class="n">power2dB</span><span class="p">,</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">format_features</span><span class="p">,</span> <span class="n">read_audacity_annot</span><span class="p">,</span>
+   <span class="n">overlay_rois</span><span class="p">,</span> <span class="n">overlay_centroid</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
 <p>First, load and audio file and compute the power spectrogram.</p>
@@ -224,16 +145,28 @@ scikit-image, scikit-learn and pandas Python packages.</p>
 
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a> <span class="o">=</span> <span class="mi">96</span>
 
-<span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">1024</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span>
+   <span class="n">x</span><span class="o">=</span><span class="n">s</span><span class="p">,</span>
+   <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
+   <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+   <span class="n">noverlap</span><span class="o">=</span><span class="mi">1024</span><span class="o">//</span><span class="mi">2</span>
+   <span class="p">)</span>
 
 <span class="c1"># Convert the power spectrogram into dB, add dB_max which is the maximum decibel</span>
 <span class="c1"># range when quantification bit is 16bits and display the result</span>
 <span class="n">Sxx_db</span> <span class="o">=</span> <span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> <span class="o">+</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a>
-<span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span> <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+
+<span class="n">plot2d</span><span class="p">(</span>
+   <span class="n">im</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="plot compare auto and manual rois selection" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_001.png" />
-<p>Then, relevant acoustic events are extracted directly from the power
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_001.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_001.png" alt="plot compare auto and manual rois selection" class = "sphx-glr-single-img"/><p>Then, relevant acoustic events are extracted directly from the power
 spectrogram based on a double thresholding technique. The result is binary
 image called a mask. Double thresholding technique is more sophisticated than
 basic thresholding based on a single value. First, a threshold selects pixels
@@ -245,51 +178,103 @@ aggregated, meaning that there is no more connected pixels with value upper
 than the second threshold value.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we remove the stationary background in order to increase the contrast [1]</span>
 <span class="c1"># Then we convert the spectrogram into dB</span>
-<span class="n">Sxx_power_noNoise</span><span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">median_equalizer</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+<span class="n">Sxx_power_noNoise</span><span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">median_equalizer</span><span class="p">(</span>
+   <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_power</span><span class="p">,</span>
+   <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">}</span>
+   <span class="p">)</span>
 <span class="n">Sxx_db_noNoise</span> <span class="o">=</span> <span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_power_noNoise</span><span class="p">)</span>
 
 <span class="c1"># Then we smooth the spectrogram in order to facilitate the creation of masks as</span>
 <span class="c1"># small sparse details are merged if they are close to each other</span>
-<span class="n">Sxx_db_noNoise_smooth</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="n">Sxx_db_noNoise</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                         <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span> <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+<span class="n">Sxx_db_noNoise_smooth</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span>
+   <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_db_noNoise</span><span class="p">,</span>
+   <span class="n">std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+   <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
 
 <span class="c1"># Then we create a mask (i.e. binarization of the spectrogram) by using the</span>
 <span class="c1"># double thresholding technique</span>
-<span class="n">im_mask</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">create_mask</span><span class="p">(</span><span class="n">im</span><span class="o">=</span><span class="n">Sxx_db_noNoise_smooth</span><span class="p">,</span> <span class="n">mode_bin</span> <span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span>
-                           <span class="n">bin_std</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bin_per</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                           <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">im_mask</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">create_mask</span><span class="p">(</span>
+   <span class="n">im</span><span class="o">=</span><span class="n">Sxx_db_noNoise_smooth</span><span class="p">,</span>
+   <span class="n">mode_bin</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span>
+   <span class="n">bin_std</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+   <span class="n">bin_per</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+   <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+   <span class="n">display</span><span class="o">=</span><span class="kc">False</span>
+   <span class="p">)</span>
 
 <span class="c1"># Finaly, we put together pixels that belong to the same acoustic event, and</span>
 <span class="c1"># remove very small events (&lt;=25 pixel²)</span>
-<span class="n">im_rois</span><span class="p">,</span> <span class="n">df_rois</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">select_rois</span><span class="p">(</span><span class="n">im_mask</span><span class="p">,</span> <span class="n">min_roi</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">max_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                 <span class="n">display</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                                 <span class="o">**</span><span class="p">{</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+<span class="n">im_rois</span><span class="p">,</span> <span class="n">df_rois</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">select_rois</span><span class="p">(</span>
+   <span class="n">im_bin</span><span class="o">=</span><span class="n">im_mask</span><span class="p">,</span>
+   <span class="n">min_roi</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+   <span class="n">max_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="n">display</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">}</span>
+   <span class="p">)</span>
 
 <span class="c1"># format dataframe df_rois in order to convert pixels into time and frequency</span>
-<span class="n">df_rois</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_rois</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+<span class="n">df_rois</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span>
+   <span class="n">df</span><span class="o">=</span><span class="n">df_rois</span><span class="p">,</span>
+   <span class="n">tn</span><span class="o">=</span><span class="n">tn</span><span class="p">,</span>
+   <span class="n">fn</span><span class="o">=</span><span class="n">fn</span>
+   <span class="p">)</span>
 
 <span class="c1"># overlay bounding box on the original spectrogram</span>
-<span class="n">ax0</span><span class="p">,</span> <span class="n">fig0</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span> <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+<span class="n">ax0</span><span class="p">,</span> <span class="n">fig0</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
 
-<span class="c1"># Compute and visualize centroids</span>
-<span class="n">df_centroid</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois</span><span class="p">,</span> <span class="n">im_rois</span><span class="p">)</span>
-<span class="n">df_centroid</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_centroid</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
-<span class="n">ax0</span><span class="p">,</span> <span class="n">fig0</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span><span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-                                <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig0</span><span class="p">,</span> <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax0</span><span class="p">})</span>
+<span class="c1"># Compute centroids</span>
+<span class="n">df_centroid</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span>
+   <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois</span><span class="p">,</span>
+   <span class="n">im_rois</span><span class="o">=</span><span class="n">im_rois</span>
+   <span class="p">)</span>
+
+<span class="c1"># format dataframe df_centroid in order to convert pixels into time and frequency</span>
+<span class="n">df_centroid</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span>
+   <span class="n">df</span><span class="o">=</span><span class="n">df_centroid</span><span class="p">,</span>
+   <span class="n">tn</span><span class="o">=</span><span class="n">tn</span><span class="p">,</span>
+   <span class="n">fn</span><span class="o">=</span><span class="n">fn</span>
+   <span class="p">)</span>
+
+<span class="c1"># overlay centroids on the original spectrogram</span>
+<span class="n">ax0</span><span class="p">,</span> <span class="n">fig0</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">centroid</span><span class="o">=</span><span class="n">df_centroid</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
+      <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+      <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig0</span><span class="p">,</span>
+      <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax0</span>
+      <span class="p">}</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Spectrogram without stationnary noise" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_002.png" />
-</li>
-<li><img alt="Orignal Spectrogram, Blurred Spectrogram (std=0.5)" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_003.png" />
-</li>
-<li><img alt="Selected ROIs" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_004.png" />
-</li>
-<li><img alt="ROIs Overlay" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_002.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_002.png" alt="Spectrogram without stationnary noise" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_003.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_003.png" alt="Orignal Spectrogram, Blurred Spectrogram (std=0.5)" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_004.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_004.png" alt="Selected ROIs" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png" alt="ROIs Overlay" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p>Let’s compare with the manual annotation (Ground Truth GT) obtained with
 Audacity software.
@@ -307,24 +292,52 @@ signatures are labeled with the same name</p>
 <span class="n">df_rois_GT</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_rois_GT</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
 
 <span class="c1"># overlay bounding box on the original spectrogram</span>
-<span class="n">ax1</span><span class="p">,</span> <span class="n">fig1</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois_GT</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
+<span class="n">ax1</span><span class="p">,</span> <span class="n">fig1</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois_GT</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
 
-<span class="c1"># Compute and visualize centroids</span>
-<span class="n">df_centroid_GT</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois_GT</span><span class="p">)</span>
-<span class="n">df_centroid_GT</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_centroid_GT</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
-<span class="n">ax1</span><span class="p">,</span> <span class="n">fig1</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid_GT</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
-                                <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig1</span><span class="p">,</span> <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax1</span><span class="p">})</span>
+<span class="c1"># Compute centroids</span>
+<span class="n">df_centroid_GT</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span>
+   <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois_GT</span>
+   <span class="p">)</span>
+
+<span class="c1"># format dataframe df_centroid_GT in order to convert pixels into time and frequency</span>
+<span class="n">df_centroid_GT</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span>
+   <span class="n">df</span><span class="o">=</span><span class="n">df_centroid_GT</span><span class="p">,</span>
+   <span class="n">tn</span><span class="o">=</span><span class="n">tn</span><span class="p">,</span>
+   <span class="n">fn</span><span class="o">=</span><span class="n">fn</span>
+   <span class="p">)</span>
+
+<span class="c1"># overlay centroids on the original spectrogram</span>
+<span class="n">ax1</span><span class="p">,</span> <span class="n">fig1</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">centroid</span><span class="o">=</span><span class="n">df_centroid_GT</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
+      <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+      <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig1</span><span class="p">,</span>
+      <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax1</span>
+      <span class="p">}</span>
+   <span class="p">)</span>
 
 <span class="c1"># print informations about the rois</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Total number of ROIs : </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">df_rois_GT</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Number of different ROIs : </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_rois_GT</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])))</span>
 </pre></div>
 </div>
-<img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Total number of ROIs : 159
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Total number of ROIs : 159
 Number of different ROIs :  8
 </pre></div>
 </div>
@@ -337,10 +350,7 @@ The number of attended clustering is the number of clusters found with
 manual annotation.
 Finally, each rois is labeled with the corresponding cluster number predicted
 by KMeans</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-
-<span class="c1"># select features to perform KMeans clustering</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># select features to perform KMeans clustering</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;centroid_f&#39;</span><span class="p">,</span><span class="s1">&#39;duration_t&#39;</span><span class="p">,</span><span class="s1">&#39;bandwidth_f&#39;</span><span class="p">,</span><span class="s1">&#39;area_tf&#39;</span><span class="p">]</span>
 
 <span class="c1"># Prepare the features in order to have zero mean and same variance</span>
@@ -348,22 +358,45 @@ by KMeans</p>
 
 <span class="c1"># perform KMeans with the same number of clusters as with the manual annotation</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">NN_CLUSTERS</span></a> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_rois_GT</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]))</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">NN_CLUSTERS</span></a><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a><span class="p">(</span>
+   <span class="n">n_clusters</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">NN_CLUSTERS</span></a><span class="p">,</span>
+   <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+   <span class="n">n_init</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+   <span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Replace the unknow label by the cluster number predicted by KMeans</span>
 <span class="n">df_centroid</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
 
 <span class="c1"># overlay color bounding box corresponding to the label, and centroids</span>
 <span class="c1"># on the original spectrogram</span>
-<span class="n">ax2</span><span class="p">,</span> <span class="n">fig2</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
-<span class="n">ax2</span><span class="p">,</span> <span class="n">fig2</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
-                                <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig2</span><span class="p">,</span> <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax2</span><span class="p">})</span>
+<span class="n">ax2</span><span class="p">,</span> <span class="n">fig2</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_centroid</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
+
+<span class="n">ax2</span><span class="p">,</span> <span class="n">fig2</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">centroid</span><span class="o">=</span><span class="n">df_centroid</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
+      <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+      <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig2</span><span class="p">,</span>
+      <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax2</span>
+      <span class="p">}</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_007.png" />
-<p>It is possible to extract Rois directly from the audio waveform without
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_007.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_007.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p>It is possible to extract Rois directly from the audio waveform without
 computing the spectrogram. This works well if there is no big overlap between
 each acoustic signature and you
 First, we have to define the frequency bandwidth where to find acoustic events
@@ -381,112 +414,142 @@ To extract</p>
 <span class="n">df_rois_WAV</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_rois_sh</span><span class="p">,</span> <span class="n">df_rois_sm</span><span class="p">,</span> <span class="n">df_rois_lm</span><span class="p">,</span> <span class="n">df_rois_sl</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># drop rows with frequency and time outside of tn and fn</span>
-<span class="n">df_rois_WAV</span> <span class="o">=</span> <span class="n">df_rois_WAV</span><span class="p">[(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">min_t</span> <span class="o">&gt;=</span> <span class="n">tn</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
-                                      <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">max_t</span> <span class="o">&lt;=</span> <span class="n">tn</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span>
-                                      <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">min_f</span> <span class="o">&gt;=</span> <span class="n">fn</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
-                                      <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">max_f</span> <span class="o">&lt;=</span> <span class="n">fn</span><span class="o">.</span><span class="n">max</span><span class="p">())]</span>
+<span class="n">df_rois_WAV</span> <span class="o">=</span> <span class="n">df_rois_WAV</span><span class="p">[</span>
+   <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">min_t</span> <span class="o">&gt;=</span> <span class="n">tn</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
+   <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">max_t</span> <span class="o">&lt;=</span> <span class="n">tn</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span>
+   <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">min_f</span> <span class="o">&gt;=</span> <span class="n">fn</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
+   <span class="p">(</span><span class="n">df_rois_WAV</span><span class="o">.</span><span class="n">max_f</span> <span class="o">&lt;=</span> <span class="n">fn</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+   <span class="p">]</span>
 
-<span class="c1"># get features: centroid,</span>
-<span class="n">df_rois_WAV</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_rois_WAV</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
-<span class="n">df_centroid_WAV</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois_WAV</span><span class="p">)</span>
+<span class="c1"># format dataframe df_rois_WAV in order to convert pixels into time and frequency</span>
+<span class="n">df_rois_WAV</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span>
+   <span class="n">df</span><span class="o">=</span><span class="n">df_rois_WAV</span><span class="p">,</span>
+   <span class="n">tn</span><span class="o">=</span><span class="n">tn</span><span class="p">,</span>
+   <span class="n">fn</span><span class="o">=</span><span class="n">fn</span>
+   <span class="p">)</span>
 
-<span class="n">ax3</span><span class="p">,</span> <span class="n">fig3</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_rois_WAV</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
-                                                      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
-<span class="n">df_centroid_WAV</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span><span class="n">df_centroid_WAV</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
-<span class="n">ax3</span><span class="p">,</span> <span class="n">fig3</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid_WAV</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
-                                <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig3</span><span class="p">,</span> <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax3</span><span class="p">})</span>
+<span class="c1"># display rois</span>
+<span class="n">ax3</span><span class="p">,</span> <span class="n">fig3</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois_WAV</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
+
+<span class="c1"># get features: centroids</span>
+<span class="n">df_centroid_WAV</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">centroid_features</span><span class="p">(</span>
+   <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_rois_WAV</span>
+   <span class="p">)</span>
+
+<span class="c1"># format dataframe df_centroid_WAV in order to convert pixels into time and frequency</span>
+<span class="n">df_centroid_WAV</span> <span class="o">=</span> <span class="n">format_features</span><span class="p">(</span>
+   <span class="n">df</span><span class="o">=</span><span class="n">df_centroid_WAV</span><span class="p">,</span>
+   <span class="n">tn</span><span class="o">=</span><span class="n">tn</span><span class="p">,</span>
+   <span class="n">fn</span><span class="o">=</span><span class="n">fn</span>
+   <span class="p">)</span>
+
+<span class="c1"># display centroids</span>
+<span class="n">ax3</span><span class="p">,</span> <span class="n">fig3</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">centroid</span><span class="o">=</span><span class="n">df_centroid_WAV</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
+      <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+      <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig3</span><span class="p">,</span>
+      <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax3</span>
+      <span class="p">}</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" />
-<p>Prepare the features in order to have zero mean and same variance</p>
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p>Prepare the features in order to have zero mean and same variance</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_centroid_WAV</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a><span class="p">])</span>
 
 <span class="c1"># perform KMeans with the same number of clusters as with the manual annotation</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">NN_CLUSTERS</span></a><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a><span class="p">(</span>
+   <span class="n">n_clusters</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">NN_CLUSTERS</span></a><span class="p">,</span>
+   <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+   <span class="n">n_init</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+   <span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Replace the unknow label by the cluster number predicted by KMeans</span>
 <span class="n">df_centroid_WAV</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
 
 <span class="c1"># overlay color bounding box corresponding to the label, and centroids</span>
 <span class="c1"># on the original spectrogram</span>
-<span class="n">ax4</span><span class="p">,</span> <span class="n">fig4</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid_WAV</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
-                                                          <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">})</span>
-<span class="n">ax4</span><span class="p">,</span> <span class="n">fig4</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span><span class="n">Sxx_db</span><span class="p">,</span> <span class="n">df_centroid_WAV</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                             <span class="o">**</span><span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span><span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
-                                <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig4</span><span class="p">,</span> <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax4</span><span class="p">})</span>
+<span class="n">ax4</span><span class="p">,</span> <span class="n">fig4</span> <span class="o">=</span> <span class="n">overlay_rois</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">rois</span><span class="o">=</span><span class="n">df_centroid_WAV</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a>
+      <span class="p">}</span>
+   <span class="p">)</span>
+
+<span class="n">ax4</span><span class="p">,</span> <span class="n">fig4</span> <span class="o">=</span> <span class="n">overlay_centroid</span><span class="p">(</span>
+   <span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_db</span><span class="p">,</span>
+   <span class="n">centroid</span><span class="o">=</span><span class="n">df_centroid_WAV</span><span class="p">,</span>
+   <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="o">**</span><span class="p">{</span>
+      <span class="s1">&#39;vmin&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+      <span class="s1">&#39;vmax&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a><span class="p">,</span>
+      <span class="s1">&#39;extent&#39;</span><span class="p">:</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span>
+      <span class="s1">&#39;ms&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+      <span class="s1">&#39;fig&#39;</span><span class="p">:</span><span class="n">fig4</span><span class="p">,</span>
+      <span class="s1">&#39;ax&#39;</span><span class="p">:</span><span class="n">ax4</span>
+      <span class="p">}</span>
+   <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="ROIs Overlay" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" />
-<p><strong>References</strong></p>
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p><strong>References</strong></p>
 <p>[1] Towsey, M., 2013b. Noise Removal from Wave-forms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.899 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.785 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/406fee73b2f9360c82c8060af9ec3dcc/plot_compare_auto_and_manual_rois_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.ipynb</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../../_downloads/406fee73b2f9360c82c8060af9ec3dcc/plot_compare_auto_and_manual_rois_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-right" title="Extract acoustic indices from audio recordings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_sound_pressure_level.html" class="btn btn-neutral float-left" title="Estimate sound pressure level from audio recordings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-left" title="Extract acoustic indices from audio recordings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_extract_alpha_indices_multicpu.html" class="btn btn-neutral float-right" title="Use multicpu functionality to compute indices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

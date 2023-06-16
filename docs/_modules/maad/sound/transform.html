@@ -1,102 +1,54 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>maad.sound.transform &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.sound.transform &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -112,67 +64,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>maad.sound.transform</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">maad.sound.transform</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for maad.sound.transform</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="sd">&quot;&quot;&quot; </span>
@@ -195,6 +110,7 @@
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">periodogram</span><span class="p">,</span> <span class="n">welch</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">resampy</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
 
 <span class="c1"># import internal modules</span>
 <span class="kn">from</span> <span class="nn">maad.sound</span> <span class="kn">import</span> <span class="n">wave2frames</span>
@@ -205,7 +121,7 @@
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 <div class="viewcode-block" id="envelope"><a class="viewcode-back" href="../../../generated/maad.sound.envelope.html#maad.sound.envelope">[docs]</a><span class="k">def</span> <span class="nf">envelope</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the envelope of a sound waveform (1d)</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -278,9 +194,9 @@
     <span class="k">return</span> <span class="n">env</span></div>
 
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectrum"><a class="viewcode-back" href="../../../generated/maad.sound.spectrum.html#maad.sound.spectrum">[docs]</a><span class="k">def</span> <span class="nf">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">,</span> 
+<div class="viewcode-block" id="spectrum"><a class="viewcode-back" href="../../../generated/maad.sound.spectrum.html#maad.sound.spectrum">[docs]</a><span class="k">def</span> <span class="nf">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">,</span> 
         <span class="n">tlims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;spectrum&#39;</span><span class="p">,</span> <span class="n">as_pandas_series</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the power spectral density or power spectrum of 1D signal.</span>
 <span class="sd">    </span>
 <span class="sd">    The estimates can be computed using two methods: Welch or periodogram. Welch&#39;s method</span>
@@ -303,8 +219,9 @@
 <span class="sd">    noverlap: int, optional</span>
 <span class="sd">        Overlap between segments for Welch&#39;s method. If None, noverlap = nperseg/2.</span>
 <span class="sd">    </span>
-<span class="sd">    window : string, default is &#39;hanning</span>
-<span class="sd">        Name of the window used for the short fourier transform.</span>
+<span class="sd">    window : string, default is &#39;hann&#39;</span>
+<span class="sd">        Name of the window used for the short fourier transform, &#39;hanning&#39; window is </span>
+<span class="sd">        now deprecated.</span>
 <span class="sd">    </span>
 <span class="sd">    nfft: int, optional</span>
 <span class="sd">        Length of FFT for periodogram method. If None, length of signal will be used.</span>
@@ -357,7 +274,6 @@
 <span class="sd">    &gt;&gt;&gt; spec, f_idx = sound.spectrum(s, fs, nperseg=2056, tlims=(5.3, 7.9), flims=(2000, 12000), display=True)</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
     <span class="k">if</span> <span class="n">tlims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># trim audio signal</span>
         <span class="k">try</span><span class="p">:</span>
@@ -365,6 +281,11 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;length of tlims tuple should be 2&#39;</span><span class="p">)</span>
     
+    <span class="c1"># small fix to keep compatibility with old scipy version</span>
+    <span class="k">if</span> <span class="n">window</span><span class="o">==</span><span class="s1">&#39;hanning&#39;</span><span class="p">:</span>
+        <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Window type &#39;hanning&#39; will be deprecated. Changing to &#39;hann&#39; window.&quot;</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;welch&#39;</span><span class="p">:</span>
         <span class="n">f_idx</span><span class="p">,</span> <span class="n">pxx</span> <span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">nfft</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="n">scaling</span><span class="p">)</span>
     
@@ -390,7 +311,7 @@
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="resample"><a class="viewcode-back" href="../../../generated/maad.sound.resample.html#maad.sound.resample">[docs]</a><span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">res_type</span> <span class="o">=</span> <span class="s1">&#39;kaiser_best&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Changes the sample rate of an audio file or any time series.</span>
 
 <span class="sd">    Parameters</span>
@@ -405,10 +326,11 @@
 <span class="sd">        Target sampling rate.</span>
 
 <span class="sd">    res_type : str, optional</span>
-<span class="sd">        Resample method. By default &#39;kaiser_best&#39;, is a high-quality method.</span>
-<span class="sd">        `res_type=&#39;kaiser_fast&#39;` is a faster method.</span>
-<span class="sd">        `res_type=&#39;sinc_window&#39;` is an advanced and custom method of resampling. </span>
-<span class="sd">        `res_type=&#39;scipy&#39;` is a Fourier transforms method based.</span>
+<span class="sd">        Resample method. By default &#39;kaiser_best&#39;.</span>
+<span class="sd">        &#39;kaiser_best&#39; method that applies a Kaiser windowed sinc interpolation.</span>
+<span class="sd">        &#39;kaiser_fast&#39; similar to kaiser_best, but faster.</span>
+<span class="sd">        &#39;scipy&#39; is a Fourier transform method implemented in scipy.</span>
+<span class="sd">        &#39;scipy_poly&#39; Resample using polyphase filtering and an FIR filter. </span>
 
 <span class="sd">    kwargs : additional keyword arguments</span>
 <span class="sd">        If `res_type=&#39;sinc_window&#39;`, additional keyword arguments to pass to</span>
@@ -439,20 +361,33 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">fs</span> <span class="o">==</span> <span class="n">target_fs</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">s</span>
-    
-    <span class="n">ratio</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_fs</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
-    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">res_type</span> <span class="o">==</span> <span class="s1">&#39;scipy&#39;</span><span class="p">:</span>
-        <span class="n">res_data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Calculate the resampling ratio and get the number of output samples</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_fs</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">))</span>
+        <span class="n">res_data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">res_type</span> <span class="o">==</span> <span class="s1">&#39;scipy_poly&#39;</span><span class="p">:</span>
+        <span class="c1"># Calculate the resampling ratio and get the common denominator</span>
+        <span class="n">gcd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">target_fs</span><span class="p">))</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">target_fs</span> <span class="o">//</span> <span class="n">gcd</span>
+        <span class="n">den</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">//</span> <span class="n">gcd</span>
+        <span class="c1"># Resample the signal using SciPy&#39;s resample_poly function</span>
+        <span class="n">res_data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">resample_poly</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">res_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;kaiser_best&#39;</span><span class="p">,</span> <span class="s1">&#39;kaiser_fast&#39;</span><span class="p">):</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Methods &#39;kaiser_fast&#39; and &#39;kaiser_best&#39; are deprecated and will be removed from future versions.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="n">res_data</span> <span class="o">=</span> <span class="n">resampy</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">res_data</span> <span class="o">=</span> <span class="n">resampy</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Valid resample methods are &#39;scipy&#39;, &#39;scipy_poly&#39;, &#39;kaiser_best&#39;, &#39;kaiser_fast&#39;, not res_type=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_type</span><span class="p">))</span>
+                         
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">res_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span></div>
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="trim"><a class="viewcode-back" href="../../../generated/maad.sound.trim.html#maad.sound.trim">[docs]</a><span class="k">def</span> <span class="nf">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pad_constant</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Slices a time series, from a initial time `min_t` to an ending time `max_t`.  </span>
 <span class="sd">    If the target duration `duration =` is larger than the original duration and `pad = True`, </span>
 <span class="sd">    the time series is padded with a constant value `pad_constant = 0`.</span>
@@ -584,7 +519,7 @@
         <span class="k">return</span> <span class="n">s_slice</span></div>
     
 <div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../generated/maad.sound.normalize.html#maad.sound.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">max_amp</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">max_db</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Normalize audio signal to desired amplitude or decibell full scale value (dBFS).</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -645,7 +580,7 @@
     <span class="k">return</span> <span class="n">s_out</span></div>
 
 <div class="viewcode-block" id="gain"><a class="viewcode-back" href="../../../generated/maad.sound.gain.html#maad.sound.gain">[docs]</a><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain_db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Amply amplification or attenuation to the audio signal.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -693,49 +628,30 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

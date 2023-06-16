@@ -1,105 +1,56 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>maad.sound.spectrum &mdash; scikit-maad 1.3.12 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.sound.spectrum &mdash; scikit-maad 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="maad.sound.resample" href="maad.sound.resample.html" />
     <link rel="prev" title="maad.sound.envelope" href="maad.sound.envelope.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scikit-maad
           
-
-          
-            
-            <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
-          
+          <a href="../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.12
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
@@ -113,7 +64,10 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.avg_amplitude_spectro.html">maad.sound.avg_amplitude_spectro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.linear_to_octave.html">maad.sound.linear_to_octave</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.envelope.html">maad.sound.envelope</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.sound.spectrum</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.sound.spectrum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maad.sound.spectrum"><code class="docutils literal notranslate"><span class="pre">spectrum()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.resample.html">maad.sound.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.trim.html">maad.sound.trim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.sound.normalize.html">maad.sound.normalize</a></li>
@@ -133,85 +87,47 @@
 <li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">scikit-maad</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../sound.html">Sound processing</a> &raquo;</li>
-        
-      <li>maad.sound.spectrum</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../sound.html">Sound processing</a></li>
+      <li class="breadcrumb-item active">maad.sound.spectrum</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/generated/maad.sound.spectrum.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="maad-sound-spectrum">
+             
+  <div class="section" id="maad-sound-spectrum">
 <h1>maad.sound.spectrum<a class="headerlink" href="#maad-sound-spectrum" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.sound.spectrum">
-<span class="sig-prename descclassname"><span class="pre">maad.sound.</span></span><span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nperseg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noverlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'welch'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tlims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_pandas_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/transform.html#spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">maad.sound.</span></code><code class="sig-name descname"><span class="pre">spectrum</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">s</span></span></em>, <em><span class="n"><span class="pre">fs</span></span></em>, <em><span class="n"><span class="pre">nperseg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em><span class="n"><span class="pre">noverlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">nfft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hann'</span></span></em>, <em><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'welch'</span></span></em>, <em><span class="n"><span class="pre">tlims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectrum'</span></span></em>, <em><span class="n"><span class="pre">as_pandas_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/transform.html#spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate the power spectral density or power spectrum of 1D signal.</p>
 <p>The estimates can be computed using two methods: Welch or periodogram. Welch’s method
 divides the signal into segments, computes the power spectral density for each 
 segment and then takes the average between segments. The periodogram method computes
 the power spectral density of the input signal using a defined window 
 (Hanning window by default).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>s: 1D array</strong></dt><dd><p>Input signal to process</p>
 </dd>
 <dt><strong>fs: float, optional</strong></dt><dd><p>Sampling frequency of audio signal</p>
@@ -220,7 +136,8 @@ the power spectral density of the input signal using a defined window
 </dd>
 <dt><strong>noverlap: int, optional</strong></dt><dd><p>Overlap between segments for Welch’s method. If None, noverlap = nperseg/2.</p>
 </dd>
-<dt><strong>window</strong><span class="classifier">string, default is ‘hanning</span></dt><dd><p>Name of the window used for the short fourier transform.</p>
+<dt><strong>window</strong><span class="classifier">string, default is ‘hann’</span></dt><dd><p>Name of the window used for the short fourier transform, ‘hanning’ window is 
+now deprecated.</p>
 </dd>
 <dt><strong>nfft: int, optional</strong></dt><dd><p>Length of FFT for periodogram method. If None, length of signal will be used.
 Length of FFT for welch method if zero padding is desired. If None, length of nperseg will be used.</p>
@@ -242,16 +159,18 @@ Defaults to ‘spectrum’.</p>
 over a signal. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt>pxx: pandas Series</dt><dd><p>Power spectral density estimate.</p>
 </dd>
 <dt>f_idx: pandas Series</dt><dd><p>Index of sample frequencies.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Notes</p>
 <p>This is a wrapper that uses functions from Scipy (scipy.org), in particular from the scipy.signal module.</p>
 <p class="rubric">Examples</p>
@@ -267,62 +186,37 @@ spinetail’s song.</p>
 </div>
 </dd></dl>
 
-</section>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maad.sound.resample.html" class="btn btn-neutral float-right" title="maad.sound.resample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="maad.sound.envelope.html" class="btn btn-neutral float-left" title="maad.sound.envelope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="maad.sound.envelope.html" class="btn btn-neutral float-left" title="maad.sound.envelope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maad.sound.resample.html" class="btn btn-neutral float-right" title="maad.sound.resample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, scikit-maad development team
-
-    </p>
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }
