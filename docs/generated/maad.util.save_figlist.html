@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.save_figlist &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.save_figlist &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,6 +79,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.util.overlay_centroid.html">maad.util.overlay_centroid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features_map.html">maad.util.plot_features_map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features.html">maad.util.plot_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.util.heatmap_by_date_and_time.html">maad.util.heatmap_by_date_and_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_correlation_map.html">maad.util.plot_correlation_map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_shape.html">maad.util.plot_shape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.false_Color_Spectro.html">maad.util.false_Color_Spectro</a></li>
@@ -119,30 +123,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-util-save-figlist">
-<h1>maad.util.save_figlist<a class="headerlink" href="#maad-util-save-figlist" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-util-save-figlist">
+<h1>maad.util.save_figlist<a class="headerlink" href="#maad-util-save-figlist" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.save_figlist">
-<code class="sig-prename descclassname"><span class="pre">maad.util.</span></code><code class="sig-name descname"><span class="pre">save_figlist</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">fname</span></span></em>, <em><span class="n"><span class="pre">figlist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#save_figlist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.save_figlist" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">save_figlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figlist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#save_figlist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.save_figlist" title="Link to this definition">¶</a></dt>
 <dd><p>Save a list of figures or spectrograms to disk.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>fname: string</strong></dt><dd><p>Suffix string add to the filename. The extension should be specified since it 
 indicates the image format.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <p>This function does not return any variable.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

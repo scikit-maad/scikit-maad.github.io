@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.math_func &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.math_func &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -116,7 +118,9 @@
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 
-<div class="viewcode-block" id="running_mean"><a class="viewcode-back" href="../../../generated/maad.util.running_mean.html#maad.util.running_mean">[docs]</a><span class="k">def</span> <span class="nf">running_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="running_mean">
+<a class="viewcode-back" href="../../../generated/maad.util.running_mean.html#maad.util.running_mean">[docs]</a>
+<span class="k">def</span> <span class="nf">running_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute fast running mean for a window size N.</span>
 <span class="sd">    </span>
@@ -165,8 +169,11 @@
     <span class="n">x_mean</span> <span class="o">=</span> <span class="n">uniform_filter1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x_mean</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="get_unimode"><a class="viewcode-back" href="../../../generated/maad.util.get_unimode.html#maad.util.get_unimode">[docs]</a><span class="k">def</span> <span class="nf">get_unimode</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_unimode">
+<a class="viewcode-back" href="../../../generated/maad.util.get_unimode.html#maad.util.get_unimode">[docs]</a>
+<span class="k">def</span> <span class="nf">get_unimode</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the statistical mode or modal value which is the most common number in the </span>
 <span class="sd">    dataset.</span>
@@ -290,8 +297,11 @@
         
     <span class="k">return</span> <span class="n">unimode_value</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="rms"><a class="viewcode-back" href="../../../generated/maad.util.rms.html#maad.util.rms">[docs]</a><span class="k">def</span> <span class="nf">rms</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="rms">
+<a class="viewcode-back" href="../../../generated/maad.util.rms.html#maad.util.rms">[docs]</a>
+<span class="k">def</span> <span class="nf">rms</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the root-mean-square (RMS) level of an input signal. </span>
 <span class="sd">    </span>
@@ -321,8 +331,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="skewness"><a class="viewcode-back" href="../../../generated/maad.util.skewness.html#maad.util.skewness">[docs]</a><span class="k">def</span> <span class="nf">skewness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="skewness">
+<a class="viewcode-back" href="../../../generated/maad.util.skewness.html#maad.util.skewness">[docs]</a>
+<span class="k">def</span> <span class="nf">skewness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the skewness (asymetry) of an audio signal.</span>
 <span class="sd">    </span>
@@ -373,8 +386,11 @@
 
     <span class="k">return</span> <span class="n">sk</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="kurtosis"><a class="viewcode-back" href="../../../generated/maad.util.kurtosis.html#maad.util.kurtosis">[docs]</a><span class="k">def</span> <span class="nf">kurtosis</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="kurtosis">
+<a class="viewcode-back" href="../../../generated/maad.util.kurtosis.html#maad.util.kurtosis">[docs]</a>
+<span class="k">def</span> <span class="nf">kurtosis</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the kurtosis (tailedness or curved or arching) of an audio signal.</span>
 <span class="sd">    </span>
@@ -425,8 +441,11 @@
        
     <span class="k">return</span> <span class="n">ku</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="moments"><a class="viewcode-back" href="../../../generated/maad.util.moments.html#maad.util.moments">[docs]</a><span class="k">def</span> <span class="nf">moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="moments">
+<a class="viewcode-back" href="../../../generated/maad.util.moments.html#maad.util.moments">[docs]</a>
+<span class="k">def</span> <span class="nf">moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the first 4th moments of a vector (1d, ie. spectrum or waveform) </span>
 <span class="sd">    or spectrogram (2d) </span>
@@ -467,8 +486,11 @@
     
     <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="p">),</span> <span class="n">var</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="p">),</span> <span class="n">skewness</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="p">),</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="entropy"><a class="viewcode-back" href="../../../generated/maad.util.entropy.html#maad.util.entropy">[docs]</a><span class="k">def</span> <span class="nf">entropy</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="entropy">
+<a class="viewcode-back" href="../../../generated/maad.util.entropy.html#maad.util.entropy">[docs]</a>
+<span class="k">def</span> <span class="nf">entropy</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the entropy of a vector (waveform) or matrix (spectrogram).</span>
 <span class="sd">    </span>
@@ -536,6 +558,7 @@
         <span class="n">H</span> <span class="o">=</span> <span class="kc">None</span> 
 
     <span class="k">return</span> <span class="n">H</span></div>
+
 </pre></div>
 
            </div>

@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.temporal_entropy &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.temporal_entropy &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,62 +133,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-temporal-entropy">
-<h1>maad.features.temporal_entropy<a class="headerlink" href="#maad-features-temporal-entropy" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-temporal-entropy">
+<h1>maad.features.temporal_entropy<a class="headerlink" href="#maad-features-temporal-entropy" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.temporal_entropy">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">temporal_entropy</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">s</span></span></em>, <em><span class="n"><span class="pre">compatibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUT'</span></span></em>, <em><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#temporal_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.temporal_entropy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">temporal_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compatibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fast'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#temporal_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.temporal_entropy" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the entropy of the envelope of an audio signal.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">1D array</span></dt><dd><p>Audio to process (wav)
 compatibility : string {‘QUT’, ‘seewave’}, default is ‘QUT’
 Select the way to compute the temporal entropy.</p>
 <ul class="simple">
-<li>QUT <a class="reference internal" href="#r3c8909347110-2" id="id1">[2]</a>: entropy of the squared envelope</li>
-<li>seewave <a class="reference internal" href="#r3c8909347110-1" id="id2">[1]</a> : entropy of the envelope</li>
+<li><p>QUT <a class="reference internal" href="#r3c8909347110-2" id="id1">[2]</a>: entropy of the squared envelope</p></li>
+<li><p>seewave <a class="reference internal" href="#r3c8909347110-1" id="id2">[1]</a> : entropy of the envelope</p></li>
 </ul>
 </dd>
 <dt><strong>mode</strong><span class="classifier">str, optional, default is “fast”</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform.</p>
 <ul class="simple">
-<li>“fast” : The sound is first divided into frames (2d) using the function _wave2timeframes(s), then the max of each frame gives a good approximation of the envelope.</li>
-<li>“Hilbert” : estimation of the envelope from the Hilbert transform. The method is slow.</li>
+<li><p>“fast” : The sound is first divided into frames (2d) using the function _wave2timeframes(s), then the max of each frame gives a good approximation of the envelope.</p></li>
+<li><p>“Hilbert” : estimation of the envelope from the Hilbert transform. The method is slow.</p></li>
 </ul>
 </dd>
 <dt><strong>Nt</strong><span class="classifier">integer, optional, default is 512</span></dt><dd><p>Size of each frame. The largest, the highest is the approximation.</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>Ht: float</dt><dd><p>Temporal entropy of the audio</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <p>The entropy of an audio signal is a measure of energy dispersion. In the temporal domain, 
 values below 0.7 indicate a brief concentration of energy (few miliseconds), while 
 values close 1 indicate low concentration of energy, no peaks, smooth and constant 
 background noise.</p>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r3c8909347110-1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="r3c8909347110-2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>QUT : <a class="reference external" href="https://github.com/QutEcoacoustics/audio-analysis">https://github.com/QutEcoacoustics/audio-analysis</a>. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.1188744">http://doi.org/10.5281/zenodo.1188744</a></td></tr>
-</tbody>
-</table>
+<div role="list" class="citation-list">
+<div class="citation" id="r3c8909347110-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Seewave : <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></p>
+</div>
+<div class="citation" id="r3c8909347110-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>QUT : <a class="reference external" href="https://github.com/QutEcoacoustics/audio-analysis">https://github.com/QutEcoacoustics/audio-analysis</a>. Michael Towsey, Anthony Truskinger, Mark Cottman-Fields, &amp; Paul Roe. (2018, March 5). Ecoacoustics Audio Analysis Software v18.03.0.41 (Version v18.03.0.41). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.1188744">http://doi.org/10.5281/zenodo.1188744</a></p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
@@ -195,7 +193,7 @@ background noise.</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

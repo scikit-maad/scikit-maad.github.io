@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.sound.transform &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.sound.transform &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -120,7 +122,9 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="envelope"><a class="viewcode-back" href="../../../generated/maad.sound.envelope.html#maad.sound.envelope">[docs]</a><span class="k">def</span> <span class="nf">envelope</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+<div class="viewcode-block" id="envelope">
+<a class="viewcode-back" href="../../../generated/maad.sound.envelope.html#maad.sound.envelope">[docs]</a>
+<span class="k">def</span> <span class="nf">envelope</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the envelope of a sound waveform (1d)</span>
 <span class="sd">    </span>
@@ -193,8 +197,11 @@
         
     <span class="k">return</span> <span class="n">env</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectrum"><a class="viewcode-back" href="../../../generated/maad.sound.spectrum.html#maad.sound.spectrum">[docs]</a><span class="k">def</span> <span class="nf">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">,</span> 
+<div class="viewcode-block" id="spectrum">
+<a class="viewcode-back" href="../../../generated/maad.sound.spectrum.html#maad.sound.spectrum">[docs]</a>
+<span class="k">def</span> <span class="nf">spectrum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">,</span> 
         <span class="n">tlims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;spectrum&#39;</span><span class="p">,</span> <span class="n">as_pandas_series</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the power spectral density or power spectrum of 1D signal.</span>
@@ -309,8 +316,11 @@
 
     <span class="k">return</span> <span class="n">pxx</span><span class="p">,</span> <span class="n">f_idx</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="resample"><a class="viewcode-back" href="../../../generated/maad.sound.resample.html#maad.sound.resample">[docs]</a><span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">res_type</span> <span class="o">=</span> <span class="s1">&#39;kaiser_best&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="resample">
+<a class="viewcode-back" href="../../../generated/maad.sound.resample.html#maad.sound.resample">[docs]</a>
+<span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">res_type</span> <span class="o">=</span> <span class="s1">&#39;kaiser_best&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Changes the sample rate of an audio file or any time series.</span>
 
@@ -385,8 +395,11 @@
                          
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">res_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="trim"><a class="viewcode-back" href="../../../generated/maad.sound.trim.html#maad.sound.trim">[docs]</a><span class="k">def</span> <span class="nf">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pad_constant</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="trim">
+<a class="viewcode-back" href="../../../generated/maad.sound.trim.html#maad.sound.trim">[docs]</a>
+<span class="k">def</span> <span class="nf">trim</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pad_constant</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Slices a time series, from a initial time `min_t` to an ending time `max_t`.  </span>
 <span class="sd">    If the target duration `duration =` is larger than the original duration and `pad = True`, </span>
@@ -517,8 +530,11 @@
                     <span class="n">s_slice</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">min_lim</span><span class="p">):</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_lim</span><span class="p">)]</span>                
         
         <span class="k">return</span> <span class="n">s_slice</span></div>
+
     
-<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../generated/maad.sound.normalize.html#maad.sound.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">max_amp</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">max_db</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="normalize">
+<a class="viewcode-back" href="../../../generated/maad.sound.normalize.html#maad.sound.normalize">[docs]</a>
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">max_amp</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">max_db</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Normalize audio signal to desired amplitude or decibell full scale value (dBFS).</span>
 <span class="sd">    </span>
@@ -579,7 +595,10 @@
     
     <span class="k">return</span> <span class="n">s_out</span></div>
 
-<div class="viewcode-block" id="gain"><a class="viewcode-back" href="../../../generated/maad.sound.gain.html#maad.sound.gain">[docs]</a><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain_db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="gain">
+<a class="viewcode-back" href="../../../generated/maad.sound.gain.html#maad.sound.gain">[docs]</a>
+<span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain_db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Amply amplification or attenuation to the audio signal.</span>
 <span class="sd">    </span>
@@ -625,6 +644,7 @@
     <span class="n">s_out</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">gain_db</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">s_out</span></div>
+
 </pre></div>
 
            </div>

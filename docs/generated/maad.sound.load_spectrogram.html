@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.sound.load_spectrogram &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.sound.load_spectrogram &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -106,17 +109,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-sound-load-spectrogram">
-<h1>maad.sound.load_spectrogram<a class="headerlink" href="#maad-sound-load-spectrogram" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-sound-load-spectrogram">
+<h1>maad.sound.load_spectrogram<a class="headerlink" href="#maad-sound-load-spectrogram" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.sound.load_spectrogram">
-<code class="sig-prename descclassname"><span class="pre">maad.sound.</span></code><code class="sig-name descname"><span class="pre">load_spectrogram</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">filename</span></span></em>, <em><span class="n"><span class="pre">fs</span></span></em>, <em><span class="n"><span class="pre">duration</span></span></em>, <em><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">flipud</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/input_output.html#load_spectrogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.load_spectrogram" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.sound.</span></span><span class="sig-name descname"><span class="pre">load_spectrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flipud</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/sound/input_output.html#load_spectrogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.sound.load_spectrogram" title="Link to this definition">¶</a></dt>
 <dd><p>Load an image from a file or an URL</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>filename</strong><span class="classifier">string</span></dt><dd><p>Image file name, e.g. <code class="docutils literal notranslate"><span class="pre">test.jpg</span></code> or URL.</p>
 </dd>
 <dt><strong>fs</strong><span class="classifier">scalar</span></dt><dd><p>Sampling frequency of the audiogram (in Hz)</p>
@@ -132,58 +133,67 @@
 <dt><strong>display</strong><span class="classifier">boolean, optional, default is False</span></dt><dd><p>if True, display the image</p>
 </dd>
 <dt><strong>kwargs, optional. This parameter is used by plt.plot</strong></dt><dd><ul class="simple">
-<li><dl class="first docutils">
-<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10) </span></dt><dd>width, height in inches.</dd>
+<li><dl class="simple">
+<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10) </span></dt><dd><p>width, height in inches.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’ </span></dt><dd>title of the figure</dd>
+<li><dl class="simple">
+<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’ </span></dt><dd><p>title of the figure</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’ </span></dt><dd>label of the horizontal axis</dd>
+<li><dl class="simple">
+<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’ </span></dt><dd><p>label of the horizontal axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’ </span></dt><dd>label of the vertical axis</dd>
+<li><dl class="simple">
+<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’ </span></dt><dd><p>label of the vertical axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’ </span></dt><dd>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> 
+<li><dl class="simple">
+<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’ </span></dt><dd><p>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> 
 in order to get all the  existing colormaps 
 examples: ‘hsv’, ‘hot’, ‘bone’, ‘tab20c’, ‘jet’, ‘seismic’,  
-‘viridis’…</dd>
+‘viridis’…</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>vmin, vmax<span class="classifier">scalar, optional, default: None </span></dt><dd><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize 
+<li><dl class="simple">
+<dt>vmin, vmax<span class="classifier">scalar, optional, default: None </span></dt><dd><p><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize 
 luminance data.  Note if you pass a <cite>norm</cite> instance, your 
-settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</dd>
+settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>extent<span class="classifier">scalars (left, right, bottom, top), optional, default: None </span></dt><dd>The location, in data-coordinates, of the lower-left and 
+<li><dl class="simple">
+<dt>extent<span class="classifier">scalars (left, right, bottom, top), optional, default: None </span></dt><dd><p>The location, in data-coordinates, of the lower-left and 
 upper-right corners. If <cite>None</cite>, the image is positioned such that 
-the pixel centers fall on zero-based (row, column) indices.</dd>
+the pixel centers fall on zero-based (row, column) indices.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>dpi<span class="classifier">integer, optional, default is 96 </span></dt><dd>Dot per inch.  
+<li><dl class="simple">
+<dt>dpi<span class="classifier">integer, optional, default is 96 </span></dt><dd><p>Dot per inch.  
 For printed version, choose high dpi (i.e. dpi=300) =&gt; slow 
-For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</dd>
+For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>format<span class="classifier">string, optional, default is ‘png’ </span></dt><dd>Format to save the figure</dd>
+<li><dl class="simple">
+<dt>format<span class="classifier">string, optional, default is ‘png’ </span></dt><dd><p>Format to save the figure</p>
+</dd>
 </dl>
 </li>
 </ul>
 <p>… and more, see matplotlib</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>Sxx</strong><span class="classifier">ndarray</span></dt><dd><p>The different color bands/channels are stored in the 
 third dimension, such that a gray-image is MxN, an 
 RGB-image MxNx3 and an RGBA-image MxNx4.</p>
@@ -196,10 +206,8 @@ RGB-image MxNx3 and an RGBA-image MxNx4.</p>
 upper-right corners.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">xenocanto_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.xeno-canto.org/sounds/uploaded/DTKJSKMKZD/ffts/XC445081-med.png&#39;</span>
@@ -212,7 +220,7 @@ upper-right corners.</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

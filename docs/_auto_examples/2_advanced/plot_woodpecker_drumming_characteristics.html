@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download audio files from Xeno-Canto and automatically extract characteristics &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Download audio files from Xeno-Canto and automatically extract characteristics &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Use multicpu functionality to compute indices" href="plot_extract_alpha_indices_multicpu.html" /> 
+    <link rel="prev" title="Use multicpu functionality to compute indices" href="extract_alpha_indices_multicpu.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,7 +39,7 @@
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,15 +70,16 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_graphical_soundscape.html">Acoustic fingerprinting and graphical soundscapes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -112,12 +116,12 @@
            <div itemprop="articleBody">
              
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"><span class="std std-ref">Go to the end</span></a>
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="download-audio-files-from-xeno-canto-and-automatically-extract-characteristics">
-<span id="sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Permalink to this heading">¶</a></h1>
+<section class="sphx-glr-example-title" id="download-audio-files-from-xeno-canto-and-automatically-extract-characteristics">
+<span id="sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Link to this heading">¶</a></h1>
 <p>The goal of this example is to show how to automatically download audio files
 from Xeno-Canto and process them to automatically extract audio characteristics
 in order to classify the sound made by different species.
@@ -144,10 +148,10 @@ Syrian : Dendrocopos syriacus
 Wryneck : Jynx torquilla
 Green : Picus viridis
 Middle Spotted : Dendrocoptes medius</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_woodpecker_drumming_characteristics_002.png&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_woodpecker_drumming_characteristics_002.png&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -167,10 +171,10 @@ Middle Spotted : Dendrocoptes medius</p>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span>
 </pre></div>
 </div>
-<div class="section" id="define-local-function">
-<h2>Define local function<a class="headerlink" href="#define-local-function" title="Permalink to this heading">¶</a></h2>
+<section id="define-local-function">
+<h2>Define local function<a class="headerlink" href="#define-local-function" title="Link to this heading">¶</a></h2>
 <p>function to grab all audio files in a folder</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grab_audio</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="n">audio_format</span><span class="o">=</span><span class="s1">&#39;mp3&#39;</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grab_audio</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="n">audio_format</span><span class="o">=</span><span class="s1">&#39;mp3&#39;</span><span class="p">):</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/os.html#os.walk" title="os.walk" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">walk</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">name</span></a> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -179,15 +183,15 @@ Middle Spotted : Dendrocoptes medius</p>
     <span class="k">return</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a>
 </pre></div>
 </div>
-</div>
-<div class="section" id="define-constants">
-<h2>Define constants<a class="headerlink" href="#define-constants" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="define-constants">
+<h2>Define constants<a class="headerlink" href="#define-constants" title="Link to this heading">¶</a></h2>
 <p>Directory where to download the audiofile from xeno-canto</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
 </pre></div>
 </div>
 <p>Name of the dataset. This will be used to create a subdir with the same name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_DIR</span></a> <span class="o">=</span> <span class="s1">&#39;woodpecker_dataset&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_DIR</span></a> <span class="o">=</span> <span class="s1">&#39;woodpecker_dataset&#39;</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Eurasian Three-toed&#39;</span><span class="p">,</span> <span class="s1">&#39;Picoides tridactylus&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;White-backed&#39;</span><span class="p">,</span>        <span class="s1">&#39;Dendrocopos leucotos&#39;</span><span class="p">],</span>
@@ -201,11 +205,11 @@ Middle Spotted : Dendrocoptes medius</p>
         <span class="p">[</span><span class="s1">&#39;Middle Spotted&#39;</span><span class="p">,</span>      <span class="s1">&#39;Dendrocoptes medius&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="query-xeno-canto">
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading">¶</a></h2>
 <p>get the genus and species needed for Xeno-Canto</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;english name&#39;</span><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;english name&#39;</span><span class="p">,</span>
                                         <span class="s1">&#39;scientific name&#39;</span><span class="p">])</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a> <span class="o">=</span> <span class="p">[]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a> <span class="o">=</span> <span class="p">[]</span>
@@ -223,7 +227,7 @@ len : length of the audio file
 type : type of sound : ‘song’ or ‘call’ or ‘drumming’
 Please have a look here to know all the parameters and how to use them :
 <a class="reference external" href="https://xeno-canto.org/help/search">https://xeno-canto.org/help/search</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param1&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param2&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param3&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;type:drumming&#39;</span>
@@ -241,29 +245,29 @@ Please have a look here to know all the parameters and how to use them :
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picoides%20tridactylus%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 207 files
+Saved metadata for 228 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20leucotos%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 152 files
+Saved metadata for 175 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 452 files
+Saved metadata for 496 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
 Loading page 2...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=2
 Found 2 pages in total.
-Saved metadata for 816 files
+Saved metadata for 898 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 299 files
+Saved metadata for 330 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 87 files
+Saved metadata for 99 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20syriacus%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
@@ -275,19 +279,19 @@ Saved metadata for 0 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 32 files
+Saved metadata for 34 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 21 files
+Saved metadata for 22 files
 </pre></div>
 </div>
-</div>
-<div class="section" id="download-audio-xeno-canto">
-<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="download-audio-xeno-canto">
+<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Link to this heading">¶</a></h2>
 <p>From the metadata that was collected in the previous section,
 select a maximum of 20 files per species, regarding the quality and the length</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
                             <span class="n">max_nb_files</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                             <span class="n">max_length</span><span class="o">=</span><span class="s1">&#39;01:00&#39;</span><span class="p">,</span>
                             <span class="n">min_length</span><span class="o">=</span><span class="s1">&#39;00:10&#39;</span><span class="p">,</span>
@@ -322,9 +326,7 @@ Dryocopus martius
 -----------------------------------------
 Picus canus
     ... request 20 files of quality A
-    --&gt; found 18 files of quality A and 00:10&lt;length&lt;01:00
-    ... request  2 files of quality B
-    --&gt; found  2 files of quality B and 00:10&lt;length&lt;01:00
+    --&gt; found 20 files of quality A and 00:10&lt;length&lt;01:00
     total files : 20
 -----------------------------------------
 Dendrocopos syriacus
@@ -338,8 +340,8 @@ Picus viridis
     ... request 20 files of quality A
     --&gt; found  5 files of quality A and 00:10&lt;length&lt;01:00
     ... request 15 files of quality B
-    --&gt; found  2 files of quality B and 00:10&lt;length&lt;01:00
-    total files :  7
+    --&gt; found  3 files of quality B and 00:10&lt;length&lt;01:00
+    total files :  8
 -----------------------------------------
 Dendrocoptes medius
     ... request 20 files of quality A
@@ -352,7 +354,7 @@ Dendrocoptes medius
 </div>
 <p>download all the audio files into a directory with a subdirectory for each
 species</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">util</span><span class="o">.</span><span class="n">xc_download</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">util</span><span class="o">.</span><span class="n">xc_download</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
                 <span class="n">rootdir</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a><span class="p">,</span>
                 <span class="n">dataset_name</span><span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_DIR</span></a><span class="p">,</span>
                 <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -363,21 +365,25 @@ species</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>***WARNING*** : The directory ../../data already exists
 </pre></div>
 </div>
-</div>
-<div class="section" id="grab-all-audio-filenames-in-the-directory">
-<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="grab-all-audio-filenames-in-the-directory">
+<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div>create a dataframe with all recordings in the directory</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a> <span class="o">=</span> <span class="n">grab_audio</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a><span class="o">+</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_DIR</span></a><span class="p">)</span>
+<div><p>create a dataframe with all recordings in the directory</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a> <span class="o">=</span> <span class="n">grab_audio</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a><span class="o">+</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_DIR</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>Create new columns with short filename and species names</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a><span class="p">:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;fullfilename&#39;</span><span class="p">:</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">,</span>
-                    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">)</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span>
-                    <span class="s1">&#39;species&#39;</span><span class="p">:</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">)</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]},</span>
-                   <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                            <span class="s1">&#39;fullfilename&#39;</span><span class="p">:</span> <span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">],</span>
+                            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">)</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                            <span class="s1">&#39;species&#39;</span><span class="p">:</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a><span class="p">)</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                            <span class="p">})</span>
+                    <span class="p">],</span>
+                    <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=====================================================&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of files : </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
@@ -391,15 +397,16 @@ number of species :  2
 =====================================================
 </pre></div>
 </div>
-</div>
-<div class="section" id="process-all-audio-files-species-by-species">
-<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="process-all-audio-files-species-by-species">
+<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div>In this part, all audio file will be processed in order to extract each
+<div><p>In this part, all audio file will be processed in order to extract each
 drumming portion separately.
 Then pulses are automaticaly detected for each drumming before computing
-drumming parameters such as median pulse rate, duration, number of pulses…</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># store starting time</span>
+drumming parameters such as median pulse rate, duration, number of pulses…</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># store starting time</span>
 <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start_time</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 
 <span class="c1"># Create an empty dataframe to drummings parameters</span>
@@ -436,19 +443,19 @@ drumming parameters such as median pulse rate, duration, number of pulses…</di
         <span class="c1"># 3. bandpass filter around drumming frequencies</span>
         <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fcut</span></a> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">select_bandwidth</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>
-                                   <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
-                                   <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fcut</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fcut</span></a><span class="p">,</span>
-                                   <span class="n">forder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                   <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span>
-                                   <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">)</span>
+                                <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
+                                <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fcut</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fcut</span></a><span class="p">,</span>
+                                <span class="n">forder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span>
+                                <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">)</span>
 
         <span class="c1"># 4. find portions of the signal (ROIs) that contain a drumming</span>
         <span class="n">df_rois</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>
-                                     <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
-                                     <span class="n">flims</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">4000</span><span class="p">),</span>
-                                     <span class="n">tlen</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-                                     <span class="n">th</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
-                                     <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                                    <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span>
+                                    <span class="n">flims</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">4000</span><span class="p">),</span>
+                                    <span class="n">tlen</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                                    <span class="n">th</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+                                    <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># 5. Loop to process each ROI previously found</span>
         <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pulseRateMedian</span></a> <span class="o">=</span> <span class="p">[]</span>
@@ -543,8 +550,8 @@ drumming parameters such as median pulse rate, duration, number of pulses…</di
             <span class="n">df_drums_temp</span><span class="p">[</span><span class="s1">&#39;Amp_pulses_last&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Amp_pulses_last</span></a>
             <span class="n">df_drums_temp</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a>
             <span class="n">df_drums_temp</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file</span></a>
-            <span class="n">df_drums</span> <span class="o">=</span> <span class="n">df_drums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_drums_temp</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
+            <span class="n">df_drums</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_drums</span><span class="p">,</span><span class="n">df_drums_temp</span><span class="p">],</span>
+                                <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="c1"># counter</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%2.0f%%</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">current_df</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)))</span>
@@ -594,15 +601,16 @@ drumming parameters such as median pulse rate, duration, number of pulses…</di
 67%Warning: No detection found
 
 83%
-100%--- 0.07 minutes ---
+100%--- 0.11 minutes ---
 </pre></div>
 </div>
-</div>
-<div class="section" id="display-boxplot">
-<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="display-boxplot">
+<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div>Display a boxplot of the feature “pulseRateMedian” for each species</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<div><p>Display a boxplot of the feature “pulseRateMedian” for each species</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 
 <span class="c1"># create a figure</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -611,14 +619,14 @@ drumming parameters such as median pulse rate, duration, number of pulses…</di
 <span class="c1"># loop to build a boxplot for each species based on the feature &quot;pulseRateMedian&quot;</span>
 <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="ow">in</span> <span class="n">df_drums</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df_drums</span><span class="p">[</span><span class="n">df_drums</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="o">==</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="p">][</span><span class="s1">&#39;pulseRateMedian&#39;</span><span class="p">],</span>
-               <span class="n">positions</span><span class="o">=</span><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
-               <span class="n">widths</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
-               <span class="n">vert</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-               <span class="n">notch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">positions</span><span class="o">=</span><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">widths</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
+            <span class="n">vert</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">notch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a> <span class="o">+=</span> <span class="mi">1</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_drums</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">df_drums</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="o">.</span><span class="n">unique</span><span class="p">(),</span>
-                   <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;pulseRateMedian [Hz]&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
@@ -626,17 +634,18 @@ drumming parameters such as median pulse rate, duration, number of pulses…</di
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" srcset="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" alt="plot woodpecker drumming characteristics" class = "sphx-glr-single-img"/></div>
-<div class="section" id="display-clusters-based-on-the-drummings-features">
-<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Permalink to this heading">¶</a></h2>
+<img src="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" srcset="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" alt="plot woodpecker drumming characteristics" class = "sphx-glr-single-img"/></section>
+<section id="display-clusters-based-on-the-drummings-features">
+<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div>A collection of features is associated to each drumming found in the audio
+<div><p>A collection of features is associated to each drumming found in the audio
 recordings. The goal is to display clusters in 2D with the dimensionality
 reduction tool t-SNE and associate a color to each point that corresponds
 to the belonging species. It is then possible to observe species that are
 clearly grouped into separate clusters from species that are mixed with
-others</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocess data : data scaler</span>
+others</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocess data : data scaler</span>
 <span class="n">df_drums</span> <span class="o">=</span> <span class="n">df_drums</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">df_drums</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span><span class="s1">&#39;filename&#39;</span><span class="p">])</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -672,29 +681,31 @@ others</div></blockquote>
 </div>
 <img src="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_002.png" srcset="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_002.png" alt="plot woodpecker drumming characteristics" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[t-SNE] Computing 59 nearest neighbors...
 [t-SNE] Indexed 60 samples in 0.000s...
-[t-SNE] Computed neighbors for 60 samples in 0.040s...
+[t-SNE] Computed neighbors for 60 samples in 0.001s...
 [t-SNE] Computed conditional probabilities for sample 60 / 60
 [t-SNE] Mean sigma: 2.428003
-[t-SNE] KL divergence after 250 iterations with early exaggeration: 46.815094
-[t-SNE] KL divergence after 1000 iterations: 0.169580
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 44.027039
+[t-SNE] KL divergence after 700 iterations: 0.116557
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  0.103 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 17.804 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/b786be7465a17ad9276cb51a1954d5e6/plot_woodpecker_drumming_characteristics.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_woodpecker_drumming_characteristics.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/03bc66b99eb5608b7aced637e2968b4c/plot_woodpecker_drumming_characteristics.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_woodpecker_drumming_characteristics.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/03bc66b99eb5608b7aced637e2968b4c/plot_woodpecker_drumming_characteristics.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_woodpecker_drumming_characteristics.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b786be7465a17ad9276cb51a1954d5e6/plot_woodpecker_drumming_characteristics.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_woodpecker_drumming_characteristics.py</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_extract_alpha_indices_multicpu.html" class="btn btn-neutral float-left" title="Use multicpu functionality to compute indices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extract_alpha_indices_multicpu.html" class="btn btn-neutral float-left" title="Use multicpu functionality to compute indices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

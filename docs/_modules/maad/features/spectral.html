@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.spectral &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.spectral &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -133,7 +135,9 @@
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectral_moments"><a class="viewcode-back" href="../../../generated/maad.features.spectral_moments.html#maad.features.spectral_moments">[docs]</a><span class="k">def</span> <span class="nf">spectral_moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="spectral_moments">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_moments.html#maad.features.spectral_moments">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the first 4th moments of an amplitude spectrum (1d) or spectrogram (2d),</span>
 <span class="sd">    mean, variance, skewness, kurtosis.</span>
@@ -183,8 +187,11 @@
 
     <span class="k">return</span> <span class="n">moments</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="p">)</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="peak_frequency"><a class="viewcode-back" href="../../../generated/maad.features.peak_frequency.html#maad.features.peak_frequency">[docs]</a><span class="k">def</span> <span class="nf">peak_frequency</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="peak_frequency">
+<a class="viewcode-back" href="../../../generated/maad.features.peak_frequency.html#maad.features.peak_frequency">[docs]</a>
+<span class="k">def</span> <span class="nf">peak_frequency</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the peak frequency for audio signal. The peak frequency is the frequency of</span>
 <span class="sd">    maximum power. If a region of interest with time and spectral limits is provided,</span>
@@ -264,8 +271,11 @@
     
     <span class="k">return</span> <span class="n">out</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectral_quantile"><a class="viewcode-back" href="../../../generated/maad.features.spectral_quantile.html#maad.features.spectral_quantile">[docs]</a><span class="k">def</span> <span class="nf">spectral_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="spectral_quantile">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_quantile.html#maad.features.spectral_quantile">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_quantile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the q-th quantile of the power spectrum. If a region of interest with time and</span>
@@ -370,8 +380,11 @@
 
     <span class="k">return</span> <span class="n">out</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectral_bandwidth"><a class="viewcode-back" href="../../../generated/maad.features.spectral_bandwidth.html#maad.features.spectral_bandwidth">[docs]</a><span class="k">def</span> <span class="nf">spectral_bandwidth</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="spectral_bandwidth">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_bandwidth.html#maad.features.spectral_bandwidth">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_bandwidth</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_pandas</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the bandwith of the power spectrum. If a region of interest with time</span>
 <span class="sd">    and spectral limits is provided, the spectral bandwidth is computed on the selection.</span>
@@ -422,8 +435,11 @@
         
     <span class="k">return</span> <span class="n">out</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="all_spectral_features"><a class="viewcode-back" href="../../../generated/maad.features.all_spectral_features.html#maad.features.all_spectral_features">[docs]</a><span class="k">def</span> <span class="nf">all_spectral_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="all_spectral_features">
+<a class="viewcode-back" href="../../../generated/maad.features.all_spectral_features.html#maad.features.all_spectral_features">[docs]</a>
+<span class="k">def</span> <span class="nf">all_spectral_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute all the spectral features for a signal.</span>
 
@@ -500,6 +516,7 @@
         <span class="s2">&quot;bw_90&quot;</span><span class="p">:</span><span class="n">bw_90</span><span class="p">})</span>
 
     <span class="k">return</span> <span class="n">spectral_features</span></div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>

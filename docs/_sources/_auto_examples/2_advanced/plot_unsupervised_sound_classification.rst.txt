@@ -27,11 +27,28 @@ In this example, we will use unsupervised learning to automatically annotate mul
 
 **Dependencies**: This example requires the Python package scikit-learn v0.24 or greater.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-19
+.. GENERATED FROM PYTHON SOURCE LINES 13-15
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_path = './_images/sphx_glr_plot_unsupervised_sound_classification_004.png'
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 16-18
+
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
+
+.. code-block:: Python
+
     import numpy as np
     import matplotlib.pyplot as plt
     from maad import sound, features, rois
@@ -44,13 +61,13 @@ In this example, we will use unsupervised learning to automatically annotate mul
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-21
+.. GENERATED FROM PYTHON SOURCE LINES 24-25
 
 Start by loading an example audio file. We will remove low frequency ambient noise with a lowpass filter and then compute the spectrogram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-30
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
 
-.. code-block:: default
+.. code-block:: Python
 
 
     s, fs = sound.load('../../data/rock_savanna.wav')
@@ -73,15 +90,15 @@ Start by loading an example audio file. We will remove low frequency ambient noi
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-34
+.. GENERATED FROM PYTHON SOURCE LINES 35-38
 
 1. Find regions of interest
 ---------------------------
 To find regions of interest in the spectrogram, we will remove stationary background noise and then find isolated sounds using a double threshold method. Small ROIs due to noise in the signal will be removed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-48
 
-.. code-block:: default
+.. code-block:: Python
 
 
     Sxx_db_rmbg, _, _ = sound.remove_background(Sxx_db)
@@ -105,15 +122,15 @@ To find regions of interest in the spectrogram, we will remove stationary backgr
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-48
+.. GENERATED FROM PYTHON SOURCE LINES 49-52
 
 2. Compute acoustic features
 ----------------------------
 The ``shape_feaures`` function uses bidimensional wavelets to get the texture and spectro-temporal shape coeficients of each ROI. Wavelets have the advantage of being robust when the signal-to-noise ratio is low, and derive homogeneous descriptors which facilitate the clustering process. The wavelet decomposition is performed on the complete spectrogram, hence the coeficients for ROIs do not vary much even when not the time-frequency bounds are not exact. The centroid features gives an estimate of the median frequency of the ROIs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-56
+.. GENERATED FROM PYTHON SOURCE LINES 52-60
 
-.. code-block:: default
+.. code-block:: Python
 
 
     df_shape, params = features.shape_features(Sxx_db, resolution='low', rois=df_rois)
@@ -130,15 +147,15 @@ The ``shape_feaures`` function uses bidimensional wavelets to get the texture an
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-60
+.. GENERATED FROM PYTHON SOURCE LINES 61-64
 
 3. Reduce the dimensionality of the features
 --------------------------------------------
 The shape audio features have 26 dimensions. To facilitate the clustering process and visualize the results, it is posible to use non-metric dimensionality reduction algorithm, namely the t-distributed stochastic neighbor embedding (t-SNE), to proyect the data in two dimensions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-74
+.. GENERATED FROM PYTHON SOURCE LINES 64-78
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from sklearn.manifold import TSNE
@@ -169,7 +186,7 @@ The shape audio features have 26 dimensions. To facilitate the clustering proces
 
     [t-SNE] Computing 37 nearest neighbors...
     [t-SNE] Indexed 187 samples in 0.000s...
-    [t-SNE] Computed neighbors for 187 samples in 0.028s...
+    [t-SNE] Computed neighbors for 187 samples in 0.067s...
     [t-SNE] Computed conditional probabilities for sample 187 / 187
     [t-SNE] Mean sigma: 0.044609
     [t-SNE] KL divergence after 250 iterations with early exaggeration: 49.145134
@@ -178,15 +195,15 @@ The shape audio features have 26 dimensions. To facilitate the clustering proces
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-78
+.. GENERATED FROM PYTHON SOURCE LINES 79-82
 
 4. Cluster the ROIs into homogeneous groups. 
 --------------------------------------------
 In the above plot it is possible to observe how sounds are aggregated. It is posible to group these samples rapidly and objectively using a clustering algorithm. Here, we will use DBSCAN, a simple algorithm that allows to find core samples with high density and expands clusters from them. This algorithm has the advantage to find automatically the number of clusters and can cope with unbalanced classes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-83
+.. GENERATED FROM PYTHON SOURCE LINES 82-87
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from sklearn.cluster import DBSCAN
@@ -206,13 +223,13 @@ In the above plot it is possible to observe how sounds are aggregated. It is pos
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 88-89
 
 Visualize the clustering results
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-96
+.. GENERATED FROM PYTHON SOURCE LINES 89-100
 
-.. code-block:: default
+.. code-block:: Python
 
     from maad.util import rand_cmap
     fig, ax = plt.subplots()
@@ -249,7 +266,7 @@ Visualize the clustering results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-102
+.. GENERATED FROM PYTHON SOURCE LINES 101-106
 
 References
 -----------
@@ -261,7 +278,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.471 seconds)
+   **Total running time of the script:** (0 minutes 11.138 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_unsupervised_sound_classification.py:
@@ -270,16 +287,13 @@ References
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_unsupervised_sound_classification.ipynb <plot_unsupervised_sound_classification.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_unsupervised_sound_classification.py <plot_unsupervised_sound_classification.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_unsupervised_sound_classification.ipynb <plot_unsupervised_sound_classification.ipynb>`
 
 
 .. only:: html

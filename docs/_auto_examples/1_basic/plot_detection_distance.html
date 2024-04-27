@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detection distance estimation &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Detection distance estimation &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -37,7 +40,7 @@
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -108,12 +111,12 @@
            <div itemprop="articleBody">
              
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-1-basic-plot-detection-distance-py"><span class="std std-ref">Go to the end</span></a>
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-1-basic-plot-detection-distance-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="detection-distance-estimation">
-<span id="sphx-glr-auto-examples-1-basic-plot-detection-distance-py"></span><h1>Detection distance estimation<a class="headerlink" href="#detection-distance-estimation" title="Permalink to this heading">¶</a></h1>
+<section class="sphx-glr-example-title" id="detection-distance-estimation">
+<span id="sphx-glr-auto-examples-1-basic-plot-detection-distance-py"></span><h1>Detection distance estimation<a class="headerlink" href="#detection-distance-estimation" title="Link to this heading">¶</a></h1>
 <p>When sound travels in air (or in water), initial acoustic signature may change
 regarding distances due to attenuation. Sound attenuation in natural environment
 is very complex to model. We propose to reduce the complexity by decomposing
@@ -129,7 +132,7 @@ that sound</p>
 <p>In this example, we will estimate the detection distance of each frequency
 component of a sound that travels in rainforest at noon, when the ambient
 sound level is the lowest.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># import the graphic library</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -143,7 +146,7 @@ to 20000Hz with an initial sound pressure level of 80 dBSPL at 1m which
 corresponds to the sum of the sound pressure level along the full frequency
 bandwidth. So we need first to spread the intial sound pressure level over
 this frequency bandwidth.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># frequency vector from 0Hz to 20000Hz, with 1000Hz resolution</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># frequency vector from 0Hz to 20000Hz, with 1000Hz resolution</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
 <span class="c1"># Repartition of the initial sound pressure level along each frequency bin</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">L0</span></a> <span class="o">=</span> <span class="mi">80</span>
@@ -163,7 +166,7 @@ this frequency bandwidth.</p>
 background noise (or ambient sound). Let’s define an array with the sound
 pressure level experimentaly measured in a rainforest (French Guiana)
 at noon for each frequency bin (from 0Hz to 20kHz).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L_bkg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">44.270917</span><span class="p">,</span> <span class="mf">27.586848</span><span class="p">,</span> <span class="mf">25.60843</span> <span class="p">,</span> <span class="mf">23.205826</span><span class="p">,</span> <span class="mf">20.631086</span><span class="p">,</span> <span class="mf">24.080126</span><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L_bkg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">44.270917</span><span class="p">,</span> <span class="mf">27.586848</span><span class="p">,</span> <span class="mf">25.60843</span> <span class="p">,</span> <span class="mf">23.205826</span><span class="p">,</span> <span class="mf">20.631086</span><span class="p">,</span> <span class="mf">24.080126</span><span class="p">,</span>
                   <span class="mf">19.032034</span><span class="p">,</span> <span class="mf">33.455814</span><span class="p">,</span> <span class="mf">44.420644</span><span class="p">,</span> <span class="mf">19.751421</span><span class="p">,</span> <span class="mf">11.932672</span><span class="p">,</span>  <span class="mf">9.641225</span><span class="p">,</span>
                   <span class="mf">8.075566</span><span class="p">,</span>  <span class="mf">7.447614</span><span class="p">,</span>  <span class="mf">6.991958</span><span class="p">,</span>  <span class="mf">7.854252</span><span class="p">,</span> <span class="mf">11.911974</span><span class="p">,</span>  <span class="mf">4.192154</span><span class="p">,</span>
                   <span class="mf">3.234791</span><span class="p">,</span>  <span class="mf">2.936258</span><span class="p">])</span>
@@ -176,7 +179,7 @@ temperature at 24°C and the relative humidity at 87% as there are common
 values for rainforest. We also set the coefficient of attenuation of the
 habitat to 0.02dB/kHz/m which is also representative of the attenuation of
 rainforest habitat.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">detection_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0_per_bin</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">r0</span></a><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="n">rh</span> <span class="o">=</span> <span class="mi">87</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">detection_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0_per_bin</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">r0</span></a><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="n">rh</span> <span class="o">=</span> <span class="mi">87</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Display the detection distance for each frequency as a bar plot. We can
@@ -184,7 +187,7 @@ observe that the detection distance is highly variable from 10m at 8kHz till
 81m for 4kHz. The low detection distance between 7kHz to 8kHz is due to the
 stridulations of the insects that is very loud. It masks the propagation
 of the audio signal at a very short distance.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function to add value labels</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function to add value labels</span>
 <span class="k">def</span> <span class="nf">valuelabel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)):</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span>
@@ -220,15 +223,17 @@ of the audio signal at a very short distance.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_detection_distance_001.png" srcset="../../_images/sphx_glr_plot_detection_distance_001.png" alt="plot detection distance" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.128 seconds)</p>
+<img src="../../_images/sphx_glr_plot_detection_distance_001.png" srcset="../../_images/sphx_glr_plot_detection_distance_001.png" alt="plot detection distance" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.132 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-1-basic-plot-detection-distance-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/bb3eea8d5cb97c0f9335b0abc38789d0/plot_detection_distance.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_detection_distance.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/53098b3b3b74b704b625d01d4579eafd/plot_detection_distance.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_detection_distance.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/53098b3b3b74b704b625d01d4579eafd/plot_detection_distance.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_detection_distance.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/bb3eea8d5cb97c0f9335b0abc38789d0/plot_detection_distance.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_detection_distance.py</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
            </div>

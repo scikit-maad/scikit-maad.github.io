@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.sound.spectral_subtraction &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.sound.spectral_subtraction &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -122,7 +124,9 @@
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
 
-<div class="viewcode-block" id="remove_background"><a class="viewcode-back" href="../../../generated/maad.sound.remove_background.html#maad.sound.remove_background">[docs]</a><span class="k">def</span> <span class="nf">remove_background</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">gauss_win</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">gauss_std</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">beta1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<div class="viewcode-block" id="remove_background">
+<a class="viewcode-back" href="../../../generated/maad.sound.remove_background.html#maad.sound.remove_background">[docs]</a>
+<span class="k">def</span> <span class="nf">remove_background</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">gauss_win</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">gauss_std</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">beta1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                       <span class="n">llambda</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                       <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
@@ -358,10 +362,13 @@
 
     <span class="k">return</span> <span class="n">Sxx_out</span><span class="p">,</span> <span class="n">noise_profile</span><span class="p">,</span> <span class="n">BGNxx</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="remove_background_morpho"><a class="viewcode-back" href="../../../generated/maad.sound.remove_background_morpho.html#maad.sound.remove_background_morpho">[docs]</a><span class="k">def</span> <span class="nf">remove_background_morpho</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="remove_background_morpho">
+<a class="viewcode-back" href="../../../generated/maad.sound.remove_background_morpho.html#maad.sound.remove_background_morpho">[docs]</a>
+<span class="k">def</span> <span class="nf">remove_background_morpho</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Remove background noise in a spectrogram using mathematical morphology tool.</span>
 
@@ -551,10 +558,13 @@
 
     <span class="k">return</span> <span class="n">Sxx_out</span><span class="p">,</span> <span class="n">noise_profile</span><span class="p">,</span> <span class="n">BGNxx</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="remove_background_along_axis"><a class="viewcode-back" href="../../../generated/maad.sound.remove_background_along_axis.html#maad.sound.remove_background_along_axis">[docs]</a><span class="k">def</span> <span class="nf">remove_background_along_axis</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<div class="viewcode-block" id="remove_background_along_axis">
+<a class="viewcode-back" href="../../../generated/maad.sound.remove_background_along_axis.html#maad.sound.remove_background_along_axis">[docs]</a>
+<span class="k">def</span> <span class="nf">remove_background_along_axis</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                                   <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Get the noisy profile along the defined axis and remove this profile from</span>
@@ -742,10 +752,13 @@
 
     <span class="k">return</span> <span class="n">Sxx_out</span><span class="p">,</span> <span class="n">noise_profile</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="median_equalizer"><a class="viewcode-back" href="../../../generated/maad.sound.median_equalizer.html#maad.sound.median_equalizer">[docs]</a><span class="k">def</span> <span class="nf">median_equalizer</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="median_equalizer">
+<a class="viewcode-back" href="../../../generated/maad.sound.median_equalizer.html#maad.sound.median_equalizer">[docs]</a>
+<span class="k">def</span> <span class="nf">median_equalizer</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Remove background noise in spectrogram using median equalizer.</span>
 
@@ -896,9 +909,12 @@
 
     <span class="k">return</span> <span class="n">Sxx_out</span></div>
 
+
 <span class="c1">#%%</span>
 
-<div class="viewcode-block" id="pcen"><a class="viewcode-back" href="../../../generated/maad.sound.pcen.html#maad.sound.pcen">[docs]</a><span class="k">def</span> <span class="nf">pcen</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+<div class="viewcode-block" id="pcen">
+<a class="viewcode-back" href="../../../generated/maad.sound.pcen.html#maad.sound.pcen">[docs]</a>
+<span class="k">def</span> <span class="nf">pcen</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
          <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       Per-Channel Energy Normalization (PCEN)</span>
@@ -1069,6 +1085,7 @@
                          <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">Sxx_out</span><span class="p">,</span> <span class="n">enhance_profile</span><span class="p">,</span> <span class="n">PCENxx</span></div>
+
 </pre></div>
 
            </div>

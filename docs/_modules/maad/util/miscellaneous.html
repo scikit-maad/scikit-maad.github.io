@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.miscellaneous &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.miscellaneous &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -93,7 +95,7 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot; Ensemble of usefull functions for scikit-maad. &quot;&quot;&quot;</span>
 <span class="c1">#</span>
-<span class="c1"># Authors:  Juan Sebastian ULLOA &lt;lisofomia@gmail.com&gt;</span>
+<span class="c1"># Authors:  Juan Sebastian ULLOA </span>
 <span class="c1">#           Sylvain HAUPERT &lt;sylvain.haupert@mnhn.fr&gt;</span>
 <span class="c1">#</span>
 <span class="c1"># License: New BSD License</span>
@@ -116,7 +118,9 @@
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="index_bw"><a class="viewcode-back" href="../../../generated/maad.util.index_bw.html#maad.util.index_bw">[docs]</a><span class="k">def</span> <span class="nf">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">bw</span><span class="p">):</span>
+<div class="viewcode-block" id="index_bw">
+<a class="viewcode-back" href="../../../generated/maad.util.index_bw.html#maad.util.index_bw">[docs]</a>
+<span class="k">def</span> <span class="nf">index_bw</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">bw</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Select all the index coresponding to a selected frequency band.</span>
 
@@ -175,9 +179,12 @@
         <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">index</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">index</span></div>
 
+
 <span class="c1"># %%</span>
 
-<div class="viewcode-block" id="into_bins"><a class="viewcode-back" href="../../../generated/maad.util.into_bins.html#maad.util.into_bins">[docs]</a><span class="k">def</span> <span class="nf">into_bins</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">an</span><span class="p">,</span> <span class="n">bin_step</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_min</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bin_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="into_bins">
+<a class="viewcode-back" href="../../../generated/maad.util.into_bins.html#maad.util.into_bins">[docs]</a>
+<span class="k">def</span> <span class="nf">into_bins</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">an</span><span class="p">,</span> <span class="n">bin_step</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">bin_min</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bin_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Divide a vector (1D) or a matrix (2D) into multiple bins according to a </span>
 <span class="sd">    bin_step with respect of the energy</span>
@@ -292,10 +299,13 @@
 
     <span class="k">return</span> <span class="n">xbin</span><span class="p">,</span> <span class="n">bins</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="rle"><a class="viewcode-back" href="../../../generated/maad.util.rle.html#maad.util.rle">[docs]</a><span class="k">def</span> <span class="nf">rle</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="rle">
+<a class="viewcode-back" href="../../../generated/maad.util.rle.html#maad.util.rle">[docs]</a>
+<span class="k">def</span> <span class="nf">rle</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Run-Length encoding (RLE) of a vector.</span>
 
@@ -342,10 +352,13 @@
         <span class="n">values</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">lengths</span><span class="p">,</span> <span class="n">values</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="linear_scale"><a class="viewcode-back" href="../../../generated/maad.util.linear_scale.html#maad.util.linear_scale">[docs]</a><span class="k">def</span> <span class="nf">linear_scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="linear_scale">
+<a class="viewcode-back" href="../../../generated/maad.util.linear_scale.html#maad.util.linear_scale">[docs]</a>
+<span class="k">def</span> <span class="nf">linear_scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Scale the values of a vector or matrix from a user specified </span>
 <span class="sd">    minimum to a user specified maximum.</span>
@@ -404,10 +417,13 @@
     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">minval</span>
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="amplitude2dB"><a class="viewcode-back" href="../../../generated/maad.util.amplitude2dB.html#maad.util.amplitude2dB">[docs]</a><span class="k">def</span> <span class="nf">amplitude2dB</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="amplitude2dB">
+<a class="viewcode-back" href="../../../generated/maad.util.amplitude2dB.html#maad.util.amplitude2dB">[docs]</a>
+<span class="k">def</span> <span class="nf">amplitude2dB</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transform amplitude data (signal, scalar) into decibel scale within the </span>
 <span class="sd">    dB range (db_range). A gain (db_gain) could be added at the end.    </span>
@@ -459,10 +475,13 @@
 
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="power2dB"><a class="viewcode-back" href="../../../generated/maad.util.power2dB.html#maad.util.power2dB">[docs]</a><span class="k">def</span> <span class="nf">power2dB</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="power2dB">
+<a class="viewcode-back" href="../../../generated/maad.util.power2dB.html#maad.util.power2dB">[docs]</a>
+<span class="k">def</span> <span class="nf">power2dB</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transform power (amplitude²) signal or scalar into decibel scale </span>
 <span class="sd">    within the dB range (db_range). A gain (db_gain) can be added at the end.    </span>
@@ -514,10 +533,13 @@
 
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="dB2amplitude"><a class="viewcode-back" href="../../../generated/maad.util.dB2amplitude.html#maad.util.dB2amplitude">[docs]</a><span class="k">def</span> <span class="nf">dB2amplitude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="dB2amplitude">
+<a class="viewcode-back" href="../../../generated/maad.util.dB2amplitude.html#maad.util.dB2amplitude">[docs]</a>
+<span class="k">def</span> <span class="nf">dB2amplitude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transform data in dB scale into amplitude</span>
 <span class="sd">    A gain (db_gain) could be added at the end.    </span>
@@ -546,10 +568,13 @@
 
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="dB2power"><a class="viewcode-back" href="../../../generated/maad.util.dB2power.html#maad.util.dB2power">[docs]</a><span class="k">def</span> <span class="nf">dB2power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="dB2power">
+<a class="viewcode-back" href="../../../generated/maad.util.dB2power.html#maad.util.dB2power">[docs]</a>
+<span class="k">def</span> <span class="nf">dB2power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">db_gain</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transform data in dB scale into power (amplitude²)</span>
 <span class="sd">    A gain (db_gain) could be added at the end.    </span>
@@ -577,10 +602,13 @@
 
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="add_dB"><a class="viewcode-back" href="../../../generated/maad.util.add_dB.html#maad.util.add_dB">[docs]</a><span class="k">def</span> <span class="nf">add_dB</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="add_dB">
+<a class="viewcode-back" href="../../../generated/maad.util.add_dB.html#maad.util.add_dB">[docs]</a>
+<span class="k">def</span> <span class="nf">add_dB</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes an addition on decibel values.</span>
 
@@ -651,10 +679,13 @@
 
     <span class="k">return</span> <span class="n">L_sum</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="mean_dB"><a class="viewcode-back" href="../../../generated/maad.util.mean_dB.html#maad.util.mean_dB">[docs]</a><span class="k">def</span> <span class="nf">mean_dB</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="mean_dB">
+<a class="viewcode-back" href="../../../generated/maad.util.mean_dB.html#maad.util.mean_dB">[docs]</a>
+<span class="k">def</span> <span class="nf">mean_dB</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the average of decibel values.</span>
 
@@ -731,10 +762,13 @@
 
     <span class="k">return</span> <span class="n">e_mean</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="shift_bit_length"><a class="viewcode-back" href="../../../generated/maad.util.shift_bit_length.html#maad.util.shift_bit_length">[docs]</a><span class="k">def</span> <span class="nf">shift_bit_length</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="shift_bit_length">
+<a class="viewcode-back" href="../../../generated/maad.util.shift_bit_length.html#maad.util.shift_bit_length">[docs]</a>
+<span class="k">def</span> <span class="nf">shift_bit_length</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the closest power of 2 that is superior or equal to the number x.</span>
 
@@ -755,10 +789,13 @@
     <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="nearest_idx"><a class="viewcode-back" href="../../../generated/maad.util.nearest_idx.html#maad.util.nearest_idx">[docs]</a><span class="k">def</span> <span class="nf">nearest_idx</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="nearest_idx">
+<a class="viewcode-back" href="../../../generated/maad.util.nearest_idx.html#maad.util.nearest_idx">[docs]</a>
+<span class="k">def</span> <span class="nf">nearest_idx</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Find nearest value on array and return its index.</span>
 
@@ -787,10 +824,13 @@
     <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">array</span><span class="o">-</span><span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">idx</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="get_df_single_row"><a class="viewcode-back" href="../../../generated/maad.util.get_df_single_row.html#maad.util.get_df_single_row">[docs]</a><span class="k">def</span> <span class="nf">get_df_single_row</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;iloc&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="get_df_single_row">
+<a class="viewcode-back" href="../../../generated/maad.util.get_df_single_row.html#maad.util.get_df_single_row">[docs]</a>
+<span class="k">def</span> <span class="nf">get_df_single_row</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;iloc&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract a single row from a dataframe keeping the DataFrame type </span>
 <span class="sd">    (instead of becoming a Series).</span>
@@ -873,10 +913,13 @@
 
     <span class="k">return</span> <span class="n">df_out</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="format_features"><a class="viewcode-back" href="../../../generated/maad.util.format_features.html#maad.util.format_features">[docs]</a><span class="k">def</span> <span class="nf">format_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+<div class="viewcode-block" id="format_features">
+<a class="viewcode-back" href="../../../generated/maad.util.format_features.html#maad.util.format_features">[docs]</a>
+<span class="k">def</span> <span class="nf">format_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Format features such as bounding box coordinates and centroids coordinates</span>
 <span class="sd">    to predifined format : time-frequency to pixels or pixels to time-frequency</span>
@@ -1075,9 +1118,12 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
+
 <span class="c1"># %%</span>
 
-<div class="viewcode-block" id="crossfade"><a class="viewcode-back" href="../../../generated/maad.util.crossfade.html#maad.util.crossfade">[docs]</a><span class="k">def</span> <span class="nf">crossfade</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fade_len</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="crossfade">
+<a class="viewcode-back" href="../../../generated/maad.util.crossfade.html#maad.util.crossfade">[docs]</a>
+<span class="k">def</span> <span class="nf">crossfade</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fade_len</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add a smooth transition (cross-fade) between two audio signals.</span>
 <span class="sd">    The function applies a squared function to apply the transition between signals. </span>
@@ -1122,10 +1168,13 @@
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">s_out</span></div>
 
+
 <span class="c1"># %%</span>
 
 
-<div class="viewcode-block" id="crossfade_list"><a class="viewcode-back" href="../../../generated/maad.util.crossfade_list.html#maad.util.crossfade_list">[docs]</a><span class="k">def</span> <span class="nf">crossfade_list</span><span class="p">(</span><span class="n">s_list</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fade_len</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="crossfade_list">
+<a class="viewcode-back" href="../../../generated/maad.util.crossfade_list.html#maad.util.crossfade_list">[docs]</a>
+<span class="k">def</span> <span class="nf">crossfade_list</span><span class="p">(</span><span class="n">s_list</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fade_len</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply a cross-fade to a list of audio signals.</span>
 <span class="sd">    Audio signals must be numpy arrays with the same sampling rate. The function applies </span>
@@ -1157,6 +1206,35 @@
             <span class="n">s_out</span> <span class="o">=</span> <span class="n">crossfade</span><span class="p">(</span><span class="n">s_out</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">s_out</span></div>
+
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+
+<span class="k">def</span> <span class="nf">download_audio_dataset</span><span class="p">(</span><span class="n">save_location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/juansulloa/audio_dataset/archive/refs/heads/main.zip&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Determine the file name from the URL</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        
+        <span class="c1"># If save_location is None, save to the user&#39;s home directory</span>
+        <span class="k">if</span> <span class="n">save_location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">home_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
+            <span class="n">save_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">home_directory</span><span class="p">,</span> <span class="s1">&#39;maad_dataset.zip&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Download the zip file</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_location</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded and saved </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">save_location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+        <span class="k">if</span> <span class="n">unzip</span><span class="p">:</span>
+            <span class="c1"># Unzip the file if specified</span>
+            <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">save_location</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipf</span><span class="p">:</span>
+                <span class="n">zipf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_location</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
            </div>

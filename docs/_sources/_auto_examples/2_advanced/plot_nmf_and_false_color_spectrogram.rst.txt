@@ -37,11 +37,27 @@ decompose audio signals and visualize false-colour spectrograms.
 
 **Dependencies**: This example requires the Python package scikit-learn v0.24 or greater.
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-34
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_path = './_images/sphx_glr_plot_nmf_and_false_color_spectrogram_003.png'
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-37
+
+.. code-block:: Python
+
     import numpy as np
     import matplotlib.pyplot as plt
     from maad import sound, features
@@ -57,15 +73,15 @@ decompose audio signals and visualize false-colour spectrograms.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-38
+.. GENERATED FROM PYTHON SOURCE LINES 38-41
 
 Load audio from disk
 --------------------
 Load the audio file and compute the spectrogram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-45
+.. GENERATED FROM PYTHON SOURCE LINES 41-48
 
-.. code-block:: default
+.. code-block:: Python
 
     s, fs = sound.load('../../data/spinetail.wav')
     Sxx, tn, fn, ext = sound.spectrogram(s, fs, nperseg=1024, noverlap=512)
@@ -86,7 +102,7 @@ Load the audio file and compute the spectrogram.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-52
+.. GENERATED FROM PYTHON SOURCE LINES 49-55
 
 Filter the spectrogram with 2D wavelets
 ---------------------------------------
@@ -95,9 +111,9 @@ spectrogram filtered by the filterbank composed of 2D Gabor wavelets. This
 raw output can be fed to the NMF algorithm to decompose the spectrogram into
 elementary basis spectrograms.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-61
+.. GENERATED FROM PYTHON SOURCE LINES 55-64
 
-.. code-block:: default
+.. code-block:: Python
 
 
     shape_im, params = features.shape_features_raw(Sxx_db, resolution='low')
@@ -115,7 +131,7 @@ elementary basis spectrograms.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-68
+.. GENERATED FROM PYTHON SOURCE LINES 65-71
 
 Arrange into RGBA color model
 -----------------------------
@@ -124,9 +140,9 @@ intensity spectrogram into a single array to fit the RGBA color model. RGBA
 stands for Red, Green, Blue and Alpha, where alpha indicates how opaque each
 pixel is.
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-74
+.. GENERATED FROM PYTHON SOURCE LINES 71-77
 
-.. code-block:: default
+.. code-block:: Python
 
 
     Y = MinMaxScaler(feature_range=(0,1)).fit_transform(Y)
@@ -141,7 +157,7 @@ pixel is.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-80
+.. GENERATED FROM PYTHON SOURCE LINES 78-83
 
 Visualize output
 ----------------
@@ -149,9 +165,9 @@ Finally, plot the resulting basis spectrogram as separate elements and
 combine them to produce a false-colour spectrogram using the RGBA color 
 model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-88
+.. GENERATED FROM PYTHON SOURCE LINES 83-91
 
-.. code-block:: default
+.. code-block:: Python
 
 
     fig, axes = plt.subplots(3,1, figsize=(10,8))
@@ -173,7 +189,7 @@ model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-95
+.. GENERATED FROM PYTHON SOURCE LINES 92-98
 
 The first basis spectrogram shows fine and rapid modulations of the signal.
 Both signals have these features and hence both are delineated in this
@@ -182,9 +198,9 @@ third component highlights the longer vocalizations of the spinetail.
 The three components can be mixed up to compose a false-colour spectrogram
 where it can be easily distinguished the different sound sources by color.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-104
+.. GENERATED FROM PYTHON SOURCE LINES 98-107
 
-.. code-block:: default
+.. code-block:: Python
 
 
     fig, ax = plt.subplots(2,1, figsize=(10,6))
@@ -207,7 +223,7 @@ where it can be easily distinguished the different sound sources by color.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-112
+.. GENERATED FROM PYTHON SOURCE LINES 108-115
 
 **References** 
 
@@ -220,7 +236,7 @@ where it can be easily distinguished the different sound sources by color.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.947 seconds)
+   **Total running time of the script:** (0 minutes 2.494 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py:
@@ -229,16 +245,13 @@ where it can be easily distinguished the different sound sources by color.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_nmf_and_false_color_spectrogram.ipynb <plot_nmf_and_false_color_spectrogram.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_nmf_and_false_color_spectrogram.py <plot_nmf_and_false_color_spectrogram.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_nmf_and_false_color_spectrogram.ipynb <plot_nmf_and_false_color_spectrogram.ipynb>`
 
 
 .. only:: html

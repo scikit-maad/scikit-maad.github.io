@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,17 +133,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-all-spectral-alpha-indices">
-<h1>maad.features.all_spectral_alpha_indices<a class="headerlink" href="#maad-features-all-spectral-alpha-indices" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-all-spectral-alpha-indices">
+<h1>maad.features.all_spectral_alpha_indices<a class="headerlink" href="#maad-features-all-spectral-alpha-indices" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.all_spectral_alpha_indices">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">all_spectral_alpha_indices</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">Sxx_power</span></span></em>, <em><span class="n"><span class="pre">tn</span></span></em>, <em><span class="n"><span class="pre">fn</span></span></em>, <em><span class="n"><span class="pre">flim_low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1000]</span></span></em>, <em><span class="n"><span class="pre">flim_mid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1000,</span> <span class="pre">10000]</span></span></em>, <em><span class="n"><span class="pre">flim_hi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10000,</span> <span class="pre">20000]</span></span></em>, <em><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#all_spectral_alpha_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_spectral_alpha_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">all_spectral_alpha_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_mid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1000,</span> <span class="pre">10000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim_hi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10000,</span> <span class="pre">20000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#all_spectral_alpha_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_spectral_alpha_indices" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the acoustic indices in spectral (spectrum (1d) or spectrogram (2d)) domain.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>Sxx_power</strong><span class="classifier">2D array of floats</span></dt><dd><p>Power spectrogram to process (taken directly from maad.sound.spectrogram)</p>
 </dd>
 <dt><strong>tn</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>time vector (horizontal x-axis)</p>
@@ -157,25 +159,25 @@
 <dt><strong>display</strong><span class="classifier">boolean, default is False</span></dt><dd><p>Display graphs</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">arguments for functions:</span></dt><dd><ul class="simple">
-<li>spectral_leq</li>
-<li>frequency_entropy</li>
-<li>soundscape_index</li>
-<li>bioacoustics_index</li>
-<li>acoustic_diversity_index</li>
-<li>acoustic_eveness_index</li>
-<li>spectral_cover</li>
-<li>spectral_activity</li>
-<li>spectral_events</li>
-<li>tfsd</li>
-<li>region_of_interest_index</li>
+<li><p>spectral_leq</p></li>
+<li><p>frequency_entropy</p></li>
+<li><p>soundscape_index</p></li>
+<li><p>bioacoustics_index</p></li>
+<li><p>acoustic_diversity_index</p></li>
+<li><p>acoustic_eveness_index</p></li>
+<li><p>spectral_cover</p></li>
+<li><p>spectral_activity</p></li>
+<li><p>spectral_events</p></li>
+<li><p>tfsd</p></li>
+<li><p>region_of_interest_index</p></li>
 </ul>
 <p>For soundscape_index, bioacoustics_index, acoustic_diversity_index, acoustic_eveness_index</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>R_compatible<span class="classifier">string, optional, default is “soundecology”</span></dt><dd><p>if ‘soundecology’, the result is similar to the package SoundEcology in R. Otherwise, the result is specific to maad</p>
 </dd>
 </dl>
 <p>For LEQf calculation</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>gain<span class="classifier">integer</span></dt><dd><p>Total gain applied to the sound (preamplifer + amplifier)</p>
 </dd>
 <dt>Vadc<span class="classifier">scalar, optional, default is 2Vpp (=&gt;+/-1V)</span></dt><dd><p>Maximal voltage (peak to peak) converted by the analog to digital convertor ADC</p>
@@ -188,24 +190,24 @@
 </dd>
 </dl>
 <p>For spectral activity and events</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>dB_threshold<span class="classifier">scalar, optional, default is 3dB</span></dt><dd><p>data &gt;Threshold is considered to be an event 
 if the length is &gt; rejectLength</p>
 </dd>
 </dl>
 <p>For spectral activity and events</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>rejectDuration<span class="classifier">scalar, optional, default is None</span></dt><dd><p>event shorter than rejectDuration are discarded
 duration is in s</p>
 </dd>
 </dl>
 <p>For Roi</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>smooth_param1<span class="classifier">scalar, default is 1</span></dt><dd><p>Standard deviation of the gaussian kernel used to smooth the image 
 The larger is the number, the smoother will be the image and the longer 
 it takes. Standard values should fall between 0.5 to 3</p>
 </dd>
-<dt>mask_mode<span class="classifier">string in {‘relative’, ‘absolute’}, optional, default is ‘relative’</span></dt><dd><dl class="docutils">
+<dt>mask_mode<span class="classifier">string in {‘relative’, ‘absolute’}, optional, default is ‘relative’</span></dt><dd><dl class="simple">
 <dt>if ‘relative’:</dt><dd><p>Binarize an image based on a double relative threshold.  
 The values used for the thresholding depends on the values found 
 in the image. =&gt; relative threshold</p>
@@ -236,12 +238,12 @@ the image</p>
 </dd>
 </dl>
 <p>For ADI, AEI, RAOQ</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>bin_step<span class="classifier">scalar, optional, default is 1000</span></dt><dd><p>Frequency step in Hz</p>
 </dd>
 </dl>
 <p>For ADI and AEI</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>ADI_dB_threshold<span class="classifier">scalar, optional, default is -50   </span></dt><dd><p>Threshold in dB</p>
 </dd>
 <dt>AEI_dB_threshold<span class="classifier">scalar, optional, default is -50   </span></dt><dd><p>Threshold in dB</p>
@@ -249,22 +251,20 @@ the image</p>
 </dl>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>df_spectral_indices: Panda dataframe</dt><dd><p>Dataframe containing of the calculated spectral indices :</p>
 </dd>
 <dt><strong>df_per_bin_indices</strong><span class="classifier">Panda dataframe</span></dt><dd><p>Dataframe containing of the calculated spectral indices  per frequency
 bin :</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
+<p class="admonition-title">See also</p>
+<dl class="simple">
 <dt><a class="reference internal" href="maad.features.number_of_peaks.html#maad.features.number_of_peaks" title="maad.features.number_of_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_peaks</span></code></a>, <a class="reference internal" href="maad.features.spectral_leq.html#maad.features.spectral_leq" title="maad.features.spectral_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_leq</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_snr</span></code>, <a class="reference internal" href="maad.features.frequency_entropy.html#maad.features.frequency_entropy" title="maad.features.frequency_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_entropy</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.spectral_entropy.html#maad.features.spectral_entropy" title="maad.features.spectral_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_entropy</span></code></a>, <a class="reference internal" href="maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index" title="maad.features.acoustic_complexity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_complexity_index</span></code></a>, <a class="reference internal" href="maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a>, <a class="reference internal" href="maad.features.soundscape_index.html#maad.features.soundscape_index" title="maad.features.soundscape_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundscape_index</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.roughness.html#maad.features.roughness" title="maad.features.roughness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roughness</span></code></a>, <a class="reference internal" href="maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index" title="maad.features.acoustic_diversity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_diversity_index</span></code></a>, <a class="reference internal" href="maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index" title="maad.features.acoustic_eveness_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_eveness_index</span></code></a>, <a class="reference internal" href="maad.features.spectral_cover.html#maad.features.spectral_cover" title="maad.features.spectral_cover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectral_cover</span></code></a></dt><dd></dd>
@@ -273,11 +273,12 @@ bin :</p>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<dl class="docutils">
-<dt>In order to obtain the same output for AEI and ADI as for soundecology,</dt><dd>the signal and the spectrogram need to be processed without detrend on.
+<dl class="simple">
+<dt>In order to obtain the same output for AEI and ADI as for soundecology,</dt><dd><p>the signal and the spectrogram need to be processed without detrend on.
 maad.sound.load(“myfile.wav”, …, detrend = False)
 maad.sound.spectrogram(s, fs, …, detrend = False)
-For a complete example, see the examples of the functions acoustic_eveness_index and acoustic_diversity_index</dd>
+For a complete example, see the examples of the functions acoustic_eveness_index and acoustic_diversity_index</p>
+</dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
@@ -311,7 +312,7 @@ For a complete example, see the examples of the functions acoustic_eveness_index
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

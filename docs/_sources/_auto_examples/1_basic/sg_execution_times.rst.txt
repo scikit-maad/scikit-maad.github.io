@@ -6,16 +6,44 @@
 
 Computation times
 =================
-**00:02.733** total execution time for **_auto_examples_1_basic** files:
+**00:02.729** total execution time for 5 files **from _auto_examples/1_basic**:
 
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_1_basic_plot_circadian_spectrogram.py` (``plot_circadian_spectrogram.py``)         | 00:00.911 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_1_basic_plot_find_rois_simple.py` (``plot_find_rois_simple.py``)                   | 00:00.757 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_1_basic_plot_audio_representation.py` (``plot_audio_representation.py``)           | 00:00.518 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_1_basic_plot_template_matching_example.py` (``plot_template_matching_example.py``) | 00:00.418 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_1_basic_plot_detection_distance.py` (``plot_detection_distance.py``)               | 00:00.128 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------+-----------+--------+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr__auto_examples_1_basic_plot_circadian_spectrogram.py` (``plot_circadian_spectrogram.py``)
+     - 00:01.016
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_1_basic_plot_find_rois_simple.py` (``plot_find_rois_simple.py``)
+     - 00:00.707
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_1_basic_plot_audio_representation.py` (``plot_audio_representation.py``)
+     - 00:00.461
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_1_basic_plot_template_matching_example.py` (``plot_template_matching_example.py``)
+     - 00:00.413
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_1_basic_plot_detection_distance.py` (``plot_detection_distance.py``)
+     - 00:00.132
+     - 0.0

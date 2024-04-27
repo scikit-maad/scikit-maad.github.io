@@ -31,11 +31,27 @@ mathematical morphology tools...
 **Dependencies**: To execute this example you will need to have installed the 
 scikit-image, scikit-learn and pandas Python packages.
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-31
+.. GENERATED FROM PYTHON SOURCE LINES 19-21
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_path = './_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png'
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-34
+
+.. code-block:: Python
 
     import numpy as np
     import pandas as pd
@@ -54,13 +70,13 @@ scikit-image, scikit-learn and pandas Python packages.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
 
 First, load and audio file and compute the power spectrogram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-57
+.. GENERATED FROM PYTHON SOURCE LINES 36-60
 
-.. code-block:: default
+.. code-block:: Python
 
     s, fs = sound.load('../../data/cold_forest_daylight.wav')
 
@@ -98,7 +114,7 @@ First, load and audio file and compute the power spectrogram.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-68
+.. GENERATED FROM PYTHON SOURCE LINES 61-71
 
 Then, relevant acoustic events are extracted directly from the power 
 spectrogram based on a double thresholding technique. The result is binary
@@ -111,9 +127,9 @@ become seed and the aggregating process continue until no more new pixels are
 aggregated, meaning that there is no more connected pixels with value upper 
 than the second threshold value.
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-163
+.. GENERATED FROM PYTHON SOURCE LINES 71-166
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # First we remove the stationary background in order to increase the contrast [1]
@@ -248,16 +264,16 @@ than the second threshold value.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-168
+.. GENERATED FROM PYTHON SOURCE LINES 167-171
 
 Let's compare with the manual annotation (Ground Truth GT) obtained with 
 Audacity software.
 Each acoustic signature is manually selected and labeled. All similar acoustic 
 signatures are labeled with the same name
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-224
+.. GENERATED FROM PYTHON SOURCE LINES 171-227
 
-.. code-block:: default
+.. code-block:: Python
 
     df_rois_GT = read_audacity_annot('../../data/cold_forest_daylight_label.txt')  ## annotations using Audacity
 
@@ -334,7 +350,7 @@ signatures are labeled with the same name
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 225-234
+.. GENERATED FROM PYTHON SOURCE LINES 228-237
 
 Now we cluster the ROIS depending on 3 ROIS features :
 - centroid_f : frequency position of the roi centroid 
@@ -346,9 +362,9 @@ manual annotation.
 Finally, each rois is labeled with the corresponding cluster number predicted
 by KMeans
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-280
+.. GENERATED FROM PYTHON SOURCE LINES 237-283
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # select features to perform KMeans clustering
@@ -408,7 +424,7 @@ by KMeans
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 281-290
+.. GENERATED FROM PYTHON SOURCE LINES 284-293
 
 It is possible to extract Rois directly from the audio waveform without 
 computing the spectrogram. This works well if there is no big overlap between
@@ -420,9 +436,9 @@ We know that we have mostly short (ie. s) acoustic events in low, med and high
 frequency bandwidths but also a long (ie l) acoustic events in med.
 To extract 
 
-.. GENERATED FROM PYTHON SOURCE LINES 290-354
+.. GENERATED FROM PYTHON SOURCE LINES 293-357
 
-.. code-block:: default
+.. code-block:: Python
 
 
     df_rois_sh = rois.find_rois_cwt(s, fs, flims=[7000, 8000], tlen=0.2, th=0.000001)
@@ -500,13 +516,13 @@ To extract
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 355-356
+.. GENERATED FROM PYTHON SOURCE LINES 358-359
 
 Prepare the features in order to have zero mean and same variance
 
-.. GENERATED FROM PYTHON SOURCE LINES 356-394
+.. GENERATED FROM PYTHON SOURCE LINES 359-397
 
-.. code-block:: default
+.. code-block:: Python
 
     X = StandardScaler().fit_transform(df_centroid_WAV[FEATURES])
 
@@ -558,7 +574,7 @@ Prepare the features in order to have zero mean and same variance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 395-397
+.. GENERATED FROM PYTHON SOURCE LINES 398-400
 
 **References** 
 
@@ -567,7 +583,7 @@ Prepare the features in order to have zero mean and same variance
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  16.785 seconds)
+   **Total running time of the script:** (0 minutes 15.089 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py:
@@ -576,16 +592,13 @@ Prepare the features in order to have zero mean and same variance
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_compare_auto_and_manual_rois_selection.ipynb <plot_compare_auto_and_manual_rois_selection.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_compare_auto_and_manual_rois_selection.py <plot_compare_auto_and_manual_rois_selection.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_compare_auto_and_manual_rois_selection.ipynb <plot_compare_auto_and_manual_rois_selection.ipynb>`
 
 
 .. only:: html

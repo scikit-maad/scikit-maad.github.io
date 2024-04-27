@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Segmentation methods &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Segmentation methods &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/documentation_options.js?v=02f2166e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,7 +40,7 @@
               <img src="_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,15 +60,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sound.html">Sound processing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Segmentation methods</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#temporal">Temporal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#temporal-1d">Temporal (1D)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.find_rois_cwt.html">maad.rois.find_rois_cwt</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#spectro-temporal">Spectro-temporal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#spectro-temporal-2d">Spectro-temporal (2D)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.create_mask.html">maad.rois.create_mask</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.select_rois.html">maad.rois.select_rois</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.rois_to_imblobs.html">maad.rois.rois_to_imblobs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.template_matching.html">maad.rois.template_matching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.rois.spectrogram_local_max.html">maad.rois.spectrogram_local_max</a></li>
 </ul>
 </li>
 </ul>
@@ -103,47 +107,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <span class="target" id="module-maad.rois"></span><div class="section" id="segmentation-methods">
-<h1>Segmentation methods<a class="headerlink" href="#segmentation-methods" title="Permalink to this heading">¶</a></h1>
+  <section id="segmentation-methods">
+<span id="module-maad.rois"></span><h1>Segmentation methods<a class="headerlink" href="#segmentation-methods" title="Link to this heading">¶</a></h1>
 <p>The module <code class="docutils literal notranslate"><span class="pre">rois</span></code> has a collection of functions to segment and find regions of interest in audio and spectrograms.</p>
-<div class="section" id="temporal">
-<h2>Temporal<a class="headerlink" href="#temporal" title="Permalink to this heading">¶</a></h2>
-<table border="1" class="autosummary longtable docutils align-default">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/maad.rois.find_rois_cwt.html#maad.rois.find_rois_cwt" title="maad.rois.find_rois_cwt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_rois_cwt</span></code></a>(s,&nbsp;fs,&nbsp;flims,&nbsp;tlen[,&nbsp;th,&nbsp;...])</td>
-<td>Find region of interest using known estimates of signal length and frequency limits.</td>
+<section id="temporal-1d">
+<h2>Temporal (1D)<a class="headerlink" href="#temporal-1d" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.rois.find_rois_cwt.html#maad.rois.find_rois_cwt" title="maad.rois.find_rois_cwt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_rois_cwt</span></code></a>(s, fs, flims, tlen[, th, ...])</p></td>
+<td><p>Find region of interest using known estimates of signal length and frequency limits.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="spectro-temporal">
-<h2>Spectro-temporal<a class="headerlink" href="#spectro-temporal" title="Permalink to this heading">¶</a></h2>
-<table border="1" class="autosummary longtable docutils align-default">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/maad.rois.create_mask.html#maad.rois.create_mask" title="maad.rois.create_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mask</span></code></a>(im[,&nbsp;mode_bin,&nbsp;verbose,&nbsp;...])</td>
-<td>Binarize an image based on a double threshold.</td>
+</section>
+<section id="spectro-temporal-2d">
+<h2>Spectro-temporal (2D)<a class="headerlink" href="#spectro-temporal-2d" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.rois.create_mask.html#maad.rois.create_mask" title="maad.rois.create_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mask</span></code></a>(im[, mode_bin, verbose, ...])</p></td>
+<td><p>Binarize an image based on a double threshold.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/maad.rois.select_rois.html#maad.rois.select_rois" title="maad.rois.select_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_rois</span></code></a>(im_bin[,&nbsp;min_roi,&nbsp;max_roi,&nbsp;...])</td>
-<td>Select regions of interest based on its dimensions.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.rois.select_rois.html#maad.rois.select_rois" title="maad.rois.select_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_rois</span></code></a>(im_bin[, min_roi, max_roi, ...])</p></td>
+<td><p>Select regions of interest based on its dimensions.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/maad.rois.rois_to_imblobs.html#maad.rois.rois_to_imblobs" title="maad.rois.rois_to_imblobs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rois_to_imblobs</span></code></a>(im_zeros,&nbsp;rois)</td>
-<td>Take a matrix full of zeros and add ones in delimited regions defined by rois.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.rois.rois_to_imblobs.html#maad.rois.rois_to_imblobs" title="maad.rois.rois_to_imblobs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rois_to_imblobs</span></code></a>(im_zeros, rois)</p></td>
+<td><p>Take a matrix full of zeros and add ones in delimited regions defined by rois.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/maad.rois.template_matching.html#maad.rois.template_matching" title="maad.rois.template_matching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">template_matching</span></code></a>(Sxx,&nbsp;Sxx_template,&nbsp;tn,&nbsp;...)</td>
-<td>Use normalized spectrogram cross-correlation to detect the occurrence of a template sound in a target audio.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.rois.template_matching.html#maad.rois.template_matching" title="maad.rois.template_matching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">template_matching</span></code></a>(Sxx, Sxx_template, tn, ...)</p></td>
+<td><p>Use normalized spectrogram cross-correlation to detect the occurrence of a template sound in a target audio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.rois.spectrogram_local_max.html#maad.rois.spectrogram_local_max" title="maad.rois.spectrogram_local_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spectrogram_local_max</span></code></a>(Sxx, tn, fn, ext, ...)</p></td>
+<td><p>Find peaks on spectrogram as coordinate list in time and frequency</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

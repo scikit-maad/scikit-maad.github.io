@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.all_temporal_alpha_indices &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.all_temporal_alpha_indices &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,17 +133,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-all-temporal-alpha-indices">
-<h1>maad.features.all_temporal_alpha_indices<a class="headerlink" href="#maad-features-all-temporal-alpha-indices" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-all-temporal-alpha-indices">
+<h1>maad.features.all_temporal_alpha_indices<a class="headerlink" href="#maad-features-all-temporal-alpha-indices" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.all_temporal_alpha_indices">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">all_temporal_alpha_indices</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">s</span></span></em>, <em><span class="n"><span class="pre">fs</span></span></em>, <em><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#all_temporal_alpha_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_temporal_alpha_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">all_temporal_alpha_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#all_temporal_alpha_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_temporal_alpha_indices" title="Link to this definition">¶</a></dt>
 <dd><p>Compute 16 temporal domain acoustic indices.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>s</strong><span class="classifier">1D array</span></dt><dd><p>Audio to process (wav)</p>
 </dd>
 <dt><strong>fs</strong><span class="classifier">float</span></dt><dd><p>Sampling frequency of the audio (Hz)</p>
@@ -149,24 +151,26 @@
 <dt><strong>display</strong><span class="classifier">boolean, default is False</span></dt><dd><p>Display graphs</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">arguments for functions:</span></dt><dd><ul class="simple">
-<li>temporal_leq(s, fs, gain, Vadc, sensitivity, dBref, dt)</li>
-<li>temporal_snr(s, mode, Nt)</li>
-<li>temporal_median(s, mode, Nt)</li>
-<li>temporal_entropy(s, compatibility, mode, Nt)</li>
-<li>temporal_activity (s,dB_threshold, mode, Nt)</li>
-<li>temporal_events (s, fs, dB_threshold, rejectDuration, mode, Nt,display)</li>
+<li><p>temporal_leq(s, fs, gain, Vadc, sensitivity, dBref, dt)</p></li>
+<li><p>temporal_snr(s, mode, Nt)</p></li>
+<li><p>temporal_median(s, mode, Nt)</p></li>
+<li><p>temporal_entropy(s, compatibility, mode, Nt)</p></li>
+<li><p>temporal_activity (s,dB_threshold, mode, Nt)</p></li>
+<li><p>temporal_events (s, fs, dB_threshold, rejectDuration, mode, Nt,display)</p></li>
 </ul>
 <p>For envelope</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>mode<span class="classifier">str, optional, default is “fast”</span></dt><dd><p>Select the mode to compute the envelope of the audio waveform</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>“fast”<span class="classifier">The sound is first divided into frames (2d) using the </span></dt><dd>function _wave2timeframes(s), then the max of each frame gives a 
-good approximation of the envelope.</dd>
+<li><dl class="simple">
+<dt>“fast”<span class="classifier">The sound is first divided into frames (2d) using the </span></dt><dd><p>function _wave2timeframes(s), then the max of each frame gives a 
+good approximation of the envelope.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>“Hilbert”<span class="classifier">estimation of the envelope from the Hilbert transform. </span></dt><dd>The method is slow</dd>
+<li><dl class="simple">
+<dt>“Hilbert”<span class="classifier">estimation of the envelope from the Hilbert transform. </span></dt><dd><p>The method is slow</p>
+</dd>
 </dl>
 </li>
 </ul>
@@ -175,16 +179,16 @@ good approximation of the envelope.</dd>
 </dd>
 </dl>
 <p>For entropy</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>compatibility<span class="classifier">string {‘QUT’, ‘seewave’}, default is ‘QUT’</span></dt><dd><p>Select the way to compute the temporal entropy.</p>
 <ul class="simple">
-<li>QUT : entropy of the envelope²</li>
-<li>seewave : entropy of the envelope</li>
+<li><p>QUT : entropy of the envelope²</p></li>
+<li><p>seewave : entropy of the envelope</p></li>
 </ul>
 </dd>
 </dl>
 <p>For LEQt calculation</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>gain<span class="classifier">integer</span></dt><dd><p>Total gain applied to the sound (preamplifer + amplifier)</p>
 </dd>
 <dt>Vadc<span class="classifier">scalar, optional, default is 2Vpp (=&gt;+/-1V)</span></dt><dd><p>Maximal voltage (peak to peak) converted by the analog to digital convertor ADC</p>
@@ -197,7 +201,7 @@ good approximation of the envelope.</dd>
 </dd>
 </dl>
 <p>For audio activity and events</p>
-<dl class="docutils">
+<dl class="simple">
 <dt>dB_threshold<span class="classifier">scalar, optional, default is 3dB</span></dt><dd><p>data &gt;Threshold is considered to be an event if the length is &gt; rejectLength</p>
 </dd>
 <dt>rejectDuration<span class="classifier">scalar, optional, default is None</span></dt><dd><p>event shorter than rejectDuration are discarded duration is in s</p>
@@ -205,21 +209,19 @@ good approximation of the envelope.</dd>
 </dl>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>df_temporal_indices: Pandas dataframe</dt><dd><p>Dataframe containing of the calculated audio indices : ZCR, MEANt, 
 VARt, SKEWt, KURTt, LEQt, BGNt, SNRt, MED, Ht, ACTtFraction, 
 ACTtCount, ACTtMean, EVNtFraction, EVNtMean, EVNtCount</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
+<p class="admonition-title">See also</p>
+<dl class="simple">
 <dt><a class="reference internal" href="maad.features.temporal_moments.html#maad.features.temporal_moments" title="maad.features.temporal_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_moments</span></code></a>, <a class="reference internal" href="maad.features.temporal_events.html#maad.features.temporal_events" title="maad.features.temporal_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_events</span></code></a>, <a class="reference internal" href="maad.features.temporal_activity.html#maad.features.temporal_activity" title="maad.features.temporal_activity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_activity</span></code></a>, <a class="reference internal" href="maad.features.temporal_entropy.html#maad.features.temporal_entropy" title="maad.features.temporal_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_entropy</span></code></a></dt><dd></dd>
 <dt><a class="reference internal" href="maad.features.temporal_median.html#maad.features.temporal_median" title="maad.features.temporal_median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_median</span></code></a>, <a class="reference internal" href="maad.features.temporal_leq.html#maad.features.temporal_leq" title="maad.features.temporal_leq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_leq</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">temporal_snr</span></code>, <a class="reference internal" href="maad.features.zero_crossing_rate.html#maad.features.zero_crossing_rate" title="maad.features.zero_crossing_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zero_crossing_rate</span></code></a></dt><dd></dd>
 </dl>
@@ -250,7 +252,7 @@ ACTtCount, ACTtMean, EVNtFraction, EVNtMean, EVNtCount</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

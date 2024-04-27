@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.sound.filter &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.sound.filter &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -119,7 +121,9 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="select_bandwidth"><a class="viewcode-back" href="../../../generated/maad.sound.select_bandwidth.html#maad.sound.select_bandwidth">[docs]</a><span class="k">def</span> <span class="nf">select_bandwidth</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">forder</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> 
+<div class="viewcode-block" id="select_bandwidth">
+<a class="viewcode-back" href="../../../generated/maad.sound.select_bandwidth.html#maad.sound.select_bandwidth">[docs]</a>
+<span class="k">def</span> <span class="nf">select_bandwidth</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">forder</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> 
                     <span class="n">rp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Use a lowpass, highpass, bandpass or bandstop filter to process a 1d signal with an iir filter.</span>
@@ -199,8 +203,11 @@
     <span class="n">y</span> <span class="o">=</span> <span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="fir_filter"><a class="viewcode-back" href="../../../generated/maad.sound.fir_filter.html#maad.sound.fir_filter">[docs]</a><span class="k">def</span> <span class="nf">fir_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="fir_filter">
+<a class="viewcode-back" href="../../../generated/maad.sound.fir_filter.html#maad.sound.fir_filter">[docs]</a>
+<span class="k">def</span> <span class="nf">fir_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Filter a signal using a 1d finite impulse response filter.</span>
 <span class="sd">    </span>
@@ -319,8 +326,11 @@
 
     <span class="k">return</span> <span class="n">y</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="sinc"><a class="viewcode-back" href="../../../generated/maad.sound.sinc.html#maad.sound.sinc">[docs]</a><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">transition_bw</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">bandpass</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="sinc">
+<a class="viewcode-back" href="../../../generated/maad.sound.sinc.html#maad.sound.sinc">[docs]</a>
+<span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">transition_bw</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">bandpass</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Filter 1D signal with a Kaiser-windowed filter.</span>
 <span class="sd">    </span>
@@ -372,8 +382,11 @@
     <span class="n">s_filt</span> <span class="o">=</span> <span class="n">lfilter</span><span class="p">(</span><span class="n">taps</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">s_filt</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="smooth"><a class="viewcode-back" href="../../../generated/maad.sound.smooth.html#maad.sound.smooth">[docs]</a><span class="k">def</span> <span class="nf">smooth</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
+<div class="viewcode-block" id="smooth">
+<a class="viewcode-back" href="../../../generated/maad.sound.smooth.html#maad.sound.smooth">[docs]</a>
+<span class="k">def</span> <span class="nf">smooth</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Smooth a spectrogram with a gaussian filter.</span>
 <span class="sd">    </span>
@@ -522,6 +535,7 @@
             <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span> 
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>    
     <span class="k">return</span> <span class="n">Sxx_out</span> </div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>

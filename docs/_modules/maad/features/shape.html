@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.shape &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.shape &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -386,7 +388,9 @@
 <span class="c1">#============================================================================ </span>
 <span class="c1"># Public functions </span>
 <span class="c1">#============================================================================ </span>
-<div class="viewcode-block" id="filter_multires"><a class="viewcode-back" href="../../../generated/maad.features.filter_multires.html#maad.features.filter_multires">[docs]</a><span class="k">def</span> <span class="nf">filter_multires</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">kernels</span><span class="p">,</span> <span class="n">npyr</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> 
+<div class="viewcode-block" id="filter_multires">
+<a class="viewcode-back" href="../../../generated/maad.features.filter_multires.html#maad.features.filter_multires">[docs]</a>
+<span class="k">def</span> <span class="nf">filter_multires</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">kernels</span><span class="p">,</span> <span class="n">npyr</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Computes 2D wavelet coefficients at multiple scales using Gaussian pyramid  </span>
 <span class="sd">    transformation to downscale the input spectrogram. </span>
@@ -456,9 +460,12 @@
         <span class="k">pass</span>  
   
     <span class="k">return</span> <span class="n">Sxx_out</span>  </div>
+
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="filter_bank_2d_nodc"><a class="viewcode-back" href="../../../generated/maad.features.filter_bank_2d_nodc.html#maad.features.filter_bank_2d_nodc">[docs]</a><span class="k">def</span> <span class="nf">filter_bank_2d_nodc</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">ntheta</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
+<div class="viewcode-block" id="filter_bank_2d_nodc">
+<a class="viewcode-back" href="../../../generated/maad.features.filter_bank_2d_nodc.html#maad.features.filter_bank_2d_nodc">[docs]</a>
+<span class="k">def</span> <span class="nf">filter_bank_2d_nodc</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">ntheta</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Build an ensemble of complex 2D Gabor filters with no DC offset. </span>
 <span class="sd">    </span>
@@ -550,9 +557,12 @@
         <span class="n">_</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">_plot_filter_bank</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">ntheta</span><span class="p">)</span> 
              
     <span class="k">return</span> <span class="n">params</span><span class="p">,</span> <span class="n">kernels</span>   </div>
+
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="opt_shape_presets"><a class="viewcode-back" href="../../../generated/maad.features.opt_shape_presets.html#maad.features.opt_shape_presets">[docs]</a><span class="k">def</span> <span class="nf">opt_shape_presets</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">opt_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
+<div class="viewcode-block" id="opt_shape_presets">
+<a class="viewcode-back" href="../../../generated/maad.features.opt_shape_presets.html#maad.features.opt_shape_presets">[docs]</a>
+<span class="k">def</span> <span class="nf">opt_shape_presets</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">opt_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;  </span>
 <span class="sd">    Set parameters for multiresolution analysis using presets or custom parameters.</span>
 <span class="sd">     </span>
@@ -651,9 +661,12 @@
        <span class="n">opt_shape</span> <span class="o">=</span> <span class="n">opt_shape_low</span> 
  
     <span class="k">return</span> <span class="n">opt_shape</span> </div>
+
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="shape_features"><a class="viewcode-back" href="../../../generated/maad.features.shape_features.html#maad.features.shape_features">[docs]</a><span class="k">def</span> <span class="nf">shape_features</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">rois</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
+<div class="viewcode-block" id="shape_features">
+<a class="viewcode-back" href="../../../generated/maad.features.shape_features.html#maad.features.shape_features">[docs]</a>
+<span class="k">def</span> <span class="nf">shape_features</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">rois</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Computes time-frequency shape coefficients at multiple resolutions using 2D Gabor filters.</span>
 <span class="sd">     </span>
@@ -773,9 +786,12 @@
         <span class="n">shape</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
          
     <span class="k">return</span> <span class="n">shape</span><span class="p">,</span> <span class="n">params_multires</span> </div>
+
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="shape_features_raw"><a class="viewcode-back" href="../../../generated/maad.features.shape_features_raw.html#maad.features.shape_features_raw">[docs]</a><span class="k">def</span> <span class="nf">shape_features_raw</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">opt_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
+<div class="viewcode-block" id="shape_features_raw">
+<a class="viewcode-back" href="../../../generated/maad.features.shape_features_raw.html#maad.features.shape_features_raw">[docs]</a>
+<span class="k">def</span> <span class="nf">shape_features_raw</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">opt_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Computes raw shape of 2D signal (image or spectrogram) at multiple resolutions  </span>
 <span class="sd">    using 2D Gabor filters. Contrary to ``shape_features``, this function </span>
@@ -842,9 +858,12 @@
     <span class="n">params_multires</span> <span class="o">=</span> <span class="n">_params_to_df</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">npyr</span><span class="p">)</span> 
      
     <span class="k">return</span> <span class="n">shape_raw</span><span class="p">,</span> <span class="n">params_multires</span></div>
+
  
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="centroid_features"><a class="viewcode-back" href="../../../generated/maad.features.centroid_features.html#maad.features.centroid_features">[docs]</a><span class="k">def</span> <span class="nf">centroid_features</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">rois</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">im_rois</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
+<div class="viewcode-block" id="centroid_features">
+<a class="viewcode-back" href="../../../generated/maad.features.centroid_features.html#maad.features.centroid_features">[docs]</a>
+<span class="k">def</span> <span class="nf">centroid_features</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">rois</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">im_rois</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Computes intensity centroid of a spectrogram. If regions of interest </span>
 <span class="sd">    ``rois`` are provided, the centroid is computed for each region.</span>
@@ -952,9 +971,12 @@
         <span class="n">centroid</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">centroid</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">rois</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>  
 
     <span class="k">return</span> <span class="n">centroid</span> </div>
+
  
 <span class="c1">#%%     </span>
-<div class="viewcode-block" id="all_shape_features"><a class="viewcode-back" href="../../../generated/maad.features.all_shape_features.html#maad.features.all_shape_features">[docs]</a><span class="k">def</span> <span class="nf">all_shape_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span>  
+<div class="viewcode-block" id="all_shape_features">
+<a class="viewcode-back" href="../../../generated/maad.features.all_shape_features.html#maad.features.all_shape_features">[docs]</a>
+<span class="k">def</span> <span class="nf">all_shape_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span>  
                           <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Computes shape and central frequency features from signal at specified </span>
@@ -1147,6 +1169,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
      
     <span class="k">return</span> <span class="n">features</span> </div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>

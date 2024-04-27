@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.alpha_indices &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.alpha_indices &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -181,6 +183,9 @@
     <span class="n">ACTfract</span><span class="o">=</span> <span class="n">ACTfract</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">ACTcount</span> <span class="o">=</span> <span class="n">ACTcount</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">ACTmean</span> <span class="o">=</span> <span class="n">mean_dB</span><span class="p">(</span><span class="n">xdB</span><span class="p">[</span><span class="n">xdB</span><span class="o">&gt;</span><span class="n">dB_threshold</span><span class="p">])</span>
+    <span class="c1"># Test if ACTmean is nan</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ACTmean</span><span class="p">):</span>
+        <span class="n">ACTmean</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">ACTfract</span><span class="p">,</span> <span class="n">ACTcount</span><span class="p">,</span> <span class="n">ACTmean</span> 
 
 <span class="c1">#%%    </span>
@@ -419,7 +424,9 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="surface_roughness"><a class="viewcode-back" href="../../../generated/maad.features.surface_roughness.html#maad.features.surface_roughness">[docs]</a><span class="k">def</span> <span class="nf">surface_roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="surface_roughness">
+<a class="viewcode-back" href="../../../generated/maad.features.surface_roughness.html#maad.features.surface_roughness">[docs]</a>
+<span class="k">def</span> <span class="nf">surface_roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the surface roughness index of a signal (1D) or a spectrogram (2D).</span>
@@ -484,8 +491,11 @@
         
     <span class="k">return</span> <span class="n">Ra</span><span class="p">,</span> <span class="n">Rq</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="roughness"><a class="viewcode-back" href="../../../generated/maad.features.roughness.html#maad.features.roughness">[docs]</a><span class="k">def</span> <span class="nf">roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="roughness">
+<a class="viewcode-back" href="../../../generated/maad.features.roughness.html#maad.features.roughness">[docs]</a>
+<span class="k">def</span> <span class="nf">roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the roughness (depends on the number of peaks and their amplitude)</span>
 <span class="sd">    of a vector or matrix x (i.e. waveform, spectrogram...)   </span>
@@ -537,11 +547,14 @@
     <span class="k">return</span> <span class="n">r</span></div>
 
 
+
 <span class="c1">#******************************************************************************</span>
 <span class="c1">#               TEMPORAL ECOACOUSTICS INDICES</span>
 <span class="c1">#******************************************************************************</span>
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="temporal_median"><a class="viewcode-back" href="../../../generated/maad.features.temporal_median.html#maad.features.temporal_median">[docs]</a><span class="k">def</span> <span class="nf">temporal_median</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="temporal_median">
+<a class="viewcode-back" href="../../../generated/maad.features.temporal_median.html#maad.features.temporal_median">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_median</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the median of the envelope of an audio signal.</span>
 
@@ -578,8 +591,11 @@
 
     <span class="k">return</span> <span class="n">MED</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="temporal_entropy"><a class="viewcode-back" href="../../../generated/maad.features.temporal_entropy.html#maad.features.temporal_entropy">[docs]</a><span class="k">def</span> <span class="nf">temporal_entropy</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="temporal_entropy">
+<a class="viewcode-back" href="../../../generated/maad.features.temporal_entropy.html#maad.features.temporal_entropy">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_entropy</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the entropy of the envelope of an audio signal.</span>
 
@@ -638,8 +654,11 @@
 
     <span class="k">return</span> <span class="n">Ht</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="acoustic_richness_index"><a class="viewcode-back" href="../../../generated/maad.features.acoustic_richness_index.html#maad.features.acoustic_richness_index">[docs]</a><span class="k">def</span> <span class="nf">acoustic_richness_index</span> <span class="p">(</span><span class="n">Ht_array</span><span class="p">,</span> <span class="n">M_array</span><span class="p">):</span>
+<div class="viewcode-block" id="acoustic_richness_index">
+<a class="viewcode-back" href="../../../generated/maad.features.acoustic_richness_index.html#maad.features.acoustic_richness_index">[docs]</a>
+<span class="k">def</span> <span class="nf">acoustic_richness_index</span> <span class="p">(</span><span class="n">Ht_array</span><span class="p">,</span> <span class="n">M_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic richness index of an audio file. </span>
 <span class="sd">    </span>
@@ -691,9 +710,12 @@
     
     <span class="k">return</span> <span class="n">AR</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="temporal_activity"><a class="viewcode-back" href="../../../generated/maad.features.temporal_activity.html#maad.features.temporal_activity">[docs]</a><span class="k">def</span> <span class="nf">temporal_activity</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+<div class="viewcode-block" id="temporal_activity">
+<a class="viewcode-back" href="../../../generated/maad.features.temporal_activity.html#maad.features.temporal_activity">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_activity</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic activity index in temporal domain.</span>
 <span class="sd">    </span>
@@ -769,8 +791,11 @@
     
     <span class="k">return</span> <span class="n">ACTtFraction</span><span class="p">,</span> <span class="n">ACTtCount</span><span class="p">,</span> <span class="n">ACTtMean</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="temporal_events"><a class="viewcode-back" href="../../../generated/maad.features.temporal_events.html#maad.features.temporal_events">[docs]</a><span class="k">def</span> <span class="nf">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="viewcode-block" id="temporal_events">
+<a class="viewcode-back" href="../../../generated/maad.features.temporal_events.html#maad.features.temporal_events">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic event index from an audio signal [1]_ [2]_.</span>
@@ -883,11 +908,14 @@
     <span class="k">return</span> <span class="n">EVNtFraction</span><span class="p">,</span> <span class="n">EVNtMean</span><span class="p">,</span> <span class="n">EVNtCount</span><span class="p">,</span> <span class="n">EVNt</span></div>
 
 
+
 <span class="c1">#******************************************************************************</span>
 <span class="c1">#               FREQUENCY ECOACOUSTICS INDICES</span>
 <span class="c1">#******************************************************************************</span>
 
-<div class="viewcode-block" id="frequency_entropy"><a class="viewcode-back" href="../../../generated/maad.features.frequency_entropy.html#maad.features.frequency_entropy">[docs]</a><span class="k">def</span> <span class="nf">frequency_entropy</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="frequency_entropy">
+<a class="viewcode-back" href="../../../generated/maad.features.frequency_entropy.html#maad.features.frequency_entropy">[docs]</a>
+<span class="k">def</span> <span class="nf">frequency_entropy</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the spectral entropy of a power spectral density (1d) or power</span>
 <span class="sd">    spectrogram density (2d).</span>
@@ -973,8 +1001,11 @@
     
     <span class="k">return</span> <span class="n">Hf</span><span class="p">,</span> <span class="n">Ht_per_bin</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="number_of_peaks"><a class="viewcode-back" href="../../../generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks">[docs]</a><span class="k">def</span> <span class="nf">number_of_peaks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;dB&#39;</span><span class="p">,</span> <span class="n">min_peak_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_freq_dist</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
+<div class="viewcode-block" id="number_of_peaks">
+<a class="viewcode-back" href="../../../generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks">[docs]</a>
+<span class="k">def</span> <span class="nf">number_of_peaks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;dB&#39;</span><span class="p">,</span> <span class="n">min_peak_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_freq_dist</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
                   <span class="n">slopes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Count the number of frequency peaks on a mean spectrum. [1]_ </span>
@@ -1092,11 +1123,14 @@
     <span class="k">return</span> <span class="n">NBPeaks</span></div>
 
 
+
 <span class="c1">#=============================================================================</span>
 
 <span class="c1">####    Indices based on the entropy</span>
 
-<div class="viewcode-block" id="spectral_entropy"><a class="viewcode-back" href="../../../generated/maad.features.spectral_entropy.html#maad.features.spectral_entropy">[docs]</a><span class="k">def</span> <span class="nf">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="spectral_entropy">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_entropy.html#maad.features.spectral_entropy">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute different entropies based on the average spectrum, its variance, </span>
 <span class="sd">    and its maxima [1]_ [2]_    </span>
@@ -1216,9 +1250,12 @@
 
     <span class="k">return</span> <span class="n">EAS</span><span class="p">,</span> <span class="n">ECU</span><span class="p">,</span> <span class="n">ECV</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">EPS_KURT</span><span class="p">,</span> <span class="n">EPS_SKEW</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="spectral_cover"><a class="viewcode-back" href="../../../generated/maad.features.spectral_cover.html#maad.features.spectral_cover">[docs]</a><span class="k">def</span> <span class="nf">spectral_cover</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">flim_LF</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">flim_MF</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span> 
+<div class="viewcode-block" id="spectral_cover">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_cover.html#maad.features.spectral_cover">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_cover</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">flim_LF</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">flim_MF</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span> 
                 <span class="n">flim_HF</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the proportion (cover) of the spectrogram above a threshold for </span>
@@ -1289,9 +1326,12 @@
     
     <span class="k">return</span> <span class="n">LFC</span><span class="p">,</span> <span class="n">MFC</span><span class="p">,</span> <span class="n">HFC</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="spectral_activity"><a class="viewcode-back" href="../../../generated/maad.features.spectral_activity.html#maad.features.spectral_activity">[docs]</a><span class="k">def</span> <span class="nf">spectral_activity</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<div class="viewcode-block" id="spectral_activity">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_activity.html#maad.features.spectral_activity">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_activity</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic activity on a spectrogram.</span>
 <span class="sd">    </span>
@@ -1349,8 +1389,11 @@
     
     <span class="k">return</span> <span class="n">ACTspfract</span><span class="p">,</span> <span class="n">ACTspcount</span><span class="p">,</span> <span class="n">ACTspmean</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="spectral_events"><a class="viewcode-back" href="../../../generated/maad.features.spectral_events.html#maad.features.spectral_events">[docs]</a><span class="k">def</span> <span class="nf">spectral_events</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="viewcode-block" id="spectral_events">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_events.html#maad.features.spectral_events">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_events</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute acoustic events from a spectrogram [1]_ [2]_.</span>
@@ -1466,8 +1509,11 @@
     <span class="k">return</span> <span class="n">EVNspFract</span><span class="p">,</span> <span class="n">EVNspMean</span><span class="p">,</span> <span class="n">EVNspCount</span><span class="p">,</span> <span class="n">EVNsp</span></div>
 
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="acoustic_complexity_index"><a class="viewcode-back" href="../../../generated/maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index">[docs]</a><span class="k">def</span> <span class="nf">acoustic_complexity_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">):</span>
+<div class="viewcode-block" id="acoustic_complexity_index">
+<a class="viewcode-back" href="../../../generated/maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index">[docs]</a>
+<span class="k">def</span> <span class="nf">acoustic_complexity_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Acoustic Complexity Index (ACI) from a spectrogram [1]_.</span>
 <span class="sd">        </span>
@@ -1519,8 +1565,11 @@
     
     <span class="k">return</span> <span class="n">ACI_xx</span><span class="p">,</span> <span class="n">ACI_per_bin</span><span class="p">,</span> <span class="n">ACI_sum</span> </div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="acoustic_diversity_index"><a class="viewcode-back" href="../../../generated/maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index">[docs]</a><span class="k">def</span> <span class="nf">acoustic_diversity_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+<div class="viewcode-block" id="acoustic_diversity_index">
+<a class="viewcode-back" href="../../../generated/maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index">[docs]</a>
+<span class="k">def</span> <span class="nf">acoustic_diversity_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
                             <span class="n">dB_threshold</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;shannon&quot;</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1630,8 +1679,11 @@
     
     <span class="k">return</span> <span class="n">ADI</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="acoustic_eveness_index"><a class="viewcode-back" href="../../../generated/maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index">[docs]</a><span class="k">def</span> <span class="nf">acoustic_eveness_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
+<div class="viewcode-block" id="acoustic_eveness_index">
+<a class="viewcode-back" href="../../../generated/maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index">[docs]</a>
+<span class="k">def</span> <span class="nf">acoustic_eveness_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
                         <span class="n">dB_threshold</span><span class="o">=-</span><span class="mi">50</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1724,10 +1776,13 @@
     
     <span class="k">return</span> <span class="n">AEI</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 <span class="c1">####    Indices based on the energy</span>
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="soundscape_index"><a class="viewcode-back" href="../../../generated/maad.features.soundscape_index.html#maad.features.soundscape_index">[docs]</a><span class="k">def</span> <span class="nf">soundscape_index</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">flim_bioPh</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span><span class="n">flim_antroPh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> 
+<div class="viewcode-block" id="soundscape_index">
+<a class="viewcode-back" href="../../../generated/maad.features.soundscape_index.html#maad.features.soundscape_index">[docs]</a>
+<span class="k">def</span> <span class="nf">soundscape_index</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">flim_bioPh</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span><span class="n">flim_antroPh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> 
                     <span class="n">R_compatible</span> <span class="o">=</span> <span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Normalized Difference Soundscape Index from a power spectrogram [1]_.</span>
@@ -1808,8 +1863,11 @@
 
     <span class="k">return</span> <span class="n">NDSI</span><span class="p">,</span> <span class="n">ratioBA</span><span class="p">,</span> <span class="n">antroPh</span><span class="p">,</span> <span class="n">bioPh</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="bioacoustics_index"><a class="viewcode-back" href="../../../generated/maad.features.bioacoustics_index.html#maad.features.bioacoustics_index">[docs]</a><span class="k">def</span> <span class="nf">bioacoustics_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">),</span> <span class="n">R_compatible</span> <span class="o">=</span><span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="bioacoustics_index">
+<a class="viewcode-back" href="../../../generated/maad.features.bioacoustics_index.html#maad.features.bioacoustics_index">[docs]</a>
+<span class="k">def</span> <span class="nf">bioacoustics_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">),</span> <span class="n">R_compatible</span> <span class="o">=</span><span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Bioacoustics Index from a spectrogram [1]_.</span>
 <span class="sd">    </span>
@@ -1886,6 +1944,7 @@
         <span class="n">BI</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">meanPSDxx_norm</span><span class="p">))</span><span class="o">*</span> <span class="n">df</span> 
         
     <span class="k">return</span> <span class="n">BI</span></div>
+
         
 <span class="c1">#=============================================================================</span>
 <span class="c1">#       </span>
@@ -1895,7 +1954,9 @@
 
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="temporal_leq"><a class="viewcode-back" href="../../../generated/maad.features.temporal_leq.html#maad.features.temporal_leq">[docs]</a><span class="k">def</span> <span class="nf">temporal_leq</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span> 
+<div class="viewcode-block" id="temporal_leq">
+<a class="viewcode-back" href="../../../generated/maad.features.temporal_leq.html#maad.features.temporal_leq">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_leq</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Equivalent Continuous Sound level (Leq) of an audio signal </span>
 <span class="sd">    in the time domain.</span>
@@ -1939,9 +2000,12 @@
     
     <span class="k">return</span> <span class="n">LEQt</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="spectral_leq"><a class="viewcode-back" href="../../../generated/maad.features.spectral_leq.html#maad.features.spectral_leq">[docs]</a><span class="k">def</span> <span class="nf">spectral_leq</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
+<div class="viewcode-block" id="spectral_leq">
+<a class="viewcode-back" href="../../../generated/maad.features.spectral_leq.html#maad.features.spectral_leq">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_leq</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Equivalent Continuous Sound level (Leq) from a power spectrum </span>
 <span class="sd">    (1d) or power spectrogram (2d).</span>
@@ -1994,9 +2058,12 @@
     
     <span class="k">return</span> <span class="n">LEQf</span><span class="p">,</span> <span class="n">LEQf_per_bin</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="more_entropy"><a class="viewcode-back" href="../../../generated/maad.features.more_entropy.html#maad.features.more_entropy">[docs]</a><span class="k">def</span> <span class="nf">more_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="more_entropy">
+<a class="viewcode-back" href="../../../generated/maad.features.more_entropy.html#maad.features.more_entropy">[docs]</a>
+<span class="k">def</span> <span class="nf">more_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the entropy of an audio signal using multiple methods.</span>
 <span class="sd">    </span>
@@ -2088,9 +2155,12 @@
                 
     <span class="k">return</span> <span class="n">H_Havrda</span><span class="p">,</span> <span class="n">H_Renyi</span><span class="p">,</span> <span class="n">H_pairedShannon</span><span class="p">,</span> <span class="n">H_gamma</span><span class="p">,</span> <span class="n">H_GiniSimpson</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="frequency_raoq"><a class="viewcode-back" href="../../../generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq">[docs]</a><span class="k">def</span> <span class="nf">frequency_raoq</span> <span class="p">(</span><span class="n">S_power</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="viewcode-block" id="frequency_raoq">
+<a class="viewcode-back" href="../../../generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq">[docs]</a>
+<span class="k">def</span> <span class="nf">frequency_raoq</span> <span class="p">(</span><span class="n">S_power</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute Rao&#39;s quadratic entropy on a power spectrum (1d). [1]_</span>
 <span class="sd">        </span>
@@ -2135,9 +2205,12 @@
     
     <span class="k">return</span> <span class="n">RAOQ</span></div>
 
+
 <span class="c1">#=============================================================================    </span>
 
-<div class="viewcode-block" id="tfsd"><a class="viewcode-back" href="../../../generated/maad.features.tfsd.html#maad.features.tfsd">[docs]</a><span class="k">def</span> <span class="nf">tfsd</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;thirdOctave&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="tfsd">
+<a class="viewcode-back" href="../../../generated/maad.features.tfsd.html#maad.features.tfsd">[docs]</a>
+<span class="k">def</span> <span class="nf">tfsd</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;thirdOctave&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Time frequency derivation index (tfsd) from a spectrogram. [1]_ [2]_</span>
 <span class="sd">        </span>
@@ -2218,9 +2291,13 @@
     <span class="k">else</span> <span class="p">:</span>
         <span class="n">GRADdf_select</span> <span class="o">=</span> <span class="n">GRADdf</span>    
     
-    <span class="c1"># calcul of the tfsdt : sum of the pseudo-gradient in the frequency bandwidth</span>
+    <span class="c1"># calcul of the tfsd : sum of the pseudo-gradient in the frequency bandwidth</span>
     <span class="c1"># which is normalized by the total sum of the pseudo-gradient</span>
     <span class="n">tfsd</span> <span class="o">=</span>  <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">GRADdf_select</span><span class="p">))</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">GRADdf</span><span class="p">))</span> 
+
+    <span class="c1"># in case tfsd is a NaN set to 0</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">tfsd</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">tfsd</span> <span class="o">=</span> <span class="mi">0</span>
     
     <span class="k">if</span> <span class="n">display</span> <span class="p">:</span>
         
@@ -2267,8 +2344,11 @@
     
     <span class="k">return</span> <span class="n">tfsd</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="acoustic_gradient_index"><a class="viewcode-back" href="../../../generated/maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index">[docs]</a><span class="k">def</span> <span class="nf">acoustic_gradient_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;per_bin&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="acoustic_gradient_index">
+<a class="viewcode-back" href="../../../generated/maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index">[docs]</a>
+<span class="k">def</span> <span class="nf">acoustic_gradient_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;per_bin&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Acoustic Gradient Index (AGI) from a raw spectrogram.</span>
 <span class="sd">    </span>
@@ -2372,9 +2452,12 @@
         
     <span class="k">return</span> <span class="n">AGI_xx</span><span class="p">,</span> <span class="n">AGI_per_bin</span><span class="p">,</span> <span class="n">AGI_mean</span><span class="p">,</span> <span class="n">AGI_sum</span></div>
 
+
 <span class="c1">#=============================================================================</span>
 
-<div class="viewcode-block" id="region_of_interest_index"><a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index">[docs]</a><span class="k">def</span> <span class="nf">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
+<div class="viewcode-block" id="region_of_interest_index">
+<a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index">[docs]</a>
+<span class="k">def</span> <span class="nf">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
                             <span class="n">smooth_param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
                             <span class="n">mask_mode</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
                             <span class="n">mask_param1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> 
@@ -2478,7 +2561,7 @@
     
     <span class="c1"># if remove rain =&gt; remove frequential spikes (rain)</span>
     <span class="k">if</span> <span class="n">remove_rain</span> <span class="o">==</span> <span class="kc">True</span> <span class="p">:</span>
-        <span class="n">Sxx_dB_noNoise</span> <span class="o">=</span> <span class="n">opening</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">selem</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+        <span class="n">Sxx_dB_noNoise</span> <span class="o">=</span> <span class="n">opening</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">footprint</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
 
     <span class="c1"># Smooth the spectrogram in order to facilitate the creation of masks</span>
     <span class="n">Sxx_dB_noNoise_smooth</span> <span class="o">=</span> <span class="n">smooth</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">smooth_param1</span><span class="p">,</span> 
@@ -2537,8 +2620,11 @@
     
     <span class="k">return</span>  <span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span></div>
 
+
 <span class="c1">#=============================================================================</span>
-<div class="viewcode-block" id="all_temporal_alpha_indices"><a class="viewcode-back" href="../../../generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices">[docs]</a><span class="k">def</span> <span class="nf">all_temporal_alpha_indices</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="all_temporal_alpha_indices">
+<a class="viewcode-back" href="../../../generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices">[docs]</a>
+<span class="k">def</span> <span class="nf">all_temporal_alpha_indices</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute 16 temporal domain acoustic indices.</span>
 
@@ -2741,7 +2827,10 @@
     <span class="k">return</span> <span class="n">df_temporal_indices</span></div>
 
 
-<div class="viewcode-block" id="all_spectral_alpha_indices"><a class="viewcode-back" href="../../../generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices">[docs]</a><span class="k">def</span> <span class="nf">all_spectral_alpha_indices</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span>
+
+<div class="viewcode-block" id="all_spectral_alpha_indices">
+<a class="viewcode-back" href="../../../generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices">[docs]</a>
+<span class="k">def</span> <span class="nf">all_spectral_alpha_indices</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span>
                     <span class="n">flim_low</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span> 
                     <span class="n">flim_mid</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">],</span> 
                     <span class="n">flim_hi</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">],</span> 
@@ -3306,6 +3395,7 @@
                                             <span class="s1">&#39;AGI_per_bin&#39;</span><span class="p">])</span>
                                     
     <span class="k">return</span> <span class="n">df_spectral_indices</span><span class="p">,</span> <span class="n">df_per_bin_indices</span></div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>

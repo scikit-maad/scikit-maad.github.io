@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -37,7 +40,7 @@
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -68,15 +71,16 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_graphical_soundscape.html">Acoustic fingerprinting and graphical soundscapes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_compare_auto_and_manual_rois_selection.html">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -113,12 +117,12 @@
            <div itemprop="articleBody">
              
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"><span class="std std-ref">Go to the end</span></a>
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="download-metadata-from-xeno-canto-to-infer-species-activities">
-<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Permalink to this heading">¶</a></h1>
+<section class="sphx-glr-example-title" id="download-metadata-from-xeno-canto-to-infer-species-activities">
+<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Link to this heading">¶</a></h1>
 <p>The goal of this example is to show how to download metadata from Xeno-Canto
 to infer species activities.
 We focus on the activity of european woodpeckers.</p>
@@ -143,19 +147,20 @@ Syrian : Dendrocopos syriacus
 Wryneck : Jynx torquilla
 Green : Picus viridis
 Middle Spotted : Dendrocoptes medius</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png&#39;</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">util</span>
 </pre></div>
 </div>
-<div class="section" id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Permalink to this heading">¶</a></h2>
+<section id="query-xeno-canto">
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading">¶</a></h2>
 <p>array with english name and scientific name of all european woodpeckers</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Eurasian Three-toed&#39;</span><span class="p">,</span> <span class="s1">&#39;Picoides tridactylus&#39;</span><span class="p">],</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Eurasian Three-toed&#39;</span><span class="p">,</span> <span class="s1">&#39;Picoides tridactylus&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;White-backed&#39;</span><span class="p">,</span>        <span class="s1">&#39;Dendrocopos leucotos&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;Lesser Spotted&#39;</span><span class="p">,</span>          <span class="s1">&#39;Dryobates minor&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;Great Spotted&#39;</span><span class="p">,</span>       <span class="s1">&#39;Dendrocopos major&#39;</span><span class="p">],</span>
@@ -168,14 +173,14 @@ Middle Spotted : Dendrocoptes medius</p>
 </pre></div>
 </div>
 <p>creation of a dataframe for the array with species names</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;english name&#39;</span><span class="p">,</span><span class="s1">&#39;scientific name&#39;</span><span class="p">]</span>
     <span class="p">)</span>
 </pre></div>
 </div>
 <p>get the genus and species needed for Xeno-Canto</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a> <span class="o">=</span> <span class="p">[]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">name</span></a> <span class="ow">in</span> <span class="n">df_species</span><span class="p">[</span><span class="s1">&#39;scientific name&#39;</span><span class="p">]:</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">name</span></a><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
@@ -191,7 +196,7 @@ len : length of the audio file (len_lt =&gt; length lower than; len_gt =&gt; len
 type : type of sound : ‘song’ or ‘call’ or ‘drumming’
 Please have a look here to know all the parameters and how to use them :
 <a class="reference external" href="https://xeno-canto.org/help/search">https://xeno-canto.org/help/search</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param1&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gen</span></a>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param2&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a>
 <span class="n">df_query</span><span class="p">[</span><span class="s1">&#39;param4&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;type:drumming&#39;</span>
@@ -199,7 +204,7 @@ Please have a look here to know all the parameters and how to use them :
 </pre></div>
 </div>
 <p>Get recordings metadata corresponding to the query</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_multi_query</span><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_multi_query</span><span class="p">(</span>
     <span class="n">df_query</span><span class="o">=</span><span class="n">df_query</span><span class="p">,</span>
     <span class="n">format_time</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">format_date</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -209,45 +214,45 @@ Please have a look here to know all the parameters and how to use them :
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picoides%20tridactylus%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 198 files after formating time
-Keeped metadata for 130 files after formating date
+Keeped metadata for 219 files after formating time
+Keeped metadata for 140 files after formating date
 Found 1 pages in total.
-Saved metadata for 130 files
+Saved metadata for 140 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20leucotos%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 144 files after formating time
-Keeped metadata for 104 files after formating date
+Keeped metadata for 167 files after formating time
+Keeped metadata for 121 files after formating date
 Found 1 pages in total.
-Saved metadata for 104 files
+Saved metadata for 121 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 435 files after formating time
-Keeped metadata for 330 files after formating date
+Keeped metadata for 477 files after formating time
+Keeped metadata for 364 files after formating date
 Found 1 pages in total.
-Saved metadata for 330 files
+Saved metadata for 364 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
 Loading page 2...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=2
-Keeped metadata for 747 files after formating time
-Keeped metadata for 539 files after formating date
+Keeped metadata for 824 files after formating time
+Keeped metadata for 598 files after formating date
 Found 2 pages in total.
-Saved metadata for 539 files
+Saved metadata for 598 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 287 files after formating time
-Keeped metadata for 213 files after formating date
+Keeped metadata for 318 files after formating time
+Keeped metadata for 238 files after formating date
 Found 1 pages in total.
-Saved metadata for 213 files
+Saved metadata for 238 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 84 files after formating time
-Keeped metadata for 62 files after formating date
+Keeped metadata for 96 files after formating time
+Keeped metadata for 73 files after formating date
 Found 1 pages in total.
-Saved metadata for 62 files
+Saved metadata for 73 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20syriacus%20type:drumming%20area:europe&amp;page=1
-/Users/jsulloa/miniconda3/envs/maad/lib/python3.8/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
+/Users/jsulloa/miniconda3/envs/py310/lib/python3.10/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
@@ -262,31 +267,31 @@ Found 1 pages in total.
 Saved metadata for 0 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 31 files after formating time
-Keeped metadata for 18 files after formating date
+Keeped metadata for 33 files after formating time
+Keeped metadata for 20 files after formating date
 Found 1 pages in total.
-Saved metadata for 18 files
+Saved metadata for 20 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20type:drumming%20area:europe&amp;page=1
-/Users/jsulloa/miniconda3/envs/maad/lib/python3.8/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
+/Users/jsulloa/miniconda3/envs/py310/lib/python3.10/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   df_dataset[&#39;time&#39;][df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)] = &#39;0&#39; + df_dataset[df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)].time
-Keeped metadata for 21 files after formating time
-Keeped metadata for 16 files after formating date
+Keeped metadata for 22 files after formating time
+Keeped metadata for 17 files after formating date
 Found 1 pages in total.
-Saved metadata for 16 files
+Saved metadata for 17 files
 </pre></div>
 </div>
-</div>
-<div class="section" id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins">
-<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins">
+<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Link to this heading">¶</a></h2>
 <p>Using the metadata collected from Xeno-Canto, we create a new dataframe
 containing the number of files per species and per time slot (30 mins). The
 goal is to create a dataframe with diel pattern of activity for all species
 with a time resolution of 30 mins.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="c1"># remove all rows where data is missing (NA)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
@@ -302,7 +307,7 @@ with a time resolution of 30 mins.</p>
 </div>
 <p>New dataframe with the number of audio files per time slot.
 The period of the time slot is 30 min</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">list_species</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="ow">in</span> <span class="n">list_species</span> <span class="p">:</span>
     <span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -314,14 +319,14 @@ The period of the time slot is 30 min</p>
 <span class="n">df_count</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span> <span class="c1"># type: ignore</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-week">
-<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-week">
+<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Link to this heading">¶</a></h2>
 <p>Using the metadata collected from Xeno-Cant, we create a new dataframe
 containing the number of files per species and per week. The goal is to
 create a dataframe with annual pattern of activity for all species
 with a week (7 days) resolution.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a copy of the dataset to avoid any modification of the original dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># remove all rows where data is missing (NA)</span>
@@ -332,7 +337,7 @@ with a week (7 days) resolution.</p>
 </pre></div>
 </div>
 <p>New dataframe with the number of audio files per week</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_week_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_week_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="n">list_species</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
@@ -346,15 +351,15 @@ with a week (7 days) resolution.</p>
 <span class="n">df_week_count</span><span class="p">[</span><span class="s2">&quot;week&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_week_count</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="display-a-heatmap-of-diel-activity">
-<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="display-a-heatmap-of-diel-activity">
+<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Link to this heading">¶</a></h2>
 <p>make a copy of the dataset to avoid any modification of the original dataset</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>find the number of counts that corresponds to 50% of the counts</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="ow">in</span> <span class="n">list_species</span><span class="p">:</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="ow">in</span> <span class="n">list_species</span><span class="p">:</span>
     <span class="c1"># find the threshold value</span>
     <span class="n">count_50_threshold</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df_count</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">==</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span>
     <span class="c1"># extract the counting value of the category</span>
@@ -373,7 +378,7 @@ with a week (7 days) resolution.</p>
 <p>Display the heatmap to see when (time of the day) the woodpeckers are active.
 Woodpeckers are the most active during the morning, between 6:00am till
 10:00am.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># plot figure</span>
@@ -423,19 +428,17 @@ Woodpeckers are the most active during the morning, between 6:00am till
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/></div>
-<div class="section" id="display-a-heatmap-of-annual-activity-with-week-resolution">
-<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Permalink to this heading">¶</a></h2>
+<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/></section>
+<section id="display-a-heatmap-of-annual-activity-with-week-resolution">
+<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Link to this heading">¶</a></h2>
 <p>make a copy of the dataset to avoid any modification of the original dataset</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_week_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_week_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>create a new dataframe with the normalized number of audio files per week</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 
 <span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a> <span class="ow">in</span> <span class="n">list_species</span><span class="p">:</span>
-    <span class="c1"># filter the rows with specific species and its count</span>
-    <span class="n">sub_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
 
     <span class="c1"># scale the count values using MinMaxScaler</span>
     <span class="n">scaled_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">species</span></a><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">])</span>
@@ -447,7 +450,7 @@ Woodpeckers are the most active during the morning, between 6:00am till
 <p>Display the heatmap to see when (annually) the woodpeckers are active.
 Woodpeckers are the most active during the winter and beginning of spring
 (Februrary to April).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
     <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
     <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;week&#39;</span><span class="p">,</span>
     <span class="n">values</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
@@ -470,10 +473,10 @@ Woodpeckers are the most active during the winter and beginning of spring
 
 <span class="c1"># Labels for major ticks</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">),</span>
-                   <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
-                   <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+                <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                   <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 
 <span class="c1"># Minor ticks</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span>
@@ -506,16 +509,18 @@ Woodpeckers are the most active during the winter and beginning of spring
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  48.773 seconds)</p>
+<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 9.863 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/cfedbf7b033f3b4a3d8b7662f780f26a/plot_xenocanto_woodpecker_activities.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_xenocanto_woodpecker_activities.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/ce4f2561ac5c8da7083b50e63ed49d48/plot_xenocanto_woodpecker_activities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_xenocanto_woodpecker_activities.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/ce4f2561ac5c8da7083b50e63ed49d48/plot_xenocanto_woodpecker_activities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_xenocanto_woodpecker_activities.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/cfedbf7b033f3b4a3d8b7662f780f26a/plot_xenocanto_woodpecker_activities.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_xenocanto_woodpecker_activities.py</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

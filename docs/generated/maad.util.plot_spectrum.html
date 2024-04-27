@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.plot_spectrum &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.plot_spectrum &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,6 +79,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.util.overlay_centroid.html">maad.util.overlay_centroid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features_map.html">maad.util.plot_features_map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features.html">maad.util.plot_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.util.heatmap_by_date_and_time.html">maad.util.heatmap_by_date_and_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_correlation_map.html">maad.util.plot_correlation_map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_shape.html">maad.util.plot_shape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.false_Color_Spectro.html">maad.util.false_Color_Spectro</a></li>
@@ -119,17 +123,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-util-plot-spectrum">
-<h1>maad.util.plot_spectrum<a class="headerlink" href="#maad-util-plot-spectrum" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-util-plot-spectrum">
+<h1>maad.util.plot_spectrum<a class="headerlink" href="#maad-util-plot-spectrum" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.plot_spectrum">
-<code class="sig-prename descclassname"><span class="pre">maad.util.</span></code><code class="sig-name descname"><span class="pre">plot_spectrum</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">pxx</span></span></em>, <em><span class="n"><span class="pre">f_idx</span></span></em>, <em><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">log_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#plot_spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">plot_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#plot_spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.plot_spectrum" title="Link to this definition">¶</a></dt>
 <dd><p>Plot power spectral density estimate (PSD).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>pxx</strong><span class="classifier">1d ndarray</span></dt><dd><p>Power spectral density estimate computed with <cite>maad.sound.spectrum</cite>.</p>
 </dd>
 <dt><strong>f_idx</strong><span class="classifier">1d ndarray</span></dt><dd><p>Index of frequencies associated with the PSD.</p>
@@ -146,19 +148,17 @@ Default is None.</p>
 <dt><strong>**kwargs</strong><span class="classifier">matplotlib figure properties</span></dt><dd><p>Other keyword arguments that are passed down to matplotlib.axes.</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>ax</strong><span class="classifier">matplotlib.axes</span></dt><dd><p>The matplotlib axes associated to plot.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
+<p class="admonition-title">See also</p>
+<dl class="simple">
 <dt><a class="reference internal" href="maad.sound.spectrum.html#maad.sound.spectrum" title="maad.sound.spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maad.sound.spectrum</span></code></a>, <a class="reference internal" href="maad.util.plot_wave.html#maad.util.plot_wave" title="maad.util.plot_wave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maad.util.plot_wave</span></code></a></dt><dd></dd>
 </dl>
 </div>
@@ -182,7 +182,7 @@ Default is None.</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

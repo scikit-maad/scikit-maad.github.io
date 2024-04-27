@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.roughness &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.roughness &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,24 +133,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-roughness">
-<h1>maad.features.roughness<a class="headerlink" href="#maad-features-roughness" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-roughness">
+<h1>maad.features.roughness<a class="headerlink" href="#maad-features-roughness" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.roughness">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">roughness</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">x</span></span></em>, <em><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#roughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.roughness" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">roughness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#roughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.roughness" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the roughness (depends on the number of peaks and their amplitude)
 of a vector or matrix x (i.e. waveform, spectrogram…)   
 Roughness = sum(second_derivation(x)²) <a class="reference internal" href="#rc5776a89b74b-1" id="id1">[1]</a> <a class="reference internal" href="#rc5776a89b74b-2" id="id2">[2]</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>x</strong><span class="classifier">ndarray of floats</span></dt><dd><p>x is a vector (1d) or a matrix (2d)</p>
 </dd>
 <dt><strong>norm</strong><span class="classifier">boolean, optional. Default is None</span></dt><dd><ul class="simple">
-<li>‘global’ : normalize by the maximum value in the vector or matrix</li>
-<li>‘per_axis’ : normalize by the maximum value found along each axis</li>
+<li><p>‘global’ : normalize by the maximum value in the vector or matrix</p></li>
+<li><p>‘per_axis’ : normalize by the maximum value found along each axis</p></li>
 </ul>
 </dd>
 <dt><strong>axis</strong><span class="classifier">int, optional, default is 0</span></dt><dd><p>select the axis where the second derivation is computed</p>
@@ -154,31 +156,27 @@ Roughness = sum(second_derivation(x)²) <a class="reference internal" href="#rc5
 <p>if x is a 2d ndarray, axis=0 =&gt; rows, axis=1 =&gt; columns</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>y</strong><span class="classifier">float or ndarray of floats</span></dt><dd></dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="rc5776a89b74b-1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Described in Ramsay, J. O., &amp; Silverman, B. W. (2005). Principal components analysis for functional data. Functional data analysis, 147-172. <a class="reference external" href="https://link.springer.com/content/pdf/10.1007/0-387-22751-2_8.pdf">https://link.springer.com/content/pdf/10.1007/0-387-22751-2_8.pdf</a></td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="rc5776a89b74b-2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Ported from SEEWAVE R Package <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></td></tr>
-</tbody>
-</table>
+<div role="list" class="citation-list">
+<div class="citation" id="rc5776a89b74b-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Described in Ramsay, J. O., &amp; Silverman, B. W. (2005). Principal components analysis for functional data. Functional data analysis, 147-172. <a class="reference external" href="https://link.springer.com/content/pdf/10.1007/0-387-22751-2_8.pdf">https://link.springer.com/content/pdf/10.1007/0-387-22751-2_8.pdf</a></p>
+</div>
+<div class="citation" id="rc5776a89b74b-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Ported from SEEWAVE R Package <a class="reference external" href="http://rug.mnhn.fr/seewave">http://rug.mnhn.fr/seewave</a>. Sueur, J., Aubin, T., &amp; Simonis, C. (2008). Seewave, a free modular tool for sound analysis and synthesis. Bioacoustics, 18(2), 213-226. <a class="reference external" href="https://doi.org/10.1080/09524622.2008.9753600">DOI: 10.1080/09524622.2008.9753600</a></p>
+</div>
+</div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

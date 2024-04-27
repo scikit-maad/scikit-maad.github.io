@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.acoustic_eveness_index &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.acoustic_eveness_index &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,17 +133,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-acoustic-eveness-index">
-<h1>maad.features.acoustic_eveness_index<a class="headerlink" href="#maad-features-acoustic-eveness-index" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-acoustic-eveness-index">
+<h1>maad.features.acoustic_eveness_index<a class="headerlink" href="#maad-features-acoustic-eveness-index" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.acoustic_eveness_index">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">acoustic_eveness_index</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">Sxx</span></span></em>, <em><span class="n"><span class="pre">fn</span></span></em>, <em><span class="n"><span class="pre">fmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em><span class="n"><span class="pre">fmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em><span class="n"><span class="pre">bin_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em><span class="n"><span class="pre">dB_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#acoustic_eveness_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.acoustic_eveness_index" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">acoustic_eveness_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dB_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#acoustic_eveness_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.acoustic_eveness_index" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the Acoustic Eveness Index (AEI) from a spectrogram <a class="reference internal" href="#re3dd41c8e02e-1" id="id1">[1]</a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>Sxx: ndarray of floats</strong></dt><dd><p>2d : amplitude spectrogram. In order to obtain the same output as for soundecology,
 the signal and the spectrogram need to be processed without detrend on.
 maad.sound.load(“myfile.wav”, …, detrend = False)
@@ -158,31 +160,29 @@ For a complete example, see the example below</p>
 normalized by the length)</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>AEI</strong><span class="classifier">scalar</span></dt><dd><p>Acoustic Eveness of the spectrogram (ie. Gini of the vector of scores)</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
+<p class="admonition-title">See also</p>
+<dl class="simple">
 <dt><a class="reference internal" href="maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index" title="maad.features.acoustic_diversity_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acoustic_diversity_index</span></code></a></dt><dd></dd>
 </dl>
 </div>
 <p class="rubric">Notes</p>
 <p>The Acoustic Eveness Index (AEI) and the Acoustic Diversity Index (ADI) are negatively correlated.</p>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="re3dd41c8e02e-1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;<a class="reference external" href="https://doi.org/10.1007/s10980-011-9636-9">https://doi.org/10.1007/s10980-011-9636-9</a>&gt;`_</td></tr>
-</tbody>
-</table>
+<div role="list" class="citation-list">
+<div class="citation" id="re3dd41c8e02e-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;<a class="reference external" href="https://doi.org/10.1007/s10980-011-9636-9">https://doi.org/10.1007/s10980-011-9636-9</a>&gt;`_</p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
 </pre></div>
@@ -207,7 +207,7 @@ in line with soundecology</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

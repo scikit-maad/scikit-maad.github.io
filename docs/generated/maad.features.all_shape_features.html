@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.all_shape_features &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.all_shape_features &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -74,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#alpha-acoustic-indices">Alpha acoustic indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -109,18 +113,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-all-shape-features">
-<h1>maad.features.all_shape_features<a class="headerlink" href="#maad-features-all-shape-features" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-all-shape-features">
+<h1>maad.features.all_shape_features<a class="headerlink" href="#maad-features-all-shape-features" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.all_shape_features">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">all_shape_features</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">s</span></span></em>, <em><span class="n"><span class="pre">fs</span></span></em>, <em><span class="n"><span class="pre">rois</span></span></em>, <em><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'low'</span></span></em>, <em><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/shape.html#all_shape_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_shape_features" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">all_shape_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rois</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'low'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/shape.html#all_shape_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.all_shape_features" title="Link to this definition">¶</a></dt>
 <dd><p>Computes shape and central frequency features from signal at specified 
 time-frequency limits defined by regions of interest (ROIs).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>s: ndarray</strong></dt><dd><p>Singal to be analysed</p>
 </dd>
 <dt><strong>fs: int</strong></dt><dd><p>Sampling frequency of the signal</p>
@@ -142,63 +144,70 @@ values in Hertz</p>
 <dt><strong>display: boolean, optional, default is False</strong></dt><dd><p>Flag. If display is True, plot results</p>
 </dd>
 <dt><strong>kwargs, optional. This parameter is used by plt.plot and savefig functions</strong></dt><dd><ul class="simple">
-<li><dl class="first docutils">
-<dt>savefilename<span class="classifier">str, optional, default :’_spectro_overlaycentroid.png’ </span></dt><dd>Postfix of the figure filename</dd>
+<li><dl class="simple">
+<dt>savefilename<span class="classifier">str, optional, default :’_spectro_overlaycentroid.png’ </span></dt><dd><p>Postfix of the figure filename</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10) </span></dt><dd>width, height in inches.</dd>
+<li><dl class="simple">
+<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10) </span></dt><dd><p>width, height in inches.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’ </span></dt><dd>title of the figure</dd>
+<li><dl class="simple">
+<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’ </span></dt><dd><p>title of the figure</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’ </span></dt><dd>label of the horizontal axis</dd>
+<li><dl class="simple">
+<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’ </span></dt><dd><p>label of the horizontal axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’ </span></dt><dd>label of the vertical axis</dd>
+<li><dl class="simple">
+<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’ </span></dt><dd><p>label of the vertical axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’ </span></dt><dd>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> 
+<li><dl class="simple">
+<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’ </span></dt><dd><p>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> 
 in order to get all the  existing colormaps 
 examples: ‘hsv’, ‘hot’, ‘bone’, ‘tab20c’, ‘jet’, ‘seismic’,  
-‘viridis’…</dd>
+‘viridis’…</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>vmin, vmax<span class="classifier">scalar, optional, default: None </span></dt><dd><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize 
+<li><dl class="simple">
+<dt>vmin, vmax<span class="classifier">scalar, optional, default: None </span></dt><dd><p><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize 
 luminance data.  Note if you pass a <cite>norm</cite> instance, your 
-settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</dd>
+settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>dpi<span class="classifier">integer, optional, default is 96 </span></dt><dd>Dot per inch.  
+<li><dl class="simple">
+<dt>dpi<span class="classifier">integer, optional, default is 96 </span></dt><dd><p>Dot per inch.  
 For printed version, choose high dpi (i.e. dpi=300) =&gt; slow 
-For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</dd>
+For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>format<span class="classifier">string, optional, default is ‘png’ </span></dt><dd>Format to save the figure</dd>
+<li><dl class="simple">
+<dt>format<span class="classifier">string, optional, default is ‘png’ </span></dt><dd><p>Format to save the figure</p>
+</dd>
 </dl>
 </li>
 </ul>
 <p>… and more, see matplotlib</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt>feature_rois: pandas Dataframe</dt><dd><p>A dataframe with each column corresponding to a feature</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">read_audacity_annot</span> 
@@ -257,7 +266,7 @@ For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</dd>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

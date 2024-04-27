@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.bioacoustics_index &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.features.bioacoustics_index &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -94,6 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
@@ -129,17 +133,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-features-bioacoustics-index">
-<h1>maad.features.bioacoustics_index<a class="headerlink" href="#maad-features-bioacoustics-index" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-features-bioacoustics-index">
+<h1>maad.features.bioacoustics_index<a class="headerlink" href="#maad-features-bioacoustics-index" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.bioacoustics_index">
-<code class="sig-prename descclassname"><span class="pre">maad.features.</span></code><code class="sig-name descname"><span class="pre">bioacoustics_index</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">Sxx</span></span></em>, <em><span class="n"><span class="pre">fn</span></span></em>, <em><span class="n"><span class="pre">flim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(2000,</span> <span class="pre">15000)</span></span></em>, <em><span class="n"><span class="pre">R_compatible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'soundecology'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#bioacoustics_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.bioacoustics_index" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">bioacoustics_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(2000,</span> <span class="pre">15000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_compatible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'soundecology'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#bioacoustics_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.bioacoustics_index" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the Bioacoustics Index from a spectrogram <a class="reference internal" href="#r4387573841e2-1" id="id1">[1]</a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>Sxx</strong><span class="classifier">ndarray of floats</span></dt><dd><p>matrix : Spectrogram</p>
 </dd>
 <dt><strong>fn</strong><span class="classifier">vector</span></dt><dd><p>frequency vector</p>
@@ -150,34 +152,30 @@
 Otherwise, the result is specific to maad</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>BI</strong><span class="classifier">scalar</span></dt><dd><p>Bioacoustics Index</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <p>Soundecology compatible version:
 * Average of dB value
 * Remove negative value in order to get positive values only
 * Dividing by the frequency resolution df instead of multiplication</p>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r4387573841e2-1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Boelman NT, Asner GP, Hart PJ, Martin RE. 2007. Multi-trophic invasion resistance in Hawaii: bioacoustics, field surveys, and airborne remote sensing. Ecological Applications 17: 2137-2144. <a class="reference external" href="https://doi.org/10.1890/07-0004.1">DOI: 10.1890/07-0004.1</a></td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="r4387573841e2-2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td>Ported and modified from the soundecology R package - cran.ms.unimelb.edu.au/web/packages/soundecology/soundecology.pdf.</td></tr>
-</tbody>
-</table>
+<div role="list" class="citation-list">
+<div class="citation" id="r4387573841e2-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Boelman NT, Asner GP, Hart PJ, Martin RE. 2007. Multi-trophic invasion resistance in Hawaii: bioacoustics, field surveys, and airborne remote sensing. Ecological Applications 17: 2137-2144. <a class="reference external" href="https://doi.org/10.1890/07-0004.1">DOI: 10.1890/07-0004.1</a></p>
+</div>
+<div class="citation" id="r4387573841e2-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Ported and modified from the soundecology R package - cran.ms.unimelb.edu.au/web/packages/soundecology/soundecology.pdf.</p>
+</div>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>
@@ -192,7 +190,7 @@ Otherwise, the result is specific to maad</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

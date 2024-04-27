@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.plot_correlation_map &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.plot_correlation_map &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="maad.util.plot_shape" href="maad.util.plot_shape.html" />
-    <link rel="prev" title="maad.util.plot_features" href="maad.util.plot_features.html" /> 
+    <link rel="prev" title="maad.util.heatmap_by_date_and_time" href="maad.util.heatmap_by_date_and_time.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -73,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.util.overlay_centroid.html">maad.util.overlay_centroid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features_map.html">maad.util.plot_features_map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.util.plot_features.html">maad.util.plot_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.util.heatmap_by_date_and_time.html">maad.util.heatmap_by_date_and_time</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">maad.util.plot_correlation_map</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#maad.util.plot_correlation_map"><code class="docutils literal notranslate"><span class="pre">plot_correlation_map()</span></code></a></li>
 </ul>
@@ -119,18 +123,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-util-plot-correlation-map">
-<h1>maad.util.plot_correlation_map<a class="headerlink" href="#maad-util-plot-correlation-map" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-util-plot-correlation-map">
+<h1>maad.util.plot_correlation_map<a class="headerlink" href="#maad-util-plot-correlation-map" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.plot_correlation_map">
-<code class="sig-prename descclassname"><span class="pre">maad.util.</span></code><code class="sig-name descname"><span class="pre">plot_correlation_map</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">df</span></span></em>, <em><span class="n"><span class="pre">R_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spearman'</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#plot_correlation_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.plot_correlation_map" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">plot_correlation_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spearman'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/visualization.html#plot_correlation_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.plot_correlation_map" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the correlation map between indices in the DataFrame obtained
 with <code class="docutils literal notranslate"><span class="pre">maad</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
 <dt><strong>df</strong><span class="classifier">Panda DataFrame</span></dt><dd><p>DataFrame with features (ie. indices).</p>
 </dd>
 <dt><strong>R_threshold</strong><span class="classifier">scalar between 0 to 1, default is 0.75</span></dt><dd><p>Show correlations with R higher than R_threshold</p>
@@ -138,79 +140,85 @@ with <code class="docutils literal notranslate"><span class="pre">maad</span></c
 <dt><strong>method</strong><span class="classifier">string in {‘spearman’, ‘pearson’}, default is ‘spearman’</span></dt><dd><p>Choose the correlation type</p>
 </dd>
 <dt><strong>**kwargs</strong></dt><dd><ul class="simple">
-<li><dl class="first docutils">
-<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10)</span></dt><dd>width, height in inches.</dd>
+<li><dl class="simple">
+<dt>figsize<span class="classifier">tuple of integers, optional, default: (4,10)</span></dt><dd><p>width, height in inches.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’</span></dt><dd>title of the figure</dd>
+<li><dl class="simple">
+<dt>title<span class="classifier">string, optional, default</span><span class="classifier">‘Spectrogram’</span></dt><dd><p>title of the figure</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’</span></dt><dd>label of the horizontal axis</dd>
+<li><dl class="simple">
+<dt>xlabel<span class="classifier">string, optional, default</span><span class="classifier">‘Time [s]’</span></dt><dd><p>label of the horizontal axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’</span></dt><dd>label of the vertical axis</dd>
+<li><dl class="simple">
+<dt>ylabel<span class="classifier">string, optional, default</span><span class="classifier">‘Amplitude [AU]’</span></dt><dd><p>label of the vertical axis</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
+<li><dl class="simple">
 <dt>xticks<span class="classifier">tuple of ndarrays, optional, default</span><span class="classifier">none</span></dt><dd><ul>
-<li>ticks : array_like =&gt; A list of positions at which ticks should be placed. You can pass an empty list to disable yticks.</li>
-<li>labels : array_like, optional =&gt;  A list of explicit labels to place at the given locs.</li>
+<li><p>ticks : array_like =&gt; A list of positions at which ticks should be placed. You can pass an empty list to disable yticks.</p></li>
+<li><p>labels : array_like, optional =&gt;  A list of explicit labels to place at the given locs.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
+<li><dl class="simple">
 <dt>yticks<span class="classifier">tuple of ndarrays, optional, default</span><span class="classifier">none</span></dt><dd><ul>
-<li>ticks : array_like =&gt; A list of positions at which ticks should be placed. You can pass an empty list to disable yticks.</li>
-<li>labels : array_like, optional =&gt;  A list of explicit labels to place at the given locs.</li>
+<li><p>ticks : array_like =&gt; A list of positions at which ticks should be placed. You can pass an empty list to disable yticks.</p></li>
+<li><p>labels : array_like, optional =&gt;  A list of explicit labels to place at the given locs.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’</span></dt><dd>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a>
+<li><dl class="simple">
+<dt>cmap<span class="classifier">string or Colormap object, optional, default is ‘gray’</span></dt><dd><p>See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a>
 in order to get all the  existing colormaps
 examples: ‘hsv’, ‘hot’, ‘bone’, ‘tab20c’, ‘jet’, ‘seismic’, 
-‘viridis’…</dd>
+‘viridis’…</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>vmin, vmax<span class="classifier">scalar, optional, default: None</span></dt><dd><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize
+<li><dl class="simple">
+<dt>vmin, vmax<span class="classifier">scalar, optional, default: None</span></dt><dd><p><cite>vmin</cite> and <cite>vmax</cite> are used in conjunction with norm to normalize
 luminance data.  Note if you pass a <cite>norm</cite> instance, your
-settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</dd>
+settings for <cite>vmin</cite> and <cite>vmax</cite> will be ignored.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>extent<span class="classifier">list of scalars [left, right, bottom, top], optional, default: None</span></dt><dd>The location, in data-coordinates, of the lower-left and
+<li><dl class="simple">
+<dt>extent<span class="classifier">list of scalars [left, right, bottom, top], optional, default: None</span></dt><dd><p>The location, in data-coordinates, of the lower-left and
 upper-right corners. If <cite>None</cite>, the image is positioned such that
-the pixel centers fall on zero-based (row, column) indices.</dd>
+the pixel centers fall on zero-based (row, column) indices.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>now<span class="classifier">boolean, optional, default</span><span class="classifier">True</span></dt><dd>if True, display now. Cannot display multiple images. 
+<li><dl class="simple">
+<dt>now<span class="classifier">boolean, optional, default</span><span class="classifier">True</span></dt><dd><p>if True, display now. Cannot display multiple images. 
 To display mutliple images, set now=False until the last call for 
-the last image</dd>
+the last image</p>
+</dd>
 </dl>
 </li>
 </ul>
 <p>… and more, see matplotlib</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>fig</strong><span class="classifier">Figure</span></dt><dd><p>The Figure instance</p>
 </dd>
 <dt><strong>ax</strong><span class="classifier">Axis</span></dt><dd><p>The Axis instance</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <p>see plot_extract_alpha_indices.py advanced example for a complete example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -225,13 +233,13 @@ the last image</dd>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="maad.util.plot_features.html" class="btn btn-neutral float-left" title="maad.util.plot_features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maad.util.heatmap_by_date_and_time.html" class="btn btn-neutral float-left" title="maad.util.heatmap_by_date_and_time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="maad.util.plot_shape.html" class="btn btn-neutral float-right" title="maad.util.plot_shape" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

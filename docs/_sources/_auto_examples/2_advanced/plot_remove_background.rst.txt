@@ -28,17 +28,35 @@ subtraction techniques. These techniques are applied over the spectrogram and re
 We use the sharpness metric to have a quantitative estimation of how well is the noise 
 reduction. For a more comprehensive analysis, other metrics should be use in complement.
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-29
+.. GENERATED FROM PYTHON SOURCE LINES 16-18
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_path = './_images/sphx_glr_plot_remove_background_002.png'
 
-    from maad.util import plot2d, power2dB
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 19-21
+
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-34
+
+.. code-block:: Python
+
+    from maad.util import plot2d, power2dB, dB2power
     from maad.sound import (load, spectrogram, 
                            remove_background, median_equalizer, 
                            remove_background_morpho, 
-                           remove_background_along_axis, sharpness)
+                           remove_background_along_axis, 
+                           pcen)
+    from maad.sound import spectral_snr
     import numpy as np
 
     from timeit import default_timer as timer
@@ -52,7 +70,7 @@ reduction. For a more comprehensive analysis, other metrics should be use in com
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-36
+.. GENERATED FROM PYTHON SOURCE LINES 35-41
 
 Load and plot the spectrogram of the original audio file
 --------------------------------------------------------
@@ -61,17 +79,17 @@ The linear spectrogram is then transformed into dB. The dB range is  96dB
 which is the maximum dB range value for a 16bits audio recording. We add
 96dB in order to get have only positive values in the spectrogram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-44
+.. GENERATED FROM PYTHON SOURCE LINES 41-49
 
-.. code-block:: default
+.. code-block:: Python
 
     s, fs = load('../../data/tropical_forest_morning.wav')
     Sxx, tn, fn, ext = spectrogram(s, fs, fcrop=[0,20000], tcrop=[0,60])
     Sxx_dB = power2dB(Sxx, db_range=96) + 96
+    print("SNR = %2.3f dB" % spectral_snr(Sxx)[2])
+
     plot2d(Sxx_dB, extent=ext, title='original',
            vmin=np.median(Sxx_dB), vmax=np.median(Sxx_dB)+40)
-
-    print ("Original sharpness : %2.3f" % sharpness(Sxx_dB))
 
 
 
@@ -86,27 +104,27 @@ which is the maximum dB range value for a 16bits audio recording. We add
 
  .. code-block:: none
 
-    Original sharpness : 1.885
+    SNR = 3.505 dB
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-48
+.. GENERATED FROM PYTHON SOURCE LINES 50-53
 
 Test different methods to remove stationary background noise
 ------------------------------------------------------------
 Test the function "remove_background"
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-58
+.. GENERATED FROM PYTHON SOURCE LINES 53-63
 
-.. code-block:: default
+.. code-block:: Python
 
     start = timer()
     X1, noise_profile1, _ = remove_background(Sxx_dB)
     elapsed_time = timer() - start
     print("---- test remove_background -----")
     print("duration %2.3f s" % elapsed_time)
-    print ("sharpness : %2.3f" % sharpness(X1))
+    print("SNR = %2.3f dB" % spectral_snr(dB2power(X1))[2])
 
     plot2d(X1, extent=ext, title='remove_background',
            vmin=np.median(X1), vmax=np.median(X1)+40)
@@ -125,19 +143,19 @@ Test the function "remove_background"
  .. code-block:: none
 
     ---- test remove_background -----
-    duration 0.104 s
-    sharpness : 1.434
+    duration 0.087 s
+    SNR = 3.084 dB
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-60
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
 
 Test the function "median_equalizer"
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-76
 
-.. code-block:: default
+.. code-block:: Python
 
     start = timer()
     X2 = median_equalizer(Sxx)
@@ -145,7 +163,7 @@ Test the function "median_equalizer"
     elapsed_time = timer() - start
     print("---- test median_equalizer -----")
     print("duration %2.3f s" % elapsed_time)
-    print ("sharpness : %2.3f" %sharpness(X2))
+    print("SNR = %2.3f dB" % spectral_snr(dB2power(X2))[2])
 
     plot2d(X2,extent=ext, title='median_equalizer',
            vmin=np.median(X2), vmax=np.median(X2)+40)
@@ -164,26 +182,26 @@ Test the function "median_equalizer"
  .. code-block:: none
 
     ---- test median_equalizer -----
-    duration 0.286 s
-    sharpness : 1.500
+    duration 0.278 s
+    SNR = 7.032 dB
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-73
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Test the function "remove_background_morpho"
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-83
+.. GENERATED FROM PYTHON SOURCE LINES 78-88
 
-.. code-block:: default
+.. code-block:: Python
 
     start = timer()
     X3, noise_profile3,_ = remove_background_morpho(Sxx_dB, q=0.95) 
     elapsed_time = timer() - start
     print("---- test remove_background_morpho -----")
     print("duration %2.3f s" % elapsed_time)
-    print ("sharpness : %2.3f" %sharpness(X3))
+    print("SNR = %2.3f dB" % spectral_snr(dB2power(X3))[2])
 
     plot2d(X3, extent=ext, title='remove_background_morpho',
            vmin=np.median(X3), vmax=np.median(X3)+40)
@@ -202,32 +220,32 @@ Test the function "remove_background_morpho"
  .. code-block:: none
 
     ---- test remove_background_morpho -----
-    duration 1.520 s
-    sharpness : 0.885
+    duration 1.339 s
+    SNR = 2.074 dB
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 89-90
 
 Test the function "remove_background_along_axis"
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-97
+.. GENERATED FROM PYTHON SOURCE LINES 90-102
 
-.. code-block:: default
+.. code-block:: Python
 
     start = timer()
     X4, noise_profile4 = remove_background_along_axis(Sxx_dB,mode='median', axis=1) 
-    #X4 = power2dB(X4) 
     elapsed_time = timer() - start
     print("---- test remove_background_along_axis -----")
     print("duration %2.3f s" % elapsed_time)
-    print ("sharpness : %2.3f" %sharpness(X4))
+    print("SNR = %2.3f dB" % spectral_snr(dB2power(X4))[2])
 
     plot2d(X4,  extent=ext, title='remove_background_along_axis',
            vmin=np.median(X4), vmax=np.median(X4)+40)
 
     plt.tight_layout()
+
 
 
 
@@ -243,7 +261,47 @@ Test the function "remove_background_along_axis"
 
     ---- test remove_background_along_axis -----
     duration 0.116 s
-    sharpness : 0.984
+    SNR = 5.758 dB
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 103-104
+
+Test the function "pcen"
+
+.. GENERATED FROM PYTHON SOURCE LINES 104-116
+
+.. code-block:: Python
+
+    start = timer()
+    X5, noise_profile5, PCENxx = pcen(Sxx, gain=0.1, bias=5, power=0.25, b=0.01, eps=1e-4)
+    X5 = power2dB(X5, db_range=96) + 96
+    elapsed_time = timer() - start
+    print("---- test pcen -----")
+    print("duration %2.3f s" % elapsed_time)
+    print("SNR = %2.3f dB" % spectral_snr(dB2power(X5))[2])
+
+    plot2d(X5,  extent=ext, title='Per Channel Energy Normalization (PCEN)',
+           vmin=np.median(X5), vmax=np.median(X5)+40)
+
+    plt.tight_layout()
+
+
+
+.. image-sg:: /_auto_examples/2_advanced/images/sphx_glr_plot_remove_background_006.png
+   :alt: Per Channel Energy Normalization (PCEN)
+   :srcset: /_auto_examples/2_advanced/images/sphx_glr_plot_remove_background_006.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    ---- test pcen -----
+    duration 0.174 s
+    SNR = 3.473 dB
 
 
 
@@ -251,7 +309,7 @@ Test the function "remove_background_along_axis"
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.097 seconds)
+   **Total running time of the script:** (0 minutes 5.751 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_remove_background.py:
@@ -260,16 +318,13 @@ Test the function "remove_background_along_axis"
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_remove_background.ipynb <plot_remove_background.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_remove_background.py <plot_remove_background.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_remove_background.ipynb <plot_remove_background.ipynb>`
 
 
 .. only:: html

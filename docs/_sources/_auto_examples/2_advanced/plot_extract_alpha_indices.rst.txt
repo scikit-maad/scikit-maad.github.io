@@ -28,11 +28,26 @@ and present basics post-processing posibilities. The audio recordings used in th
 example can be downloaded from the open GitHub repository 
 (https://github.com/scikit-maad/scikit-maad/tree/production/data).
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-27
+.. GENERATED FROM PYTHON SOURCE LINES 16-17
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_path = './_images/sphx_glr_plot_extract_alpha_indices_002.png'
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
+
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-29
+
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     import pandas as pd
@@ -50,15 +65,15 @@ example can be downloaded from the open GitHub repository
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-31
+.. GENERATED FROM PYTHON SOURCE LINES 30-33
 
 Set Variables
 -------------
 We list all spectral and temporal acoustic indices that will be computed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-45
+.. GENERATED FROM PYTHON SOURCE LINES 33-47
 
-.. code-block:: default
+.. code-block:: Python
 
 
     SPECTRAL_FEATURES=['MEANf','VARf','SKEWf','KURTf','NBPEAKS','LEQf', 
@@ -81,7 +96,7 @@ We list all spectral and temporal acoustic indices that will be computed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-51
+.. GENERATED FROM PYTHON SOURCE LINES 48-53
 
 We parse the directory were the audio dataset is located in order to get a df with date 
 and fullfilename. As the data were collected with a SM4 audio recording device
@@ -89,11 +104,11 @@ we set the dateformat agument to 'SM4' in order to be able to parse the date
 from the filename. In case of Audiomoth, the date is coded as Hex in the 
 filename. The path to the audio dataset is "../../data/indices/".
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-58
+.. GENERATED FROM PYTHON SOURCE LINES 53-60
 
-.. code-block:: default
+.. code-block:: Python
 
-    df = date_parser("../../data/indices/", dateformat='SM4', verbose=True)
+    df = date_parser("../../data/indices/", dateformat='%Y%m%d_%H%M%S', verbose=True)
 
     # remove index => Date becomes a column instead of an index. This is
     # required as df_audio_ind, df_spec_ind and df_spec_ind_per_bin do not have 
@@ -108,116 +123,114 @@ filename. The path to the audio dataset is "../../data/indices/".
 
  .. code-block:: none
 
-    S4A03895_20190522_041500.wav
-    S4A03895_20190522_141500.wav
-    indices.csv
-    S4A03895_20190522_073000.wav
-    S4A03895_20190522_173000.wav
-    per_bin_indices.csv
-    S4A03895_20190522_010000.wav
-    S4A03895_20190522_014500.wav
-    S4A03895_20190522_110000.wav
-    S4A03895_20190522_114500.wav
-    S4A03895_20190522_213000.wav
-    S4A03895_20190522_180000.wav
-    S4A03895_20190522_184500.wav
-    S4A03895_20190522_080000.wav
-    S4A03895_20190522_084500.wav
-    S4A03895_20190522_221500.wav
-    S4A03895_20190522_203000.wav
-    S4A03895_20190522_094500.wav
-    S4A03895_20190522_090000.wav
-    S4A03895_20190522_194500.wav
-    S4A03895_20190522_190000.wav
-    S4A03895_20190522_231500.wav
-    S4A03895_20190522_151500.wav
-    S4A03895_20190522_051500.wav
-    S4A03895_20190522_104500.wav
-    S4A03895_20190522_100000.wav
-    S4A03895_20190522_004500.wav
-    S4A03895_20190522_000000.wav
-    S4A03895_20190522_163000.wav
-    S4A03895_20190522_063000.wav
-    S4A03895_20190522_223000.wav
-    S4A03895_20190522_211500.wav
-    S4A03895_20190522_071500.wav
-    S4A03895_20190522_171500.wav
-    S4A03895_20190522_024500.wav
-    S4A03895_20190522_020000.wav
-    S4A03895_20190522_124500.wav
-    S4A03895_20190522_120000.wav
-    S4A03895_20190522_043000.wav
-    S4A03895_20190522_143000.wav
-    S4A03895_20190522_161500.wav
-    S4A03895_20190522_061500.wav
-    S4A03895_20190522_153000.wav
-    S4A03895_20190522_053000.wav
-    S4A03895_20190522_130000.wav
-    S4A03895_20190522_134500.wav
-    S4A03895_20190522_030000.wav
-    S4A03895_20190522_034500.wav
-    S4A03895_20190522_233000.wav
-    S4A03895_20190522_201500.wav
-    S4A03895_20190522_193000.wav
-    S4A03895_20190522_093000.wav
-    S4A03895_20190522_200000.wav
-    S4A03895_20190522_204500.wav
-    S4A03895_20190522_003000.wav
-    S4A03895_20190522_103000.wav
-    S4A03895_20190522_060000.wav
-    S4A03895_20190522_064500.wav
-    S4A03895_20190522_160000.wav
-    S4A03895_20190522_164500.wav
-    S4A03895_20190522_031500.wav
-    S4A03895_20190522_131500.wav
-    S4A03895_20190522_174500.wav
-    S4A03895_20190522_170000.wav
-    S4A03895_20190522_074500.wav
-    S4A03895_20190522_070000.wav
-    S4A03895_20190522_113000.wav
-    S4A03895_20190522_013000.wav
-    S4A03895_20190522_121500.wav
-    S4A03895_20190522_021500.wav
-    S4A03895_20190522_083000.wav
-    S4A03895_20190522_183000.wav
-    S4A03895_20190522_214500.wav
-    S4A03895_20190522_210000.wav
-    S4A03895_20190522_054500.wav
-    S4A03895_20190522_050000.wav
-    S4A03895_20190522_154500.wav
-    S4A03895_20190522_150000.wav
-    S4A03895_20190522_033000.wav
-    S4A03895_20190522_133000.wav
-    S4A03895_20190522_001500.wav
-    S4A03895_20190522_101500.wav
-    S4A03895_20190522_234500.wav
-    S4A03895_20190522_230000.wav
-    S4A03895_20190522_191500.wav
-    S4A03895_20190522_091500.wav
-    S4A03895_20190522_220000.wav
-    S4A03895_20190522_224500.wav
-    S4A03895_20190522_081500.wav
-    S4A03895_20190522_181500.wav
-    S4A03895_20190522_123000.wav
-    S4A03895_20190522_023000.wav
-    S4A03895_20190522_140000.wav
-    S4A03895_20190522_144500.wav
-    S4A03895_20190522_040000.wav
-    S4A03895_20190522_044500.wav
-    S4A03895_20190522_111500.wav
-    S4A03895_20190522_011500.wav
+    File: S4A03895_20190522_041500.wav
+    File: S4A03895_20190522_141500.wav
+    File: S4A03895_20190522_073000.wav
+    File: S4A03895_20190522_173000.wav
+    File: S4A03895_20190522_010000.wav
+    File: S4A03895_20190522_014500.wav
+    File: S4A03895_20190522_110000.wav
+    File: S4A03895_20190522_114500.wav
+    File: S4A03895_20190522_213000.wav
+    File: S4A03895_20190522_180000.wav
+    File: S4A03895_20190522_184500.wav
+    File: S4A03895_20190522_080000.wav
+    File: S4A03895_20190522_084500.wav
+    File: S4A03895_20190522_221500.wav
+    File: S4A03895_20190522_203000.wav
+    File: S4A03895_20190522_094500.wav
+    File: S4A03895_20190522_090000.wav
+    File: S4A03895_20190522_194500.wav
+    File: S4A03895_20190522_190000.wav
+    File: S4A03895_20190522_231500.wav
+    File: S4A03895_20190522_151500.wav
+    File: S4A03895_20190522_051500.wav
+    File: S4A03895_20190522_104500.wav
+    File: S4A03895_20190522_100000.wav
+    File: S4A03895_20190522_004500.wav
+    File: S4A03895_20190522_000000.wav
+    File: S4A03895_20190522_163000.wav
+    File: S4A03895_20190522_063000.wav
+    File: S4A03895_20190522_223000.wav
+    File: S4A03895_20190522_211500.wav
+    File: S4A03895_20190522_071500.wav
+    File: S4A03895_20190522_171500.wav
+    File: S4A03895_20190522_024500.wav
+    File: S4A03895_20190522_020000.wav
+    File: S4A03895_20190522_124500.wav
+    File: S4A03895_20190522_120000.wav
+    File: S4A03895_20190522_043000.wav
+    File: S4A03895_20190522_143000.wav
+    File: S4A03895_20190522_161500.wav
+    File: S4A03895_20190522_061500.wav
+    File: S4A03895_20190522_153000.wav
+    File: S4A03895_20190522_053000.wav
+    File: S4A03895_20190522_130000.wav
+    File: S4A03895_20190522_134500.wav
+    File: S4A03895_20190522_030000.wav
+    File: S4A03895_20190522_034500.wav
+    File: S4A03895_20190522_233000.wav
+    File: S4A03895_20190522_201500.wav
+    File: S4A03895_20190522_193000.wav
+    File: S4A03895_20190522_093000.wav
+    File: S4A03895_20190522_200000.wav
+    File: S4A03895_20190522_204500.wav
+    File: S4A03895_20190522_003000.wav
+    File: S4A03895_20190522_103000.wav
+    File: S4A03895_20190522_060000.wav
+    File: S4A03895_20190522_064500.wav
+    File: S4A03895_20190522_160000.wav
+    File: S4A03895_20190522_164500.wav
+    File: S4A03895_20190522_031500.wav
+    File: S4A03895_20190522_131500.wav
+    File: S4A03895_20190522_174500.wav
+    File: S4A03895_20190522_170000.wav
+    File: S4A03895_20190522_074500.wav
+    File: S4A03895_20190522_070000.wav
+    File: S4A03895_20190522_113000.wav
+    File: S4A03895_20190522_013000.wav
+    File: S4A03895_20190522_121500.wav
+    File: S4A03895_20190522_021500.wav
+    File: S4A03895_20190522_083000.wav
+    File: S4A03895_20190522_183000.wav
+    File: S4A03895_20190522_214500.wav
+    File: S4A03895_20190522_210000.wav
+    File: S4A03895_20190522_054500.wav
+    File: S4A03895_20190522_050000.wav
+    File: S4A03895_20190522_154500.wav
+    File: S4A03895_20190522_150000.wav
+    File: S4A03895_20190522_033000.wav
+    File: S4A03895_20190522_133000.wav
+    File: S4A03895_20190522_001500.wav
+    File: S4A03895_20190522_101500.wav
+    File: S4A03895_20190522_234500.wav
+    File: S4A03895_20190522_230000.wav
+    File: S4A03895_20190522_191500.wav
+    File: S4A03895_20190522_091500.wav
+    File: S4A03895_20190522_220000.wav
+    File: S4A03895_20190522_224500.wav
+    File: S4A03895_20190522_081500.wav
+    File: S4A03895_20190522_181500.wav
+    File: S4A03895_20190522_123000.wav
+    File: S4A03895_20190522_023000.wav
+    File: S4A03895_20190522_140000.wav
+    File: S4A03895_20190522_144500.wav
+    File: S4A03895_20190522_040000.wav
+    File: S4A03895_20190522_044500.wav
+    File: S4A03895_20190522_111500.wav
+    File: S4A03895_20190522_011500.wav
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 Batch compute acoustic indices on the audio dataset
 ---------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-175
+.. GENERATED FROM PYTHON SOURCE LINES 63-177
 
-.. code-block:: default
+.. code-block:: Python
 
     df_indices = pd.DataFrame()
     df_indices_per_bin = pd.DataFrame()
@@ -633,7 +646,7 @@ Batch compute acoustic indices on the audio dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-183
+.. GENERATED FROM PYTHON SOURCE LINES 178-185
 
 Display results
 ---------------
@@ -643,9 +656,9 @@ First, plot correlation map of all indices. We set the R threshold to 0 in
 order to have everything. If you want to focus on highly correlated indices
 set the threshold to 0.75 for instance.
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-185
+.. GENERATED FROM PYTHON SOURCE LINES 185-187
 
-.. code-block:: default
+.. code-block:: Python
 
     fig, ax = plot_correlation_map(df_indices, R_threshold=0)
 
@@ -661,15 +674,15 @@ set the threshold to 0.75 for instance.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-189
+.. GENERATED FROM PYTHON SOURCE LINES 188-191
 
 A graphical way to have a quick overview of the indices variation during 
 a 24h cycle consists in plotting heatmaps of indices 
 For a better view, we seperate spectral and audio indices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-205
+.. GENERATED FROM PYTHON SOURCE LINES 191-207
 
-.. code-block:: default
+.. code-block:: Python
 
     plot_features_map(df_indices[SPECTRAL_FEATURES], mode='24h')
     plot_features_map(df_indices[TEMPORAL_FEATURES], mode='24h')
@@ -718,13 +731,13 @@ For a better view, we seperate spectral and audio indices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-207
+.. GENERATED FROM PYTHON SOURCE LINES 208-209
 
 Create false color spectrograms with 3 indices
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-221
+.. GENERATED FROM PYTHON SOURCE LINES 209-223
 
-.. code-block:: default
+.. code-block:: Python
 
     fcs, triplet = false_Color_Spectro(
         df=df_indices_per_bin,
@@ -752,7 +765,7 @@ Create false color spectrograms with 3 indices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-226
+.. GENERATED FROM PYTHON SOURCE LINES 224-228
 
 References
 ----------
@@ -763,7 +776,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.277 seconds)
+   **Total running time of the script:** (0 minutes 16.490 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_extract_alpha_indices.py:
@@ -772,16 +785,13 @@ References
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_extract_alpha_indices.ipynb <plot_extract_alpha_indices.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_extract_alpha_indices.py <plot_extract_alpha_indices.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_extract_alpha_indices.ipynb <plot_extract_alpha_indices.ipynb>`
 
 
 .. only:: html

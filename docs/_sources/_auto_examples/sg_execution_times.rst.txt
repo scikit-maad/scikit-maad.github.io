@@ -3,20 +3,35 @@
 
 .. _sphx_glr__auto_examples_sg_execution_times:
 
+
 Computation times
 =================
-**01:05.656** total execution time for **_auto_examples** files:
+**00:00.000** total execution time for 0 files **from _auto_examples**:
 
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_plot_unsupervised_sound_classification.py` (``plot_unsupervised_sound_classification.py``)           | 01:05.656 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_plot_compare_auto_and_manual_rois_selection.py` (``plot_compare_auto_and_manual_rois_selection.py``) | 00:00.000 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_plot_extract_alpha_indices.py` (``plot_extract_alpha_indices.py``)                                   | 00:00.000 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_plot_nmf_and_false_color_spectrogram.py` (``plot_nmf_and_false_color_spectrogram.py``)               | 00:00.000 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_plot_remove_background.py` (``plot_remove_background.py``)                                           | 00:00.000 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__auto_examples_using_shape_features.py` (``using_shape_features.py``)                                               | 00:00.000 | 0.0 MB |
-+------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - N/A
+     - N/A
+     - N/A

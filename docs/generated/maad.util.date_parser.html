@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.date_parser &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.date_parser &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -109,62 +112,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-util-date-parser">
-<h1>maad.util.date_parser<a class="headerlink" href="#maad-util-date-parser" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-util-date-parser">
+<h1>maad.util.date_parser<a class="headerlink" href="#maad-util-date-parser" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.util.date_parser">
-<code class="sig-prename descclassname"><span class="pre">maad.util.</span></code><code class="sig-name descname"><span class="pre">date_parser</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">datadir</span></span></em>, <em><span class="n"><span class="pre">dateformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SM4'</span></span></em>, <em><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.wav'</span></span></em>, <em><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/parser.html#date_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.date_parser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse all filenames contained in a directory and its subdirectories.</p>
-<p>Keeps only filenames corresponding to extension.
-Filenames must follow :</p>
-<ul class="simple">
-<li>SM4 format (XXXX_yyyymmdd_hhmmss.wav)</li>
-<li>or POSIX format (for audiomoth)</li>
-</ul>
-<p>The result is a panda dataframe with ‘Date’ as index and ‘File’ (with full path as column)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>filename</strong><span class="classifier">string</span></dt><dd><p>filename must follow 
-- SM4 format : XXXX_yyyymmdd_hhmmss.wav, ex: S4A03895_20190522_191500.wav
-- Audiomoth format : 8 Hexa, ex: 5EE84AC8.wav</p>
+<span class="sig-prename descclassname"><span class="pre">maad.util.</span></span><span class="sig-name descname"><span class="pre">date_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datadir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dateformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y%m%d_%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.wav'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/util/parser.html#date_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.util.date_parser" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts dates from filenames in a given folder and subfolders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>datadir</strong><span class="classifier">str</span></dt><dd><p>Path to the folder to search for files.</p>
+</dd>
+<dt><strong>dateformat</strong><span class="classifier">str, optional</span></dt><dd><p>Format string specifying the datetime pattern to extract.
+The default is’%Y%m%d_%H%M%S’
+For more information about the format codes, refer to the
+<a class="reference external" href="https://strftime.org/">strftime format documentation</a>.</p>
+</dd>
+<dt><strong>extension</strong><span class="classifier">str, optional,</span></dt><dd><p>File extension to filter files by (e.g., ‘.wav’, ‘.mp3’).
+The default is ‘.wav’.</p>
+</dd>
+<dt><strong>prefix</strong><span class="classifier">str, optional,</span></dt><dd><p>Prefix of the filenames to match.
+The default is ‘’.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, print the filenames as they are processed.
+The default is False.</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>df</strong><span class="classifier">Pandas dataframe</span></dt><dd><p>This dataframe has one column
-- ‘file’ =&gt; full path + filename
-and a index ‘Date’ with the type Datetime</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>DataFrame containing the extracted dates as the index ‘Date’,
+and the full file paths in a ‘file’ column.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the datetime_format is invalid or does not match the filenames.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function searches for files in the specified folder and its subfolders
+that have the given extension and match the specified prefix. It extracts
+the dates from the filenames using the provided datetime_format.</p>
+<p>The extracted dates are set as the index of the resulting DataFrame. The
+‘file’ column contains the full file paths.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">date_parser</span><span class="p">(</span><span class="s2">&quot;../data/indices/&quot;</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="s1">&#39;SM4&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">folder_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/indices/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span> <span class="o">=</span> <span class="s1">&#39;.wav&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_format</span> <span class="o">=</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">date_parser</span><span class="p">(</span><span class="n">datadir</span><span class="o">=</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="n">datetime_format</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">ext</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">                                                                file</span>
+<span class="go">Date        </span>
+<span class="go">2019-05-22 00:00:00 ../../data/indices/S4A03895_20190522_000000.wav</span>
+<span class="go">2019-05-22 00:15:00 ../../data/indices/S4A03895_20190522_001500.wav</span>
+<span class="go">2019-05-22 00:30:00 ../../data/indices/S4A03895_20190522_003000.wav</span>
+<span class="go">2019-05-22 00:45:00 ../../data/indices/S4A03895_20190522_004500.wav</span>
+<span class="go">2019-05-22 01:00:00 ../../data/indices/S4A03895_20190522_010000.wav</span>
+<span class="go">                ...                                             ...</span>
+<span class="go">2019-05-22 22:45:00 ../../data/indices/S4A03895_20190522_224500.wav</span>
+<span class="go">2019-05-22 23:00:00 ../../data/indices/S4A03895_20190522_230000.wav</span>
+<span class="go">2019-05-22 23:15:00 ../../data/indices/S4A03895_20190522_231500.wav</span>
+<span class="go">2019-05-22 23:30:00 ../../data/indices/S4A03895_20190522_233000.wav</span>
+<span class="go">2019-05-22 23:45:00 ../../data/indices/S4A03895_20190522_234500.wav</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">date_parser</span><span class="p">(</span><span class="s2">&quot;../../data/indices/&quot;</span><span class="p">,</span> <span class="n">dateformat</span><span class="o">=</span><span class="s1">&#39;SM4&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
-<span class="go">                                                             file</span>
-<span class="go">Date                                                             </span>
-<span class="go">2019-05-22 00:00:00  ../data/indices/S4A03895_20190522_000000.wav</span>
-<span class="go">2019-05-22 00:15:00  ../data/indices/S4A03895_20190522_001500.wav</span>
-<span class="go">2019-05-22 00:30:00  ../data/indices/S4A03895_20190522_003000.wav</span>
-<span class="go">2019-05-22 00:45:00  ../data/indices/S4A03895_20190522_004500.wav</span>
-<span class="go">2019-05-22 01:00:00  ../data/indices/S4A03895_20190522_010000.wav</span>
-<span class="go">2019-05-22 01:15:00  ../data/indices/S4A03895_20190522_011500.wav</span>
-<span class="go">2019-05-22 01:30:00  ../data/indices/S4A03895_20190522_013000.wav</span>
-<span class="go">2019-05-22 01:45:00  ../data/indices/S4A03895_20190522_014500.wav</span>
-<span class="go">2019-05-22 02:00:00  ../data/indices/S4A03895_20190522_020000.wav</span>
-<span class="gp">...</span>
+<span class="go">                                                                file</span>
+<span class="go">Date        </span>
+<span class="go">2019-05-22 00:00:00 ../../data/indices/S4A03895_20190522_000000.wav</span>
+<span class="go">2019-05-22 00:15:00 ../../data/indices/S4A03895_20190522_001500.wav</span>
+<span class="go">2019-05-22 00:30:00 ../../data/indices/S4A03895_20190522_003000.wav</span>
+<span class="go">2019-05-22 00:45:00 ../../data/indices/S4A03895_20190522_004500.wav</span>
+<span class="go">2019-05-22 01:00:00 ../../data/indices/S4A03895_20190522_010000.wav</span>
+<span class="go">                ...                                             ...</span>
+<span class="go">2019-05-22 22:45:00 ../../data/indices/S4A03895_20190522_224500.wav</span>
+<span class="go">2019-05-22 23:00:00 ../../data/indices/S4A03895_20190522_230000.wav</span>
+<span class="go">2019-05-22 23:15:00 ../../data/indices/S4A03895_20190522_231500.wav</span>
+<span class="go">2019-05-22 23:30:00 ../../data/indices/S4A03895_20190522_233000.wav</span>
+<span class="go">2019-05-22 23:45:00 ../../data/indices/S4A03895_20190522_234500.wav</span>
 </pre></div>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

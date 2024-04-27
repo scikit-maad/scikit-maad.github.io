@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.features.composite_soundscape_descriptors &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.4.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Acoustic features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">scikit-maad</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">maad.features.composite_soundscape_descriptors</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for maad.features.composite_soundscape_descriptors</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Utility functions for computing composite soundscape descriptors using data from multiple files at the same sampling site.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span>
+
+<span class="c1">#%% Function argument validation</span>
+<span class="k">def</span> <span class="nf">_input_validation</span><span class="p">(</span><span class="n">data_input</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Validate dataframe or path input argument &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">data_input</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">data_input</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Collecting metadata from directory path...&#39;</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_metadata_dir</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading metadata from csv file&#39;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Attempt to read all wav data from the provided file path.</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span> 
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">data_input</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input &#39;data&#39; must be either a Pandas DataFrame or a file path string&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Validate number of jobs &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_jobs must be an integer.&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n_jobs</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Use all available CPUs</span>
+        <span class="n">n_jobs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using all available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Validate that the number is not larger than available CPUs</span>
+        <span class="n">available_cpus</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">&gt;</span> <span class="n">available_cpus</span><span class="p">:</span>
+            <span class="c1"># Set n_jobs to the maximum number of available CPUs</span>
+            <span class="n">n_jobs</span> <span class="o">=</span> <span class="n">available_cpus</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adjusted n_jobs to maximum available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using specified number of CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">n_jobs</span>
+
+<span class="c1">#%%</span>
+<span class="k">def</span> <span class="nf">_spectral_peak_density</span><span class="p">(</span>
+        <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the spectral peak density for an audio file, representing the number of peaks per time step within each frequency bin.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_audio : pandas DataFrame</span>
+<span class="sd">        A Pandas DataFrame containing information about the audio files.</span>
+<span class="sd">    target_fs : int</span>
+<span class="sd">        The target sample rate to resample the audio signal if needed.</span>
+<span class="sd">    nperseg : int</span>
+<span class="sd">        Window length of each segment to compute the spectrogram.</span>
+<span class="sd">    noverlap : int</span>
+<span class="sd">        Number of samples to overlap between segments to compute the spectrogram.</span>
+<span class="sd">    db_range : float</span>
+<span class="sd">        Dynamic range of the computed spectrogram.</span>
+<span class="sd">    min_distance : int</span>
+<span class="sd">        Minimum number of indices separating peaks.</span>
+<span class="sd">    threshold_abs : float</span>
+<span class="sd">        Minimum amplitude threshold for peak detection in decibels.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    peak_density : pandas Dataframe</span>
+<span class="sd">        The peak density representation of the audio per frequency bin.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">res_type</span><span class="o">=</span><span class="s2">&quot;scipy_poly&quot;</span><span class="p">)</span>
+    <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">noverlap</span><span class="p">)</span>
+    <span class="n">Sxx_db</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="n">db_range</span><span class="p">)</span>
+
+    <span class="c1"># Compute local max</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">peak_freq</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">spectrogram_local_max</span><span class="p">(</span>
+        <span class="n">Sxx_db</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span>
+        <span class="n">min_distance</span><span class="p">,</span> 
+        <span class="n">threshold_abs</span><span class="p">)</span>
+
+    <span class="c1"># Compute peak density (number of peaks / time steps)</span>
+    <span class="n">freq_idx</span><span class="p">,</span> <span class="n">count_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">peak_freq</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">count_peak</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">bool_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">freq_idx</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_index</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">count_peak</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="n">count_freq</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
+    <span class="n">peak_density</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">fn</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">count_peak</span><span class="p">)</span>
+
+    <span class="c1"># Normalize per time</span>
+    <span class="n">peak_density</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">return</span> <span class="n">peak_density</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="graphical_soundscape">
+<a class="viewcode-back" href="../../../generated/maad.features.graphical_soundscape.html#maad.features.graphical_soundscape">[docs]</a>
+<span class="k">def</span> <span class="nf">graphical_soundscape</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">path_audio</span><span class="o">=</span><span class="s1">&#39;path_audio&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">target_fs</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes a graphical soundscape from a given DataFrame of audio files.</span>
+
+<span class="sd">    This function is a variant of the original graphical soundscapes introduced by Campos-Cerqueira et al. The peaks are detected on the spectrogram instead of detecting peaks on the spectrum. Results are similar but not equal to the ones computed using seewave in R.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Campos‐Cerqueira, M., et al., 2020. How does FSC forest certification affect the acoustically active fauna in Madre de Dios, Peru? Remote Sensing in Ecology and Conservation 6, 274–285. https://doi.org/10.1002/rse2.120</span>
+<span class="sd">        - Furumo, P.R., Aide, T.M., 2019. Using soundscapes to assess biodiversity in Neotropical oil palm landscapes. Landscape Ecology 34, 911–923.</span>
+<span class="sd">        - Campos-Cerqueira, M., Aide, T.M., 2017. Changes in the acoustic structure and composition along a tropical elevational gradient. JEA 1, 1–1. https://doi.org/10.22261/JEA.PNCO7I</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : pandas DataFrame</span>
+<span class="sd">        A Pandas DataFrame containing information about the audio files.</span>
+<span class="sd">        If a string is passed with a directory location or a csv file, parameters &#39;path_audio&#39; and &#39;time&#39; will be set as default and can&#39;t be customized.</span>
+<span class="sd">    threshold_abs : float</span>
+<span class="sd">        Minimum amplitude threshold for peak detection in decibels.</span>
+<span class="sd">    path_audio : str</span>
+<span class="sd">        Column name where the full path of audio is provided.</span>
+<span class="sd">    time : str</span>
+<span class="sd">        Column name where the time is provided as a string using the format &#39;HHMMSS&#39;.</span>
+<span class="sd">    target_fs : int</span>
+<span class="sd">        The target sample rate to resample the audio signal if needed.</span>
+<span class="sd">    nperseg : int</span>
+<span class="sd">        Window length of each segment to compute the spectrogram.</span>
+<span class="sd">    noverlap : int</span>
+<span class="sd">        Number of samples to overlap between segments to compute the spectrogram.</span>
+<span class="sd">    db_range : float</span>
+<span class="sd">        Dynamic range of the computed spectrogram.</span>
+<span class="sd">    min_distance : int</span>
+<span class="sd">        Minimum number of indices separating peaks.</span>
+<span class="sd">    n_jobs : int</span>
+<span class="sd">        Number of processes to use for parallel computing. Default is 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    res : pandas DataFrame</span>
+<span class="sd">        A Pandas DataFrame containing the graphical representation of the soundscape.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from maad.util import get_metadata_dir</span>
+<span class="sd">    &gt;&gt;&gt; from maad.features import graphical_soundscape, plot_graph</span>
+<span class="sd">    &gt;&gt;&gt; df = get_metadata_dir(&#39;../../data/indices&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; df[&#39;hour&#39;] = df.date.dt.hour</span>
+<span class="sd">    &gt;&gt;&gt; gs = graphical_soundscape(data=df, threshold_abs=-80, time=&#39;hour&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; plot_graph(gs)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">_input_validation</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">total_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">total_files</span><span class="si">}</span><span class="s1"> files found to process...&#39;</span><span class="p">)</span>
+    <span class="n">flist</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">path_audio</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">n_jobs</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Use sequential processing</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">path_audio</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">_spectral_peak_density</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Use parallel processing</span>
+        <span class="n">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">_spectral_peak_density</span><span class="p">,</span> <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">)</span>
+                       <span class="k">for</span> <span class="n">path_audio</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">]</span>
+
+        <span class="c1"># Wait for all tasks to complete</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">futures</span><span class="p">]</span>
+        
+    <span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Computation completed!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
+
+
+<span class="c1">#%%</span>
+<div class="viewcode-block" id="plot_graph">
+<a class="viewcode-back" href="../../../generated/maad.features.plot_graph.html#maad.features.plot_graph">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Plots a graphical soundscape</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph : pandas.Dataframe</span>
+<span class="sd">        A graphical soundscape as pandas dataframe with index as time and frequency as columns</span>
+<span class="sd">    ax : matplotlib.axes, optional</span>
+<span class="sd">        Axes for subplots. If not provided it creates a new figure, by default None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax</span>
+<span class="sd">        Axes of the figure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
+              <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
+                      <span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (h)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">savefig</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

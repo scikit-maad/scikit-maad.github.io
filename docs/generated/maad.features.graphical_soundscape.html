@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>maad.features.graphical_soundscape &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="maad.features.plot_graph" href="maad.features.plot_graph.html" />
+    <link rel="prev" title="maad.features.all_spectral_features" href="maad.features.all_spectral_features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            scikit-maad
+              <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.4.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_dataset.html">Audio dataset</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rois.html">Segmentation methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../features.html">Acoustic features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../features.html#spectro-temporal-features">Spectro-temporal features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#alpha-acoustic-indices">Alpha acoustic indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#temporal-features">Temporal features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#spectral-features">Spectral features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../features.html#composite-acoustic-features">Composite acoustic features</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">maad.features.graphical_soundscape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maad.features.graphical_soundscape"><code class="docutils literal notranslate"><span class="pre">graphical_soundscape()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.plot_graph.html">maad.features.plot_graph</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spl.html">Sound pressure level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_auto_examples/index.html">Example gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">scikit-maad</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../features.html">Acoustic features</a></li>
+      <li class="breadcrumb-item active">maad.features.graphical_soundscape</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/maad.features.graphical_soundscape.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="maad-features-graphical-soundscape">
+<h1>maad.features.graphical_soundscape<a class="headerlink" href="#maad-features-graphical-soundscape" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="maad.features.graphical_soundscape">
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">graphical_soundscape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_abs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_audio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'path_audio'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'time'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nperseg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noverlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/composite_soundscape_descriptors.html#graphical_soundscape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.graphical_soundscape" title="Link to this definition">¶</a></dt>
+<dd><p>Computes a graphical soundscape from a given DataFrame of audio files.</p>
+<p>This function is a variant of the original graphical soundscapes introduced by Campos-Cerqueira et al. The peaks are detected on the spectrogram instead of detecting peaks on the spectrum. Results are similar but not equal to the ones computed using seewave in R.</p>
+<dl class="simple">
+<dt>References:</dt><dd><ul class="simple">
+<li><p>Campos‐Cerqueira, M., et al., 2020. How does FSC forest certification affect the acoustically active fauna in Madre de Dios, Peru? Remote Sensing in Ecology and Conservation 6, 274–285. <a class="reference external" href="https://doi.org/10.1002/rse2.120">https://doi.org/10.1002/rse2.120</a></p></li>
+<li><p>Furumo, P.R., Aide, T.M., 2019. Using soundscapes to assess biodiversity in Neotropical oil palm landscapes. Landscape Ecology 34, 911–923.</p></li>
+<li><p>Campos-Cerqueira, M., Aide, T.M., 2017. Changes in the acoustic structure and composition along a tropical elevational gradient. JEA 1, 1–1. <a class="reference external" href="https://doi.org/10.22261/JEA.PNCO7I">https://doi.org/10.22261/JEA.PNCO7I</a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">pandas DataFrame</span></dt><dd><p>A Pandas DataFrame containing information about the audio files.
+If a string is passed with a directory location or a csv file, parameters ‘path_audio’ and ‘time’ will be set as default and can’t be customized.</p>
+</dd>
+<dt><strong>threshold_abs</strong><span class="classifier">float</span></dt><dd><p>Minimum amplitude threshold for peak detection in decibels.</p>
+</dd>
+<dt><strong>path_audio</strong><span class="classifier">str</span></dt><dd><p>Column name where the full path of audio is provided.</p>
+</dd>
+<dt><strong>time</strong><span class="classifier">str</span></dt><dd><p>Column name where the time is provided as a string using the format ‘HHMMSS’.</p>
+</dd>
+<dt><strong>target_fs</strong><span class="classifier">int</span></dt><dd><p>The target sample rate to resample the audio signal if needed.</p>
+</dd>
+<dt><strong>nperseg</strong><span class="classifier">int</span></dt><dd><p>Window length of each segment to compute the spectrogram.</p>
+</dd>
+<dt><strong>noverlap</strong><span class="classifier">int</span></dt><dd><p>Number of samples to overlap between segments to compute the spectrogram.</p>
+</dd>
+<dt><strong>db_range</strong><span class="classifier">float</span></dt><dd><p>Dynamic range of the computed spectrogram.</p>
+</dd>
+<dt><strong>min_distance</strong><span class="classifier">int</span></dt><dd><p>Minimum number of indices separating peaks.</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int</span></dt><dd><p>Number of processes to use for parallel computing. Default is 1.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">pandas DataFrame</span></dt><dd><p>A Pandas DataFrame containing the graphical representation of the soundscape.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">get_metadata_dir</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.features</span> <span class="kn">import</span> <span class="n">graphical_soundscape</span><span class="p">,</span> <span class="n">plot_graph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">get_metadata_dir</span><span class="p">(</span><span class="s1">&#39;../../data/indices&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gs</span> <span class="o">=</span> <span class="n">graphical_soundscape</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;hour&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_graph</span><span class="p">(</span><span class="n">gs</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="maad.features.all_spectral_features.html" class="btn btn-neutral float-left" title="maad.features.all_spectral_features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maad.features.plot_graph.html" class="btn btn-neutral float-right" title="maad.features.plot_graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, scikit-maad development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

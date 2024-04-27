@@ -31,9 +31,14 @@ dispersion,
 - and the habitat attenuation (Ahab). The later encompasses several sources of 
 attenuation and might be seen as a proxy.
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-23
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
 
-.. code-block:: default
+Load required modules
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-26
+
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     from maad import sound, spl, util
@@ -45,7 +50,7 @@ attenuation and might be seen as a proxy.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-37
+.. GENERATED FROM PYTHON SOURCE LINES 27-40
 
 Load the sound and conversion into sound pressure
 --------------------------------------------------
@@ -61,9 +66,9 @@ Load the sound and conversion into sound pressure
  the internal pre-amplifier of the SM4, which is 26dB and the adjustable gain
  which was 16dB. So the total gain applied to the signal is : 42dB
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-43
+.. GENERATED FROM PYTHON SOURCE LINES 40-46
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We load the sound
@@ -78,15 +83,15 @@ Load the sound and conversion into sound pressure
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-47
+.. GENERATED FROM PYTHON SOURCE LINES 47-50
 
 Selection of the signal and the background noise
 --------------------------------------------------
  We select part of the sound with the spinetail signal
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-51
+.. GENERATED FROM PYTHON SOURCE LINES 50-54
 
-.. code-block:: default
+.. code-block:: Python
 
     p0_sig = p0[int(5.68*fs):int(7.48*fs)] 
     # We select part of the sound with background
@@ -99,13 +104,13 @@ Selection of the signal and the background noise
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-53
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 We convert the spinetail signal into spectrogram
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 56-58
 
-.. code-block:: default
+.. code-block:: Python
 
     Sxx_power, tn, fn, ext = sound.spectrogram(p0_sig ,fs, 
                                                display = True, figsize=[4,10], title = 'signal + noise')
@@ -121,13 +126,13 @@ We convert the spinetail signal into spectrogram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 59-60
 
 We convert the background signal into spectrogram
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 60-62
 
-.. code-block:: default
+.. code-block:: Python
 
     Sxx_power_noise, tn, fn, ext = sound.spectrogram(p0_noise ,fs, 
                                                      display = True, figsize=[4,10], title = 'noise alone')
@@ -143,14 +148,14 @@ We convert the background signal into spectrogram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-62
+.. GENERATED FROM PYTHON SOURCE LINES 63-65
 
 Then, we convert both spectrograms into dB. We choose a dB range of 96dB which
 is the maximal range for a 16 bits signal.
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-65
+.. GENERATED FROM PYTHON SOURCE LINES 65-68
 
-.. code-block:: default
+.. code-block:: Python
 
     Sxx_dB = util.power2dB(Sxx_power, db_range=96) + 96
     Sxx_dB_noise = util.power2dB(Sxx_power_noise, db_range=96) + 96
@@ -162,7 +167,7 @@ is the maximal range for a 16 bits signal.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-75
+.. GENERATED FROM PYTHON SOURCE LINES 69-78
 
 Evalution of the distance and sound level of the spinetail 
 ------------------------------------------------------------
@@ -174,9 +179,9 @@ Evalution of the distance and sound level of the spinetail
  We compute fast Leq (the equivalent sound level) within 100ms window and
  take the maximum Leq to be the estimated L of the call
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-85
+.. GENERATED FROM PYTHON SOURCE LINES 78-88
 
-.. code-block:: default
+.. code-block:: Python
 
     F1 = 6000
     F2 = 7000 
@@ -201,7 +206,7 @@ Evalution of the distance and sound level of the spinetail
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-93
+.. GENERATED FROM PYTHON SOURCE LINES 89-96
 
 Evalution of the distance between the ARU and the spinetail 
 ------------------------------------------------------------
@@ -211,9 +216,9 @@ Evalution of the distance between the ARU and the spinetail
  attenuation (here, we use the default values to define atmospheric and 
  habitat attenuation). This distance will be the reference distance r0
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-98
+.. GENERATED FROM PYTHON SOURCE LINES 96-101
 
-.. code-block:: default
+.. code-block:: Python
 
     f,r0 = spl.detection_distance(L, 
                                   L0=85, 
@@ -233,7 +238,7 @@ Evalution of the distance between the ARU and the spinetail
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-109
+.. GENERATED FROM PYTHON SOURCE LINES 102-112
 
 Evalution of the maximum distance of propagation of the spinetail song
 -----------------------------------------------------------------------
@@ -246,9 +251,9 @@ Evalution of the maximum distance of propagation of the spinetail song
  Then we estimate the average detection distance of the spinetail call 
  (assuming that the initial level of the call @1m is 85dB SPL)
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-120
+.. GENERATED FROM PYTHON SOURCE LINES 112-123
 
-.. code-block:: default
+.. code-block:: Python
 
     p0_noise_bw = sound.select_bandwidth(p0_noise,
                                          fs,
@@ -274,13 +279,13 @@ Evalution of the maximum distance of propagation of the spinetail song
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-122
+.. GENERATED FROM PYTHON SOURCE LINES 124-125
 
 Let's see the contribution of each type of attenuation
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-128
+.. GENERATED FROM PYTHON SOURCE LINES 125-131
 
-.. code-block:: default
+.. code-block:: Python
 
     _, df = spl.attenuation_dB (f=(F1+F2)/2, 
                                 r=r, 
@@ -302,7 +307,7 @@ Let's see the contribution of each type of attenuation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-136
+.. GENERATED FROM PYTHON SOURCE LINES 132-139
 
 Simulation of the attenuation of the acoustic signature at different distances
 -------------------------------------------------------------------------------
@@ -312,13 +317,13 @@ Simulation of the attenuation of the acoustic signature at different distances
  Here, we will simulate the attenuation of the signal after propagating 10m, 
  50m, 100m, 200m
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-139
+.. GENERATED FROM PYTHON SOURCE LINES 141-142
 
 Compute the attenuation of the recorded spinetail song at 10m.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-142
+.. GENERATED FROM PYTHON SOURCE LINES 142-145
 
-.. code-block:: default
+.. code-block:: Python
 
     p_att = spl.apply_attenuation(p0_sig, fs, r0 = r0, r = 10)
     Sxx_power_att, tn, fn, ext = sound.spectrogram(p_att,fs)
@@ -330,13 +335,13 @@ Compute the attenuation of the recorded spinetail song at 10m.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-144
+.. GENERATED FROM PYTHON SOURCE LINES 146-147
 
 Compute the attenuation of the recorded spinetail song at 50m.
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-147
+.. GENERATED FROM PYTHON SOURCE LINES 147-150
 
-.. code-block:: default
+.. code-block:: Python
 
     p_att = spl.apply_attenuation(p0_sig, fs, r0 = r0, r = 50)
     Sxx_power_att, tn, fn, ext = sound.spectrogram(p_att,fs)
@@ -348,13 +353,13 @@ Compute the attenuation of the recorded spinetail song at 50m.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-149
+.. GENERATED FROM PYTHON SOURCE LINES 151-152
 
 Compute the attenuation of the recorded spinetail song at 100m.
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-152
+.. GENERATED FROM PYTHON SOURCE LINES 152-155
 
-.. code-block:: default
+.. code-block:: Python
 
     p_att = spl.apply_attenuation(p0_sig, fs, r0 = r0, r = 100)
     Sxx_power_att, tn, fn, ext = sound.spectrogram(p_att,fs)
@@ -366,13 +371,13 @@ Compute the attenuation of the recorded spinetail song at 100m.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-154
+.. GENERATED FROM PYTHON SOURCE LINES 156-157
 
 Compute the attenuation of the recorded spinetail song at 200m.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-157
+.. GENERATED FROM PYTHON SOURCE LINES 157-160
 
-.. code-block:: default
+.. code-block:: Python
 
     p_att = spl.apply_attenuation(p0_sig, fs, r0 = r0, r = 200)
     Sxx_power_att, tn, fn, ext = sound.spectrogram(p_att,fs)
@@ -384,14 +389,14 @@ Compute the attenuation of the recorded spinetail song at 200m.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-160
+.. GENERATED FROM PYTHON SOURCE LINES 161-163
 
 Add noise to the signal.
 We add real noise recorded just after the song of the spinetail.
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-164
+.. GENERATED FROM PYTHON SOURCE LINES 163-167
 
-.. code-block:: default
+.. code-block:: Python
 
     Sxx_dB_att_10m = util.add_dB(Sxx_dB_att_10m,Sxx_dB_noise) 
     Sxx_dB_att_50m = util.add_dB(Sxx_dB_att_50m,Sxx_dB_noise)  
@@ -404,16 +409,16 @@ We add real noise recorded just after the song of the spinetail.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-169
+.. GENERATED FROM PYTHON SOURCE LINES 168-172
 
 Plot attenuated spectrograms at different distances of propagation.
 We can observe that the highest frequency content (harmonics) disappears first.
 We can also observe that at 200m, almost none of the spinetail signal is still
 visible. Only the background noise, with the call of another species remains
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-173
+.. GENERATED FROM PYTHON SOURCE LINES 172-176
 
-.. code-block:: default
+.. code-block:: Python
 
     fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, sharex=True, figsize=(15,3))
     util.plot2d(Sxx_dB_att_10m, title='10m',   ax=ax1, extent=ext, vmin=0, vmax=96, figsize=[3,3])
@@ -434,7 +439,7 @@ visible. Only the background noise, with the call of another species remains
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.898 seconds)
+   **Total running time of the script:** (0 minutes 0.893 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py:
@@ -443,16 +448,13 @@ visible. Only the background noise, with the call of another species remains
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_sound_degradation_due_to_attenuation.ipynb <plot_sound_degradation_due_to_attenuation.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_sound_degradation_due_to_attenuation.py <plot_sound_degradation_due_to_attenuation.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_sound_degradation_due_to_attenuation.ipynb <plot_sound_degradation_due_to_attenuation.ipynb>`
 
 
 .. only:: html

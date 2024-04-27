@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.rois.rois_to_imblobs &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.rois.rois_to_imblobs &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +40,7 @@
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,8 +60,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound processing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../rois.html">Segmentation methods</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../rois.html#temporal">Temporal</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../rois.html#spectro-temporal">Spectro-temporal</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../rois.html#temporal-1d">Temporal (1D)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../rois.html#spectro-temporal-2d">Spectro-temporal (2D)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="maad.rois.create_mask.html">maad.rois.create_mask</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.rois.select_rois.html">maad.rois.select_rois</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">maad.rois.rois_to_imblobs</a><ul>
@@ -66,6 +69,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="maad.rois.template_matching.html">maad.rois.template_matching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.rois.spectrogram_local_max.html">maad.rois.spectrogram_local_max</a></li>
 </ul>
 </li>
 </ul>
@@ -104,33 +108,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="maad-rois-rois-to-imblobs">
-<h1>maad.rois.rois_to_imblobs<a class="headerlink" href="#maad-rois-rois-to-imblobs" title="Permalink to this heading">¶</a></h1>
+  <section id="maad-rois-rois-to-imblobs">
+<h1>maad.rois.rois_to_imblobs<a class="headerlink" href="#maad-rois-rois-to-imblobs" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.rois.rois_to_imblobs">
-<code class="sig-prename descclassname"><span class="pre">maad.rois.</span></code><code class="sig-name descname"><span class="pre">rois_to_imblobs</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">im_zeros</span></span></em>, <em><span class="n"><span class="pre">rois</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/rois/rois_2d.html#rois_to_imblobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.rois.rois_to_imblobs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">maad.rois.</span></span><span class="sig-name descname"><span class="pre">rois_to_imblobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im_zeros</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rois</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/rois/rois_2d.html#rois_to_imblobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.rois.rois_to_imblobs" title="Link to this definition">¶</a></dt>
 <dd><p>Take a matrix full of zeros and add ones in delimited regions defined by rois.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>im_zeros</strong><span class="classifier">ndarray</span></dt><dd><p>matrix full of zeros with the size to the image where the rois come from.</p>
 </dd>
 <dt><strong>rois</strong><span class="classifier">DataFrame</span></dt><dd><p>rois must have the columns names:((min_y, min_x, max_y, max_x) which 
 correspond to the bounding box coordinates</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>im_blobs</strong><span class="classifier">ndarray</span></dt><dd><p>matrix with 1 corresponding to the rois and 0 elsewhere</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">rois</span><span class="p">,</span> <span class="n">util</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -143,7 +143,7 @@ correspond to the bounding box coordinates</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>

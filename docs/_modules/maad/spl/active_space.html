@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.active_space &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.spl.active_space &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -593,7 +595,9 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="attenuation_dB"><a class="viewcode-back" href="../../../generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB">[docs]</a><span class="k">def</span> <span class="nf">attenuation_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
+<div class="viewcode-block" id="attenuation_dB">
+<a class="viewcode-back" href="../../../generated/maad.spl.attenuation_dB.html#maad.spl.attenuation_dB">[docs]</a>
+<span class="k">def</span> <span class="nf">attenuation_dB</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Compute the attenuation in decibels taking into account the geometric, atmospheric </span>
 <span class="sd">  and habitat attenuation contributions.</span>
@@ -694,8 +698,11 @@
   
   <span class="k">return</span> <span class="n">Asum_dB</span><span class="p">,</span> <span class="n">df_att</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="dBSPL_per_bin"><a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_per_bin.html#maad.spl.dBSPL_per_bin">[docs]</a><span class="k">def</span> <span class="nf">dBSPL_per_bin</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="dBSPL_per_bin">
+<a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_per_bin.html#maad.spl.dBSPL_per_bin">[docs]</a>
+<span class="k">def</span> <span class="nf">dBSPL_per_bin</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Function to spread the sound pressure level (Energy in dB) along a frequency </span>
 <span class="sd">  vector (bins).</span>
@@ -748,8 +755,11 @@
 
   <span class="k">return</span> <span class="n">L_per_bin</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="detection_distance"><a class="viewcode-back" href="../../../generated/maad.spl.detection_distance.html#maad.spl.detection_distance">[docs]</a><span class="k">def</span> <span class="nf">detection_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta_r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> 
+<div class="viewcode-block" id="detection_distance">
+<a class="viewcode-back" href="../../../generated/maad.spl.detection_distance.html#maad.spl.detection_distance">[docs]</a>
+<span class="k">def</span> <span class="nf">detection_distance</span> <span class="p">(</span><span class="n">L_bkg</span><span class="p">,</span> <span class="n">L0</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta_r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> 
                      <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">rmax</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Compute the detection distance also known as detection range or detection radius</span>
@@ -878,8 +888,11 @@
   <span class="c1"># return the frequency vector associated with the distance max</span>
   <span class="k">return</span> <span class="n">f</span><span class="p">,</span><span class="n">distance_max</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="pressure_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0">[docs]</a><span class="k">def</span> <span class="nf">pressure_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="pressure_at_r0">
+<a class="viewcode-back" href="../../../generated/maad.spl.pressure_at_r0.html#maad.spl.pressure_at_r0">[docs]</a>
+<span class="k">def</span> <span class="nf">pressure_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the pressure p0 at distance r0 from pressure p measured at </span>
 <span class="sd">    distance r. This function takes into account the geometric, atmospheric </span>
@@ -972,8 +985,11 @@
               <span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
   <span class="k">return</span> <span class="n">p0</span>  </div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="dBSPL_at_r0"><a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0">[docs]</a><span class="k">def</span> <span class="nf">dBSPL_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="dBSPL_at_r0">
+<a class="viewcode-back" href="../../../generated/maad.spl.dBSPL_at_r0.html#maad.spl.dBSPL_at_r0">[docs]</a>
+<span class="k">def</span> <span class="nf">dBSPL_at_r0</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Estimate the sound pressure level L0 (dB SPL) at distance r0 from sound pressure</span>
 <span class="sd">    level L measured at distance r.</span>
@@ -1018,8 +1034,11 @@
   
   <span class="k">return</span> <span class="n">L0</span>  </div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="apply_attenuation"><a class="viewcode-back" href="../../../generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation">[docs]</a><span class="k">def</span> <span class="nf">apply_attenuation</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
+<div class="viewcode-block" id="apply_attenuation">
+<a class="viewcode-back" href="../../../generated/maad.spl.apply_attenuation.html#maad.spl.apply_attenuation">[docs]</a>
+<span class="k">def</span> <span class="nf">apply_attenuation</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rh</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">pa</span><span class="o">=</span><span class="mi">101325</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">  Apply attenuation of a temporal signal p0 after propagation between the </span>
 <span class="sd">  reference distance r0 and the final distance r taken into account the </span>
@@ -1123,6 +1142,7 @@
   <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
   
   <span class="k">return</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span></div>
+
 
 
 

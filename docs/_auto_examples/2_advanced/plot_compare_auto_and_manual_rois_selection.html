@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Use multicpu functionality to compute indices" href="plot_extract_alpha_indices_multicpu.html" />
+    <link rel="next" title="Use multicpu functionality to compute indices" href="extract_alpha_indices_multicpu.html" />
     <link rel="prev" title="Extract acoustic indices from audio recordings" href="plot_extract_alpha_indices.html" /> 
 </head>
 
@@ -37,7 +40,7 @@
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -68,15 +71,16 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../1_basic/index.html">Basic examples</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced examples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_graphical_soundscape.html">Acoustic fingerprinting and graphical soundscapes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_nmf_and_false_color_spectrogram.html">Signal decomposition and false-color spectrograms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_unsupervised_sound_classification.html">Classify soundtypes with unsupervised learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_remove_background.html">Remove background noise with signal processing tools</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_degradation_due_to_attenuation.html">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_xenocanto_woodpecker_activities.html">Download metadata from Xeno-Canto to infer species activities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_sound_pressure_level.html">Estimate sound pressure level from audio recordings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices.html">Extract acoustic indices from audio recordings</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Find Regions of interest (ROIs) in a spectrogram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extract_alpha_indices_multicpu.html">Use multicpu functionality to compute indices</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plot_woodpecker_drumming_characteristics.html">Download audio files from Xeno-Canto and automatically extract characteristics</a></li>
 </ul>
 </li>
@@ -113,12 +117,12 @@
            <div itemprop="articleBody">
              
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Go to the end</span></a>
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="find-regions-of-interest-rois-in-a-spectrogram">
-<span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Permalink to this heading">¶</a></h1>
+<section class="sphx-glr-example-title" id="find-regions-of-interest-rois-in-a-spectrogram">
+<span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Link to this heading">¶</a></h1>
 <p>A spectrogram is a time-frequency (2d) representation of a audio recording.
 Each acoustic event nested in the audio recording is represented by an acoustic
 signature. When sounds does not overlap in time and frequency, it is possible
@@ -127,9 +131,12 @@ by different image processing tools such as binarization, double thresholding,
 mathematical morphology tools…</p>
 <p><strong>Dependencies</strong>: To execute this example you will need to have installed the
 scikit-image, scikit-learn and pandas Python packages.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png&#39;</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png&#39;</span>
+</pre></div>
+</div>
+<section id="load-required-modules">
+<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -141,7 +148,7 @@ scikit-image, scikit-learn and pandas Python packages.</p>
 </pre></div>
 </div>
 <p>First, load and audio file and compute the power spectrogram.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>
 
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dB_max</span></a> <span class="o">=</span> <span class="mi">96</span>
 
@@ -176,7 +183,7 @@ to the seed with value higher than the second threslhold. These new pixels
 become seed and the aggregating process continue until no more new pixels are
 aggregated, meaning that there is no more connected pixels with value upper
 than the second threshold value.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we remove the stationary background in order to increase the contrast [1]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we remove the stationary background in order to increase the contrast [1]</span>
 <span class="c1"># Then we convert the spectrogram into dB</span>
 <span class="n">Sxx_power_noNoise</span><span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">median_equalizer</span><span class="p">(</span>
    <span class="n">Sxx</span><span class="o">=</span><span class="n">Sxx_power</span><span class="p">,</span>
@@ -280,7 +287,7 @@ than the second threshold value.</p>
 Audacity software.
 Each acoustic signature is manually selected and labeled. All similar acoustic
 signatures are labeled with the same name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_rois_GT</span> <span class="o">=</span> <span class="n">read_audacity_annot</span><span class="p">(</span><span class="s1">&#39;../../data/cold_forest_daylight_label.txt&#39;</span><span class="p">)</span>  <span class="c1">## annotations using Audacity</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_rois_GT</span> <span class="o">=</span> <span class="n">read_audacity_annot</span><span class="p">(</span><span class="s1">&#39;../../data/cold_forest_daylight_label.txt&#39;</span><span class="p">)</span>  <span class="c1">## annotations using Audacity</span>
 
 <span class="c1"># drop rows with frequency and time outside of tn and fn</span>
 <span class="n">df_rois_GT</span> <span class="o">=</span> <span class="n">df_rois_GT</span><span class="p">[(</span><span class="n">df_rois_GT</span><span class="o">.</span><span class="n">min_t</span> <span class="o">&gt;=</span> <span class="n">tn</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
@@ -350,7 +357,7 @@ The number of attended clustering is the number of clusters found with
 manual annotation.
 Finally, each rois is labeled with the corresponding cluster number predicted
 by KMeans</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># select features to perform KMeans clustering</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># select features to perform KMeans clustering</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;centroid_f&#39;</span><span class="p">,</span><span class="s1">&#39;duration_t&#39;</span><span class="p">,</span><span class="s1">&#39;bandwidth_f&#39;</span><span class="p">,</span><span class="s1">&#39;area_tf&#39;</span><span class="p">]</span>
 
 <span class="c1"># Prepare the features in order to have zero mean and same variance</span>
@@ -405,7 +412,7 @@ and high : h).
 We know that we have mostly short (ie. s) acoustic events in low, med and high
 frequency bandwidths but also a long (ie l) acoustic events in med.
 To extract</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_rois_sh</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">],</span> <span class="n">tlen</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">th</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_rois_sh</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">],</span> <span class="n">tlen</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">th</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">)</span>
 <span class="n">df_rois_sm</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="mi">3500</span><span class="p">,</span> <span class="mi">5500</span><span class="p">],</span> <span class="n">tlen</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">th</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">)</span>
 <span class="n">df_rois_lm</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">],</span> <span class="n">tlen</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>   <span class="n">th</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
 <span class="n">df_rois_sl</span> <span class="o">=</span> <span class="n">rois</span><span class="o">.</span><span class="n">find_rois_cwt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">flims</span><span class="o">=</span><span class="p">[</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="n">tlen</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">th</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">)</span>
@@ -470,7 +477,7 @@ To extract</p>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p>Prepare the features in order to have zero mean and same variance</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_centroid_WAV</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_centroid_WAV</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a><span class="p">])</span>
 
 <span class="c1"># perform KMeans with the same number of clusters as with the manual annotation</span>
 <span class="n">labels</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a><span class="p">(</span>
@@ -511,22 +518,25 @@ To extract</p>
 </div>
 <img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p><strong>References</strong></p>
 <p>[1] Towsey, M., 2013b. Noise Removal from Wave-forms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.785 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 15.089 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/406fee73b2f9360c82c8060af9ec3dcc/plot_compare_auto_and_manual_rois_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/406fee73b2f9360c82c8060af9ec3dcc/plot_compare_auto_and_manual_rois_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_extract_alpha_indices.html" class="btn btn-neutral float-left" title="Extract acoustic indices from audio recordings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_extract_alpha_indices_multicpu.html" class="btn btn-neutral float-right" title="Use multicpu functionality to compute indices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="extract_alpha_indices_multicpu.html" class="btn btn-neutral float-right" title="Use multicpu functionality to compute indices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

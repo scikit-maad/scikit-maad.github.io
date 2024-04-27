@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.xeno_canto &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.util.xeno_canto &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -113,7 +115,9 @@
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="xc_query"><a class="viewcode-back" href="../../../generated/maad.util.xc_query.html#maad.util.xc_query">[docs]</a><span class="k">def</span> <span class="nf">xc_query</span><span class="p">(</span><span class="n">searchTerms</span><span class="p">,</span>
+<div class="viewcode-block" id="xc_query">
+<a class="viewcode-back" href="../../../generated/maad.util.xc_query.html#maad.util.xc_query">[docs]</a>
+<span class="k">def</span> <span class="nf">xc_query</span><span class="p">(</span><span class="n">searchTerms</span><span class="p">,</span>
              <span class="n">max_nb_files</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
              <span class="n">format_time</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
              <span class="n">format_date</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -250,7 +254,7 @@
             <span class="c1"># add a column with the week number</span>
             <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span> <span class="c1"># type: ignore</span>
             <span class="c1"># add a column with datetime in DateTime format</span>
-            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span> <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+            <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span> <span class="n">df_dataset</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%H:%M %Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># if no limit in the number of files</span>
     <span class="k">if</span> <span class="n">max_nb_files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
@@ -269,8 +273,11 @@
 
     <span class="k">return</span> <span class="n">df_dataset</span></div>
 
+
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="xc_multi_query"><a class="viewcode-back" href="../../../generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query">[docs]</a><span class="k">def</span> <span class="nf">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
+<div class="viewcode-block" id="xc_multi_query">
+<a class="viewcode-back" href="../../../generated/maad.util.xc_multi_query.html#maad.util.xc_multi_query">[docs]</a>
+<span class="k">def</span> <span class="nf">xc_multi_query</span><span class="p">(</span><span class="n">df_query</span><span class="p">,</span>
                    <span class="n">max_nb_files</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                    <span class="n">format_time</span>  <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                    <span class="n">format_date</span>  <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -324,8 +331,11 @@
     
     <span class="k">return</span> <span class="n">df_dataset</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="xc_selection"><a class="viewcode-back" href="../../../generated/maad.util.xc_selection.html#maad.util.xc_selection">[docs]</a><span class="k">def</span> <span class="nf">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
+<div class="viewcode-block" id="xc_selection">
+<a class="viewcode-back" href="../../../generated/maad.util.xc_selection.html#maad.util.xc_selection">[docs]</a>
+<span class="k">def</span> <span class="nf">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
                  <span class="n">max_nb_files</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
                  <span class="n">max_length</span><span class="o">=</span><span class="s1">&#39;01:00&#39;</span><span class="p">,</span>
                  <span class="n">min_length</span><span class="o">=</span><span class="s1">&#39;00:10&#39;</span><span class="p">,</span>
@@ -422,8 +432,11 @@
         
     <span class="k">return</span> <span class="n">df_dataset_out</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="xc_download"><a class="viewcode-back" href="../../../generated/maad.util.xc_download.html#maad.util.xc_download">[docs]</a><span class="k">def</span> <span class="nf">xc_download</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+<div class="viewcode-block" id="xc_download">
+<a class="viewcode-back" href="../../../generated/maad.util.xc_download.html#maad.util.xc_download">[docs]</a>
+<span class="k">def</span> <span class="nf">xc_download</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
                 <span class="n">rootdir</span><span class="p">,</span>
                 <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;dataset&#39;</span><span class="p">,</span>
                 <span class="n">overwrite</span>   <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -574,6 +587,7 @@
             <span class="p">)</span>
             
     <span class="k">return</span> <span class="n">df</span></div>
+
 
 <span class="c1">#%%</span>
 

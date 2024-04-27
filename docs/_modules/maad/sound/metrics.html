@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.sound.metrics &mdash; scikit-maad 1.4.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>maad.sound.metrics &mdash; scikit-maad 1.4.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +37,7 @@
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.4.0
+                1.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -113,7 +115,9 @@
 <span class="c1"># =============================================================================</span>
 <span class="c1"># public functions</span>
 <span class="c1"># =============================================================================</span>
-<div class="viewcode-block" id="temporal_snr"><a class="viewcode-back" href="../../../generated/maad.sound.temporal_snr.html#maad.sound.temporal_snr">[docs]</a><span class="k">def</span> <span class="nf">temporal_snr</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="temporal_snr">
+<a class="viewcode-back" href="../../../generated/maad.sound.temporal_snr.html#maad.sound.temporal_snr">[docs]</a>
+<span class="k">def</span> <span class="nf">temporal_snr</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the signal to noise ratio (SNR) of an audio signal in the time domain.</span>
 
@@ -167,8 +171,11 @@
 
     <span class="k">return</span> <span class="n">ENRt</span><span class="p">,</span> <span class="n">BGNt</span><span class="p">,</span> <span class="n">SNRt</span></div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="spectral_snr"><a class="viewcode-back" href="../../../generated/maad.sound.spectral_snr.html#maad.sound.spectral_snr">[docs]</a><span class="k">def</span> <span class="nf">spectral_snr</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="spectral_snr">
+<a class="viewcode-back" href="../../../generated/maad.sound.spectral_snr.html#maad.sound.spectral_snr">[docs]</a>
+<span class="k">def</span> <span class="nf">spectral_snr</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the signal to noise ratio (SNR) of an audio from its spectrogram</span>
 <span class="sd">    in the time-frequency domain.</span>
@@ -229,8 +236,11 @@
 
     <span class="k">return</span> <span class="n">ENRf</span><span class="p">,</span> <span class="n">BGNf</span><span class="p">,</span> <span class="n">SNRf</span><span class="p">,</span> <span class="n">ENRf_per_bin</span><span class="p">,</span> <span class="n">BGNf_per_bin</span><span class="p">,</span><span class="n">SNRf_per_bin</span> </div>
 
+
 <span class="c1">#%%</span>
-<div class="viewcode-block" id="sharpness"><a class="viewcode-back" href="../../../generated/maad.sound.sharpness.html#maad.sound.sharpness">[docs]</a><span class="k">def</span> <span class="nf">sharpness</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="sharpness">
+<a class="viewcode-back" href="../../../generated/maad.sound.sharpness.html#maad.sound.sharpness">[docs]</a>
+<span class="k">def</span> <span class="nf">sharpness</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Compute the sharpness of a spectrogram</span>
 <span class="sd">     </span>
@@ -259,6 +269,7 @@
     <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Gt</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="n">Gf</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">sharpness</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Gt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Gt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">sharpness</span>   </div>
+
  
 </pre></div>
 
