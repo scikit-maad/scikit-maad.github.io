@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -122,7 +124,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="signal-decomposition-and-false-color-spectrograms">
-<span id="sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"></span><h1>Signal decomposition and false-color spectrograms<a class="headerlink" href="#signal-decomposition-and-false-color-spectrograms" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"></span><h1>Signal decomposition and false-color spectrograms<a class="headerlink" href="#signal-decomposition-and-false-color-spectrograms" title="Link to this heading"></a></h1>
 <p>Soundscapes result from a combination of multiple signals that are mixed-down
 into a single time-series. Unmixing these signals can be regarded as an
 important preprocessing step for further analyses of individual components.
@@ -141,7 +143,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 </pre></div>
 </div>
 <section id="load-required-modules">
-<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading">¶</a></h2>
+<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">features</span>
@@ -153,7 +155,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 </div>
 </section>
 <section id="load-audio-from-disk">
-<h2>Load audio from disk<a class="headerlink" href="#load-audio-from-disk" title="Link to this heading">¶</a></h2>
+<h2>Load audio from disk<a class="headerlink" href="#load-audio-from-disk" title="Link to this heading"></a></h2>
 <p>Load the audio file and compute the spectrogram.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fs</span></a><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
@@ -165,7 +167,7 @@ decompose audio signals and visualize false-colour spectrograms.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_001.png" srcset="../../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_001.png" alt="plot nmf and false color spectrogram" class = "sphx-glr-single-img"/></section>
 <section id="filter-the-spectrogram-with-2d-wavelets">
-<h2>Filter the spectrogram with 2D wavelets<a class="headerlink" href="#filter-the-spectrogram-with-2d-wavelets" title="Link to this heading">¶</a></h2>
+<h2>Filter the spectrogram with 2D wavelets<a class="headerlink" href="#filter-the-spectrogram-with-2d-wavelets" title="Link to this heading"></a></h2>
 <p>Compute feature with <code class="docutils literal notranslate"><span class="pre">shape_features_raw</span></code> to get the raw output of the
 spectrogram filtered by the filterbank composed of 2D Gabor wavelets. This
 raw output can be fed to the NMF algorithm to decompose the spectrogram into
@@ -181,7 +183,7 @@ elementary basis spectrograms.</p>
 </div>
 </section>
 <section id="arrange-into-rgba-color-model">
-<h2>Arrange into RGBA color model<a class="headerlink" href="#arrange-into-rgba-color-model" title="Link to this heading">¶</a></h2>
+<h2>Arrange into RGBA color model<a class="headerlink" href="#arrange-into-rgba-color-model" title="Link to this heading"></a></h2>
 <p>Normalize the data and combine the three NMF basis spectrograms and the
 intensity spectrogram into a single array to fit the RGBA color model. RGBA
 stands for Red, Green, Blue and Alpha, where alpha indicates how opaque each
@@ -194,7 +196,7 @@ pixel is.</p>
 </div>
 </section>
 <section id="visualize-output">
-<h2>Visualize output<a class="headerlink" href="#visualize-output" title="Link to this heading">¶</a></h2>
+<h2>Visualize output<a class="headerlink" href="#visualize-output" title="Link to this heading"></a></h2>
 <p>Finally, plot the resulting basis spectrogram as separate elements and
 combine them to produce a false-colour spectrogram using the RGBA color
 model.</p>
@@ -227,7 +229,7 @@ where it can be easily distinguished the different sound sources by color.</p>
 <p>[2] Lee, D., &amp; Sueng, S. (1999). Learning the parts of objects by non-negative matrix factorization. Nature, 401, 788–791. <a class="reference external" href="https://doi.org/10.1038/44565">https://doi.org/10.1038/44565</a></p>
 <p>[3] Towsey, M., Znidersic, E., Broken-Brow, J., Indraswari, K., Watson, D. M., Phillips, Y., Truskinger, A., &amp; Roe, P. (2018). Long-duration, false-colour spectrograms for detecting species in large audio data-sets. Journal of Ecoacoustics, 2(1), 1–1. <a class="reference external" href="https://doi.org/10.22261/JEA.IUSWUI">https://doi.org/10.22261/JEA.IUSWUI</a></p>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.349 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.749 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2ccd6806991624248d482076afbf4104/plot_nmf_and_false_color_spectrogram.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_nmf_and_false_color_spectrogram.ipynb</span></code></a></p>

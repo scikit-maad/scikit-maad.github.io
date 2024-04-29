@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -122,7 +124,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation">
-<span id="sphx-glr-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"></span><h1>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation<a class="headerlink" href="#simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"></span><h1>Simulation of sound degradation due to geometric, atmospheric and habitat attenuation<a class="headerlink" href="#simulation-of-sound-degradation-due-to-geometric-atmospheric-and-habitat-attenuation" title="Link to this heading"></a></h1>
 <p>When sound travels in air (or in water), initial acoustic signature may change
 regarding distances due to attenuation. Sound attenuation in natural environment
 is very complex to model. We propose to reduce the complexity by decomposing
@@ -133,14 +135,14 @@ dispersion,
 - and the habitat attenuation (Ahab). The later encompasses several sources of
 attenuation and might be seen as a proxy.</p>
 <section id="load-required-modules">
-<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading">¶</a></h2>
+<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">util</span>
 </pre></div>
 </div>
 </section>
 <section id="load-the-sound-and-conversion-into-sound-pressure">
-<h2>Load the sound and conversion into sound pressure<a class="headerlink" href="#load-the-sound-and-conversion-into-sound-pressure" title="Link to this heading">¶</a></h2>
+<h2>Load the sound and conversion into sound pressure<a class="headerlink" href="#load-the-sound-and-conversion-into-sound-pressure" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>When working with sound attenuation in real environment, it is essential to
 know the sound pressure level at a certain distance (generally 1m). Here
@@ -162,7 +164,7 @@ which was 16dB. So the total gain applied to the signal is : 42dB</p>
 </div>
 </section>
 <section id="selection-of-the-signal-and-the-background-noise">
-<h2>Selection of the signal and the background noise<a class="headerlink" href="#selection-of-the-signal-and-the-background-noise" title="Link to this heading">¶</a></h2>
+<h2>Selection of the signal and the background noise<a class="headerlink" href="#selection-of-the-signal-and-the-background-noise" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>We select part of the sound with the spinetail signal</p>
 </div></blockquote>
@@ -189,7 +191,7 @@ is the maximal range for a 16 bits signal.</p>
 </div>
 </section>
 <section id="evalution-of-the-distance-and-sound-level-of-the-spinetail">
-<h2>Evalution of the distance and sound level of the spinetail<a class="headerlink" href="#evalution-of-the-distance-and-sound-level-of-the-spinetail" title="Link to this heading">¶</a></h2>
+<h2>Evalution of the distance and sound level of the spinetail<a class="headerlink" href="#evalution-of-the-distance-and-sound-level-of-the-spinetail" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Before simulating the attenuation of the acoustic signature depending on
 the distance, we need to evaluate the distance at which the signal of the
@@ -215,7 +217,7 @@ take the maximum Leq to be the estimated L of the call</p>
 </div>
 </section>
 <section id="evalution-of-the-distance-between-the-aru-and-the-spinetail">
-<h2>Evalution of the distance between the ARU and the spinetail<a class="headerlink" href="#evalution-of-the-distance-between-the-aru-and-the-spinetail" title="Link to this heading">¶</a></h2>
+<h2>Evalution of the distance between the ARU and the spinetail<a class="headerlink" href="#evalution-of-the-distance-between-the-aru-and-the-spinetail" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Then, knowing the sound level L at the position of the ARU, we can estimate
 the maximum distance between the ARU and the position of the spinetail.
@@ -234,7 +236,7 @@ habitat attenuation). This distance will be the reference distance r0</p>
 </div>
 </section>
 <section id="evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song">
-<h2>Evalution of the maximum distance of propagation of the spinetail song<a class="headerlink" href="#evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song" title="Link to this heading">¶</a></h2>
+<h2>Evalution of the maximum distance of propagation of the spinetail song<a class="headerlink" href="#evalution-of-the-maximum-distance-of-propagation-of-the-spinetail-song" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Finally, we can estimate the detection distance or active distance of the
 spinetail which corresponds to the distance at which the call of the spinetail
@@ -274,7 +276,7 @@ Then we estimate the average detection distance of the spinetail call
 </div>
 </section>
 <section id="simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances">
-<h2>Simulation of the attenuation of the acoustic signature at different distances<a class="headerlink" href="#simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances" title="Link to this heading">¶</a></h2>
+<h2>Simulation of the attenuation of the acoustic signature at different distances<a class="headerlink" href="#simulation-of-the-attenuation-of-the-acoustic-signature-at-different-distances" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Knowing the distance r0 at which the signal was recorded from the source,
 we can simulate the attenuation of the acoustic signature depending on
@@ -325,7 +327,7 @@ visible. Only the background noise, with the call of another species remains</p>
 <span class="n">util</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">Sxx_dB_att_200m</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;200m&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax4</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ext</span></a><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" srcset="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" alt="10m, 50m, 100m, 200m" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.894 seconds)</p>
+<img src="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" srcset="../../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_003.png" alt="10m, 50m, 100m, 200m" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.901 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/28df1d2dae51cc968831d82e4b5d8161/plot_sound_degradation_due_to_attenuation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_degradation_due_to_attenuation.ipynb</span></code></a></p>

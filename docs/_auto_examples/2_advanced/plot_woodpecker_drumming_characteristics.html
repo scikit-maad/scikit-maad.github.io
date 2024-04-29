@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -121,7 +123,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="download-audio-files-from-xeno-canto-and-automatically-extract-characteristics">
-<span id="sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"></span><h1>Download audio files from Xeno-Canto and automatically extract characteristics<a class="headerlink" href="#download-audio-files-from-xeno-canto-and-automatically-extract-characteristics" title="Link to this heading"></a></h1>
 <p>The goal of this example is to show how to automatically download audio files
 from Xeno-Canto and process them to automatically extract audio characteristics
 in order to classify the sound made by different species.
@@ -172,7 +174,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </pre></div>
 </div>
 <section id="define-local-function">
-<h2>Define local function<a class="headerlink" href="#define-local-function" title="Link to this heading">¶</a></h2>
+<h2>Define local function<a class="headerlink" href="#define-local-function" title="Link to this heading"></a></h2>
 <p>function to grab all audio files in a folder</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grab_audio</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="n">audio_format</span><span class="o">=</span><span class="s1">&#39;mp3&#39;</span><span class="p">):</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filelist</span></a> <span class="o">=</span> <span class="p">[]</span>
@@ -185,7 +187,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </div>
 </section>
 <section id="define-constants">
-<h2>Define constants<a class="headerlink" href="#define-constants" title="Link to this heading">¶</a></h2>
+<h2>Define constants<a class="headerlink" href="#define-constants" title="Link to this heading"></a></h2>
 <p>Directory where to download the audiofile from xeno-canto</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XC_ROOTDIR</span></a> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
 </pre></div>
@@ -207,7 +209,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </div>
 </section>
 <section id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading">¶</a></h2>
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading"></a></h2>
 <p>get the genus and species needed for Xeno-Canto</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;english name&#39;</span><span class="p">,</span>
                                         <span class="s1">&#39;scientific name&#39;</span><span class="p">])</span>
@@ -253,7 +255,7 @@ Saved metadata for 175 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
-Saved metadata for 496 files
+Saved metadata for 497 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
 Loading page 2...
@@ -288,7 +290,7 @@ Saved metadata for 22 files
 </div>
 </section>
 <section id="download-audio-xeno-canto">
-<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Link to this heading">¶</a></h2>
+<h2>Download audio Xeno-Canto<a class="headerlink" href="#download-audio-xeno-canto" title="Link to this heading"></a></h2>
 <p>From the metadata that was collected in the previous section,
 select a maximum of 20 files per species, regarding the quality and the length</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_dataset</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">xc_selection</span><span class="p">(</span><span class="n">df_dataset</span><span class="p">,</span>
@@ -367,7 +369,7 @@ species</p>
 </div>
 </section>
 <section id="grab-all-audio-filenames-in-the-directory">
-<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Link to this heading">¶</a></h2>
+<h2>Grab all audio filenames in the directory<a class="headerlink" href="#grab-all-audio-filenames-in-the-directory" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>create a dataframe with all recordings in the directory</p>
 </div></blockquote>
@@ -399,7 +401,7 @@ number of species :  2
 </div>
 </section>
 <section id="process-all-audio-files-species-by-species">
-<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Link to this heading">¶</a></h2>
+<h2>Process all audio files, species by species<a class="headerlink" href="#process-all-audio-files-species-by-species" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>In this part, all audio file will be processed in order to extract each
 drumming portion separately.
@@ -606,7 +608,7 @@ drumming parameters such as median pulse rate, duration, number of pulses…</p>
 </div>
 </section>
 <section id="display-boxplot">
-<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Link to this heading">¶</a></h2>
+<h2>Display boxplot<a class="headerlink" href="#display-boxplot" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Display a boxplot of the feature “pulseRateMedian” for each species</p>
 </div></blockquote>
@@ -636,7 +638,7 @@ drumming parameters such as median pulse rate, duration, number of pulses…</p>
 </div>
 <img src="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" srcset="../../_images/sphx_glr_plot_woodpecker_drumming_characteristics_001.png" alt="plot woodpecker drumming characteristics" class = "sphx-glr-single-img"/></section>
 <section id="display-clusters-based-on-the-drummings-features">
-<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Link to this heading">¶</a></h2>
+<h2>Display clusters based on the drummings features<a class="headerlink" href="#display-clusters-based-on-the-drummings-features" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>A collection of features is associated to each drumming found in the audio
 recordings. The goal is to display clusters in 2D with the dimensionality
@@ -688,7 +690,7 @@ others</p>
 [t-SNE] KL divergence after 700 iterations: 0.116557
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 20.949 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 57.794 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/03bc66b99eb5608b7aced637e2968b4c/plot_woodpecker_drumming_characteristics.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_woodpecker_drumming_characteristics.ipynb</span></code></a></p>

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.577** total execution time for 5 files **from _auto_examples/1_basic**:
+**00:03.040** total execution time for 5 files **from _auto_examples/1_basic**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr__auto_examples_1_basic_plot_circadian_spectrogram.py` (``plot_circadian_spectrogram.py``)
-     - 00:00.869
+     - 00:01.109
      - 0.0
    * - :ref:`sphx_glr__auto_examples_1_basic_plot_find_rois_simple.py` (``plot_find_rois_simple.py``)
-     - 00:00.697
+     - 00:00.780
      - 0.0
    * - :ref:`sphx_glr__auto_examples_1_basic_plot_audio_representation.py` (``plot_audio_representation.py``)
-     - 00:00.475
+     - 00:00.504
      - 0.0
    * - :ref:`sphx_glr__auto_examples_1_basic_plot_template_matching_example.py` (``plot_template_matching_example.py``)
-     - 00:00.404
+     - 00:00.500
      - 0.0
    * - :ref:`sphx_glr__auto_examples_1_basic_plot_detection_distance.py` (``plot_detection_distance.py``)
-     - 00:00.132
+     - 00:00.147
      - 0.0

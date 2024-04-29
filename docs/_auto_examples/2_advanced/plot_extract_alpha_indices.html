@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -122,7 +124,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="extract-acoustic-indices-from-audio-recordings">
-<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"></span><h1>Extract acoustic indices from audio recordings<a class="headerlink" href="#extract-acoustic-indices-from-audio-recordings" title="Link to this heading"></a></h1>
 <p>Acoustic indices can summarize aspects of the acoustic energy distribution in
 audio recordings and are widely used to characterize animal acoustic communities[1-3].
 In this example, we will see how to eficiently compute multiple acoustic indices,
@@ -133,7 +135,7 @@ example can be downloaded from the open GitHub repository
 </pre></div>
 </div>
 <section id="load-required-modules">
-<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading">¶</a></h2>
+<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -146,7 +148,7 @@ example can be downloaded from the open GitHub repository
 </div>
 </section>
 <section id="set-variables">
-<h2>Set Variables<a class="headerlink" href="#set-variables" title="Link to this heading">¶</a></h2>
+<h2>Set Variables<a class="headerlink" href="#set-variables" title="Link to this heading"></a></h2>
 <p>We list all spectral and temporal acoustic indices that will be computed.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SPECTRAL_FEATURES</span></a><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MEANf&#39;</span><span class="p">,</span><span class="s1">&#39;VARf&#39;</span><span class="p">,</span><span class="s1">&#39;SKEWf&#39;</span><span class="p">,</span><span class="s1">&#39;KURTf&#39;</span><span class="p">,</span><span class="s1">&#39;NBPEAKS&#39;</span><span class="p">,</span><span class="s1">&#39;LEQf&#39;</span><span class="p">,</span>
     <span class="s1">&#39;ENRf&#39;</span><span class="p">,</span><span class="s1">&#39;BGNf&#39;</span><span class="p">,</span><span class="s1">&#39;SNRf&#39;</span><span class="p">,</span><span class="s1">&#39;Hf&#39;</span><span class="p">,</span> <span class="s1">&#39;EAS&#39;</span><span class="p">,</span><span class="s1">&#39;ECU&#39;</span><span class="p">,</span><span class="s1">&#39;ECV&#39;</span><span class="p">,</span><span class="s1">&#39;EPS&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_KURT&#39;</span><span class="p">,</span><span class="s1">&#39;EPS_SKEW&#39;</span><span class="p">,</span><span class="s1">&#39;ACI&#39;</span><span class="p">,</span>
@@ -275,7 +277,7 @@ File: S4A03895_20190522_011500.wav
 </div>
 </section>
 <section id="batch-compute-acoustic-indices-on-the-audio-dataset">
-<h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Link to this heading">¶</a></h2>
+<h2>Batch compute acoustic indices on the audio dataset<a class="headerlink" href="#batch-compute-acoustic-indices-on-the-audio-dataset" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">df_indices_per_bin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -682,7 +684,7 @@ S4A03895_20190522_234500.wav
 </div>
 </section>
 <section id="display-results">
-<h2>Display results<a class="headerlink" href="#display-results" title="Link to this heading">¶</a></h2>
+<h2>Display results<a class="headerlink" href="#display-results" title="Link to this heading"></a></h2>
 <p>After calculating all alpha indices (in audio and spectral domain), let’s
 have a look to the data.
 First, plot correlation map of all indices. We set the R threshold to 0 in
@@ -734,13 +736,13 @@ For a better view, we seperate spectral and audio indices.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_extract_alpha_indices_005.png" srcset="../../_images/sphx_glr_plot_extract_alpha_indices_005.png" alt="False Color Spectro   [R:KURTt; G:EVNspCount; B:MEANt]" class = "sphx-glr-single-img"/></section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Sueur, J., Farina, A., Gasc, A., Pieretti, N., &amp; Pavoine, S. (2014). Acoustic Indices for Biodiversity Assessment and Landscape Investigation. Acta Acustica United with Acustica, 100(4), 772–781. <a class="reference external" href="https://doi.org/10.3813/AAA.918757">https://doi.org/10.3813/AAA.918757</a></p></li>
 <li><p>Buxton, R. T., McKenna, M. F., Clapp, M., Meyer, E., Stabenau, E., Angeloni, L. M., Crooks, K., &amp; Wittemyer, G. (2018). Efficacy of extracting indices from large-scale acoustic recordings to monitor biodiversity: Acoustical Monitoring. Conservation Biology, 32(5), 1174–1184. <a class="reference external" href="https://doi.org/10.1111/cobi.13119">https://doi.org/10.1111/cobi.13119</a></p></li>
 <li><p>Towsey, M., Wimmer, J., Williamson, I., &amp; Roe, P. (2014). The use of acoustic indices to determine avian species richness in audio-recordings of the environment. Ecological Informatics, 21, 110–119. <a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2013.11.007">https://doi.org/10.1016/j.ecoinf.2013.11.007</a></p></li>
 </ol>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.434 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.560 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-extract-alpha-indices-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ebcad7bca715517f9264ec08c0df2f54/plot_extract_alpha_indices.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_extract_alpha_indices.ipynb</span></code></a></p>

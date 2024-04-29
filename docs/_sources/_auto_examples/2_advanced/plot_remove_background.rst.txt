@@ -143,7 +143,7 @@ Test the function "remove_background"
  .. code-block:: none
 
     ---- test remove_background -----
-    duration 0.082 s
+    duration 0.093 s
     SNR = 3.084 dB
 
 
@@ -182,7 +182,7 @@ Test the function "median_equalizer"
  .. code-block:: none
 
     ---- test median_equalizer -----
-    duration 0.275 s
+    duration 0.270 s
     SNR = 7.032 dB
 
 
@@ -220,7 +220,7 @@ Test the function "remove_background_morpho"
  .. code-block:: none
 
     ---- test remove_background_morpho -----
-    duration 1.333 s
+    duration 1.334 s
     SNR = 2.074 dB
 
 
@@ -260,7 +260,7 @@ Test the function "remove_background_along_axis"
  .. code-block:: none
 
     ---- test remove_background_along_axis -----
-    duration 0.117 s
+    duration 0.115 s
     SNR = 5.758 dB
 
 
@@ -300,7 +300,7 @@ Test the function "pcen"
  .. code-block:: none
 
     ---- test pcen -----
-    duration 0.177 s
+    duration 0.180 s
     SNR = 3.473 dB
 
 
@@ -309,7 +309,7 @@ Test the function "pcen"
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.696 seconds)
+   **Total running time of the script:** (0 minutes 5.720 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_remove_background.py:

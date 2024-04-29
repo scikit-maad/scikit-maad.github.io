@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -122,7 +124,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="estimate-sound-pressure-level-from-audio-recordings">
-<span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Estimate sound pressure level from audio recordings<a class="headerlink" href="#estimate-sound-pressure-level-from-audio-recordings" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"></span><h1>Estimate sound pressure level from audio recordings<a class="headerlink" href="#estimate-sound-pressure-level-from-audio-recordings" title="Link to this heading"></a></h1>
 <p>Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio
 recordings coming from different datasets and environments. Sound pressure level
 corresponds to a quantitative measurement of the acoustic pressure energy.
@@ -136,7 +138,7 @@ more precise, one should correct the frequency response of the microphone.</p>
 <p>In this example, we will evaluate the variation of the sound pressure level
 of the ambient sound in a cold temperate forest in France during 24h.</p>
 <section id="load-required-modules">
-<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading">¶</a></h2>
+<h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
 <p>Load required packages</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -147,7 +149,7 @@ of the ambient sound in a cold temperate forest in France during 24h.</p>
 </div>
 </section>
 <section id="set-variables">
-<h2>Set variables<a class="headerlink" href="#set-variables" title="Link to this heading">¶</a></h2>
+<h2>Set variables<a class="headerlink" href="#set-variables" title="Link to this heading"></a></h2>
 <p>It is very important to always keep the parameters of the ARU that was used
 to collect the audio dataset. This is a mandatory to compute the sound
 pressure level of the audio file (dB SPL) as a sound meter level would do.
@@ -168,7 +170,7 @@ filename.</p>
 </div>
 </section>
 <section id="load-and-preprocess-audio">
-<h2>Load and preprocess audio<a class="headerlink" href="#load-and-preprocess-audio" title="Link to this heading">¶</a></h2>
+<h2>Load and preprocess audio<a class="headerlink" href="#load-and-preprocess-audio" title="Link to this heading"></a></h2>
 <p>Then we process all the files found in the directory /indices.
 Initialisation of an empty dataframe df_spl to store all the dB SPL values
 extracted from the whole audio dataset.</p>
@@ -586,7 +588,7 @@ S4A03895_20190522_234500.wav
 </div>
 </section>
 <section id="display-results">
-<h2>Display results<a class="headerlink" href="#display-results" title="Link to this heading">¶</a></h2>
+<h2>Display results<a class="headerlink" href="#display-results" title="Link to this heading"></a></h2>
 <p>Display Leq (dB SPL) dynamics for each frequency band.
 One can observe that most of the acoustic energy is between 0-1kHz. Moreover
 the sound pressure level of the 0-1kHz frequency band is not constant but
@@ -614,7 +616,7 @@ mainly to the anthropophony (frequency band 0-1kHz) and the biophony
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_002.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.072 seconds)</p>
+<img src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_002.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.133 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3f3ccf7e7d1fbe24a2eca37b593a6a3d/plot_sound_pressure_level.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_pressure_level.ipynb</span></code></a></p>

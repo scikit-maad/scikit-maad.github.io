@@ -17,6 +17,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=02f2166e"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -122,7 +124,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="download-metadata-from-xeno-canto-to-infer-species-activities">
-<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Link to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Link to this heading"></a></h1>
 <p>The goal of this example is to show how to download metadata from Xeno-Canto
 to infer species activities.
 We focus on the activity of european woodpeckers.</p>
@@ -158,7 +160,7 @@ Middle Spotted : Dendrocoptes medius</p>
 </pre></div>
 </div>
 <section id="query-xeno-canto">
-<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading">¶</a></h2>
+<h2>Query Xeno-Canto<a class="headerlink" href="#query-xeno-canto" title="Link to this heading"></a></h2>
 <p>array with english name and scientific name of all european woodpeckers</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Eurasian Three-toed&#39;</span><span class="p">,</span> <span class="s1">&#39;Picoides tridactylus&#39;</span><span class="p">],</span>
         <span class="p">[</span><span class="s1">&#39;White-backed&#39;</span><span class="p">,</span>        <span class="s1">&#39;Dendrocopos leucotos&#39;</span><span class="p">],</span>
@@ -226,10 +228,10 @@ Found 1 pages in total.
 Saved metadata for 121 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 477 files after formating time
-Keeped metadata for 364 files after formating date
+Keeped metadata for 478 files after formating time
+Keeped metadata for 365 files after formating date
 Found 1 pages in total.
-Saved metadata for 364 files
+Saved metadata for 365 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
 Loading page 2...
@@ -286,7 +288,7 @@ Saved metadata for 17 files
 </div>
 </section>
 <section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins">
-<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Link to this heading">¶</a></h2>
+<h2>Creation of a dataframe with the number of files per species per 30mins<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-30mins" title="Link to this heading"></a></h2>
 <p>Using the metadata collected from Xeno-Canto, we create a new dataframe
 containing the number of files per species and per time slot (30 mins). The
 goal is to create a dataframe with diel pattern of activity for all species
@@ -321,7 +323,7 @@ The period of the time slot is 30 min</p>
 </div>
 </section>
 <section id="creation-of-a-dataframe-with-the-number-of-files-per-species-per-week">
-<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Link to this heading">¶</a></h2>
+<h2>Creation of a dataframe with the number of files per species per week<a class="headerlink" href="#creation-of-a-dataframe-with-the-number-of-files-per-species-per-week" title="Link to this heading"></a></h2>
 <p>Using the metadata collected from Xeno-Cant, we create a new dataframe
 containing the number of files per species and per week. The goal is to
 create a dataframe with annual pattern of activity for all species
@@ -353,7 +355,7 @@ with a week (7 days) resolution.</p>
 </div>
 </section>
 <section id="display-a-heatmap-of-diel-activity">
-<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Link to this heading">¶</a></h2>
+<h2>Display a heatmap of diel activity<a class="headerlink" href="#display-a-heatmap-of-diel-activity" title="Link to this heading"></a></h2>
 <p>make a copy of the dataset to avoid any modification of the original dataset</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
@@ -430,7 +432,7 @@ Woodpeckers are the most active during the morning, between 6:00am till
 </div>
 <img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_001.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/></section>
 <section id="display-a-heatmap-of-annual-activity-with-week-resolution">
-<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Link to this heading">¶</a></h2>
+<h2>Display a heatmap of annual activity with week resolution<a class="headerlink" href="#display-a-heatmap-of-annual-activity-with-week-resolution" title="Link to this heading"></a></h2>
 <p>make a copy of the dataset to avoid any modification of the original dataset</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_week_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
@@ -509,7 +511,7 @@ Woodpeckers are the most active during the winter and beginning of spring
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 11.552 seconds)</p>
+<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 50.917 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ce4f2561ac5c8da7083b50e63ed49d48/plot_xenocanto_woodpecker_activities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_xenocanto_woodpecker_activities.ipynb</span></code></a></p>
