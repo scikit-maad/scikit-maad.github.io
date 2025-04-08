@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acoustic fingerprinting and graphical soundscapes &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+  <title>Acoustic fingerprinting and graphical soundscapes &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -121,14 +116,14 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-graphical-soundscape-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="acoustic-fingerprinting-and-graphical-soundscapes">
 <span id="sphx-glr-auto-examples-2-advanced-plot-graphical-soundscape-py"></span><h1>Acoustic fingerprinting and graphical soundscapes<a class="headerlink" href="#acoustic-fingerprinting-and-graphical-soundscapes" title="Link to this heading"></a></h1>
 <p>Acoustic fingerprinting is a technique that captures unique features of audio signals. For example, Shazam employs a spectrogram-based approach, converting audio into a visual representation and then identifying peaks on the spectrogram [1]. This fingerprint is matched against a vast database to identify the corresponding song. The method is robust in presence of noise, allowing accurate recognition of diverse audio sources in real-time. This approach is versatile, finding application in characterizing soundscapes. It has been successfully employed to evaluate FSC forest certification [2] and Neotropical oil palm landscapes [3].</p>
 <section id="load-required-modules">
 <h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">features</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">maad</span><span class="w"> </span><span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">features</span>
 </pre></div>
 </div>
 </section>
@@ -149,128 +144,31 @@ to download the full example code</p>
 we can have a graphical representation of the most prominent spectro-temporal
 dynamics over a 24-hour window. To illustrate this, we will
 use 96 audio recordings that were collected in a temperate forest, and that are
-available [here](<a class="reference external" href="https://github.com/scikit-maad/scikit-maad/tree/production/data/indices">https://github.com/scikit-maad/scikit-maad/tree/production/data/indices</a>).</p>
+available <a class="reference external" href="https://github.com/scikit-maad/scikit-maad/tree/production/data/indices">here</a>.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_metadata_dir</span><span class="p">(</span><span class="s1">&#39;../../data/indices&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
 <span class="n">gs</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">graphical_soundscape</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span> <span class="n">target_fs</span><span class="o">=</span><span class="mi">22000</span><span class="p">)</span>
-<span class="n">features</span><span class="o">.</span><span class="n">plot_graph</span><span class="p">(</span><span class="n">gs</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span> <span class="n">target_fs</span><span class="o">=</span><span class="mi">22000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">plot_graph</span><span class="p">(</span><span class="n">gs</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_graphical_soundscape_002.png" srcset="../../_images/sphx_glr_plot_graphical_soundscape_002.png" alt="plot graphical soundscape" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>96 files found to process...
-Processing file S4A03895_20190522_000000.wav
-Processing file S4A03895_20190522_001500.wav
-Processing file S4A03895_20190522_003000.wav
-Processing file S4A03895_20190522_004500.wav
-Processing file S4A03895_20190522_010000.wav
-Processing file S4A03895_20190522_011500.wav
-Processing file S4A03895_20190522_013000.wav
-Processing file S4A03895_20190522_014500.wav
-Processing file S4A03895_20190522_020000.wav
-Processing file S4A03895_20190522_021500.wav
-Processing file S4A03895_20190522_023000.wav
-Processing file S4A03895_20190522_024500.wav
-Processing file S4A03895_20190522_030000.wav
-Processing file S4A03895_20190522_031500.wav
-Processing file S4A03895_20190522_033000.wav
-Processing file S4A03895_20190522_034500.wav
-Processing file S4A03895_20190522_040000.wav
-Processing file S4A03895_20190522_041500.wav
-Processing file S4A03895_20190522_043000.wav
-Processing file S4A03895_20190522_044500.wav
-Processing file S4A03895_20190522_050000.wav
-Processing file S4A03895_20190522_051500.wav
-Processing file S4A03895_20190522_053000.wav
-Processing file S4A03895_20190522_054500.wav
-Processing file S4A03895_20190522_060000.wav
-Processing file S4A03895_20190522_061500.wav
-Processing file S4A03895_20190522_063000.wav
-Processing file S4A03895_20190522_064500.wav
-Processing file S4A03895_20190522_070000.wav
-Processing file S4A03895_20190522_071500.wav
-Processing file S4A03895_20190522_073000.wav
-Processing file S4A03895_20190522_074500.wav
-Processing file S4A03895_20190522_080000.wav
-Processing file S4A03895_20190522_081500.wav
-Processing file S4A03895_20190522_083000.wav
-Processing file S4A03895_20190522_084500.wav
-Processing file S4A03895_20190522_090000.wav
-Processing file S4A03895_20190522_091500.wav
-Processing file S4A03895_20190522_093000.wav
-Processing file S4A03895_20190522_094500.wav
-Processing file S4A03895_20190522_100000.wav
-Processing file S4A03895_20190522_101500.wav
-Processing file S4A03895_20190522_103000.wav
-Processing file S4A03895_20190522_104500.wav
-Processing file S4A03895_20190522_110000.wav
-Processing file S4A03895_20190522_111500.wav
-Processing file S4A03895_20190522_113000.wav
-Processing file S4A03895_20190522_114500.wav
-Processing file S4A03895_20190522_120000.wav
-Processing file S4A03895_20190522_121500.wav
-Processing file S4A03895_20190522_123000.wav
-Processing file S4A03895_20190522_124500.wav
-Processing file S4A03895_20190522_130000.wav
-Processing file S4A03895_20190522_131500.wav
-Processing file S4A03895_20190522_133000.wav
-Processing file S4A03895_20190522_134500.wav
-Processing file S4A03895_20190522_140000.wav
-Processing file S4A03895_20190522_141500.wav
-Processing file S4A03895_20190522_143000.wav
-Processing file S4A03895_20190522_144500.wav
-Processing file S4A03895_20190522_150000.wav
-Processing file S4A03895_20190522_151500.wav
-Processing file S4A03895_20190522_153000.wav
-Processing file S4A03895_20190522_154500.wav
-Processing file S4A03895_20190522_160000.wav
-Processing file S4A03895_20190522_161500.wav
-Processing file S4A03895_20190522_163000.wav
-Processing file S4A03895_20190522_164500.wav
-Processing file S4A03895_20190522_170000.wav
-Processing file S4A03895_20190522_171500.wav
-Processing file S4A03895_20190522_173000.wav
-Processing file S4A03895_20190522_174500.wav
-Processing file S4A03895_20190522_180000.wav
-Processing file S4A03895_20190522_181500.wav
-Processing file S4A03895_20190522_183000.wav
-Processing file S4A03895_20190522_184500.wav
-Processing file S4A03895_20190522_190000.wav
-Processing file S4A03895_20190522_191500.wav
-Processing file S4A03895_20190522_193000.wav
-Processing file S4A03895_20190522_194500.wav
-Processing file S4A03895_20190522_200000.wav
-Processing file S4A03895_20190522_201500.wav
-Processing file S4A03895_20190522_203000.wav
-Processing file S4A03895_20190522_204500.wav
-Processing file S4A03895_20190522_210000.wav
-Processing file S4A03895_20190522_211500.wav
-Processing file S4A03895_20190522_213000.wav
-Processing file S4A03895_20190522_214500.wav
-Processing file S4A03895_20190522_220000.wav
-Processing file S4A03895_20190522_221500.wav
-Processing file S4A03895_20190522_223000.wav
-Processing file S4A03895_20190522_224500.wav
-Processing file S4A03895_20190522_230000.wav
-Processing file S4A03895_20190522_231500.wav
-Processing file S4A03895_20190522_233000.wav
-Processing file S4A03895_20190522_234500.wav
-Computation completed!
-</pre></div>
-</div>
-<p>This representation can be computed at various locations, and comparisons can be made among these sites for similarity. For further details on this approach, refer to sources [2] and [3]. It is important to note that the method implemented in scikit-maad is akin but not identical. In the original approach, peaks were calculated based on the mean spectrogram. In this version, we identify local maxima directly within the spectrogram.</p>
+<img src="../../_images/sphx_glr_plot_graphical_soundscape_002.png" srcset="../../_images/sphx_glr_plot_graphical_soundscape_002.png" alt="plot graphical soundscape" class = "sphx-glr-single-img"/><p>This representation can be computed at various locations, and comparisons can be made among these sites for similarity. For further details on this approach, refer to sources [2] and [3]. It is important to note that the method implemented in scikit-maad is akin but not identical. In the original approach, peaks were calculated based on the mean spectrogram. In this version, we identify local maxima directly within the spectrogram.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <p>[1] Wang, A. (2003, October). An industrial strength audio search algorithm. In Ismir (Vol. 2003, pp. 7-13).</p>
 <p>[2] Campos‐Cerqueira, M., Mena, J. L., Tejeda‐Gómez, V., Aguilar‐Amuchastegui, N., Gutierrez, N., &amp; Aide, T. M. (2020). How does FSC forest certification affect the acoustically active fauna in Madre de Dios, Peru?. Remote Sensing in Ecology and Conservation, 6(3), 274-285.</p>
 <p>[3] Furumo, P. R., &amp; Mitchell Aide, T. (2019). Using soundscapes to assess biodiversity in Neotropical oil palm landscapes. Landscape Ecology, 34, 911-923.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.367 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.085 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-graphical-soundscape-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e9d5234365ed767e4a576553777ed4eb/plot_graphical_soundscape.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_graphical_soundscape.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/530a96f0a16c9e8bfd376d6b408fdedf/plot_graphical_soundscape.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_graphical_soundscape.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b9703d3f618eee0c91af98e84ec07497/plot_graphical_soundscape.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_graphical_soundscape.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -288,7 +186,7 @@ Computation completed!
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

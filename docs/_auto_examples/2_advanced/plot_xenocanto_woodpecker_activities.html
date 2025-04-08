@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+  <title>Download metadata from Xeno-Canto to infer species activities &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -121,7 +116,7 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="download-metadata-from-xeno-canto-to-infer-species-activities">
 <span id="sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"></span><h1>Download metadata from Xeno-Canto to infer species activities<a class="headerlink" href="#download-metadata-from-xeno-canto-to-infer-species-activities" title="Link to this heading"></a></h1>
@@ -152,11 +147,11 @@ Middle Spotted : Dendrocoptes medius</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_path = &#39;./_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad</span><span class="w"> </span><span class="kn">import</span> <span class="n">util</span>
 </pre></div>
 </div>
 <section id="query-xeno-canto">
@@ -216,74 +211,76 @@ Please have a look here to know all the parameters and how to use them :
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picoides%20tridactylus%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 219 files after formating time
-Keeped metadata for 140 files after formating date
+Keeped metadata for 242 files after formating time
+Keeped metadata for 160 files after formating date
 Found 1 pages in total.
-Saved metadata for 140 files
+Saved metadata for 160 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20leucotos%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 167 files after formating time
-Keeped metadata for 121 files after formating date
+Keeped metadata for 184 files after formating time
+Keeped metadata for 130 files after formating date
 Found 1 pages in total.
-Saved metadata for 121 files
+Saved metadata for 130 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 478 files after formating time
-Keeped metadata for 365 files after formating date
-Found 1 pages in total.
-Saved metadata for 365 files
+Loading page 2...
+https://www.xeno-canto.org/api/2/recordings?query=Dryobates%20minor%20type:drumming%20area:europe&amp;page=2
+Keeped metadata for 512 files after formating time
+Keeped metadata for 395 files after formating date
+Found 2 pages in total.
+Saved metadata for 395 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=1
 Loading page 2...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20major%20type:drumming%20area:europe&amp;page=2
-Keeped metadata for 824 files after formating time
-Keeped metadata for 598 files after formating date
+Keeped metadata for 881 files after formating time
+Keeped metadata for 638 files after formating date
 Found 2 pages in total.
-Saved metadata for 598 files
+Saved metadata for 638 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dryocopus%20martius%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 318 files after formating time
-Keeped metadata for 238 files after formating date
+Keeped metadata for 341 files after formating time
+Keeped metadata for 254 files after formating date
 Found 1 pages in total.
-Saved metadata for 238 files
+Saved metadata for 254 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20canus%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 96 files after formating time
-Keeped metadata for 73 files after formating date
+Keeped metadata for 100 files after formating time
+Keeped metadata for 75 files after formating date
 Found 1 pages in total.
-Saved metadata for 73 files
+Saved metadata for 75 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocopos%20syriacus%20type:drumming%20area:europe&amp;page=1
-/Users/jsulloa/miniconda3/envs/py310/lib/python3.10/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
+/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   df_dataset[&#39;time&#39;][df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)] = &#39;0&#39; + df_dataset[df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)].time
-Keeped metadata for 22 files after formating time
-Keeped metadata for 18 files after formating date
+Keeped metadata for 33 files after formating time
+Keeped metadata for 28 files after formating date
 Found 1 pages in total.
-Saved metadata for 18 files
+Saved metadata for 28 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Jynx%20torquilla%20type:drumming%20area:europe&amp;page=1
 Found 1 pages in total.
 Saved metadata for 0 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Picus%20viridis%20type:drumming%20area:europe&amp;page=1
-Keeped metadata for 33 files after formating time
-Keeped metadata for 20 files after formating date
+Keeped metadata for 35 files after formating time
+Keeped metadata for 22 files after formating date
 Found 1 pages in total.
-Saved metadata for 20 files
+Saved metadata for 22 files
 Loading page 1...
 https://www.xeno-canto.org/api/2/recordings?query=Dendrocoptes%20medius%20type:drumming%20area:europe&amp;page=1
-/Users/jsulloa/miniconda3/envs/py310/lib/python3.10/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
+/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/xeno_canto.py:144: SettingWithCopyWarning:
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   df_dataset[&#39;time&#39;][df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)] = &#39;0&#39; + df_dataset[df_dataset.time.str.match(&#39;^([0-9])[:]([0-5][0-9])$&#39;)].time
-Keeped metadata for 22 files after formating time
-Keeped metadata for 17 files after formating date
+Keeped metadata for 26 files after formating time
+Keeped metadata for 19 files after formating date
 Found 1 pages in total.
-Saved metadata for 17 files
+Saved metadata for 19 files
 </pre></div>
 </div>
 </section>
@@ -319,6 +316,26 @@ The period of the time slot is 30 min</p>
 
 <span class="c1"># create a column with time only</span>
 <span class="n">df_count</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span> <span class="c1"># type: ignore</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
+/Users/jsulloa/github/scikit-maad/example_gallery/2_advanced/plot_xenocanto_woodpecker_activities.py:130: FutureWarning: &#39;T&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+  df_temp[&#39;count&#39;] = df[df[&#39;en&#39;]==species].set_index([&#39;time&#39;]).resample(&#39;30T&#39;).count().iloc[:,0]
 </pre></div>
 </div>
 </section>
@@ -511,13 +528,16 @@ Woodpeckers are the most active during the winter and beginning of spring
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 50.917 seconds)</p>
+<img src="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" srcset="../../_images/sphx_glr_plot_xenocanto_woodpecker_activities_002.png" alt="plot xenocanto woodpecker activities" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 11.866 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ce4f2561ac5c8da7083b50e63ed49d48/plot_xenocanto_woodpecker_activities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_xenocanto_woodpecker_activities.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/cfedbf7b033f3b4a3d8b7662f780f26a/plot_xenocanto_woodpecker_activities.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_xenocanto_woodpecker_activities.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2ff90139d42f2ca49b0a6ff7dc6df5e7/plot_xenocanto_woodpecker_activities.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_xenocanto_woodpecker_activities.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -535,7 +555,7 @@ Woodpeckers are the most active during the winter and beginning of spring
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

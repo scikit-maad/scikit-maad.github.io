@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+  <title>Find Regions of interest (ROIs) in a spectrogram &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -121,7 +116,7 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="find-regions-of-interest-rois-in-a-spectrogram">
 <span id="sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"></span><h1>Find Regions of interest (ROIs) in a spectrogram<a class="headerlink" href="#find-regions-of-interest-rois-in-a-spectrogram" title="Link to this heading"></a></h1>
@@ -138,12 +133,12 @@ scikit-image, scikit-learn and pandas Python packages.</p>
 </div>
 <section id="load-required-modules">
 <h2>Load required modules<a class="headerlink" href="#load-required-modules" title="Link to this heading"></a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">features</span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad</span><span class="w"> </span><span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">features</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
    <span class="n">power2dB</span><span class="p">,</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">format_features</span><span class="p">,</span> <span class="n">read_audacity_annot</span><span class="p">,</span>
    <span class="n">overlay_rois</span><span class="p">,</span> <span class="n">overlay_centroid</span>
    <span class="p">)</span>
@@ -285,6 +280,96 @@ than the second threshold value.</p>
 <li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_004.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_004.png" alt="Selected ROIs" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_005.png" alt="ROIs Overlay" class = "sphx-glr-multi-img"/></li>
 </ul>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[  6.98920635   6.98920635   4.99229025   8.01088435   3.9938322
+   4.99229025   2.99537415   2.99537415   2.99537415   4.99229025
+   4.99229025   8.01088435   5.9907483   15.99854875  25.00789116
+  17.99546485  15.99854875   5.9907483  118.00380952 141.99002268
+ 161.00716553   6.98920635  11.0062585   14.00163265 132.00544218
+  41.00643991 150.00090703  14.00163265  10.00780045   8.01088435
+  15.0000907    9.0093424   18.9939229    6.98920635  21.98929705
+  47.99564626  14.00163265  11.0062585   15.0000907  123.99455782
+  16.9970068   68.01124717   5.9907483   15.0000907   40.00798186
+  29.00172336   5.9907483   17.99546485  17.99546485  11.0062585
+  14.00163265  11.0062585   12.00471655  63.99419501  11.0062585
+   3.9938322    9.0093424   14.00163265  15.0000907   16.9970068
+   9.0093424   11.0062585  135.99927438   8.01088435   8.01088435
+  11.0062585    5.9907483    8.01088435   5.9907483   12.00471655
+  15.0000907    6.98920635  15.0000907    8.01088435   5.9907483
+   5.9907483    5.9907483    9.0093424    4.99229025  14.00163265
+  14.00163265   9.0093424   14.00163265  11.0062585    5.9907483
+   8.01088435   3.9938322   19.99238095   5.9907483   15.99854875
+  58.00344671   5.9907483    4.99229025  27.00480726  17.99546485
+   4.99229025  10.00780045  15.99854875  15.0000907   90.99900227
+  15.99854875   8.01088435  14.00163265  17.99546485  21.98929705
+  13.0031746   13.0031746    9.0093424   15.99854875  53.01115646
+   5.9907483   45.00027211  10.00780045  88.00362812   8.01088435
+  15.0000907    4.99229025  81.98965986  43.00335601   5.9907483
+  74.00199546  15.99854875  80.99120181  47.99564626  44.00181406
+  42.00489796  41.00643991  96.98975057  44.00181406  42.00489796
+  42.00489796  41.00643991  42.00489796  42.00489796  47.99564626
+  43.00335601  35.99092971  41.00643991  42.00489796  39.00952381
+  40.00798186  40.00798186  40.00798186  40.00798186  40.00798186
+  12.00471655  39.00952381  39.00952381  43.00335601  38.01106576
+  35.99092971  47.99564626  57.00498866  33.99401361  12.00471655
+  12.00471655  17.99546485  63.99419501  53.01115646  62.99573696
+  14.00163265  60.99882086  23.01097506  59.00190476  12.00471655
+  21.98929705  10.00780045  76.99736961  12.00471655  11.0062585
+  60.99882086  61.99727891  28.00326531  60.00036281  60.99882086
+  57.00498866  11.0062585   10.00780045  76.99736961  79.99274376
+  48.99410431   8.01088435  15.99854875  50.99102041  15.0000907
+  15.0000907   14.00163265  36.98938776  15.0000907   24.00943311
+  24.00943311  10.00780045  15.99854875  33.99401361  18.9939229
+  12.00471655  20.990839    17.99546485  16.9970068   15.0000907
+  15.0000907   28.00326531  30.99863946  25.00789116  26.00634921
+  24.00943311  19.99238095  16.9970068   29.00172336  30.99863946
+  24.00943311  17.99546485  18.9939229   23.01097506  17.99546485
+  29.00172336  29.00172336  16.9970068   21.98929705  17.99546485
+  19.99238095  25.00789116  16.9970068   20.990839    27.00480726
+  14.00163265  26.00634921  10.00780045  19.99238095  15.0000907
+  14.00163265  13.0031746   14.00163265]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[ 86.1328125   0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+  86.1328125 172.265625  344.53125     0.          0.          0.
+ 172.265625    0.        172.265625    0.          0.          0.
+   0.          0.          0.          0.          0.         86.1328125
+   0.          0.          0.        172.265625   86.1328125  86.1328125
+   0.          0.          0.          0.          0.          0.
+   0.          0.         86.1328125   0.          0.         86.1328125
+   0.          0.          0.          0.          0.          0.
+   0.         86.1328125  86.1328125   0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+  86.1328125   0.          0.          0.          0.          0.
+   0.          0.          0.         86.1328125   0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.         86.1328125   0.         86.1328125
+   0.          0.          0.         86.1328125   0.          0.
+  86.1328125   0.         86.1328125   0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.       ]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+</pre></div>
+</div>
 <p>Let’s compare with the manual annotation (Ground Truth GT) obtained with
 Audacity software.
 Each acoustic signature is manually selected and labeled. All similar acoustic
@@ -346,7 +431,68 @@ signatures are labeled with the same name</p>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Number of different ROIs : </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_rois_GT</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Total number of ROIs : 159
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_006.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[ 43.00335601  27.00480726  36.98938776  40.00798186  26.00634921
+  33.99401361  12.00471655  13.0031746   14.00163265  45.00027211
+   9.0093424   20.990839    43.00335601  12.00471655  39.00952381
+  12.00471655  25.00789116  42.00489796  24.00943311  12.00471655
+  11.0062585   11.0062585   11.0062585   44.00181406 129.01006803
+  38.01106576  13.0031746   12.00471655  30.99863946   9.0093424
+  29.00172336  38.01106576  43.00335601  13.0031746   23.01097506
+  40.00798186  41.00643991  50.99102041  11.0062585   43.00335601
+  15.0000907   15.0000907   31.99709751  46.99718821  34.99247166
+  30.00018141  32.99555556  35.99092971  32.99555556  47.99564626
+ 167.99637188  30.00018141  10.00780045  12.00471655  26.00634921
+  70.00816327  30.99863946  38.01106576  60.00036281  15.99854875
+  21.98929705  45.99873016  24.00943311  35.99092971  44.00181406
+  44.00181406  25.00789116  16.9970068   45.99873016  28.00326531
+  48.99410431  53.01115646  31.99709751  43.00335601  15.0000907
+  46.99718821  40.00798186 124.99301587  11.0062585   30.99863946
+  13.0031746   35.99092971  19.99238095  31.99709751  19.99238095
+  45.00027211  13.0031746   16.9970068   19.99238095  38.01106576
+  30.00018141  14.00163265  23.01097506  28.00326531  13.0031746
+  47.99564626  13.0031746   16.9970068   39.00952381  39.00952381
+  30.00018141  48.99410431  34.99247166 136.99773243  33.99401361
+  23.01097506  36.98938776  15.99854875  14.00163265  43.00335601
+  31.99709751  18.9939229   39.00952381  18.9939229   35.99092971
+  30.00018141  15.0000907   50.99102041  15.99854875  74.00199546
+  14.00163265 129.01006803  36.98938776  14.00163265  35.99092971
+  30.99863946  15.0000907   12.00471655  34.99247166  18.9939229
+  40.00798186  15.0000907   15.99854875  15.0000907   45.00027211
+  16.9970068   30.00018141  15.0000907   35.99092971  16.9970068
+  14.00163265  32.99555556  34.99247166  12.00471655  14.00163265
+  28.00326531  10.00780045  15.99854875  35.99092971 164.00253968
+  36.98938776  14.00163265  13.0031746   81.98965986  17.99546485
+  36.98938776  15.99854875  33.99401361  13.0031746 ]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[  0.          0.          0.         86.1328125   0.          0.
+   0.          0.          0.         86.1328125   0.          0.
+  86.1328125   0.         86.1328125   0.          0.         86.1328125
+   0.          0.          0.          0.          0.         86.1328125
+ 172.265625    0.          0.          0.          0.          0.
+   0.          0.         86.1328125   0.          0.         86.1328125
+  86.1328125  86.1328125   0.         86.1328125   0.          0.
+   0.         86.1328125  86.1328125   0.         86.1328125  86.1328125
+   0.         86.1328125 172.265625    0.          0.          0.
+   0.        172.265625    0.         86.1328125  86.1328125   0.
+   0.         86.1328125   0.          0.          0.         86.1328125
+   0.          0.         86.1328125   0.          0.         86.1328125
+   0.          0.          0.          0.          0.        172.265625
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.         86.1328125  86.1328125
+   0.          0.         86.1328125   0.          0.         86.1328125
+   0.         86.1328125   0.         86.1328125   0.         86.1328125
+   0.        172.265625    0.         86.1328125  86.1328125   0.
+   0.         86.1328125   0.          0.          0.          0.
+  86.1328125   0.          0.         86.1328125   0.         86.1328125
+   0.        172.265625    0.          0.          0.          0.
+   0.          0.         86.1328125   0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+  86.1328125   0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.        172.265625
+   0.          0.          0.          0.          0.         86.1328125
+   0.          0.          0.       ]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+Total number of ROIs : 159
 Number of different ROIs :  8
 </pre></div>
 </div>
@@ -478,7 +624,93 @@ To extract</p>
    <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p>Prepare the features in order to have zero mean and same variance</p>
+<img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_008.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[ 23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  23.01097506  23.01097506
+  23.01097506  23.01097506  23.01097506  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821  46.99718821  46.99718821
+  46.99718821  46.99718821  46.99718821 127.98839002 127.98839002
+ 127.98839002 127.98839002 127.98839002 127.98839002 127.98839002
+ 127.98839002 127.98839002  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531  28.00326531  28.00326531  28.00326531
+  28.00326531  28.00326531]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+/Users/jsulloa/miniconda3/envs/maad/lib/python3.11/site-packages/maad/util/miscellaneous.py:977: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;[  0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.         86.1328125 172.265625
+  86.1328125 172.265625   86.1328125   0.         86.1328125  86.1328125
+  86.1328125   0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.
+   0.          0.          0.          0.          0.          0.       ]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  df.update(pd.DataFrame(area,
+</pre></div>
+</div>
+<p>Prepare the features in order to have zero mean and same variance</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_centroid_WAV</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">FEATURES</span></a><span class="p">])</span>
 
 <span class="c1"># perform KMeans with the same number of clusters as with the manual annotation</span>
@@ -520,13 +752,16 @@ To extract</p>
 </div>
 <img src="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" srcset="../../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_009.png" alt="ROIs Overlay" class = "sphx-glr-single-img"/><p><strong>References</strong></p>
 <p>[1] Towsey, M., 2013b. Noise Removal from Wave-forms and Spectrograms Derived from Natural Recordings of the Environment. Queensland University of Technology, Brisbane</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 15.255 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 9.292 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/406fee73b2f9360c82c8060af9ec3dcc/plot_compare_auto_and_manual_rois_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/39192036aeb6236e157d37e452e0f4f4/plot_compare_auto_and_manual_rois_selection.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/12b3b522b9f248869321da6f552272f0/plot_compare_auto_and_manual_rois_selection.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_compare_auto_and_manual_rois_selection.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -544,7 +779,7 @@ To extract</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

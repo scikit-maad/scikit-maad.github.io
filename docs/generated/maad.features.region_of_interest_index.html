@@ -1,32 +1,30 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.region_of_interest_index &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.region_of_interest_index &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="maad.features.all_temporal_alpha_indices" href="maad.features.all_temporal_alpha_indices.html" />
-    <link rel="prev" title="maad.features.frequency_raoq" href="maad.features.frequency_raoq.html" /> 
+    <link rel="prev" title="maad.features.region_of_interest_index_deprecated" href="maad.features.region_of_interest_index_deprecated.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -89,6 +84,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index_deprecated.html">maad.features.region_of_interest_index_deprecated</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">maad.features.region_of_interest_index</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#maad.features.region_of_interest_index"><code class="docutils literal notranslate"><span class="pre">region_of_interest_index()</span></code></a></li>
 </ul>
@@ -139,102 +135,79 @@
 <h1>maad.features.region_of_interest_index<a class="headerlink" href="#maad-features-region-of-interest-index" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="maad.features.region_of_interest_index">
-<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">region_of_interest_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_dB_noNoise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'relative'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_param2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5120000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ratio_xy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Link to this definition"></a></dt>
-<dd><p>Compute an acoustic activity index based on the regions of interested 
+<span class="sig-prename descclassname"><span class="pre">maad.features.</span></span><span class="sig-name descname"><span class="pre">region_of_interest_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sxx_power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion_rois</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rois_flim_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rois_flim_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_rain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_event_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_event_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_freq_bw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq_bw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ratio_xy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/features/alpha_indices.html#region_of_interest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.features.region_of_interest_index" title="Link to this definition"></a></dt>
+<dd><p>Compute acoustic activity indices based on the regions of interest
 detected on a spectrogram.</p>
 <p>The function first find regions of interest (ROI) and then compute the number
-or ROIs and the cover area of these ROIS
-on the spectrogram.</p>
-<dl class="field-list">
+or ROIs and the cover area of these ROIS on the spectrogram.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>Sxx_dB_noNoise</strong><span class="classifier">ndarray of floats</span></dt><dd><p>Spectrogram without noise (i.e matrix of spectrum)</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>Sxx_power</strong><span class="classifier">ndarray of floats</span></dt><dd><p>Power spectrogram (i.e matrix of spectrum)</p>
 </dd>
 <dt><strong>tn</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>time vector (horizontal x-axis)</p>
 </dd>
 <dt><strong>fn</strong><span class="classifier">1d ndarray of floats</span></dt><dd><p>Frequency vector (vertical y-axis)</p>
 </dd>
-<dt><strong>smooth_param1</strong><span class="classifier">scalar, default is 1</span></dt><dd><p>Standard deviation of the gaussian kernel used to smooth the image 
-The larger is the number, the smoother will be the image and the longer 
-it takes. Standard values should fall between 0.5 to 3</p>
+<dt><strong>seed_level</strong><span class="classifier">scalar, default is 13</span></dt><dd><p>Higher threshold (in dB) for the absolute binarization. Pixels with 
+values above this threshold are considered part of a potential ROI.</p>
 </dd>
-<dt><strong>mask_mode</strong><span class="classifier">string in {‘relative’, ‘absolute’}, optional, default is ‘relative’</span></dt><dd><div class="line-block">
-<div class="line">if ‘relative’:
-Binarize an image based on a double relative threshold.  
-The values used for the thresholding depends on the values found 
-in the image. =&gt; relative threshold </div>
-<div class="line">if ‘absolute’ :
-Binarize an image based on a double relative threshold.  
-The values used for the thresholding are independent of the values 
-in the image =&gt; absolute threshold</div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The default <code class="docutils literal notranslate"><span class="pre">mask_mode</span></code> parameter is deprecated in version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">absolute</span></code> in version 1.4.</p>
-</div>
+<dt><strong>low_level</strong><span class="classifier">scalar, default is 6</span></dt><dd><p>Lower threshold (in dB) for the absolute binarization.  Pixels with 
+values above this threshold and connected to a “seed” pixel are also 
+considered part of a potential ROI.</p>
 </dd>
-<dt><strong>mask_param1</strong><span class="classifier">scalar, default is 6</span></dt><dd><div class="line-block">
-<div class="line">if ‘relative’ : bin_std </div>
-<div class="line">if ‘absolute’ : bin_h</div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The default <code class="docutils literal notranslate"><span class="pre">mask_param1</span></code> parameter is deprecated in version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">10</span></code> in version 1.4.</p>
-</div>
+<dt><strong>fusion_rois</strong><span class="classifier">tuple of scalars, default is (0.05, 100)</span></dt><dd><p>Tuple defining the temporal (in seconds) and frequency (in Hz) 
+dimensions for morphological closing.  This operation fuses nearby ROIs.</p>
 </dd>
-<dt><strong>mask_param2</strong><span class="classifier">scalar, default is 0.5</span></dt><dd><div class="line-block">
-<div class="line">if ‘relative’ : bin_per</div>
-<div class="line">if ‘absolute’ : bin_l</div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The default <code class="docutils literal notranslate"><span class="pre">mask_param2</span></code> parameter is deprecated in version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">3</span></code> in 1.4.</p>
-</div>
+<dt><strong>remove_rois_flim_min</strong><span class="classifier">scalar or tuple of scalars, default is 50</span></dt><dd><p>Frequency limit (in Hz) below which ROIs are removed. Can be a single 
+value or a tuple defining a range (min_freq, max_freq).</p>
 </dd>
-<dt><strong>min_roi, max_roi</strong><span class="classifier">scalars, optional, default</span><span class="classifier">9,  512*10000</span></dt><dd><p>Define the minimum and the maximum area possible for a ROI. If None,  
-the minimum ROI area is 1 pixel and the maximum ROI area is the area of  
-the image 
-.. warning:: The default <code class="docutils literal notranslate"><span class="pre">min_roi</span></code> and <code class="docutils literal notranslate"><span class="pre">max_roi</span></code> parameter is 
-deprecated in version 1.3 and will be changed to <code class="docutils literal notranslate"><span class="pre">None</span></code> in 1.4.</p>
+<dt><strong>remove_rois_flim_max</strong><span class="classifier">scalar, default is none</span></dt><dd><p>Frequency limit (in Hz) above which ROIs are removed.</p>
 </dd>
-<dt><strong>max_ratio_xy</strong><span class="classifier">scalar, optional, default</span><span class="classifier">None</span></dt><dd><p>Define the maximum ratio between the vertical axis (y) and horizontal 
+<dt><strong>remove_rain</strong><span class="classifier">boolean, default is True</span></dt><dd><p>If True, vertical frequency spikes due to rain are removed as possible
+by applying a morphological mathematical image processing : grey opening</p>
+</dd>
+<dt><strong>min_event_duration</strong><span class="classifier">scalar, optional</span></dt><dd><p>Minimum time duration of an event (in s). ROIs shorter than this are removed.</p>
+</dd>
+<dt><strong>max_event_duration</strong><span class="classifier">scalar, optional</span></dt><dd><p>Maximum time duration of an event (in s). ROIs longer than this are removed.</p>
+</dd>
+<dt><strong>min_freq_bw</strong><span class="classifier">scalar, optional</span></dt><dd><p>Minimum frequency bandwidth (in Hz). ROIs with smaller bandwidth than this are removed.</p>
+</dd>
+<dt><strong>max_freq_bw</strong><span class="classifier">scalar, optional</span></dt><dd><p>Maximum frequency bandwidth (in Hz). ROIs with larger bandwidth than this are removed.</p>
+</dd>
+<dt><strong>max_ratio_xy</strong><span class="classifier">scalar, optional</span></dt><dd><p>Maximum ratio between the vertical axis (y) and horizontal 
 axis (x) that is allowed for a ROI. This is very convenient to remove
 vertical spikes (e.g. rain). 10 seems a reasonable value to remove most
 of spikes due to light to medium rainfall.</p>
 </dd>
-<dt><strong>remove_rain</strong><span class="classifier">boolean, default is False</span></dt><dd><p>If True, vertical frequency spikes due to rain are removed as possible
-by applying a morphological mathematical image processing : grey opening
-.. warning:: The <code class="docutils literal notranslate"><span class="pre">remove_rain</span></code> parameter is deprecated in version 1.3 
-and will be removed in 1.4. It’s better to use the <code class="docutils literal notranslate"><span class="pre">max_ratio_yx</span></code> 
-parameter</p>
+<dt><strong>display</strong><span class="classifier">boolean, default is False</span></dt><dd><p>If True, plot graphs and spectrograms.</p>
 </dd>
-<dt><strong>display</strong><span class="classifier">boolean, default is false</span></dt><dd><p>plot graphs and spectrograms</p>
+<dt><strong>verbose</strong><span class="classifier">boolean, default is False</span></dt><dd><p>If True, print additional information during processing.</p>
 </dd>
-<dt><strong>/*/*kwargs optional. This parameter is used by plt.plot and savefig functions</strong></dt><dd></dd>
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>This parameter is used by plt.plot and savefig functions.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>ROItotal</strong><span class="classifier">float</span></dt><dd><p>Total number of ROIs found. The higher is the number of ROI, the higher
+<dt><strong>nROI</strong><span class="classifier">float</span></dt><dd><p>Total number of ROIs found per minute. The higher is the number of ROI, the higher
 is the acoustic abondance and/or richness expected</p>
 </dd>
-<dt><strong>ROIcover</strong><span class="classifier">float</span></dt><dd><p>Percentage of spectrogram cover. The higher is the cover percentage, 
+<dt><strong>aROI</strong><span class="classifier">float</span></dt><dd><p>Percentage of spectrogram cover. The higher is the cover percentage, 
 the higher is the acoustic richness expected.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">maad</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">fs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_noNoise</span><span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">median_equalizer</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_dB_noNoise</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_noNoise</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The total number of ROIs found in the spectrogram is </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">ROItotal</span><span class="p">)</span> 
-<span class="go">The total number of ROIs found in the spectrogram is 265</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The percentage of spectrogram covered by ROIs is </span><span class="si">%2.0f%%</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">ROIcover</span><span class="p">)</span> 
-<span class="go">The percentage of spectrogram covered by ROIs is 12%</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nROI</span><span class="p">,</span> <span class="n">aROI</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The total number of ROIs found in the spectrogram is </span><span class="si">%2.0f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">nROI</span><span class="p">)</span>
+<span class="go">The total number of ROIs found in the spectrogram is 241</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The percentage of spectrogram covered by ROIs is</span><span class="si">%2.0f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">aROI</span><span class="p">)</span>
+<span class="go">The percentage of spectrogram covered by ROIs is 5%</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -245,14 +218,14 @@ the higher is the acoustic richness expected.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="maad.features.frequency_raoq.html" class="btn btn-neutral float-left" title="maad.features.frequency_raoq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maad.features.region_of_interest_index_deprecated.html" class="btn btn-neutral float-left" title="maad.features.region_of_interest_index_deprecated" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="maad.features.all_temporal_alpha_indices.html" class="btn btn-neutral float-right" title="maad.features.all_temporal_alpha_indices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

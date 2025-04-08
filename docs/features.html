@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acoustic features &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+  <title>Acoustic features &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=02f2166e"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e0a75244"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -98,6 +93,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/maad.features.region_of_interest_index_deprecated.html">maad.features.region_of_interest_index_deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/maad.features.all_spectral_alpha_indices.html">maad.features.all_spectral_alpha_indices</a></li>
@@ -265,13 +261,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq" title="maad.features.frequency_raoq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_raoq</span></code></a>(S_power, fn[, bin_step])</p></td>
 <td><p>Compute Rao's quadratic entropy on a power spectrum (1d).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index" title="maad.features.region_of_interest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_of_interest_index</span></code></a>(Sxx_dB_noNoise, tn, fn)</p></td>
-<td><p>Compute an acoustic activity index based on the regions of interested  detected on a spectrogram.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.region_of_interest_index_deprecated.html#maad.features.region_of_interest_index_deprecated" title="maad.features.region_of_interest_index_deprecated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_of_interest_index_deprecated</span></code></a>(...[, ...])</p></td>
+<td><p>Compute an acoustic activity index based on the regions of interest  detected on a spectrogram.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices" title="maad.features.all_temporal_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_temporal_alpha_indices</span></code></a>(s, fs[, verbose, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index" title="maad.features.region_of_interest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_of_interest_index</span></code></a>(Sxx_power, tn, fn)</p></td>
+<td><p>Compute acoustic activity indices based on the regions of interest detected on a spectrogram.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices" title="maad.features.all_temporal_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_temporal_alpha_indices</span></code></a>(s, fs[, verbose, ...])</p></td>
 <td><p>Compute 16 temporal domain acoustic indices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices" title="maad.features.all_spectral_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_spectral_alpha_indices</span></code></a>(Sxx_power, tn, fn)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices" title="maad.features.all_spectral_alpha_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_spectral_alpha_indices</span></code></a>(Sxx_power, tn, fn)</p></td>
 <td><p>Computes the acoustic indices in spectral (spectrum (1d) or spectrogram (2d)) domain.</p></td>
 </tr>
 </tbody>
@@ -347,7 +346,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

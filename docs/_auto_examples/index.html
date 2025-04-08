@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example gallery &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+  <title>Example gallery &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -109,55 +104,55 @@
 To run most of these examples you will need to download some samples from the <a class="reference internal" href="../audio_dataset.html#audio-dataset"><span class="std std-ref">Audio dataset</span></a>.</p>
 <div class="sphx-glr-thumbnails"></div><section id="basic-examples">
 <h2>Basic examples<a class="headerlink" href="#basic-examples" title="Link to this heading"></a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In audio signals, regions of interest are usually regions with high density of energy. The func..."><img alt="" src="../_images/sphx_glr_plot_find_rois_simple_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In audio signals, regions of interest are usually regions with high density of energy. The function find_rois_cwt allows finding regions of interest in the signal giving very simple and intuitive parameters: temporal length and frequency limits. This segmentation can be seen as a coarse detection process, the starting point of more advanced classification methods."><img alt="" src="../_images/sphx_glr_plot_find_rois_simple_thumb.png" />
 <p><a class="reference internal" href="1_basic/plot_find_rois_simple.html#sphx-glr-auto-examples-1-basic-plot-find-rois-simple-py"><span class="std std-ref">Simple audio segmentation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Simple audio segmentation</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="An audio signal can be represented in both, temporal and spectral domains.  These representatio..."><img alt="" src="../_images/sphx_glr_plot_audio_representation_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="An audio signal can be represented in both, temporal and spectral domains.  These representations are complementary and fundamental to understand the audio signal characteristics. In this introductory example we will load an audio signal,  apply basic transformations to better understand its features in time and frequency."><img alt="" src="../_images/sphx_glr_plot_audio_representation_thumb.png" />
 <p><a class="reference internal" href="1_basic/plot_audio_representation.html#sphx-glr-auto-examples-1-basic-plot-audio-representation-py"><span class="std std-ref">Audio representation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Audio representation</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When dealing with large amounts of audio recordings, visualization plays a key role to evidence..."><img alt="" src="../_images/sphx_glr_plot_circadian_spectrogram_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="When dealing with large amounts of audio recordings, visualization plays a key role to evidence the main patterns in the data. In this example we show how to easily combine 96 audio  files to build a visual representation of a 24 hour natural soundscape."><img alt="" src="../_images/sphx_glr_plot_circadian_spectrogram_thumb.png" />
 <p><a class="reference internal" href="1_basic/plot_circadian_spectrogram.html#sphx-glr-auto-examples-1-basic-plot-circadian-spectrogram-py"><span class="std std-ref">Circadian soundscape</span></a></p>
   <div class="sphx-glr-thumbnail-title">Circadian soundscape</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Template matching is a simple but powerfull method to detect a stereotyped sound of interest us..."><img alt="" src="../_images/sphx_glr_plot_template_matching_example_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Template matching is a simple but powerfull method to detect a stereotyped sound of interest using a template signal. This example shows how to use the normalized cross-correlation of spectrograms. For a more detailed information on how to implement this technique in a large dataset check references [1,2]."><img alt="" src="../_images/sphx_glr_plot_template_matching_example_thumb.png" />
 <p><a class="reference internal" href="1_basic/plot_template_matching_example.html#sphx-glr-auto-examples-1-basic-plot-template-matching-example-py"><span class="std std-ref">Template matching</span></a></p>
   <div class="sphx-glr-thumbnail-title">Template matching</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When sound travels in air (or in water), initial acoustic signature may change  regarding dista..."><img alt="" src="../_images/sphx_glr_plot_detection_distance_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="When sound travels in air (or in water), initial acoustic signature may change  regarding distances due to attenuation. Sound attenuation in natural environment  is very complex to model. We propose to reduce the complexity by decomposing  the sound attenuation to three main sources of attenuation :  - the geometric attenuation (Ageo) also known as spreading loss or geometric  dispersion,  - the atmospheric attenuation (Aatm)  - and the habitat attenuation (Ahab). The later encompasses several sources of  attenuation and might be seen as a proxy."><img alt="" src="../_images/sphx_glr_plot_detection_distance_thumb.png" />
 <p><a class="reference internal" href="1_basic/plot_detection_distance.html#sphx-glr-auto-examples-1-basic-plot-detection-distance-py"><span class="std std-ref">Detection distance estimation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Detection distance estimation</div>
 </div></div></section>
 <section id="advanced-examples">
 <h2>Advanced examples<a class="headerlink" href="#advanced-examples" title="Link to this heading"></a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Acoustic fingerprinting is a technique that captures unique features of audio signals. For exam..."><img alt="" src="../_images/sphx_glr_plot_graphical_soundscape_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Acoustic fingerprinting is a technique that captures unique features of audio signals. For example, Shazam employs a spectrogram-based approach, converting audio into a visual representation and then identifying peaks on the spectrogram [1]. This fingerprint is matched against a vast database to identify the corresponding song. The method is robust in presence of noise, allowing accurate recognition of diverse audio sources in real-time. This approach is versatile, finding application in characterizing soundscapes. It has been successfully employed to evaluate FSC forest certification [2] and Neotropical oil palm landscapes [3]."><img alt="" src="../_images/sphx_glr_plot_graphical_soundscape_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_graphical_soundscape.html#sphx-glr-auto-examples-2-advanced-plot-graphical-soundscape-py"><span class="std std-ref">Acoustic fingerprinting and graphical soundscapes</span></a></p>
   <div class="sphx-glr-thumbnail-title">Acoustic fingerprinting and graphical soundscapes</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single tim..."><img alt="" src="../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Soundscapes result from a combination of multiple signals that are mixed-down into a single time-series. Unmixing these signals can be regarded as an  important preprocessing step for further analyses of individual components. Here, we will combine the robust characterization capabilities of  the bidimensional wavelets [1] with an advanced signal decomposition tool, the  non-negative-matrix factorization (NMF)[2]. NMF is a widely used tool to analyse high-dimensional data that automatically extracts sparse and meaningfull components of non-negative matrices. Audio spectrograms are in essence sparse and  non-negative matrices, and hence well suited to be decomposed with NMF. This  decomposition can be further used to generate false-color spectrograms to  rapidly identify patterns in soundscapes and increase the interpretability of  the signal [3]. This example shows how to use scikit-maad to easily  decompose audio signals and visualize false-colour spectrograms."><img alt="" src="../_images/sphx_glr_plot_nmf_and_false_color_spectrogram_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_nmf_and_false_color_spectrogram.html#sphx-glr-auto-examples-2-advanced-plot-nmf-and-false-color-spectrogram-py"><span class="std std-ref">Signal decomposition and false-color spectrograms</span></a></p>
   <div class="sphx-glr-thumbnail-title">Signal decomposition and false-color spectrograms</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Unsupervised learning algorithms search for structures or patterns in a dataset without requiri..."><img alt="" src="../_images/sphx_glr_plot_unsupervised_sound_classification_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Unsupervised learning algorithms search for structures or patterns in a dataset without requiring labels. In the context of ecoacoustics, this approach can be usefull to draw inferences when manual labelling is inaccesible or too expensive. For example, unsupervised learning can be used to estimate the animal acoustic diversity [1], combine human-reasoning and automated procedures to build reference libraries, and find hidden structures in the soundscapes. "><img alt="" src="../_images/sphx_glr_plot_unsupervised_sound_classification_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_unsupervised_sound_classification.html#sphx-glr-auto-examples-2-advanced-plot-unsupervised-sound-classification-py"><span class="std std-ref">Classify soundtypes with unsupervised learning</span></a></p>
   <div class="sphx-glr-thumbnail-title">Classify soundtypes with unsupervised learning</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Environmental audio recordings usually have stationary noise that needs to be removed to enhanc..."><img alt="" src="../_images/sphx_glr_plot_remove_background_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Environmental audio recordings usually have stationary noise that needs to be removed to enhance the signal to noise ratio of biological sounds. This example shows different ways to remove stationary background noise using spectral  subtraction techniques. These techniques are applied over the spectrogram and return a 2D matrix.  We use the sharpness metric to have a quantitative estimation of how well is the noise  reduction. For a more comprehensive analysis, other metrics should be use in complement."><img alt="" src="../_images/sphx_glr_plot_remove_background_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_remove_background.html#sphx-glr-auto-examples-2-advanced-plot-remove-background-py"><span class="std std-ref">Remove background noise with signal processing tools</span></a></p>
   <div class="sphx-glr-thumbnail-title">Remove background noise with signal processing tools</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When sound travels in air (or in water), initial acoustic signature may change  regarding dista..."><img alt="" src="../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="When sound travels in air (or in water), initial acoustic signature may change  regarding distances due to attenuation. Sound attenuation in natural environment  is very complex to model. We propose to reduce the complexity by decomposing  the sound attenuation to three main sources of attenuation :  - the geometric attenuation (Ageo) also known as spreading loss or geometric  dispersion,  - the atmospheric attenuation (Aatm)  - and the habitat attenuation (Ahab). The later encompasses several sources of  attenuation and might be seen as a proxy."><img alt="" src="../_images/sphx_glr_plot_sound_degradation_due_to_attenuation_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_sound_degradation_due_to_attenuation.html#sphx-glr-auto-examples-2-advanced-plot-sound-degradation-due-to-attenuation-py"><span class="std std-ref">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Simulation of sound degradation due to geometric, atmospheric and habitat attenuation</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="The goal of this example is to show how to download metadata from Xeno-Canto to infer species a..."><img alt="" src="../_images/sphx_glr_plot_xenocanto_woodpecker_activities_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="The goal of this example is to show how to download metadata from Xeno-Canto to infer species activities.  We focus on the activity of european woodpeckers."><img alt="" src="../_images/sphx_glr_plot_xenocanto_woodpecker_activities_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_xenocanto_woodpecker_activities.html#sphx-glr-auto-examples-2-advanced-plot-xenocanto-woodpecker-activities-py"><span class="std std-ref">Download metadata from Xeno-Canto to infer species activities</span></a></p>
   <div class="sphx-glr-thumbnail-title">Download metadata from Xeno-Canto to infer species activities</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio  recordin..."><img alt="" src="../_images/sphx_glr_plot_sound_pressure_level_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Sound pressure level (dB SPL) is a quantitative value that allows comparison of audio  recordings coming from different datasets and environments. Sound pressure level  corresponds to a quantitative measurement of the acoustic pressure energy.  An Automated Recording Unit (ARU) can be converted into a pseudo sound meter level  knowing few parameters: the sensitivity of the microphone, the amplification gain, the bit depth and the voltage range of the analog to digital converter. This is sufficient to convert a wav file (array of intergers) into pressure  (Pa). Of course, as the frequency response of the ARUs&#x27;s microphone is never flat,  the result is an approximation of the real sound pressure level. In order to be more precise, one should correct the frequency response of the microphone."><img alt="" src="../_images/sphx_glr_plot_sound_pressure_level_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_sound_pressure_level.html#sphx-glr-auto-examples-2-advanced-plot-sound-pressure-level-py"><span class="std std-ref">Estimate sound pressure level from audio recordings</span></a></p>
   <div class="sphx-glr-thumbnail-title">Estimate sound pressure level from audio recordings</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ..."><img alt="" src="../_images/sphx_glr_plot_extract_alpha_indices_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings and are widely used to characterize animal acoustic communities[1-3]. In this example, we will see how to eficiently compute multiple acoustic indices,  and present basics post-processing posibilities. The audio recordings used in this  example can be downloaded from the open GitHub repository  (https://github.com/scikit-maad/scikit-maad/tree/production/data)."><img alt="" src="../_images/sphx_glr_plot_extract_alpha_indices_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_extract_alpha_indices.html#sphx-glr-auto-examples-2-advanced-plot-extract-alpha-indices-py"><span class="std std-ref">Extract acoustic indices from audio recordings</span></a></p>
   <div class="sphx-glr-thumbnail-title">Extract acoustic indices from audio recordings</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="A spectrogram is a time-frequency (2d) representation of a audio recording.  Each acoustic even..."><img alt="" src="../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="A spectrogram is a time-frequency (2d) representation of a audio recording.  Each acoustic event nested in the audio recording is represented by an acoustic signature. When sounds does not overlap in time and frequency, it is possible to extract automatically the acoustic signature as a region of interest (ROI)  by different image processing tools such as binarization, double thresholding, mathematical morphology tools..."><img alt="" src="../_images/sphx_glr_plot_compare_auto_and_manual_rois_selection_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_compare_auto_and_manual_rois_selection.html#sphx-glr-auto-examples-2-advanced-plot-compare-auto-and-manual-rois-selection-py"><span class="std std-ref">Find Regions of interest (ROIs) in a spectrogram</span></a></p>
   <div class="sphx-glr-thumbnail-title">Find Regions of interest (ROIs) in a spectrogram</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings ..."><img alt="" src="../_images/sphx_glr_extract_alpha_indices_multicpu_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Acoustic indices can summarize aspects of the acoustic energy distribution in audio recordings and are widely used to characterize animal acoustic communities[1-3]. In this example, we will see how to eficiently compute multiple acoustic indices,  and present basics post-processing posibilities. The audio recordings used in this  example can be downloaded from the open GitHub repository  (https://github.com/scikit-maad/scikit-maad/tree/production/data)."><img alt="" src="../_images/sphx_glr_extract_alpha_indices_multicpu_thumb.png" />
 <p><a class="reference internal" href="2_advanced/extract_alpha_indices_multicpu.html#sphx-glr-auto-examples-2-advanced-extract-alpha-indices-multicpu-py"><span class="std std-ref">Use multicpu functionality to compute indices</span></a></p>
   <div class="sphx-glr-thumbnail-title">Use multicpu functionality to compute indices</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Dependencies: To execute this example you need to have installed the  librosa, sklearn and pand..."><img alt="" src="../_images/sphx_glr_plot_woodpecker_drumming_characteristics_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Dependencies: To execute this example you need to have installed the  librosa, sklearn and pandas Python packages."><img alt="" src="../_images/sphx_glr_plot_woodpecker_drumming_characteristics_thumb.png" />
 <p><a class="reference internal" href="2_advanced/plot_woodpecker_drumming_characteristics.html#sphx-glr-auto-examples-2-advanced-plot-woodpecker-drumming-characteristics-py"><span class="std std-ref">Download audio files from Xeno-Canto and automatically extract characteristics</span></a></p>
   <div class="sphx-glr-thumbnail-title">Download audio files from Xeno-Canto and automatically extract characteristics</div>
 </div></div><div class="toctree-wrapper compound">
@@ -185,7 +180,7 @@ To run most of these examples you will need to download some samples from the <a
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

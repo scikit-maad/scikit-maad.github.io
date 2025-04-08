@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.rois.rois_2d &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.rois.rois_2d &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -38,9 +36,6 @@
             scikit-maad
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -107,23 +102,23 @@
 <span class="c1"># Load the modules</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules </span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">iqr</span> 
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
-<span class="kn">from</span> <span class="nn">skimage.feature</span> <span class="kn">import</span> <span class="n">peak_local_max</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-<span class="kn">import</span> <span class="nn">sys</span> 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">iqr</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">measure</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.feature</span><span class="w"> </span><span class="kn">import</span> <span class="n">peak_local_max</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">_MIN_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span> 
  
 <span class="c1"># Import internal modules </span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="p">(</span><span class="n">plot2d</span><span class="p">,</span> <span class="n">rand_cmap</span><span class="p">,</span> <span class="n">plot_spectrogram</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">plot2d</span><span class="p">,</span> <span class="n">rand_cmap</span><span class="p">,</span> <span class="n">plot_spectrogram</span><span class="p">)</span>
 
 <span class="c1">#%%</span>
 <span class="c1">#**************************************************************************** </span>
 <span class="c1"># private functions                </span>
 <span class="c1">#**************************************************************************** </span>
-<span class="k">def</span> <span class="nf">_double_threshold_rel</span> <span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bin_std</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">bin_per</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">_double_threshold_rel</span> <span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bin_std</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">bin_per</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
                            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Binarize an image based on a double relative threshold.  </span>
@@ -296,7 +291,7 @@
     <span class="k">return</span> <span class="n">im_out</span> 
  
 <span class="c1">#%% </span>
-<span class="k">def</span> <span class="nf">_double_threshold_abs</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bin_h</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">bin_l</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">_double_threshold_abs</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bin_h</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">bin_l</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
                           <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Binarize an image based on a double relative threshold.  </span>
@@ -452,7 +447,7 @@
 <span class="c1"># =============================================================================    </span>
 <div class="viewcode-block" id="create_mask">
 <a class="viewcode-back" href="../../../generated/maad.rois.create_mask.html#maad.rois.create_mask">[docs]</a>
-<span class="k">def</span> <span class="nf">create_mask</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">mode_bin</span> <span class="o">=</span> <span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">create_mask</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">mode_bin</span> <span class="o">=</span> <span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
                 <span class="n">verbose</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Binarize an image based on a double threshold.  </span>
@@ -570,7 +565,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="select_rois">
 <a class="viewcode-back" href="../../../generated/maad.rois.select_rois.html#maad.rois.select_rois">[docs]</a>
-<span class="k">def</span> <span class="nf">select_rois</span><span class="p">(</span><span class="n">im_bin</span><span class="p">,</span> <span class="n">min_roi</span><span class="o">=</span><span class="kc">None</span> <span class="p">,</span><span class="n">max_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">select_rois</span><span class="p">(</span><span class="n">im_bin</span><span class="p">,</span> <span class="n">min_roi</span><span class="o">=</span><span class="kc">None</span> <span class="p">,</span><span class="n">max_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">savefig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Select regions of interest based on its dimensions.</span>
@@ -795,7 +790,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="rois_to_imblobs">
 <a class="viewcode-back" href="../../../generated/maad.rois.rois_to_imblobs.html#maad.rois.rois_to_imblobs">[docs]</a>
-<span class="k">def</span> <span class="nf">rois_to_imblobs</span><span class="p">(</span><span class="n">im_zeros</span><span class="p">,</span> <span class="n">rois</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">rois_to_imblobs</span><span class="p">(</span><span class="n">im_zeros</span><span class="p">,</span> <span class="n">rois</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;  </span>
 <span class="sd">    Take a matrix full of zeros and add ones in delimited regions defined by rois.</span>
 <span class="sd"> </span>
@@ -843,7 +838,7 @@
 
 <div class="viewcode-block" id="spectrogram_local_max">
 <a class="viewcode-back" href="../../../generated/maad.rois.spectrogram_local_max.html#maad.rois.spectrogram_local_max">[docs]</a>
-<span class="k">def</span> <span class="nf">spectrogram_local_max</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">spectrogram_local_max</span><span class="p">(</span>
     <span class="n">Sxx</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span>
     <span class="n">min_distance</span><span class="p">,</span>
     <span class="n">threshold_abs</span><span class="p">,</span>
@@ -911,7 +906,7 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 

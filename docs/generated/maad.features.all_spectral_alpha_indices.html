@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.all_spectral_alpha_indices &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -89,6 +84,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index_deprecated.html">maad.features.region_of_interest_index_deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">maad.features.all_spectral_alpha_indices</a><ul>
@@ -203,7 +199,43 @@ if the length is &gt; rejectLength</p>
 duration is in s</p>
 </dd>
 </dl>
-<p>For Roi</p>
+<p>For ROI</p>
+<p><strong>new function region_of_interest_index</strong></p>
+<dl class="simple">
+<dt>seed_level<span class="classifier">scalar, default is 13</span></dt><dd><p>Higher threshold (in dB) for the absolute binarization. Pixels with 
+values above this threshold are considered part of a potential ROI.</p>
+</dd>
+<dt>low_level<span class="classifier">scalar, default is 6</span></dt><dd><p>Lower threshold (in dB) for the absolute binarization.  Pixels with 
+values above this threshold and connected to a “seed” pixel are also 
+considered part of a potential ROI.</p>
+</dd>
+<dt>fusion_rois<span class="classifier">tuple of scalars, default is (0.05, 100)</span></dt><dd><p>Tuple defining the temporal (in seconds) and frequency (in Hz) 
+dimensions for morphological closing.  This operation fuses nearby ROIs.</p>
+</dd>
+<dt>remove_rois_flim_min<span class="classifier">scalar or tuple of scalars, default is 50</span></dt><dd><p>Frequency limit (in Hz) below which ROIs are removed. Can be a single 
+value or a tuple defining a range (min_freq, max_freq).</p>
+</dd>
+<dt>remove_rois_flim_max<span class="classifier">scalar, default is none</span></dt><dd><p>Frequency limit (in Hz) above which ROIs are removed.</p>
+</dd>
+<dt>remove_rain<span class="classifier">boolean, default is True</span></dt><dd><p>If True, vertical frequency spikes due to rain are removed as possible
+by applying a morphological mathematical image processing : grey opening</p>
+</dd>
+<dt>min_event_duration<span class="classifier">scalar, optional</span></dt><dd><p>Minimum time duration of an event (in s). ROIs shorter than this are removed.</p>
+</dd>
+<dt>max_event_duration<span class="classifier">scalar, optional</span></dt><dd><p>Maximum time duration of an event (in s). ROIs longer than this are removed.</p>
+</dd>
+<dt>min_freq_bw<span class="classifier">scalar, optional</span></dt><dd><p>Minimum frequency bandwidth (in Hz). ROIs with smaller bandwidth than this are removed.</p>
+</dd>
+<dt>max_freq_bw<span class="classifier">scalar, optional</span></dt><dd><p>Maximum frequency bandwidth (in Hz). ROIs with larger bandwidth than this are removed.</p>
+</dd>
+<dt>max_ratio_xy<span class="classifier">scalar, optional</span></dt><dd><p>Maximum ratio between the vertical axis (y) and horizontal 
+axis (x) that is allowed for a ROI. This is very convenient to remove
+vertical spikes (e.g. rain). 10 seems a reasonable value to remove most
+of spikes due to light to medium rainfall.</p>
+</dd>
+</dl>
+<p>set DEPRECATED_ROI to True to use the old version of the function (which is now 
+called region_of_interest_index_deprecated)</p>
 <dl class="simple">
 <dt>smooth_param1<span class="classifier">scalar, default is 1</span></dt><dd><p>Standard deviation of the gaussian kernel used to smooth the image 
 The larger is the number, the smoother will be the image and the longer 
@@ -283,7 +315,7 @@ For a complete example, see the examples of the functions acoustic_eveness_index
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">maad</span>
 </pre></div>
 </div>
 <p>Spectral indices on a daylight recording</p>
@@ -300,15 +332,15 @@ For a complete example, see the examples of the functions acoustic_eveness_index
 </div>
 <p>Variation between night and day</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">variation</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">df_spectral_indices_DAY</span> <span class="o">-</span> <span class="n">df_spectral_indices_NIGHT</span><span class="p">)</span><span class="o">/</span><span class="n">df_spectral_indices_NIGHT</span><span class="o">*</span><span class="mi">100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LEQf variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;LEQf&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LEQf variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;LEQf&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">LEQf variation night vs day: 34.94 %</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hf variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;Hf&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hf variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;Hf&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">Hf variation night vs day: 105.61 %</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACI variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;ACI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACI variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;ACI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">ACI variation night vs day: 3.39 %</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AGI variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;AGI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AGI variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;AGI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">AGI variation night vs day: 20.50 %</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ROItotal variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;ROItotal&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ROItotal variation night vs day: </span><span class="si">%2.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">variation</span><span class="p">[</span><span class="s1">&#39;ROItotal&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">ROItotal variation night vs day: 264.47 %</span>
 </pre></div>
 </div>
@@ -327,7 +359,7 @@ For a complete example, see the examples of the functions acoustic_eveness_index
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

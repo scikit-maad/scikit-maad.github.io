@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.util.math_func &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.util.math_func &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -38,9 +36,6 @@
             scikit-maad
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -101,18 +96,18 @@
 <span class="c1"># Load the modules</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Import external modules</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">var</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">uniform_filter1d</span> <span class="c1"># for fast running mean</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">periodogram</span><span class="p">,</span> <span class="n">welch</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">var</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform_filter1d</span> <span class="c1"># for fast running mean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">periodogram</span><span class="p">,</span> <span class="n">welch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="c1"># min value</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">_MIN_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span>
 
 <span class="c1"># Import internal modules</span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">linear_scale</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_scale</span>
 
 
 <span class="c1">#%%</span>
@@ -122,7 +117,7 @@
 
 <div class="viewcode-block" id="running_mean">
 <a class="viewcode-back" href="../../../generated/maad.util.running_mean.html#maad.util.running_mean">[docs]</a>
-<span class="k">def</span> <span class="nf">running_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">running_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute fast running mean for a window size N.</span>
 <span class="sd">    </span>
@@ -175,7 +170,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="get_unimode">
 <a class="viewcode-back" href="../../../generated/maad.util.get_unimode.html#maad.util.get_unimode">[docs]</a>
-<span class="k">def</span> <span class="nf">get_unimode</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_unimode</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">N_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the statistical mode or modal value which is the most common number in the </span>
 <span class="sd">    dataset.</span>
@@ -303,7 +298,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="rms">
 <a class="viewcode-back" href="../../../generated/maad.util.rms.html#maad.util.rms">[docs]</a>
-<span class="k">def</span> <span class="nf">rms</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rms</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the root-mean-square (RMS) level of an input signal. </span>
 <span class="sd">    </span>
@@ -337,7 +332,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="skewness">
 <a class="viewcode-back" href="../../../generated/maad.util.skewness.html#maad.util.skewness">[docs]</a>
-<span class="k">def</span> <span class="nf">skewness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">skewness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the skewness (asymetry) of an audio signal.</span>
 <span class="sd">    </span>
@@ -392,7 +387,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="kurtosis">
 <a class="viewcode-back" href="../../../generated/maad.util.kurtosis.html#maad.util.kurtosis">[docs]</a>
-<span class="k">def</span> <span class="nf">kurtosis</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">kurtosis</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the kurtosis (tailedness or curved or arching) of an audio signal.</span>
 <span class="sd">    </span>
@@ -447,7 +442,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="moments">
 <a class="viewcode-back" href="../../../generated/maad.util.moments.html#maad.util.moments">[docs]</a>
-<span class="k">def</span> <span class="nf">moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">moments</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the first 4th moments of a vector (1d, ie. spectrum or waveform) </span>
 <span class="sd">    or spectrogram (2d) </span>
@@ -492,7 +487,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="entropy">
 <a class="viewcode-back" href="../../../generated/maad.util.entropy.html#maad.util.entropy">[docs]</a>
-<span class="k">def</span> <span class="nf">entropy</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">entropy</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the entropy of a vector (waveform) or matrix (spectrogram).</span>
 <span class="sd">    </span>

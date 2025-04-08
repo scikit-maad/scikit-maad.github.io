@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.conversion_SPL &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.spl.conversion_SPL &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -38,9 +36,6 @@
             scikit-maad
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -114,11 +109,11 @@
 
 <span class="c1"># Import external modules</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">log10</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">log10</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sqrt</span>
 
 <span class="c1"># min value</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">_MIN_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span>
 
 <span class="c1">#****************************************************************************</span>
@@ -128,7 +123,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="wav2volt">
 <a class="viewcode-back" href="../../../generated/maad.spl.wav2volt.html#maad.spl.wav2volt">[docs]</a>
-<span class="k">def</span> <span class="nf">wav2volt</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">wav2volt</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert an audio signal amplitude to Volts.</span>
 <span class="sd">    </span>
@@ -164,7 +159,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="volt2pressure">
 <a class="viewcode-back" href="../../../generated/maad.spl.volt2pressure.html#maad.spl.volt2pressure">[docs]</a>
-<span class="k">def</span> <span class="nf">volt2pressure</span><span class="p">(</span><span class="n">volt</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">):</span>  
+<span class="k">def</span><span class="w"> </span><span class="nf">volt2pressure</span><span class="p">(</span><span class="n">volt</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">):</span>  
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert Volts to instantaneous sound pressure (p [Pa]).</span>
 <span class="sd">    </span>
@@ -216,7 +211,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="wav2pressure">
 <a class="viewcode-back" href="../../../generated/maad.spl.wav2pressure.html#maad.spl.wav2pressure">[docs]</a>
-<span class="k">def</span> <span class="nf">wav2pressure</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">wav2pressure</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave amplitude to instantaneous sound pressure (p [Pa]).</span>
 <span class="sd">    </span>
@@ -272,7 +267,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="pressure2dBSPL">
 <a class="viewcode-back" href="../../../generated/maad.spl.pressure2dBSPL.html#maad.spl.pressure2dBSPL">[docs]</a>
-<span class="k">def</span> <span class="nf">pressure2dBSPL</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">pressure2dBSPL</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert sound pressure (p [Pa]) to sound pressure level (L [dB]).</span>
 <span class="sd">    </span>
@@ -321,7 +316,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="dBSPL2pressure">
 <a class="viewcode-back" href="../../../generated/maad.spl.dBSPL2pressure.html#maad.spl.dBSPL2pressure">[docs]</a>
-<span class="k">def</span> <span class="nf">dBSPL2pressure</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">dBSPL2pressure</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert sound pressure level (L [dB]) to sound pressure (p [Pa]).</span>
 <span class="sd">    </span>
@@ -359,7 +354,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="wav2dBSPL">
 <a class="viewcode-back" href="../../../generated/maad.spl.wav2dBSPL.html#maad.spl.wav2dBSPL">[docs]</a>
-<span class="k">def</span> <span class="nf">wav2dBSPL</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">wav2dBSPL</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave amplitude to instantaneous sound pressure level (L [dB SPL]).</span>
 <span class="sd">    </span>
@@ -421,7 +416,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="amplitude2dBSPL">
 <a class="viewcode-back" href="../../../generated/maad.spl.amplitude2dBSPL.html#maad.spl.amplitude2dBSPL">[docs]</a>
-<span class="k">def</span> <span class="nf">amplitude2dBSPL</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">amplitude2dBSPL</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert signal (amplitude) to instantaneous sound pressure level (L [dB SPL]).</span>
 <span class="sd">    </span>
@@ -483,7 +478,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="power2dBSPL">
 <a class="viewcode-back" href="../../../generated/maad.spl.power2dBSPL.html#maad.spl.power2dBSPL">[docs]</a>
-<span class="k">def</span> <span class="nf">power2dBSPL</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">power2dBSPL</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert power (amplitude²) to sound pressure level (L [dB]).</span>
 <span class="sd">    </span>
@@ -549,7 +544,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="wav2leq">
 <a class="viewcode-back" href="../../../generated/maad.spl.wav2leq.html#maad.spl.wav2leq">[docs]</a>
-<span class="k">def</span> <span class="nf">wav2leq</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">wav2leq</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave to Equivalent Continuous Sound Pressure level (Leq [dB SPL]).</span>
 <span class="sd">    </span>
@@ -618,7 +613,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="pressure2leq">
 <a class="viewcode-back" href="../../../generated/maad.spl.pressure2leq.html#maad.spl.pressure2leq">[docs]</a>
-<span class="k">def</span> <span class="nf">pressure2leq</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">pressure2leq</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert pressure vector (p [Pa]) to Equivalent Continuous Sound Pressure </span>
 <span class="sd">    level (Leq [dB SPL]).</span>
@@ -673,7 +668,7 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="psd2leq">
 <a class="viewcode-back" href="../../../generated/maad.spl.psd2leq.html#maad.spl.psd2leq">[docs]</a>
-<span class="k">def</span> <span class="nf">psd2leq</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">psd2leq</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert Power spectral density (PSD, amplitude²) into </span>
 <span class="sd">    Equivalent Continuous Sound pressure level (Leq [dB SPL])</span>
@@ -732,8 +727,8 @@
 <span class="c1">## Test the current operating system</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="c1"># ############## Import MAAD module</span>
-    <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span> <span class="c1"># in order to be Windows/Linux/MacOS compatible</span>
-    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span> <span class="c1"># in order to be Windows/Linux/MacOS compatible</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
     
     <span class="c1"># change the path to the current path where the script is located</span>
     <span class="c1"># Get the current dir of the current file</span>
@@ -747,7 +742,7 @@
     <span class="c1"># Go to the root directory where is the module maad and import maad</span>
     <span class="n">maad_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">maad_path</span><span class="o">.</span><span class="n">as_posix</span><span class="p">())</span>
-    <span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">maad</span><span class="w"> </span><span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">spl</span>
     
     <span class="c1">####### Variables</span>
     <span class="n">SENSITIVITY</span>     <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>       <span class="c1"># Sensbility microphone (for SM4 it is -35dBV)</span>
@@ -779,7 +774,7 @@
 
     <span class="c1"># Power Density Spectrum : PSD</span>
     <span class="c1"># with wav</span>
-    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">fft</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span>
     <span class="n">P</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">wav</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
     <span class="c1"># average Leq from PSD</span>
     <span class="n">P_Leq3</span>  <span class="o">=</span> <span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="n">GAIN_TOTAL</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="n">VADC</span><span class="p">,</span> 

@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.composite_soundscape_descriptors &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.composite_soundscape_descriptors &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -38,9 +36,6 @@
             scikit-maad
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -96,27 +91,30 @@
 <span></span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">Utility functions for computing composite soundscape descriptors using data from multiple files at the same sampling site.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">maad</span> <span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad</span><span class="w"> </span><span class="kn">import</span> <span class="n">sound</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">rois</span>
 
 <span class="c1">#%% Function argument validation</span>
-<span class="k">def</span> <span class="nf">_input_validation</span><span class="p">(</span><span class="n">data_input</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_input_validation</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Validate dataframe or path input argument &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">data_input</span>
 
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">data_input</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Collecting metadata from directory path...&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Collecting metadata from directory path...&#39;</span><span class="p">)</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_metadata_dir</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span>
             <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading metadata from csv file&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading metadata from csv file&#39;</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="c1"># Attempt to read all wav data from the provided file path.</span>
                 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span> 
@@ -124,14 +122,15 @@
                 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
             <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">data_input</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
     
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input &#39;data&#39; must be either a Pandas DataFrame or a file path string&quot;</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">df</span>
 
-<span class="k">def</span> <span class="nf">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Validate number of jobs &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_jobs must be an integer.&quot;</span><span class="p">)</span>
@@ -139,22 +138,25 @@
     <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n_jobs</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
         <span class="c1"># Use all available CPUs</span>
         <span class="n">n_jobs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using all available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using all available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Validate that the number is not larger than available CPUs</span>
         <span class="n">available_cpus</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">&gt;</span> <span class="n">available_cpus</span><span class="p">:</span>
             <span class="c1"># Set n_jobs to the maximum number of available CPUs</span>
             <span class="n">n_jobs</span> <span class="o">=</span> <span class="n">available_cpus</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adjusted n_jobs to maximum available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adjusted n_jobs to maximum available CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using specified number of CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using specified number of CPUs: </span><span class="si">{</span><span class="n">n_jobs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">n_jobs</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_spectral_peak_density</span><span class="p">(</span>
-        <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_spectral_peak_density</span><span class="p">(</span>
+        <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the spectral peak density for an audio file, representing the number of peaks per time step within each frequency bin.</span>
 
@@ -183,7 +185,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="c1"># Load data</span>
     <span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path_audio</span><span class="p">)</span>
@@ -212,8 +215,8 @@
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="graphical_soundscape">
 <a class="viewcode-back" href="../../../generated/maad.features.graphical_soundscape.html#maad.features.graphical_soundscape">[docs]</a>
-<span class="k">def</span> <span class="nf">graphical_soundscape</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">path_audio</span><span class="o">=</span><span class="s1">&#39;path_audio&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">target_fs</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">graphical_soundscape</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">path_audio</span><span class="o">=</span><span class="s1">&#39;path_audio&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">target_fs</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes a graphical soundscape from a given DataFrame of audio files.</span>
 
@@ -247,6 +250,8 @@
 <span class="sd">        Minimum number of indices separating peaks.</span>
 <span class="sd">    n_jobs : int</span>
 <span class="sd">        Number of processes to use for parallel computing. Default is 1.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Whether to print messages. Default is True.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -262,23 +267,24 @@
 <span class="sd">    &gt;&gt;&gt; gs = graphical_soundscape(data=df, threshold_abs=-80, time=&#39;hour&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; plot_graph(gs)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">_input_validation</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">_input_validation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
     <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">total_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">total_files</span><span class="si">}</span><span class="s1"> files found to process...&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">total_files</span><span class="si">}</span><span class="s1"> files found to process...&#39;</span><span class="p">)</span>
     <span class="n">flist</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">path_audio</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">n_jobs</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="c1"># Use sequential processing</span>
         <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">path_audio</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">_spectral_peak_density</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">_spectral_peak_density</span><span class="p">(</span><span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Use parallel processing</span>
-        <span class="n">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="n">_validate_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
-            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">_spectral_peak_density</span><span class="p">,</span> <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">)</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">_spectral_peak_density</span><span class="p">,</span> <span class="n">path_audio</span><span class="p">,</span> <span class="n">target_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="p">,</span> <span class="n">noverlap</span><span class="p">,</span> <span class="n">db_range</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
                        <span class="k">for</span> <span class="n">path_audio</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">]</span>
 
         <span class="c1"># Wait for all tasks to complete</span>
@@ -286,14 +292,15 @@
         
     <span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
     <span class="n">res</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Computation completed!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Computation completed!&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
 
 
 <span class="c1">#%%</span>
 <div class="viewcode-block" id="plot_graph">
 <a class="viewcode-back" href="../../../generated/maad.features.plot_graph.html#maad.features.plot_graph">[docs]</a>
-<span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Plots a graphical soundscape</span>
 
 <span class="sd">    Parameters</span>
@@ -313,7 +320,7 @@
 
     <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
               <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
-                      <span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+                      <span class="nb">float</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (h)&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
 

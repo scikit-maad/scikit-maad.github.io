@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.tfsd &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.tfsd &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -92,6 +87,7 @@
 <li class="toctree-l3"><a class="reference internal" href="maad.features.more_entropy.html">maad.features.more_entropy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.acoustic_gradient_index.html">maad.features.acoustic_gradient_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.frequency_raoq.html">maad.features.frequency_raoq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index_deprecated.html">maad.features.region_of_interest_index_deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.region_of_interest_index.html">maad.features.region_of_interest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_temporal_alpha_indices.html">maad.features.all_temporal_alpha_indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="maad.features.all_spectral_alpha_indices.html">maad.features.all_spectral_alpha_indices</a></li>
@@ -188,20 +184,20 @@ When log=False and flim=(2000,8000), a TFSD &gt; 0.3 indicates the presence of b
 </div>
 </div>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">maad</span>
 </pre></div>
 </div>
 <p>During the day</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">fs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">tfsd</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">tfsd</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">)</span>
 <span class="go">0.4637352908292768</span>
 </pre></div>
 </div>
 <p>During the night</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_night.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">fs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">tfsd</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">)</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">tfsd</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">)</span>
 <span class="go">0.42435773298811824</span>
 </pre></div>
 </div>
@@ -220,7 +216,7 @@ When log=False and flim=(2000,8000), a TFSD &gt; 0.3 indicates the presence of b
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

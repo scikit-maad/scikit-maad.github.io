@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download__auto_examples_1_basic_plot_circadian_spectrogram.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -118,7 +118,7 @@ dusk (20-21 h), as well as the wind and airplanes sounds at low frequencies.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.109 seconds)
+   **Total running time of the script:** (0 minutes 0.768 seconds)
 
 
 .. _sphx_glr_download__auto_examples_1_basic_plot_circadian_spectrogram.py:
@@ -134,6 +134,10 @@ dusk (20-21 h), as well as the wind and airplanes sounds at low frequencies.
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_circadian_spectrogram.py <plot_circadian_spectrogram.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_circadian_spectrogram.zip <plot_circadian_spectrogram.zip>`
 
 
 .. only:: html

@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.alpha_indices &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.alpha_indices &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -38,9 +36,6 @@
             scikit-maad
               <img src="../../../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -110,36 +105,64 @@
 <span class="c1"># -------------------       Load modules         ---------------------------</span>
 <span class="c1">#***************************************************************************</span>
 <span class="c1"># Import external modules</span>
-<span class="kn">import</span> <span class="nn">numbers</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">var</span>
-<span class="kn">from</span> <span class="nn">skimage.morphology</span> <span class="kn">import</span> <span class="n">opening</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">binary_erosion</span><span class="p">,</span> <span class="n">binary_dilation</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">rankdata</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># for csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numbers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">var</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.morphology</span><span class="w"> </span><span class="kn">import</span> <span class="n">opening</span><span class="p">,</span> <span class="n">closing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">binary_erosion</span><span class="p">,</span> <span class="n">binary_dilation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">rankdata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># for csv</span>
 <span class="c1"># min value</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">_MIN_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
 <span class="c1"># Import internal modules</span>
-<span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="p">(</span><span class="n">rle</span><span class="p">,</span> <span class="n">index_bw</span><span class="p">,</span> <span class="n">amplitude2dB</span><span class="p">,</span> <span class="n">power2dB</span><span class="p">,</span> <span class="n">dB2power</span><span class="p">,</span> <span class="n">mean_dB</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">rle</span><span class="p">,</span> <span class="n">index_bw</span><span class="p">,</span> <span class="n">amplitude2dB</span><span class="p">,</span> <span class="n">power2dB</span><span class="p">,</span> <span class="n">dB2power</span><span class="p">,</span> <span class="n">mean_dB</span><span class="p">,</span>
                         <span class="n">skewness</span><span class="p">,</span> <span class="n">kurtosis</span><span class="p">,</span> <span class="n">format_features</span><span class="p">,</span> <span class="n">into_bins</span><span class="p">,</span> <span class="n">entropy</span><span class="p">,</span> 
-                        <span class="n">linear_scale</span><span class="p">,</span> <span class="n">plot1d</span><span class="p">,</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">overlay_rois</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">maad.spl</span> <span class="kn">import</span> <span class="n">wav2leq</span><span class="p">,</span> <span class="n">psd2leq</span><span class="p">,</span> <span class="n">power2dBSPL</span>
-<span class="kn">from</span> <span class="nn">maad.features</span> <span class="kn">import</span> <span class="p">(</span><span class="n">centroid_features</span><span class="p">,</span> <span class="n">zero_crossing_rate</span><span class="p">,</span> <span class="n">temporal_moments</span><span class="p">,</span> 
+                        <span class="n">linear_scale</span><span class="p">,</span> <span class="n">plot1d</span><span class="p">,</span> <span class="n">plot2d</span><span class="p">,</span> <span class="n">overlay_rois</span><span class="p">,</span> <span class="n">plot_spectrogram</span><span class="p">,</span>
+                        <span class="n">add_dB</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.spl</span><span class="w"> </span><span class="kn">import</span> <span class="n">wav2leq</span><span class="p">,</span> <span class="n">psd2leq</span><span class="p">,</span> <span class="n">power2dBSPL</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.features</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">centroid_features</span><span class="p">,</span> <span class="n">zero_crossing_rate</span><span class="p">,</span> <span class="n">temporal_moments</span><span class="p">,</span> 
                         <span class="n">spectral_moments</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">maad.sound</span> <span class="kn">import</span> <span class="p">(</span><span class="n">envelope</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">temporal_snr</span><span class="p">,</span> <span class="n">linear_to_octave</span><span class="p">,</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.sound</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">envelope</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">temporal_snr</span><span class="p">,</span> <span class="n">linear_to_octave</span><span class="p">,</span> 
                         <span class="n">avg_amplitude_spectro</span><span class="p">,</span> <span class="n">avg_power_spectro</span><span class="p">,</span> <span class="n">spectral_snr</span><span class="p">,</span> 
-                        <span class="n">median_equalizer</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">maad.rois</span> <span class="kn">import</span> <span class="n">select_rois</span><span class="p">,</span> <span class="n">create_mask</span>
+                        <span class="n">median_equalizer</span><span class="p">,</span> <span class="n">remove_background_along_axis</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">maad.rois</span><span class="w"> </span><span class="kn">import</span> <span class="n">select_rois</span><span class="p">,</span> <span class="n">create_mask</span>
 
 <span class="c1">#%%</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># Private functions</span>
 <span class="c1"># =============================================================================</span>
-<span class="k">def</span> <span class="nf">_acoustic_activity</span> <span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">deprecated</span><span class="p">(</span><span class="n">reason</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to mark functions as deprecated.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        reason: The reason for deprecation.  This will be included in the warning message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span>  <span class="c1"># Only warn in debug mode (default behavior of warnings)</span>
+            <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>  <span class="c1"># Preserve original function metadata</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn_explicit</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Call to deprecated function </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_filename</span><span class="p">,</span>  <span class="c1"># Correct filename</span>
+                    <span class="n">lineno</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_firstlineno</span><span class="p">,</span>  <span class="c1"># Correct line number</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">wrapper</span>
+        <span class="k">return</span> <span class="n">func</span>  <span class="c1"># Return original function in non-debug mode</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_acoustic_activity</span> <span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Acoustic Activity [1]_ [2]_:</span>
 <span class="sd">    </span>
@@ -191,7 +214,7 @@
     <span class="k">return</span> <span class="n">ACTfract</span><span class="p">,</span> <span class="n">ACTcount</span><span class="p">,</span> <span class="n">ACTmean</span> 
 
 <span class="c1">#%%    </span>
-<span class="k">def</span> <span class="nf">_acoustic_events</span><span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_acoustic_events</span><span class="p">(</span><span class="n">xdB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Acoustic events [1]_ [2]_:</span>
 <span class="sd">        - EVNsum : total events duration (s) </span>
@@ -287,7 +310,7 @@
     <span class="k">return</span> <span class="n">EVNsum</span><span class="p">,</span> <span class="n">EVNmean</span><span class="p">,</span> <span class="n">EVNcount</span><span class="p">,</span> <span class="n">EVN</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_score</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_score</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Score</span>
 
@@ -319,7 +342,7 @@
     <span class="k">return</span> <span class="n">s</span><span class="p">,</span> <span class="n">count</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_shannonEntropy</span><span class="p">(</span><span class="n">datain</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_shannonEntropy</span><span class="p">(</span><span class="n">datain</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Shannon Entropy</span>
 <span class="sd">    </span>
@@ -342,7 +365,7 @@
     <span class="k">return</span> <span class="n">Hs</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_gini</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">corr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_gini</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">corr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gini</span>
 <span class="sd">    </span>
@@ -377,7 +400,7 @@
     <span class="k">return</span> <span class="n">G</span>
 
 <span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">_raoQ</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_raoQ</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute Rao&#39;s Quadratic entropy in 1d [1]_</span>
 <span class="sd">    </span>
@@ -428,7 +451,7 @@
 <span class="c1"># =============================================================================</span>
 <div class="viewcode-block" id="surface_roughness">
 <a class="viewcode-back" href="../../../generated/maad.features.surface_roughness.html#maad.features.surface_roughness">[docs]</a>
-<span class="k">def</span> <span class="nf">surface_roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">surface_roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the surface roughness index of a signal (1D) or a spectrogram (2D).</span>
@@ -497,7 +520,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="roughness">
 <a class="viewcode-back" href="../../../generated/maad.features.roughness.html#maad.features.roughness">[docs]</a>
-<span class="k">def</span> <span class="nf">roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">roughness</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the roughness (depends on the number of peaks and their amplitude)</span>
 <span class="sd">    of a vector or matrix x (i.e. waveform, spectrogram...)   </span>
@@ -556,7 +579,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="temporal_median">
 <a class="viewcode-back" href="../../../generated/maad.features.temporal_median.html#maad.features.temporal_median">[docs]</a>
-<span class="k">def</span> <span class="nf">temporal_median</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">temporal_median</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the median of the envelope of an audio signal.</span>
 
@@ -597,7 +620,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="temporal_entropy">
 <a class="viewcode-back" href="../../../generated/maad.features.temporal_entropy.html#maad.features.temporal_entropy">[docs]</a>
-<span class="k">def</span> <span class="nf">temporal_entropy</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">temporal_entropy</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the entropy of the envelope of an audio signal.</span>
 
@@ -660,7 +683,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="acoustic_richness_index">
 <a class="viewcode-back" href="../../../generated/maad.features.acoustic_richness_index.html#maad.features.acoustic_richness_index">[docs]</a>
-<span class="k">def</span> <span class="nf">acoustic_richness_index</span> <span class="p">(</span><span class="n">Ht_array</span><span class="p">,</span> <span class="n">M_array</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acoustic_richness_index</span> <span class="p">(</span><span class="n">Ht_array</span><span class="p">,</span> <span class="n">M_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic richness index of an audio file. </span>
 <span class="sd">    </span>
@@ -717,7 +740,7 @@
 
 <div class="viewcode-block" id="temporal_activity">
 <a class="viewcode-back" href="../../../generated/maad.features.temporal_activity.html#maad.features.temporal_activity">[docs]</a>
-<span class="k">def</span> <span class="nf">temporal_activity</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">temporal_activity</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic activity index in temporal domain.</span>
 <span class="sd">    </span>
@@ -797,7 +820,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="temporal_events">
 <a class="viewcode-back" href="../../../generated/maad.features.temporal_events.html#maad.features.temporal_events">[docs]</a>
-<span class="k">def</span> <span class="nf">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">temporal_events</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="n">Nt</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic event index from an audio signal [1]_ [2]_.</span>
@@ -917,7 +940,7 @@
 
 <div class="viewcode-block" id="frequency_entropy">
 <a class="viewcode-back" href="../../../generated/maad.features.frequency_entropy.html#maad.features.frequency_entropy">[docs]</a>
-<span class="k">def</span> <span class="nf">frequency_entropy</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frequency_entropy</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">compatibility</span><span class="o">=</span><span class="s2">&quot;QUT&quot;</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the spectral entropy of a power spectral density (1d) or power</span>
 <span class="sd">    spectrogram density (2d).</span>
@@ -1007,7 +1030,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="number_of_peaks">
 <a class="viewcode-back" href="../../../generated/maad.features.number_of_peaks.html#maad.features.number_of_peaks">[docs]</a>
-<span class="k">def</span> <span class="nf">number_of_peaks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;dB&#39;</span><span class="p">,</span> <span class="n">min_peak_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_freq_dist</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">number_of_peaks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;dB&#39;</span><span class="p">,</span> <span class="n">min_peak_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_freq_dist</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
                   <span class="n">slopes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Count the number of frequency peaks on a mean spectrum. [1]_ </span>
@@ -1132,7 +1155,7 @@
 
 <div class="viewcode-block" id="spectral_entropy">
 <a class="viewcode-back" href="../../../generated/maad.features.spectral_entropy.html#maad.features.spectral_entropy">[docs]</a>
-<span class="k">def</span> <span class="nf">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute different entropies based on the average spectrum, its variance, </span>
 <span class="sd">    and its maxima [1]_ [2]_    </span>
@@ -1257,7 +1280,7 @@
 
 <div class="viewcode-block" id="spectral_cover">
 <a class="viewcode-back" href="../../../generated/maad.features.spectral_cover.html#maad.features.spectral_cover">[docs]</a>
-<span class="k">def</span> <span class="nf">spectral_cover</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">flim_LF</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">flim_MF</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_cover</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">flim_LF</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">flim_MF</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span> 
                 <span class="n">flim_HF</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the proportion (cover) of the spectrogram above a threshold for </span>
@@ -1333,7 +1356,7 @@
 
 <div class="viewcode-block" id="spectral_activity">
 <a class="viewcode-back" href="../../../generated/maad.features.spectral_activity.html#maad.features.spectral_activity">[docs]</a>
-<span class="k">def</span> <span class="nf">spectral_activity</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_activity</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the acoustic activity on a spectrogram.</span>
 <span class="sd">    </span>
@@ -1395,7 +1418,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="spectral_events">
 <a class="viewcode-back" href="../../../generated/maad.features.spectral_events.html#maad.features.spectral_events">[docs]</a>
-<span class="k">def</span> <span class="nf">spectral_events</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_events</span> <span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dB_threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rejectDuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute acoustic events from a spectrogram [1]_ [2]_.</span>
@@ -1515,7 +1538,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="acoustic_complexity_index">
 <a class="viewcode-back" href="../../../generated/maad.features.acoustic_complexity_index.html#maad.features.acoustic_complexity_index">[docs]</a>
-<span class="k">def</span> <span class="nf">acoustic_complexity_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acoustic_complexity_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Acoustic Complexity Index (ACI) from a spectrogram [1]_.</span>
 <span class="sd">        </span>
@@ -1571,7 +1594,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="acoustic_diversity_index">
 <a class="viewcode-back" href="../../../generated/maad.features.acoustic_diversity_index.html#maad.features.acoustic_diversity_index">[docs]</a>
-<span class="k">def</span> <span class="nf">acoustic_diversity_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">acoustic_diversity_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
                             <span class="n">dB_threshold</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;shannon&quot;</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1584,9 +1607,10 @@
 <span class="sd">    Sxx : ndarray of floats</span>
 <span class="sd">        2d : amplitude spectrogram. In order to obtain the same output as for soundecology,</span>
 <span class="sd">        the signal and the spectrogram need to be processed without detrend on.</span>
-<span class="sd">        maad.sound.load(&quot;myfile.wav&quot;, ..., detrend = False)</span>
-<span class="sd">        maad.sound.spectrogram(s, fs, ..., detrend = False)</span>
-<span class="sd">        For a complete example, see the example below</span>
+<span class="sd">        - maad.sound.load(&quot;myfile.wav&quot;, ..., detrend = False)</span>
+<span class="sd">        - maad.sound.spectrogram(s, fs, ..., detrend = False)</span>
+<span class="sd">        </span>
+<span class="sd">        See the example below, or the complete example here [2]_. </span>
 <span class="sd">    </span>
 <span class="sd">    fn : 1d ndarray of floats</span>
 <span class="sd">        frequency vector</span>
@@ -1626,7 +1650,8 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;https://doi.org/10.1007/s10980-011-9636-9&gt;`_ </span>
-<span class="sd">    </span>
+<span class="sd">    .. [2] Colab script : https://colab.research.google.com/drive/1xoErUfqN1_AX0ibujOlnt8bKO23DUXFR</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import maad</span>
@@ -1685,7 +1710,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="acoustic_eveness_index">
 <a class="viewcode-back" href="../../../generated/maad.features.acoustic_eveness_index.html#maad.features.acoustic_eveness_index">[docs]</a>
-<span class="k">def</span> <span class="nf">acoustic_eveness_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">acoustic_eveness_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
                         <span class="n">dB_threshold</span><span class="o">=-</span><span class="mi">50</span><span class="p">):</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1696,9 +1721,10 @@
 <span class="sd">    Sxx: ndarray of floats</span>
 <span class="sd">        2d : amplitude spectrogram. In order to obtain the same output as for soundecology,</span>
 <span class="sd">        the signal and the spectrogram need to be processed without detrend on.</span>
-<span class="sd">        maad.sound.load(&quot;myfile.wav&quot;, ..., detrend = False)</span>
-<span class="sd">        maad.sound.spectrogram(s, fs, ..., detrend = False)</span>
-<span class="sd">        For a complete example, see the example below</span>
+<span class="sd">        - maad.sound.load(&quot;myfile.wav&quot;, ..., detrend = False)</span>
+<span class="sd">        - maad.sound.spectrogram(s, fs, ..., detrend = False)</span>
+
+<span class="sd">        See the example below, or the complete example here [2]_. </span>
 <span class="sd">    </span>
 <span class="sd">    fn : 1d ndarray of floats</span>
 <span class="sd">        frequency vector</span>
@@ -1732,7 +1758,8 @@
 <span class="sd">    References </span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] Villanueva-Rivera, L. J., B. C. Pijanowski, J. Doucette, and B. Pekin. 2011. A primer of acoustic analysis for landscape ecologists. Landscape Ecology 26: 1233-1246.`DOI: 10.1007/s10980-011-9636-9 &lt;https://doi.org/10.1007/s10980-011-9636-9&gt;`_ </span>
-<span class="sd">    </span>
+<span class="sd">    .. [2] Colab script : https://colab.research.google.com/drive/1xoErUfqN1_AX0ibujOlnt8bKO23DUXFR</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import maad</span>
@@ -1784,7 +1811,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="soundscape_index">
 <a class="viewcode-back" href="../../../generated/maad.features.soundscape_index.html#maad.features.soundscape_index">[docs]</a>
-<span class="k">def</span> <span class="nf">soundscape_index</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">flim_bioPh</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span><span class="n">flim_antroPh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">soundscape_index</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">flim_bioPh</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span><span class="n">flim_antroPh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> 
                     <span class="n">R_compatible</span> <span class="o">=</span> <span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Normalized Difference Soundscape Index from a power spectrogram [1]_.</span>
@@ -1869,7 +1896,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="bioacoustics_index">
 <a class="viewcode-back" href="../../../generated/maad.features.bioacoustics_index.html#maad.features.bioacoustics_index">[docs]</a>
-<span class="k">def</span> <span class="nf">bioacoustics_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">),</span> <span class="n">R_compatible</span> <span class="o">=</span><span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bioacoustics_index</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">),</span> <span class="n">R_compatible</span> <span class="o">=</span><span class="s1">&#39;soundecology&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Bioacoustics Index from a spectrogram [1]_.</span>
 <span class="sd">    </span>
@@ -1958,7 +1985,7 @@
 
 <div class="viewcode-block" id="temporal_leq">
 <a class="viewcode-back" href="../../../generated/maad.features.temporal_leq.html#maad.features.temporal_leq">[docs]</a>
-<span class="k">def</span> <span class="nf">temporal_leq</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">temporal_leq</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Equivalent Continuous Sound level (Leq) of an audio signal </span>
 <span class="sd">    in the time domain.</span>
@@ -2007,7 +2034,7 @@
 
 <div class="viewcode-block" id="spectral_leq">
 <a class="viewcode-back" href="../../../generated/maad.features.spectral_leq.html#maad.features.spectral_leq">[docs]</a>
-<span class="k">def</span> <span class="nf">spectral_leq</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_leq</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Equivalent Continuous Sound level (Leq) from a power spectrum </span>
 <span class="sd">    (1d) or power spectrogram (2d).</span>
@@ -2065,7 +2092,7 @@
 
 <div class="viewcode-block" id="more_entropy">
 <a class="viewcode-back" href="../../../generated/maad.features.more_entropy.html#maad.features.more_entropy">[docs]</a>
-<span class="k">def</span> <span class="nf">more_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">more_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the entropy of an audio signal using multiple methods.</span>
 <span class="sd">    </span>
@@ -2162,7 +2189,7 @@
 
 <div class="viewcode-block" id="frequency_raoq">
 <a class="viewcode-back" href="../../../generated/maad.features.frequency_raoq.html#maad.features.frequency_raoq">[docs]</a>
-<span class="k">def</span> <span class="nf">frequency_raoq</span> <span class="p">(</span><span class="n">S_power</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frequency_raoq</span> <span class="p">(</span><span class="n">S_power</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">bin_step</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute Rao&#39;s quadratic entropy on a power spectrum (1d). [1]_</span>
 <span class="sd">        </span>
@@ -2212,7 +2239,7 @@
 
 <div class="viewcode-block" id="tfsd">
 <a class="viewcode-back" href="../../../generated/maad.features.tfsd.html#maad.features.tfsd">[docs]</a>
-<span class="k">def</span> <span class="nf">tfsd</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;thirdOctave&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tfsd</span> <span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">8000</span><span class="p">),</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;thirdOctave&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Time frequency derivation index (tfsd) from a spectrogram. [1]_ [2]_</span>
 <span class="sd">        </span>
@@ -2350,7 +2377,7 @@
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="acoustic_gradient_index">
 <a class="viewcode-back" href="../../../generated/maad.features.acoustic_gradient_index.html#maad.features.acoustic_gradient_index">[docs]</a>
-<span class="k">def</span> <span class="nf">acoustic_gradient_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;per_bin&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acoustic_gradient_index</span><span class="p">(</span><span class="n">Sxx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;per_bin&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Acoustic Gradient Index (AGI) from a raw spectrogram.</span>
 <span class="sd">    </span>
@@ -2456,10 +2483,10 @@
 
 
 <span class="c1">#=============================================================================</span>
-
-<div class="viewcode-block" id="region_of_interest_index">
-<a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index">[docs]</a>
-<span class="k">def</span> <span class="nf">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
+<div class="viewcode-block" id="region_of_interest_index_deprecated">
+<a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index_deprecated.html#maad.features.region_of_interest_index_deprecated">[docs]</a>
+<span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;&#39;region_of_interest_index_deprecated()&#39; is no longer supported. Use the new &#39;region_of_interest_index()&#39; instead.&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">region_of_interest_index_deprecated</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
                             <span class="n">smooth_param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
                             <span class="n">mask_mode</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span> 
                             <span class="n">mask_param1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> 
@@ -2470,12 +2497,11 @@
                             <span class="n">remove_rain</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                             <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute an acoustic activity index based on the regions of interested </span>
+<span class="sd">    Compute an acoustic activity index based on the regions of interest </span>
 <span class="sd">    detected on a spectrogram.</span>
 <span class="sd">    </span>
 <span class="sd">    The function first find regions of interest (ROI) and then compute the number</span>
-<span class="sd">    or ROIs and the cover area of these ROIS</span>
-<span class="sd">    on the spectrogram.</span>
+<span class="sd">    or ROIs and the cover area of these ROIS on the spectrogram.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2550,7 +2576,7 @@
 <span class="sd">    &gt;&gt;&gt; Sxx_power,tn,fn,_ = maad.sound.spectrogram(s,fs)</span>
 <span class="sd">    &gt;&gt;&gt; Sxx_noNoise= maad.sound.median_equalizer(Sxx_power) </span>
 <span class="sd">    &gt;&gt;&gt; Sxx_dB_noNoise = maad.util.power2dB(Sxx_noNoise)</span>
-<span class="sd">    &gt;&gt;&gt; ROItotal, ROIcover = maad.features.region_of_interest_index(Sxx_dB_noNoise, tn, fn, display=True)</span>
+<span class="sd">    &gt;&gt;&gt; ROItotal, ROIcover = maad.features.region_of_interest_index_deprecated(Sxx_dB_noNoise, tn, fn, display=True)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;The total number of ROIs found in the spectrogram is %2.0f&#39; %ROItotal) # doctest: +NORMALIZE_WHITESPACE</span>
 <span class="sd">    The total number of ROIs found in the spectrogram is 265</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;The percentage of spectrogram covered by ROIs is %2.0f%%&#39; %ROIcover) # doctest: +NORMALIZE_WHITESPACE</span>
@@ -2623,10 +2649,310 @@
     <span class="k">return</span>  <span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span></div>
 
 
+
+<div class="viewcode-block" id="region_of_interest_index">
+<a class="viewcode-back" href="../../../generated/maad.features.region_of_interest_index.html#maad.features.region_of_interest_index">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
+                            <span class="n">seed_level</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> 
+                            <span class="n">low_level</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> 
+                            <span class="n">fusion_rois</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">remove_rois_flim_min</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                            <span class="n">remove_rois_flim_max</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">remove_rain</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                            <span class="n">min_event_duration</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> 
+                            <span class="n">max_event_duration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">min_freq_bw</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                            <span class="n">max_freq_bw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">max_ratio_xy</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                            <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute acoustic activity indices based on the regions of interest</span>
+<span class="sd">    detected on a spectrogram.</span>
+<span class="sd">    </span>
+<span class="sd">    The function first find regions of interest (ROI) and then compute the number</span>
+<span class="sd">    or ROIs and the cover area of these ROIS on the spectrogram.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Sxx_power : ndarray of floats</span>
+<span class="sd">        Power spectrogram (i.e matrix of spectrum)</span>
+<span class="sd">    tn : 1d ndarray of floats</span>
+<span class="sd">        time vector (horizontal x-axis)</span>
+<span class="sd">    fn : 1d ndarray of floats</span>
+<span class="sd">        Frequency vector (vertical y-axis) </span>
+<span class="sd">    seed_level : scalar, default is 13</span>
+<span class="sd">        Higher threshold (in dB) for the absolute binarization. Pixels with </span>
+<span class="sd">        values above this threshold are considered part of a potential ROI.</span>
+<span class="sd">    low_level : scalar, default is 6</span>
+<span class="sd">        Lower threshold (in dB) for the absolute binarization.  Pixels with </span>
+<span class="sd">        values above this threshold and connected to a &quot;seed&quot; pixel are also </span>
+<span class="sd">        considered part of a potential ROI.</span>
+<span class="sd">    fusion_rois : tuple of scalars, default is (0.05, 100)</span>
+<span class="sd">        Tuple defining the temporal (in seconds) and frequency (in Hz) </span>
+<span class="sd">        dimensions for morphological closing.  This operation fuses nearby ROIs.</span>
+<span class="sd">    remove_rois_flim_min : scalar or tuple of scalars, default is 50</span>
+<span class="sd">        Frequency limit (in Hz) below which ROIs are removed. Can be a single </span>
+<span class="sd">        value or a tuple defining a range (min_freq, max_freq).</span>
+<span class="sd">    remove_rois_flim_max : scalar, default is none</span>
+<span class="sd">        Frequency limit (in Hz) above which ROIs are removed.</span>
+<span class="sd">    remove_rain : boolean, default is True</span>
+<span class="sd">        If True, vertical frequency spikes due to rain are removed as possible</span>
+<span class="sd">        by applying a morphological mathematical image processing : grey opening</span>
+<span class="sd">    min_event_duration : scalar, optional</span>
+<span class="sd">        Minimum time duration of an event (in s). ROIs shorter than this are removed.</span>
+<span class="sd">    max_event_duration : scalar, optional</span>
+<span class="sd">        Maximum time duration of an event (in s). ROIs longer than this are removed.</span>
+<span class="sd">    min_freq_bw : scalar, optional</span>
+<span class="sd">        Minimum frequency bandwidth (in Hz). ROIs with smaller bandwidth than this are removed.</span>
+<span class="sd">    max_freq_bw : scalar, optional</span>
+<span class="sd">        Maximum frequency bandwidth (in Hz). ROIs with larger bandwidth than this are removed.</span>
+<span class="sd">    max_ratio_xy : scalar, optional</span>
+<span class="sd">        Maximum ratio between the vertical axis (y) and horizontal </span>
+<span class="sd">        axis (x) that is allowed for a ROI. This is very convenient to remove</span>
+<span class="sd">        vertical spikes (e.g. rain). 10 seems a reasonable value to remove most</span>
+<span class="sd">        of spikes due to light to medium rainfall.</span>
+<span class="sd">    display : boolean, default is False</span>
+<span class="sd">        If True, plot graphs and spectrograms.</span>
+<span class="sd">    verbose : boolean, default is False</span>
+<span class="sd">        If True, print additional information during processing.</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        This parameter is used by plt.plot and savefig functions.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------    </span>
+<span class="sd">    nROI : float</span>
+<span class="sd">        Total number of ROIs found per minute. The higher is the number of ROI, the higher</span>
+<span class="sd">        is the acoustic abondance and/or richness expected</span>
+<span class="sd">    aROI : float</span>
+<span class="sd">        Percentage of spectrogram cover. The higher is the cover percentage, </span>
+<span class="sd">        the higher is the acoustic richness expected.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import maad </span>
+<span class="sd">    &gt;&gt;&gt; s, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; Sxx_power,tn,fn,_ = maad.sound.spectrogram(s,fs)</span>
+<span class="sd">    &gt;&gt;&gt; nROI, aROI = maad.features.region_of_interest_index(Sxx_power, tn, fn, display=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;The total number of ROIs found in the spectrogram is %2.0f&#39; % nROI) # doctest: +NORMALIZE_WHITESPACE</span>
+<span class="sd">    The total number of ROIs found in the spectrogram is 241</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;The percentage of spectrogram covered by ROIs is%2.0f%%&#39; % aROI) # doctest: +NORMALIZE_WHITESPACE</span>
+<span class="sd">    The percentage of spectrogram covered by ROIs is 5%</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">FUSION_ROIS</span> <span class="o">=</span> <span class="n">fusion_rois</span>
+    <span class="n">REMOVE_ROIS_FLIM_MIN</span> <span class="o">=</span> <span class="n">remove_rois_flim_min</span>
+    <span class="n">REMOVE_ROIS_FLIM_MAX</span> <span class="o">=</span> <span class="n">remove_rois_flim_max</span>
+    <span class="n">REMOVE_RAIN</span> <span class="o">=</span> <span class="n">remove_rain</span>
+    <span class="n">MIN_EVENT_DUR</span> <span class="o">=</span> <span class="n">min_event_duration</span> <span class="c1"># Minimum time duration of an event (in s)</span>
+    <span class="n">MAX_EVENT_DUR</span> <span class="o">=</span> <span class="n">max_event_duration</span>
+    <span class="n">MIN_FREQ_BW</span> <span class="o">=</span> <span class="n">min_freq_bw</span> <span class="c1"># Minimum frequency bandwidth (in Hz)</span>
+    <span class="n">MAX_FREQ_BW</span> <span class="o">=</span> <span class="n">max_freq_bw</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">MIN_EVENT_DUR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">MIN_FREQ_BW</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>  
+        <span class="n">MIN_ROI_AREA</span> <span class="o">=</span> <span class="n">MIN_EVENT_DUR</span> <span class="o">*</span> <span class="n">MIN_FREQ_BW</span> 
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">MIN_ROI_AREA</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">MAX_EVENT_DUR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">MAX_FREQ_BW</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>  
+        <span class="n">MAX_ROI_AREA</span> <span class="o">=</span> <span class="n">MAX_EVENT_DUR</span> <span class="o">*</span> <span class="n">MAX_FREQ_BW</span> 
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">MAX_ROI_AREA</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">MAX_XY_RATIO</span> <span class="o">=</span> <span class="n">max_ratio_xy</span>
+    
+    <span class="n">BIN_H</span> <span class="o">=</span> <span class="n">seed_level</span>
+    <span class="n">BIN_L</span> <span class="o">=</span> <span class="n">low_level</span>
+    
+    <span class="n">DISPLAY</span> <span class="o">=</span> <span class="n">display</span>
+    <span class="n">EXT</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ext&#39;</span><span class="p">,(</span><span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">fn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> 
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*********************** Convert into dB********* ********************&quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">power2dB</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">db_range</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span> <span class="o">+</span> <span class="mi">96</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*********************** Remove stationnary noise ********************&quot;&quot;&quot;</span>       
+    <span class="c1">#### Use median_equalizer function as it is fast reliable</span>
+    <span class="k">if</span> <span class="n">REMOVE_RAIN</span><span class="p">:</span> 
+        <span class="c1"># remove single vertical lines</span>
+        <span class="n">Sxx_dB_without_rain</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">remove_background_along_axis</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                                                            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+                                                            <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                            <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">Sxx_dB</span> <span class="o">=</span> <span class="n">Sxx_dB_without_rain</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># ==================================================================================&gt; TO COMMENT</span>
+    <span class="c1"># remove single horizontal lines</span>
+    <span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">remove_background_along_axis</span><span class="p">(</span><span class="n">Sxx_dB</span><span class="p">,</span>
+                                                    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span>
+                                                    <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                    <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># ==================================================================================&gt; END TO COMMENT (change)</span>
+
+    <span class="n">Sxx_dB_noNoise</span><span class="p">[</span><span class="n">Sxx_dB_noNoise</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**************************** Find ROIS ******************************&quot;&quot;&quot;</span>  
+    <span class="c1"># Time resolution (in s)</span>
+    <span class="n">DELTA_T</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Frequency resolution (in Hz)</span>
+    <span class="n">DELTA_F</span> <span class="o">=</span> <span class="n">fn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># snr estimation to threshold the spectrogram</span>
+    <span class="n">_</span><span class="p">,</span><span class="n">bgn</span><span class="p">,</span><span class="n">snr</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">spectral_snr</span><span class="p">(</span><span class="n">dB2power</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">))</span>
+        
+    <span class="c1"># binarization of the spectrogram to select part of the spectrogram with </span>
+    <span class="c1"># acoustic activity</span>
+    <span class="n">im_mask</span> <span class="o">=</span> <span class="n">create_mask</span><span class="p">(</span>
+        <span class="n">Sxx_dB_noNoise</span><span class="p">,</span>  
+        <span class="n">mode_bin</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span><span class="p">,</span> 
+        <span class="n">bin_h</span><span class="o">=</span><span class="n">BIN_H</span><span class="p">,</span> 
+        <span class="n">bin_l</span><span class="o">=</span><span class="n">BIN_L</span>
+        <span class="p">)</span>    
+    
+    <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;seed_level </span><span class="si">{}</span><span class="s1">dB / low_level </span><span class="si">{}</span><span class="s1">dB&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">BIN_H</span><span class="p">,</span> <span class="n">BIN_L</span><span class="p">))</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**************************** Fusion ROIS ******************************&quot;&quot;&quot;</span>  
+    <span class="c1"># if type(FUSION_ROIS) is tuple :</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">FUSION_ROIS</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">Ny_elements</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">FUSION_ROIS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_T</span><span class="p">)</span>
+        <span class="n">Nx_elements</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">FUSION_ROIS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)</span>
+        <span class="n">im_mask</span> <span class="o">=</span> <span class="n">closing</span><span class="p">(</span><span class="n">im_mask</span><span class="p">,</span> <span class="n">footprint</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">Nx_elements</span><span class="p">,</span><span class="n">Ny_elements</span><span class="p">]))</span>
+
+    <span class="c1"># get the mask with rois (im_rois) and the bounding box for each rois (rois_bbox) </span>
+    <span class="c1"># and an unique index for each rois =&gt; in the pandas dataframe rois</span>
+    <span class="n">im_rois</span><span class="p">,</span> <span class="n">df_rois</span>  <span class="o">=</span> <span class="n">select_rois</span><span class="p">(</span>
+        <span class="n">im_mask</span><span class="p">,</span>
+        <span class="n">min_roi</span><span class="o">=</span><span class="n">MIN_ROI_AREA</span><span class="p">,</span> 
+        <span class="n">max_roi</span><span class="o">=</span><span class="n">MAX_ROI_AREA</span><span class="p">)</span>
+    
+    <span class="c1"># print the number of ROIs</span>
+    <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===&gt; Number of ROIs before cleaning : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_rois</span><span class="p">)))</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**************************** add a column ratio_xy ****************************&quot;&quot;&quot;</span>  
+    <span class="c1"># add ratio x/y</span>
+    <span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;ratio_xy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_rois</span><span class="o">.</span><span class="n">max_y</span> <span class="o">-</span><span class="n">df_rois</span><span class="o">.</span><span class="n">min_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">df_rois</span><span class="o">.</span><span class="n">max_x</span> <span class="o">-</span><span class="n">df_rois</span><span class="o">.</span><span class="n">min_x</span><span class="p">)</span> 
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;************ remove some ROIs based on duration and bandwidth *****************&quot;&quot;&quot;</span>  
+    <span class="c1"># remove min and max duration </span>
+    <span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_rois</span><span class="o">.</span><span class="n">max_x</span> <span class="o">-</span><span class="n">df_rois</span><span class="o">.</span><span class="n">min_x</span><span class="p">)</span> <span class="o">*</span> <span class="n">DELTA_T</span> 
+    <span class="k">if</span> <span class="n">MIN_EVENT_DUR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">MIN_EVENT_DUR</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">MAX_EVENT_DUR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>    
+        <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">MAX_EVENT_DUR</span><span class="p">]</span>
+    <span class="n">df_rois</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
+
+    <span class="c1"># remove min and max frequency bandwidth </span>
+    <span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_rois</span><span class="o">.</span><span class="n">max_y</span> <span class="o">-</span><span class="n">df_rois</span><span class="o">.</span><span class="n">min_y</span><span class="p">)</span> <span class="o">*</span> <span class="n">DELTA_F</span> 
+    <span class="k">if</span> <span class="n">MIN_FREQ_BW</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">MIN_FREQ_BW</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">MAX_FREQ_BW</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>    
+        <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">MAX_FREQ_BW</span><span class="p">]</span>
+    <span class="n">df_rois</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">])</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**************************** Remove some ROIS ******************************&quot;&quot;&quot;</span>  
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_rois</span><span class="p">)</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="p">:</span>
+        <span class="c1"># initialize the variable</span>
+        <span class="n">low_frequency_threshold_in_pixels</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">high_frequency_threshold_in_pixels</span><span class="o">=</span><span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">REMOVE_ROIS_FLIM_MIN</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="p">:</span>
+                <span class="n">low_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)])</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">:</span>
+                <span class="n">low_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)])</span>
+                <span class="n">high_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">im_rois</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MIN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;REMOVE_ROIS_FMAX_LIM should be {None, a single value or a tuple of 2 values&#39;</span><span class="p">)</span>
+
+            <span class="c1"># retrieve the list of labels that match the condition</span>
+            <span class="n">list_labelID</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;min_y&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">low_frequency_threshold_in_pixels</span><span class="p">][</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span>
+            <span class="c1"># set to 0 all the pixel that match the labelID that we want to remove</span>
+            <span class="k">for</span> <span class="n">labelID</span> <span class="ow">in</span> <span class="n">list_labelID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="p">:</span>
+                <span class="n">im_rois</span><span class="p">[</span><span class="n">im_rois</span><span class="o">==</span><span class="n">labelID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># delete the rois corresponding to the labelID that we removed in im_mask</span>
+            <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="o">~</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">list_labelID</span><span class="p">)]</span>
+
+            <span class="k">if</span> <span class="n">high_frequency_threshold_in_pixels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="c1"># retrieve the list of labels that match the condition  </span>
+                <span class="n">list_labelID</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;min_y&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">high_frequency_threshold_in_pixels</span><span class="p">][</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span>
+                <span class="c1"># set to 0 all the pixel that match the labelID that we want to remove</span>
+                <span class="k">for</span> <span class="n">labelID</span> <span class="ow">in</span> <span class="n">list_labelID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="p">:</span>
+                    <span class="n">im_rois</span><span class="p">[</span><span class="n">im_rois</span><span class="o">==</span><span class="n">labelID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># delete the rois corresponding to the labelID that we removed in im_mask</span>
+                <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="o">~</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">list_labelID</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">REMOVE_ROIS_FLIM_MAX</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="p">:</span>
+                <span class="n">low_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">im_rois</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)])</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list of 2 values&quot;</span><span class="p">)</span>
+                <span class="n">low_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">im_rois</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)])</span>
+                <span class="n">high_frequency_threshold_in_pixels</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">REMOVE_ROIS_FLIM_MAX</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;remove_rois_fmax_lim should be {None, a single value or a tuple of 2 values&#39;</span><span class="p">)</span>
+
+            <span class="c1"># retrieve the list of labels that match the condition  </span>
+            <span class="n">list_labelID</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;max_y&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">low_frequency_threshold_in_pixels</span><span class="p">][</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span>
+            <span class="c1"># set to 0 all the pixel that match the labelID that we want to remove</span>
+            <span class="k">for</span> <span class="n">labelID</span> <span class="ow">in</span> <span class="n">list_labelID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="p">:</span>
+                <span class="n">im_rois</span><span class="p">[</span><span class="n">im_rois</span><span class="o">==</span><span class="n">labelID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># delete the rois corresponding to the labelID that we removed in im_mask</span>
+            <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="o">~</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">list_labelID</span><span class="p">)]</span>
+
+            <span class="k">if</span> <span class="n">high_frequency_threshold_in_pixels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="c1"># retrieve the list of labels that match the condition  </span>
+                <span class="n">list_labelID</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;max_y&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">high_frequency_threshold_in_pixels</span><span class="p">][</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span>
+                <span class="c1"># set to 0 all the pixel that match the labelID that we want to remove</span>
+                <span class="k">for</span> <span class="n">labelID</span> <span class="ow">in</span> <span class="n">list_labelID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="p">:</span>
+                    <span class="n">im_rois</span><span class="p">[</span><span class="n">im_rois</span><span class="o">==</span><span class="n">labelID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># delete the rois corresponding to the labelID that we removed in im_mask</span>
+                <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="o">~</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;labelID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">list_labelID</span><span class="p">)]</span>           
+                    
+        <span class="k">if</span> <span class="n">MAX_XY_RATIO</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">df_rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">[</span><span class="n">df_rois</span><span class="p">[</span><span class="s1">&#39;ratio_xy&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">MAX_XY_RATIO</span><span class="p">]</span>  
+        
+    <span class="c1"># print the number of ROIs</span>
+    <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===&gt; Number of ROIs after cleaning : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_rois</span><span class="p">)))</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**************************** Index calculation ******************************&quot;&quot;&quot;</span> 
+
+    <span class="c1"># Convert boolean (True or False) into integer (0 or 1)</span>
+    <span class="n">im_mask_filtered</span> <span class="o">=</span> <span class="n">im_rois</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">*</span> <span class="mi">1</span>
+    <span class="c1"># number of ROIs / min</span>
+    <span class="n">nROI</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_rois</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> 
+    <span class="c1"># ROIs coverage in %</span>
+    <span class="n">aROI</span> <span class="o">=</span> <span class="n">im_mask_filtered</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">im_mask_filtered</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">im_mask_filtered</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span><span class="mi">100</span> 
+
+    <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===&gt; nROI : </span><span class="si">{:.0f}</span><span class="s1">#/min | aROI : </span><span class="si">{:.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">nROI</span><span class="p">),</span> <span class="n">aROI</span><span class="p">))</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;**************************** Display process ******************************&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">DISPLAY</span> <span class="p">:</span> 
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="n">tn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plot_spectrogram</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">EXT</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylabel</span> <span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plot_spectrogram</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span><span class="mf">99.9</span><span class="p">),</span> <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">ylabel</span> <span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">EXT</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plot2d</span><span class="p">(</span><span class="n">im_mask</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">EXT</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plot_spectrogram</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">EXT</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_rois</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">overlay_rois</span><span class="p">(</span><span class="n">im_ref</span><span class="o">=</span><span class="n">Sxx_power</span><span class="p">,</span> 
+                        <span class="n">rois</span> <span class="o">=</span> <span class="n">df_rois</span><span class="p">,</span>
+                        <span class="n">ylabel</span> <span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                        <span class="n">extent</span><span class="o">=</span><span class="n">EXT</span><span class="p">,</span> 
+                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> 
+                        <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span>
+            
+    <span class="k">return</span> <span class="n">nROI</span><span class="p">,</span> <span class="n">aROI</span></div>
+
+
 <span class="c1">#=============================================================================</span>
 <div class="viewcode-block" id="all_temporal_alpha_indices">
 <a class="viewcode-back" href="../../../generated/maad.features.all_temporal_alpha_indices.html#maad.features.all_temporal_alpha_indices">[docs]</a>
-<span class="k">def</span> <span class="nf">all_temporal_alpha_indices</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">all_temporal_alpha_indices</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute 16 temporal domain acoustic indices.</span>
 
@@ -2832,7 +3158,7 @@
 
 <div class="viewcode-block" id="all_spectral_alpha_indices">
 <a class="viewcode-back" href="../../../generated/maad.features.all_spectral_alpha_indices.html#maad.features.all_spectral_alpha_indices">[docs]</a>
-<span class="k">def</span> <span class="nf">all_spectral_alpha_indices</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">all_spectral_alpha_indices</span> <span class="p">(</span><span class="n">Sxx_power</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span>
                     <span class="n">flim_low</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span> 
                     <span class="n">flim_mid</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">],</span> 
                     <span class="n">flim_hi</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">],</span> 
@@ -2902,8 +3228,45 @@
 <span class="sd">            event shorter than rejectDuration are discarded</span>
 <span class="sd">            duration is in s</span>
 <span class="sd">            </span>
-<span class="sd">        For Roi</span>
+<span class="sd">        For ROI</span>
+
+<span class="sd">        **new function region_of_interest_index**</span>
 <span class="sd">        </span>
+<span class="sd">        seed_level : scalar, default is 13</span>
+<span class="sd">            Higher threshold (in dB) for the absolute binarization. Pixels with </span>
+<span class="sd">            values above this threshold are considered part of a potential ROI.</span>
+<span class="sd">        low_level : scalar, default is 6</span>
+<span class="sd">            Lower threshold (in dB) for the absolute binarization.  Pixels with </span>
+<span class="sd">            values above this threshold and connected to a &quot;seed&quot; pixel are also </span>
+<span class="sd">            considered part of a potential ROI.</span>
+<span class="sd">        fusion_rois : tuple of scalars, default is (0.05, 100)</span>
+<span class="sd">            Tuple defining the temporal (in seconds) and frequency (in Hz) </span>
+<span class="sd">            dimensions for morphological closing.  This operation fuses nearby ROIs.</span>
+<span class="sd">        remove_rois_flim_min : scalar or tuple of scalars, default is 50</span>
+<span class="sd">            Frequency limit (in Hz) below which ROIs are removed. Can be a single </span>
+<span class="sd">            value or a tuple defining a range (min_freq, max_freq).</span>
+<span class="sd">        remove_rois_flim_max : scalar, default is none</span>
+<span class="sd">            Frequency limit (in Hz) above which ROIs are removed.</span>
+<span class="sd">        remove_rain : boolean, default is True</span>
+<span class="sd">            If True, vertical frequency spikes due to rain are removed as possible</span>
+<span class="sd">            by applying a morphological mathematical image processing : grey opening</span>
+<span class="sd">        min_event_duration : scalar, optional</span>
+<span class="sd">            Minimum time duration of an event (in s). ROIs shorter than this are removed.</span>
+<span class="sd">        max_event_duration : scalar, optional</span>
+<span class="sd">            Maximum time duration of an event (in s). ROIs longer than this are removed.</span>
+<span class="sd">        min_freq_bw : scalar, optional</span>
+<span class="sd">            Minimum frequency bandwidth (in Hz). ROIs with smaller bandwidth than this are removed.</span>
+<span class="sd">        max_freq_bw : scalar, optional</span>
+<span class="sd">            Maximum frequency bandwidth (in Hz). ROIs with larger bandwidth than this are removed.</span>
+<span class="sd">        max_ratio_xy : scalar, optional</span>
+<span class="sd">            Maximum ratio between the vertical axis (y) and horizontal </span>
+<span class="sd">            axis (x) that is allowed for a ROI. This is very convenient to remove</span>
+<span class="sd">            vertical spikes (e.g. rain). 10 seems a reasonable value to remove most</span>
+<span class="sd">            of spikes due to light to medium rainfall.</span>
+<span class="sd">        </span>
+<span class="sd">        set DEPRECATED_ROI to True to use the old version of the function (which is now </span>
+<span class="sd">        called region_of_interest_index_deprecated)</span>
+
 <span class="sd">        smooth_param1 : scalar, default is 1</span>
 <span class="sd">            Standard deviation of the gaussian kernel used to smooth the image </span>
 <span class="sd">            The larger is the number, the smoother will be the image and the longer </span>
@@ -3022,15 +3385,29 @@
     <span class="n">rejectDuration</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;rejectDuration&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># if None =&gt; 3 pixels</span>
     
     <span class="c1">### for Roi</span>
-    <span class="n">min_roi_area</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;min_roi_area&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># if None =&gt;  30ms * 100Hz</span>
-    <span class="n">max_roi_area</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_roi_area&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># </span>
-    <span class="n">smooth_param1</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;smooth_param1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">mask_mode</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_mode&#39;</span><span class="p">,</span><span class="s1">&#39;relative&#39;</span><span class="p">)</span>
-    <span class="n">mask_param1</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_param1&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-    <span class="n">mask_param2</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_param2&#39;</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">remove_rain</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;remove_rain&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">max_ratio_xy</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_ratio_xy&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-    
+    <span class="n">DEPRECATED_ROI</span>  <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;DEPRECATED_ROI&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">DEPRECATED_ROI</span> <span class="p">:</span>
+        <span class="n">min_roi_area</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;min_roi_area&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># if None =&gt;  30ms * 100Hz</span>
+        <span class="n">max_roi_area</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_roi_area&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># </span>
+        <span class="n">smooth_param1</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;smooth_param1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mask_mode</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_mode&#39;</span><span class="p">,</span><span class="s1">&#39;relative&#39;</span><span class="p">)</span>
+        <span class="n">mask_param1</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_param1&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">mask_param2</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mask_param2&#39;</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">remove_rain</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;remove_rain&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">max_ratio_xy</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_ratio_xy&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">min_event_duration</span>      <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;min_event_duration&#39;</span><span class="p">,</span><span class="mf">0.025</span><span class="p">)</span> 
+        <span class="n">max_event_duration</span>      <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_event_duration&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> 
+        <span class="n">min_freq_bw</span>             <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;min_freq_bw&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> 
+        <span class="n">max_freq_bw</span>             <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_freq_bw&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> 
+        <span class="n">remove_rois_flim_min</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;remove_rois_flim_min&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> 
+        <span class="n">remove_rois_flim_max</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;remove_rois_flim_max&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">fusion_rois</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;fusion_rois&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">remove_rain</span>     <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;remove_rain&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">max_ratio_xy</span>    <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;max_ratio_xy&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">seed_level</span>      <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;seed_level&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span> 
+        <span class="n">low_level</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;low_level&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
     <span class="c1">### for ADI, AEI, RAOQ</span>
     <span class="n">bin_step</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;bin_step&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># in Hz</span>
     <span class="c1">### for ADI, AEI</span>
@@ -3127,10 +3504,11 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;******** Spectral indices from Spectrum (Amplitude or Energy) *******&quot;&quot;&quot;</span>  
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; EAS, ECU, ECV, EPS, KURT, SKEW [TOWSEY]  &quot;&quot;&quot;</span>
     <span class="c1">#### Does not take into account low frequencies.</span>
-    <span class="n">EAS</span><span class="p">,</span> <span class="n">ECU</span><span class="p">,</span> <span class="n">ECV</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">EPS_KURT</span><span class="p">,</span> <span class="n">EPS_SKEW</span> <span class="o">=</span> <span class="n">spectral_entropy</span> <span class="p">(</span><span class="n">Sxx_power_noNoise</span><span class="p">,</span>
-                                                            <span class="n">fn</span><span class="p">,</span>
-                                                            <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="n">flim_mid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">flim_hi</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                                                            <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">)</span>
+    <span class="n">EAS</span><span class="p">,</span> <span class="n">ECU</span><span class="p">,</span> <span class="n">ECV</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">EPS_KURT</span><span class="p">,</span> <span class="n">EPS_SKEW</span> <span class="o">=</span> <span class="n">spectral_entropy</span> <span class="p">(</span>
+                                                        <span class="n">Sxx_power_noNoise</span><span class="p">,</span>
+                                                        <span class="n">fn</span><span class="p">,</span>
+                                                        <span class="n">flim</span><span class="o">=</span><span class="p">(</span><span class="n">flim_mid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">flim_hi</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                                                        <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">)</span>
     <span class="n">df_spectral_indices</span> <span class="o">+=</span> <span class="p">[</span><span class="n">EAS</span><span class="p">,</span> <span class="n">ECU</span><span class="p">,</span> <span class="n">ECV</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">EPS_KURT</span><span class="p">,</span> <span class="n">EPS_SKEW</span><span class="p">]</span> 
     <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EAS </span><span class="si">%2.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">EAS</span><span class="p">)</span>
@@ -3302,33 +3680,57 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AGI </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">AGI</span><span class="p">)</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; ROI index &quot;&quot;&quot;</span>
-    <span class="c1"># Time resolution (in s)</span>
-    <span class="n">DELTA_T</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># Frequency resolution (in Hz)</span>
-    <span class="n">DELTA_F</span> <span class="o">=</span> <span class="n">fn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># Minimum time duration of an event (in s)</span>
-    <span class="n">MIN_EVENT_DUR</span> <span class="o">=</span> <span class="mf">30e-3</span>
-    <span class="c1"># Minimum frequency bandwidth (in Hz)</span>
-    <span class="n">MIN_FREQ_BW</span> <span class="o">=</span> <span class="mi">100</span>
-    <span class="c1"># Min Region Of Interest ROI</span>
-    <span class="k">if</span> <span class="n">min_roi_area</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
-        <span class="n">min_roi_area</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">MIN_EVENT_DUR</span><span class="o">/</span><span class="n">DELTA_T</span> <span class="o">*</span> <span class="n">MIN_FREQ_BW</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)</span>
-    <span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span> <span class="o">=</span> <span class="n">region_of_interest_index</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> 
-                                            <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
-                                            <span class="n">smooth_param1</span><span class="p">,</span> 
-                                            <span class="n">mask_mode</span><span class="p">,</span>
-                                            <span class="n">mask_param1</span><span class="p">,</span> 
-                                            <span class="n">mask_param2</span><span class="p">,</span> 
-                                            <span class="n">min_roi</span><span class="o">=</span><span class="n">min_roi_area</span><span class="p">,</span> 
-                                            <span class="n">max_roi</span><span class="o">=</span><span class="n">max_roi_area</span><span class="p">,</span>
-                                            <span class="n">remove_rain</span> <span class="o">=</span> <span class="n">remove_rain</span><span class="p">,</span>
-                                            <span class="n">max_ratio_xy</span> <span class="o">=</span> <span class="n">max_ratio_xy</span><span class="p">,</span>
-                                            <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">)</span>
-    <span class="n">df_spectral_indices</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ROItotal </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ROItotal</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ROIcover </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ROIcover</span><span class="p">)</span>
-        
+
+    <span class="k">if</span> <span class="n">DEPRECATED_ROI</span> <span class="p">:</span>
+        <span class="c1"># Time resolution (in s)</span>
+        <span class="n">DELTA_T</span> <span class="o">=</span> <span class="n">tn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">tn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Frequency resolution (in Hz)</span>
+        <span class="n">DELTA_F</span> <span class="o">=</span> <span class="n">fn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Minimum time duration of an event (in s)</span>
+        <span class="n">MIN_EVENT_DUR</span> <span class="o">=</span> <span class="mf">30e-3</span>
+        <span class="c1"># Minimum frequency bandwidth (in Hz)</span>
+        <span class="n">MIN_FREQ_BW</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="c1"># Min Region Of Interest ROI</span>
+        <span class="k">if</span> <span class="n">min_roi_area</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+            <span class="n">min_roi_area</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">MIN_EVENT_DUR</span><span class="o">/</span><span class="n">DELTA_T</span> <span class="o">*</span> <span class="n">MIN_FREQ_BW</span> <span class="o">/</span> <span class="n">DELTA_F</span><span class="p">)</span>
+
+        <span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span> <span class="o">=</span> <span class="n">region_of_interest_index_deprecated</span><span class="p">(</span><span class="n">Sxx_dB_noNoise</span><span class="p">,</span> 
+                                                <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
+                                                <span class="n">smooth_param1</span><span class="p">,</span> 
+                                                <span class="n">mask_mode</span><span class="p">,</span>
+                                                <span class="n">mask_param1</span><span class="p">,</span> 
+                                                <span class="n">mask_param2</span><span class="p">,</span> 
+                                                <span class="n">min_roi</span><span class="o">=</span><span class="n">min_roi_area</span><span class="p">,</span> 
+                                                <span class="n">max_roi</span><span class="o">=</span><span class="n">max_roi_area</span><span class="p">,</span>
+                                                <span class="n">remove_rain</span> <span class="o">=</span> <span class="n">remove_rain</span><span class="p">,</span>
+                                                <span class="n">max_ratio_xy</span> <span class="o">=</span> <span class="n">max_ratio_xy</span><span class="p">,</span>
+                                                <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">)</span>
+        <span class="n">df_spectral_indices</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ROItotal</span><span class="p">,</span> <span class="n">ROIcover</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ROItotal </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ROItotal</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ROIcover </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ROIcover</span><span class="p">)</span>
+
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">nROI</span><span class="p">,</span> <span class="n">aROI</span> <span class="o">=</span> <span class="n">region_of_interest_index</span><span class="p">(</span>
+                                        <span class="n">Sxx_power</span><span class="p">,</span> 
+                                        <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> 
+                                        <span class="n">seed_level</span><span class="o">=</span><span class="n">seed_level</span><span class="p">,</span> 
+                                        <span class="n">low_level</span><span class="o">=</span><span class="n">low_level</span><span class="p">,</span> 
+                                        <span class="n">fusion_rois</span><span class="o">=</span><span class="n">fusion_rois</span><span class="p">,</span>
+                                        <span class="n">remove_rain</span> <span class="o">=</span> <span class="n">remove_rain</span><span class="p">,</span>
+                                        <span class="n">max_ratio_xy</span><span class="o">=</span><span class="n">max_ratio_xy</span><span class="p">,</span>
+                                        <span class="n">remove_rois_flim_min</span> <span class="o">=</span> <span class="n">remove_rois_flim_min</span><span class="p">,</span>
+                                        <span class="n">remove_rois_flim_max</span> <span class="o">=</span> <span class="n">remove_rois_flim_max</span><span class="p">,</span>
+                                        <span class="n">min_event_duration</span><span class="o">=</span><span class="n">min_event_duration</span><span class="p">,</span> 
+                                        <span class="n">max_event_duration</span><span class="o">=</span><span class="n">max_event_duration</span><span class="p">,</span> 
+                                        <span class="n">min_freq_bw</span><span class="o">=</span><span class="n">min_freq_bw</span><span class="p">,</span> 
+                                        <span class="n">max_freq_bw</span><span class="o">=</span><span class="n">max_freq_bw</span><span class="p">,</span> 
+                                        <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">)</span>
+        <span class="n">df_spectral_indices</span> <span class="o">+=</span> <span class="p">[</span><span class="n">nROI</span><span class="p">,</span> <span class="n">aROI</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nROI </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">nROI</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;aROI </span><span class="si">%2.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aROI</span><span class="p">)</span>
+            
     <span class="n">df_spectral_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">df_spectral_indices</span><span class="p">],</span> 
                                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MEANf&#39;</span><span class="p">,</span> 
                                             <span class="s1">&#39;VARf&#39;</span><span class="p">,</span> 
@@ -3372,8 +3774,13 @@
                                             <span class="s1">&#39;H_GiniSimpson&#39;</span><span class="p">,</span>
                                             <span class="s1">&#39;RAOQ&#39;</span><span class="p">,</span>
                                             <span class="s1">&#39;AGI&#39;</span><span class="p">,</span>
-                                            <span class="s1">&#39;ROItotal&#39;</span><span class="p">,</span>
-                                            <span class="s1">&#39;ROIcover&#39;</span><span class="p">])</span>
+                                            <span class="s1">&#39;nROI&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;aROI&#39;</span><span class="p">,</span>
+                                            <span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">DEPRECATED_ROI</span> <span class="p">:</span>
+        <span class="c1"># change the name of the columns nROI and aROI to ROItotal and ROIcover</span>
+        <span class="n">df_spectral_indices</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;nROI&#39;</span><span class="p">:</span><span class="s1">&#39;ROItotal&#39;</span><span class="p">,</span> <span class="s1">&#39;aROI&#39;</span><span class="p">:</span><span class="s1">&#39;ROIcover&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
     <span class="n">df_per_bin_indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">df_per_bin_indices</span><span class="p">],</span> 
                                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;frequencies&#39;</span><span class="p">,</span>
@@ -3401,7 +3808,7 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 

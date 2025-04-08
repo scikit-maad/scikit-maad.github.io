@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.features.all_shape_features &mdash; scikit-maad 1.4.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+  <title>maad.features.all_shape_features &mdash; scikit-maad 1.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=02f2166e"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,9 +39,6 @@
             scikit-maad
               <img src="../_static/logo_maad_white.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -211,15 +206,15 @@ For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">maad</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.util</span> <span class="kn">import</span> <span class="n">read_audacity_annot</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.sound</span> <span class="kn">import</span> <span class="n">load</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">maad.features</span> <span class="kn">import</span> <span class="n">all_shape_features</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">maad</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">maad.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_audacity_annot</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">maad.sound</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">maad.features</span><span class="w"> </span><span class="kn">import</span> <span class="n">all_shape_features</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.wav&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rois</span> <span class="o">=</span> <span class="n">read_audacity_annot</span><span class="p">(</span><span class="s1">&#39;../data/spinetail.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">all_shape_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">all_shape_features</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">    number of rois : 18</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">    label                    SP</span>
 <span class="go">    min_t              0.101385</span>
 <span class="go">    min_f           6441.064453</span>
@@ -256,7 +251,7 @@ For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
 <span class="go">    bandwidth_f      5857.03125</span>
 <span class="go">    area_tf              1564.0</span>
 <span class="go">    Name: 0, dtype: object</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">columns</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">columns</span>
 <span class="go">    Index([&#39;label&#39;, &#39;min_t&#39;, &#39;min_f&#39;, &#39;max_t&#39;, &#39;max_f&#39;, &#39;min_y&#39;, &#39;min_x&#39;, &#39;max_y&#39;,</span>
 <span class="go">        &#39;max_x&#39;, &#39;shp_001&#39;, &#39;shp_002&#39;, &#39;shp_003&#39;, &#39;shp_004&#39;, &#39;shp_005&#39;,</span>
 <span class="go">        &#39;shp_006&#39;, &#39;shp_007&#39;, &#39;shp_008&#39;, &#39;shp_009&#39;, &#39;shp_010&#39;, &#39;shp_011&#39;,</span>
@@ -281,7 +276,7 @@ For screen version, choose low dpi (i.e. dpi=96) =&gt; fast</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
