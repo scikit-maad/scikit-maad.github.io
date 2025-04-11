@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.volt2pressure &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.volt2pressure &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -142,14 +142,14 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">wav2volt</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">volt2pressure</span><span class="p">(</span><span class="n">volt</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span> 
-<span class="go">    array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="go">   -0.00195712, -0.00337482])      </span>
+<span class="go">    array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="go">    -0.00097856, -0.00168741])   </span>
 </pre></div>
 </div>
 <p>Same result with the function wav2pressure</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">wav2pressure</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="go">    array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="go">   -0.00195712, -0.00337482])</span>
+<span class="go">    array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="go">    -0.00097856, -0.00168741])</span>
 </pre></div>
 </div>
 </dd></dl>

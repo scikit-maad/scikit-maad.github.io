@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>Estimate sound pressure level from audio recordings &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -150,9 +150,19 @@ to collect the audio dataset. This is a mandatory to compute the sound
 pressure level of the audio file (dB SPL) as a sound meter level would do.
 For this experiment, we used a Songmeter 4 (SM4, from Wildlife Acoustics)
 with an amplification gain of 16dB.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a> <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>         <span class="c1"># Sensibility of the microphone -35dBV (SM4) / -18dBV (Audiomoth)</span>
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a> <span class="o">=</span> <span class="mi">26</span><span class="o">+</span><span class="mi">16</span>       <span class="c1"># Total amplification gain in dB (SM4 has a +26dB preamplifier)</span>
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a> <span class="o">=</span> <span class="mi">2</span>        <span class="c1"># Voltage range of the analog to digital converter (ADC)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># From Sam Lapp (thank you very much Sam for your help)</span>
+<span class="c1"># in case of audiomoth the gain is</span>
+<span class="c1">#              Gain (dB)</span>
+<span class="c1"># low gain     12.7</span>
+<span class="c1">#              16.9</span>
+<span class="c1"># medium gain  23.5</span>
+<span class="c1">#              28.0</span>
+<span class="c1"># high gain    30.4</span>
+
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a> <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>                 <span class="c1"># Sensibility of the microphone -35dBV (SM4) / -38dBV (Audiomoth)  / -35dBV (SM Mini) / -35dBV (SM Mini 2)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">PREANPLIFIER</span></a> <span class="o">=</span> <span class="mi">26</span>       <span class="c1"># Preamplifier gain +26dB (SM4) / +20.8 (Audiomoth 1.2.0) / +20dB (Audiomoth 1.1.0) / +23dB (SM Mini) / +23dB (SM Mini 2)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">G</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">PREANPLIFIER</span></a><span class="o">+</span><span class="mi">16</span>     <span class="c1"># Total amplification gain in dB (preamplifier Gain + Gain)</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">VADC</span></a> <span class="o">=</span> <span class="mi">2</span>                <span class="c1"># Voltage range of the analog to digital converter (ADC)</span>
 </pre></div>
 </div>
 <p>First, we parse the directory /indices in order to get a DataFrame with date
@@ -611,7 +621,7 @@ mainly to the anthropophony (frequency band 0-1kHz) and the biophony
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_002.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.534 seconds)</p>
+<img src="../../_images/sphx_glr_plot_sound_pressure_level_002.png" srcset="../../_images/sphx_glr_plot_sound_pressure_level_002.png" alt="plot sound pressure level" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.658 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-advanced-plot-sound-pressure-level-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3f3ccf7e7d1fbe24a2eca37b593a6a3d/plot_sound_pressure_level.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_sound_pressure_level.ipynb</span></code></a></p>

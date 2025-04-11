@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.085** total execution time for 11 files **from _auto_examples/2_advanced**:
+**03:22.848** total execution time for 11 files **from _auto_examples/2_advanced**:
 
 .. container::
 
@@ -32,36 +32,36 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_graphical_soundscape.py` (``plot_graphical_soundscape.py``)
-     - 00:01.085
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_extract_alpha_indices_multicpu.py` (``extract_alpha_indices_multicpu.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py` (``plot_compare_auto_and_manual_rois_selection.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py` (``plot_extract_alpha_indices.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py` (``plot_nmf_and_false_color_spectrogram.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_remove_background.py` (``plot_remove_background.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py` (``plot_sound_degradation_due_to_attenuation.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py` (``plot_sound_pressure_level.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_unsupervised_sound_classification.py` (``plot_unsupervised_sound_classification.py``)
-     - 00:00.000
-     - 0.0
    * - :ref:`sphx_glr__auto_examples_2_advanced_plot_woodpecker_drumming_characteristics.py` (``plot_woodpecker_drumming_characteristics.py``)
-     - 00:00.000
+     - 01:24.466
      - 0.0
    * - :ref:`sphx_glr__auto_examples_2_advanced_plot_xenocanto_woodpecker_activities.py` (``plot_xenocanto_woodpecker_activities.py``)
+     - 01:23.869
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_extract_alpha_indices.py` (``plot_extract_alpha_indices.py``)
+     - 00:10.934
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_compare_auto_and_manual_rois_selection.py` (``plot_compare_auto_and_manual_rois_selection.py``)
+     - 00:09.403
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_unsupervised_sound_classification.py` (``plot_unsupervised_sound_classification.py``)
+     - 00:06.392
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_remove_background.py` (``plot_remove_background.py``)
+     - 00:03.590
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_nmf_and_false_color_spectrogram.py` (``plot_nmf_and_false_color_spectrogram.py``)
+     - 00:01.791
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_graphical_soundscape.py` (``plot_graphical_soundscape.py``)
+     - 00:01.311
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_pressure_level.py` (``plot_sound_pressure_level.py``)
+     - 00:00.658
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py` (``plot_sound_degradation_due_to_attenuation.py``)
+     - 00:00.434
+     - 0.0
+   * - :ref:`sphx_glr__auto_examples_2_advanced_extract_alpha_indices_multicpu.py` (``extract_alpha_indices_multicpu.py``)
      - 00:00.000
      - 0.0

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.amplitude2dBSPL &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.amplitude2dBSPL &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -117,6 +117,18 @@
 <dt class="sig sig-object py" id="maad.spl.amplitude2dBSPL">
 <span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">amplitude2dBSPL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vadc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dBref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">94</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/conversion_SPL.html#amplitude2dBSPL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.amplitude2dBSPL" title="Link to this definition"></a></dt>
 <dd><p>Convert signal (amplitude) to instantaneous sound pressure level (L [dB SPL]).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl class="simple">
+<dt><strong>Important:</strong> Previous versions of this function incorrectly calculated the</dt><dd><p>volt conversion by omitting the division by 2 for the <cite>Vadc</cite> parameter.
+In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.
+If you want to correct the SPL values obtained with the previous version,
+you can simply subtract 6 dB from the old results.
+This has been corrected in the version 1.5.1. Ensure you are using the
+latest version (&gt;=1.5.1) to obtain accurate dB SPL values.</p>
+</dd>
+</dl>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -156,12 +168,12 @@
 </div>
 <p>Get instantaneous sound pressure level (L).</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">amplitude2dBSPL</span><span class="p">(</span><span class="n">S_amplitude_mean</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>    
-<span class="go">array([39.56422048, 44.37117437, 41.95705677, 39.60547011, 36.43237323,</span>
-<span class="go">       33.24966066, 31.44139953, 30.4473799 , 28.91589639, 27.26962076,</span>
-<span class="go">       26.7722199 , 26.27328293, 25.69373328, 24.73880674, 23.85828781,</span>
-<span class="go">       ...</span>
-<span class="go">       -6.30767022, -6.46481481, -6.49907112, -6.52754376, -6.52476444,</span>
-<span class="go">       -6.73617834, -6.75685948])</span>
+<span class="go">    array([ 33.54362056,  38.35057445,  35.93645686,  33.5848702 ,</span>
+<span class="go">            30.41177332,  27.22906075,  25.42079962,  24.42677998,</span>
+<span class="go">            22.89529647,  21.24902085,  20.75161999,  20.25268302,</span>
+<span class="go">            ...</span>
+<span class="go">            -12.18064124, -12.32827014, -12.48541472, -12.51967103,</span>
+<span class="go">            -12.54814367, -12.54536435, -12.75677825, -12.77745939])</span>
 </pre></div>
 </div>
 </dd></dl>

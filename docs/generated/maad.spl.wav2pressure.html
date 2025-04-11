@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.wav2pressure &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.wav2pressure &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -117,6 +117,21 @@
 <dt class="sig sig-object py" id="maad.spl.wav2pressure">
 <span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">wav2pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vadc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dBref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">94</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/conversion_SPL.html#wav2pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.wav2pressure" title="Link to this definition"></a></dt>
 <dd><p>Convert wave amplitude to instantaneous sound pressure (p [Pa]).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl class="simple">
+<dt><strong>Important:</strong> Previous versions of this function incorrectly calculated the</dt><dd><p>pressure conversion by omitting the division by 2 for the <cite>Vadc</cite> parameter.
+This resulted in pressure values that were twice as large as they should.
+If you want to correct the pressure values obtained with the previous version,
+you can simply divide the results by 2. 
+In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.
+If you want to correct the SPL values obtained with the previous version,
+you can simply subtract 6 dB from the old results.
+This has been corrected in the version 1.5.1. Ensure you are using the
+latest version (&gt;=1.5.1) to obtain accurate pressure values.</p>
+</dd>
+</dl>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -145,15 +160,15 @@ ndarray-like or scalar containing the raw sound waveform</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../data/cold_forest_daylight.wav&#39;</span><span class="p">)</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">wav2pressure</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="go">    array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="go">   -0.00195712, -0.00337482])</span>
+<span class="go">    array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="go">    -0.00097856, -0.00168741])</span>
 </pre></div>
 </div>
 <p>Same result with 2 functions</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">wav2volt</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">volt2pressure</span><span class="p">(</span><span class="n">volt</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span> 
-<span class="go">    array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="go">   -0.00195712, -0.00337482]) </span>
+<span class="go">    array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="go">    -0.00097856, -0.00168741])        </span>
 </pre></div>
 </div>
 </dd></dl>

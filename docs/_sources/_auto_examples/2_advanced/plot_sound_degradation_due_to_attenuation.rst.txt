@@ -201,7 +201,7 @@ Evalution of the distance and sound level of the spinetail
 
  .. code-block:: none
 
-    Sound Level measured : 71.57dB SPL
+    Sound Level measured : 65.55dB SPL
 
 
 
@@ -233,7 +233,7 @@ Evalution of the distance between the ARU and the spinetail
 
  .. code-block:: none
 
-    Max distance between ARU and spinetail is estimated to be  4m
+    Max distance between ARU and spinetail is estimated to be  8m
 
 
 
@@ -274,7 +274,7 @@ Evalution of the maximum distance of propagation of the spinetail song
 
  .. code-block:: none
 
-    Max active distance is 143.0m
+    Max active distance is 167.0m
 
 
 
@@ -301,8 +301,8 @@ Let's see the contribution of each type of attenuation
 
  .. code-block:: none
 
-            f      r    Ageo_dB   Aatm_dB  Ahab_dB    Asum_dB
-    0  6500.0  143.0  43.106721  8.604484    18.46  70.171204
+            f      r    Ageo_dB    Aatm_dB  Ahab_dB    Asum_dB
+    0  6500.0  167.0  44.454329  10.058762    21.58  76.093092
 
 
 
@@ -439,7 +439,7 @@ visible. Only the background noise, with the call of another species remains
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.438 seconds)
+   **Total running time of the script:** (0 minutes 0.434 seconds)
 
 
 .. _sphx_glr_download__auto_examples_2_advanced_plot_sound_degradation_due_to_attenuation.py:

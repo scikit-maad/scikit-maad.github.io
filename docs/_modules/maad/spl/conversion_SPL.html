@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.conversion_SPL &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.conversion_SPL &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
@@ -16,7 +16,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../../../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -94,7 +94,9 @@
 <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">Collection of functions to convert audio and voltage data to Sound Pressure </span>
 <span class="sd">Level (SPL in Pascal) and Leq (Continuous Equivalent SPL).</span>
-<span class="sd">Functions are adapted from the algorithm proposed in Merchant, N.D., Fristrup, K.M., Johnson, M.P., Tyack, P.L., Witt, M.J., Blondel, P. and Parks, S.E. (2015), Measuring acoustic habitats. Methods Ecol Evol, 6: 257-265. `DOI: 10.1111/2041-210X.12330 &lt;https://doi.org/10.1111/2041-210X.12330&gt;`_</span>
+<span class="sd">Functions are adapted from the algorithm proposed in </span>
+<span class="sd">Merchant, N.D., Fristrup, K.M., Johnson, M.P., Tyack, P.L., Witt, M.J., Blondel, P. and Parks, S.E. (2015), </span>
+<span class="sd">Measuring acoustic habitats. Methods Ecol Evol, 6: 257-265. `DOI: 10.1111/2041-210X.12330 &lt;https://doi.org/10.1111/2041-210X.12330&gt;`_</span>
 <span class="sd">&quot;&quot;&quot;</span>   
 <span class="c1">#</span>
 <span class="c1"># Authors:  Juan Sebastian ULLOA &lt;lisofomia@gmail.com&gt;</span>
@@ -126,6 +128,18 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">wav2volt</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert an audio signal amplitude to Volts.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        voltage conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        This resulted in voltage values that were twice as large as they should.</span>
+<span class="sd">        If you want to correct the voltage values obtained with the previous version,</span>
+<span class="sd">        you can simply divide the results by 2. </span>
+<span class="sd">        In dB SPL, this lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate voltage values.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -147,12 +161,12 @@
 <span class="sd">    &gt;&gt;&gt; w, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;) </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.wav2volt(wave=w, Vadc=2)</span>
 <span class="sd">        array([ 0.02155849,  0.02570888,  0.02583096, ..., -0.0082877 ,</span>
-<span class="sd">       -0.00438145, -0.00755528])</span>
+<span class="sd">        -0.00219072, -0.00377764])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># force to be ndarray</span>
     <span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
     
-    <span class="n">volt</span> <span class="o">=</span><span class="n">wave</span> <span class="o">*</span> <span class="n">Vadc</span>
+    <span class="n">volt</span> <span class="o">=</span><span class="n">wave</span> <span class="o">*</span> <span class="n">Vadc</span><span class="o">/</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">volt</span></div>
 
 
@@ -188,14 +202,14 @@
 <span class="sd">    &gt;&gt;&gt; w, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;) </span>
 <span class="sd">    &gt;&gt;&gt; v = maad.spl.wav2volt(wave=w)</span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.volt2pressure(volt=v, gain=42) </span>
-<span class="sd">        array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="sd">       -0.00195712, -0.00337482])      </span>
+<span class="sd">        array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="sd">        -0.00097856, -0.00168741])   </span>
 <span class="sd">    </span>
 <span class="sd">    Same result with the function wav2pressure</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.wav2pressure(wave=w, gain=42)</span>
-<span class="sd">        array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="sd">       -0.00195712, -0.00337482])</span>
+<span class="sd">        array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="sd">        -0.00097856, -0.00168741])</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># force to be ndarray</span>
@@ -214,6 +228,18 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">wav2pressure</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave amplitude to instantaneous sound pressure (p [Pa]).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        pressure conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        This resulted in pressure values that were twice as large as they should.</span>
+<span class="sd">        If you want to correct the pressure values obtained with the previous version,</span>
+<span class="sd">        you can simply divide the results by 2. </span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate pressure values.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -245,15 +271,15 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; w, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;) </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.wav2pressure(wave=w, gain=42)</span>
-<span class="sd">        array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="sd">       -0.00195712, -0.00337482])</span>
+<span class="sd">        array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="sd">        -0.00097856, -0.00168741])</span>
 <span class="sd">    </span>
 <span class="sd">    Same result with 2 functions</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; v = maad.spl.wav2volt(wave=w)</span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.volt2pressure(volt=v, gain=42) </span>
-<span class="sd">        array([ 0.00962983,  0.01148374,  0.01153826, ..., -0.00370198,</span>
-<span class="sd">       -0.00195712, -0.00337482]) </span>
+<span class="sd">        array([ 0.00481491,  0.00574187,  0.00576913, ..., -0.00185099,</span>
+<span class="sd">        -0.00097856, -0.00168741])        </span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># force to be ndarray</span>
@@ -292,14 +318,14 @@
 <span class="sd">    Get instantaneous sound pressure level (L)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.pressure2dBSPL(abs(p))</span>
-<span class="sd">        array([53.65176859, 55.18106489, 55.22220942, ..., 45.3480775 ,</span>
-<span class="sd">        39.81175156, 44.54440589])</span>
+<span class="sd">        array([47.63116868, 49.16046498, 49.20160951, ..., 39.32747759,</span>
+<span class="sd">        33.79115165, 38.52380598])</span>
 <span class="sd">    </span>
 <span class="sd">    Get equivalent sound pressure level (Leq) from the RMS of the pressure signal</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; p_rms = maad.util.rms(p)</span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.pressure2dBSPL(p_rms)  </span>
-<span class="sd">        54.53489077674256      </span>
+<span class="sd">        48.51429086346293</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="c1"># force to be ndarray</span>
@@ -338,10 +364,10 @@
 <span class="sd">    &gt;&gt;&gt; p = maad.spl.wav2pressure(wave=w, gain=42)</span>
 <span class="sd">    &gt;&gt;&gt; p_rms = maad.util.rms(p)</span>
 <span class="sd">    &gt;&gt;&gt; print(p_rms)</span>
-<span class="sd">        0.010660425378341332</span>
+<span class="sd">        0.0053302126891706676</span>
 <span class="sd">    &gt;&gt;&gt; L = maad.spl.pressure2dBSPL(p_rms)  </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.dBSPL2pressure(L)</span>
-<span class="sd">        0.010660425378341332 </span>
+<span class="sd">        spl.dBSPL2pressure(L)</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="c1"># force to be ndarray</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -357,6 +383,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">wav2dBSPL</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave amplitude to instantaneous sound pressure level (L [dB SPL]).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        pressure conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate dB SPL values.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -394,14 +429,14 @@
 <span class="sd">    Get an approximate of the equivalent sound pressure level (Leq)</span>
 <span class="sd">        </span>
 <span class="sd">    &gt;&gt;&gt; maad.util.mean_dB(L)</span>
-<span class="sd">        54.53489077674256</span>
+<span class="sd">        48.51429086346294</span>
 <span class="sd">        </span>
 <span class="sd">    Get equivalent sound pressure level (Leq) from the dedicated function</span>
 <span class="sd">        </span>
 <span class="sd">    &gt;&gt;&gt; Leq = maad.spl.wav2leq(w, fs, gain=42, dt=1)</span>
 <span class="sd">    &gt;&gt;&gt; Leq_mean = maad.util.mean_dB(Leq)</span>
 <span class="sd">    &gt;&gt;&gt; Leq_mean</span>
-<span class="sd">        54.575482584140005   </span>
+<span class="sd">        48.55488267086038</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>       
     <span class="c1"># force to be ndarray</span>
@@ -419,6 +454,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">amplitude2dBSPL</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert signal (amplitude) to instantaneous sound pressure level (L [dB SPL]).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        volt conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate dB SPL values.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -444,7 +488,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    L : ndarray-like or scalar</span>
 <span class="sd">        ndarray-like or scalar containing the sound waveform in dB SPL (Sound Pressure level in dB)</span>
-<span class="sd">      </span>
+<span class="sd">    </span>
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
 <span class="sd">    power2dBSPL</span>
@@ -459,12 +503,12 @@
 <span class="sd">    Get instantaneous sound pressure level (L).</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.amplitude2dBSPL(S_amplitude_mean, gain=42)    </span>
-<span class="sd">    array([39.56422048, 44.37117437, 41.95705677, 39.60547011, 36.43237323,</span>
-<span class="sd">           33.24966066, 31.44139953, 30.4473799 , 28.91589639, 27.26962076,</span>
-<span class="sd">           26.7722199 , 26.27328293, 25.69373328, 24.73880674, 23.85828781,</span>
-<span class="sd">           ...</span>
-<span class="sd">           -6.30767022, -6.46481481, -6.49907112, -6.52754376, -6.52476444,</span>
-<span class="sd">           -6.73617834, -6.75685948])</span>
+<span class="sd">        array([ 33.54362056,  38.35057445,  35.93645686,  33.5848702 ,</span>
+<span class="sd">                30.41177332,  27.22906075,  25.42079962,  24.42677998,</span>
+<span class="sd">                22.89529647,  21.24902085,  20.75161999,  20.25268302,</span>
+<span class="sd">                ...</span>
+<span class="sd">                -12.18064124, -12.32827014, -12.48541472, -12.51967103,</span>
+<span class="sd">                -12.54814367, -12.54536435, -12.75677825, -12.77745939])</span>
 <span class="sd">    &quot;&quot;&quot;</span>       
     <span class="c1"># force to be ndarray</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -481,6 +525,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">power2dBSPL</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span><span class="o">=</span><span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span><span class="o">=</span><span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert power (amplitude²) to sound pressure level (L [dB]).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        volt conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate dB SPL values.    </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -522,13 +575,12 @@
 <span class="sd">    Get instantaneous sound pressure level (L).</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.power2dBSPL(S_power_mean, gain=42)    </span>
-<span class="sd">    array([41.56456034, 45.44257539, 43.17154534, 41.50665519, 38.08392914,</span>
-<span class="sd">           34.52770543, 32.57142163, 31.68137318, 30.32861314, 28.46111069,</span>
-<span class="sd">           27.88530431, 27.48595098, 26.96673216, 25.88241843, 24.93524547,</span>
-<span class="sd">           ...</span>
-<span class="sd">           -5.24972979, -5.38796789, -5.42812278, -5.47003443, -5.47740917,</span>
-<span class="sd">           -5.67015921, -5.68214822])</span>
-
+<span class="sd">        array([ 3.55439604e+01,  3.94219755e+01,  3.71509454e+01,  3.54860553e+01,</span>
+<span class="sd">                3.20633292e+01,  2.85071055e+01,  2.65508217e+01,  2.56607733e+01,</span>
+<span class="sd">                2.43080132e+01,  2.24405108e+01,  2.18647044e+01,  2.14653511e+01,</span>
+<span class="sd">                ...</span>
+<span class="sd">                -1.11242771e+01, -1.12703297e+01, -1.14085678e+01, -1.14487227e+01,</span>
+<span class="sd">                -1.14906343e+01, -1.14980091e+01, -1.16907591e+01, -1.17027481e+01])</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="c1"># force to be ndarray</span>
     <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
@@ -547,6 +599,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">wav2leq</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">gain</span><span class="p">,</span> <span class="n">Vadc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sensitivity</span><span class="o">=-</span><span class="mi">35</span><span class="p">,</span> <span class="n">dBref</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="n">pRef</span> <span class="o">=</span> <span class="mf">20e-6</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert wave to Equivalent Continuous Sound Pressure level (Leq [dB SPL]).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        volt conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate dB SPL values. </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -580,13 +641,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    Leq : float</span>
 <span class="sd">        Equivalent Continuous Sound pressure level (Leq [dB SPL])</span>
-<span class="sd">       </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; w, fs = maad.sound.load(&#39;../data/cold_forest_daylight.wav&#39;) </span>
 <span class="sd">    &gt;&gt;&gt; Leq = maad.spl.wav2leq (w, fs, gain=42)  </span>
 <span class="sd">    &gt;&gt;&gt; maad.util.mean_dB(Leq)</span>
-<span class="sd">        54.575482584140005</span>
+<span class="sd">        48.55488267086038</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="c1"># force to be ndarray</span>
     <span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
@@ -630,7 +691,7 @@
 <span class="sd">        Integration step to compute the Leq (Equivalent Continuous Sound level)</span>
 
 <span class="sd">    pRef : Sound pressure reference in the medium (air:20e-6, water:1e-6 Pa)</span>
-<span class="sd">           </span>
+<span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Leq : float</span>
@@ -642,7 +703,7 @@
 <span class="sd">    &gt;&gt;&gt; p = maad.spl.wav2pressure(wave=w, gain=42)</span>
 <span class="sd">    &gt;&gt;&gt; Leq = maad.spl.pressure2leq (p, fs)</span>
 <span class="sd">    &gt;&gt;&gt; maad.util.mean_dB(Leq)</span>
-<span class="sd">        54.55488267086038</span>
+<span class="sd">        48.534282757580755</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>     
     <span class="c1"># be sure they are ndarray</span>
@@ -672,6 +733,15 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert Power spectral density (PSD, amplitude²) into </span>
 <span class="sd">    Equivalent Continuous Sound pressure level (Leq [dB SPL])</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">       **Important:** Previous versions of this function incorrectly calculated the</span>
+<span class="sd">        volt conversion by omitting the division by 2 for the `Vadc` parameter.</span>
+<span class="sd">        In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.</span>
+<span class="sd">        If you want to correct the SPL values obtained with the previous version,</span>
+<span class="sd">        you can simply subtract 6 dB from the old results.</span>
+<span class="sd">        This has been corrected in the version 1.5.1. Ensure you are using the</span>
+<span class="sd">        latest version (&gt;=1.5.1) to obtain accurate dB SPL values. </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -692,7 +762,7 @@
 <span class="sd">        (usually 94dB, sometimes 114dB)</span>
 
 <span class="sd">    pRef : Sound pressure reference in the medium (air:20e-6, water:1e-6 Pa)</span>
-<span class="sd">           </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Leq : float</span>
@@ -704,7 +774,7 @@
 <span class="sd">    &gt;&gt;&gt; Sxx_power,tn,fn,_ = maad.sound.spectrogram (w, fs)</span>
 <span class="sd">    &gt;&gt;&gt; S_power_mean = maad.sound.avg_power_spectro(Sxx_power) </span>
 <span class="sd">    &gt;&gt;&gt; maad.spl.psd2leq(S_power_mean, gain=42)</span>
-<span class="sd">        53.55842473963429</span>
+<span class="sd">        47.537824826354665</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>  
     <span class="c1"># be sure they are ndarray</span>
@@ -721,7 +791,7 @@
     <span class="n">Leq</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">/</span><span class="n">pRef</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Leq</span></div>
 
-   
+    
 <span class="c1">################################ TEST ########################################</span>
     
 <span class="c1">## Test the current operating system</span>
@@ -820,7 +890,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, scikit-maad development team.</p>
+    <p>&#169; Copyright 2025, scikit-maad development team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

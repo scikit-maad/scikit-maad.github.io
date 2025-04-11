@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.psd2leq &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.psd2leq &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -118,6 +118,18 @@
 <span class="sig-prename descclassname"><span class="pre">maad.spl.</span></span><span class="sig-name descname"><span class="pre">psd2leq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vadc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dBref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">94</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/maad/spl/conversion_SPL.html#psd2leq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maad.spl.psd2leq" title="Link to this definition"></a></dt>
 <dd><p>Convert Power spectral density (PSD, amplitude²) into 
 Equivalent Continuous Sound pressure level (Leq [dB SPL])</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl class="simple">
+<dt><strong>Important:</strong> Previous versions of this function incorrectly calculated the</dt><dd><p>volt conversion by omitting the division by 2 for the <cite>Vadc</cite> parameter.
+In dB SPL, this would lead to a 6 dB increase in the calculated sound pressure level.
+If you want to correct the SPL values obtained with the previous version,
+you can simply subtract 6 dB from the old results.
+This has been corrected in the version 1.5.1. Ensure you are using the
+latest version (&gt;=1.5.1) to obtain accurate dB SPL values.</p>
+</dd>
+</dl>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -147,7 +159,7 @@ Equivalent Continuous Sound pressure level (Leq [dB SPL])</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Sxx_power</span><span class="p">,</span><span class="n">tn</span><span class="p">,</span><span class="n">fn</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">spectrogram</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S_power_mean</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">sound</span><span class="o">.</span><span class="n">avg_power_spectro</span><span class="p">(</span><span class="n">Sxx_power</span><span class="p">)</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">psd2leq</span><span class="p">(</span><span class="n">S_power_mean</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="go">    53.55842473963429</span>
+<span class="go">    47.537824826354665</span>
 </pre></div>
 </div>
 </dd></dl>

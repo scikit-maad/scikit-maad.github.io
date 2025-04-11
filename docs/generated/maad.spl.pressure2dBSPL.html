@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maad.spl.pressure2dBSPL &mdash; scikit-maad 1.5.0 documentation</title>
+  <title>maad.spl.pressure2dBSPL &mdash; scikit-maad 1.5.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=e0a75244"></script>
+      <script src="../_static/documentation_options.js?v=44dfd65d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -139,14 +139,14 @@
 </div>
 <p>Get instantaneous sound pressure level (L)</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">pressure2dBSPL</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-<span class="go">    array([53.65176859, 55.18106489, 55.22220942, ..., 45.3480775 ,</span>
-<span class="go">    39.81175156, 44.54440589])</span>
+<span class="go">    array([47.63116868, 49.16046498, 49.20160951, ..., 39.32747759,</span>
+<span class="go">    33.79115165, 38.52380598])</span>
 </pre></div>
 </div>
 <p>Get equivalent sound pressure level (Leq) from the RMS of the pressure signal</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p_rms</span> <span class="o">=</span> <span class="n">maad</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">rms</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">maad</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">pressure2dBSPL</span><span class="p">(</span><span class="n">p_rms</span><span class="p">)</span>  
-<span class="go">    54.53489077674256      </span>
+<span class="go">    48.51429086346293</span>
 </pre></div>
 </div>
 </dd></dl>
